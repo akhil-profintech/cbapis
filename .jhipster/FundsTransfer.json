@@ -1,0 +1,147 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132600"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "funds_transfer",
+  "fields": [
+    {
+      "fieldName": "fundsTransferId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fundsTransferRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "finReqId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subGrpId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "debitAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remitterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "beneficiaryIFSC",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "beneficiaryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "beneficiaryAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emailId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "messageType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionDateTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxMetaDataStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxMetaDataMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxMetaDataVersion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxMetaDataTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxResourceDataBeneficiaryName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxResourceDataTransactionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "trnxResourceDataStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fundsTransferStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastupdatedDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastUpdatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FundsTransfer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "entityId",
+      "otherEntityName": "tradeEntity",
+      "relationshipName": "tradeEntity",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

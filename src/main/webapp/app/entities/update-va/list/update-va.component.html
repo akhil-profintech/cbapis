@@ -1,0 +1,270 @@
+<div>
+  <h2 id="page-heading" data-cy="UpdateVAHeading">
+    <span jhiTranslate="cbapisApp.updateVA.home.title">Update VAS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.updateVA.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-update-va"
+        [routerLink]="['/update-va/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.updateVA.home.createLabel">Create a new Update VA</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (updateVAS?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.updateVA.home.notFound">No Update VAS found</span>
+    </div>
+  }
+
+  @if (updateVAS && updateVAS.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="updateVirAccId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.updateVirAccId">Update Vir Acc Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finReqId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.finReqId">Fin Req Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="subGrpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.subGrpId">Sub Grp Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="msgId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.msgId">Msg Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cnvId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.cnvId">Cnv Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="extRefId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.extRefId">Ext Ref Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bizObjId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.bizObjId">Biz Obj Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="appId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.appId">App Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="timestamp">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.timestamp">Timestamp</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vaNum">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.vaNum">Va Num</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finPar">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.finPar">Fin Par</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="clientCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.clientCode">Client Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.requestDateTime">Request Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reslt">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.reslt">Reslt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="statusDesc">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.statusDesc">Status Desc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="errorCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.errorCode">Error Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="responseDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.responseDateTime">Response Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastupdatedDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.lastupdatedDateTime">Lastupdated Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastUpdatedBy">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.lastUpdatedBy">Last Updated By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeEntity.entityId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.updateVA.tradeEntity">Trade Entity</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (updateVA of updateVAS; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/update-va', updateVA.id, 'view']">{{ updateVA.id }}</a>
+              </td>
+              <td>{{ updateVA.updateVirAccId }}</td>
+              <td>{{ updateVA.finReqId }}</td>
+              <td>{{ updateVA.subGrpId }}</td>
+              <td>{{ updateVA.msgId }}</td>
+              <td>{{ updateVA.cnvId }}</td>
+              <td>{{ updateVA.extRefId }}</td>
+              <td>{{ updateVA.bizObjId }}</td>
+              <td>{{ updateVA.appId }}</td>
+              <td>{{ updateVA.timestamp }}</td>
+              <td>{{ updateVA.vaNum }}</td>
+              <td>{{ updateVA.finPar }}</td>
+              <td>{{ updateVA.clientCode }}</td>
+              <td>{{ updateVA.requestDateTime }}</td>
+              <td>{{ updateVA.reslt }}</td>
+              <td>{{ updateVA.status }}</td>
+              <td>{{ updateVA.statusDesc }}</td>
+              <td>{{ updateVA.errorCode }}</td>
+              <td>{{ updateVA.responseDateTime }}</td>
+              <td>{{ updateVA.lastupdatedDateTime }}</td>
+              <td>{{ updateVA.lastUpdatedBy }}</td>
+              <td>
+                @if (updateVA.tradeEntity) {
+                  <div>
+                    <a [routerLink]="['/trade-entity', updateVA.tradeEntity.id, 'view']">{{ updateVA.tradeEntity.entityId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/update-va', updateVA.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/update-va', updateVA.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(updateVA)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (updateVAS && updateVAS.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

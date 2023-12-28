@@ -1,0 +1,109 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132500"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "update_va",
+  "fields": [
+    {
+      "fieldName": "updateVirAccId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "finReqId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subGrpId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "msgId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cnvId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "extRefId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bizObjId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "appId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timestamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vaNum",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "finPar",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "reslt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "errorCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responseDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastupdatedDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastUpdatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "UpdateVA",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "entityId",
+      "otherEntityName": "tradeEntity",
+      "relationshipName": "tradeEntity",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

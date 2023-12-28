@@ -1,0 +1,161 @@
+<div>
+  <h2 id="page-heading" data-cy="CreditBazaarIntegratorHeading">
+    <span jhiTranslate="cbapisApp.creditBazaarIntegrator.home.title">Credit Bazaar Integrators</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.creditBazaarIntegrator.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-credit-bazaar-integrator"
+        [routerLink]="['/credit-bazaar-integrator/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.creditBazaarIntegrator.home.createLabel">Create a new Credit Bazaar Integrator</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (creditBazaarIntegrators?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.creditBazaarIntegrator.home.notFound">No Credit Bazaar Integrators found</span>
+    </div>
+  }
+
+  @if (creditBazaarIntegrators && creditBazaarIntegrators.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId">Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integratorId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorId">Integrator Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.orgId">Org Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.orgName">Org Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.gstId">Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (creditBazaarIntegrator of creditBazaarIntegrators; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/credit-bazaar-integrator', creditBazaarIntegrator.id, 'view']">{{ creditBazaarIntegrator.id }}</a>
+              </td>
+              <td>{{ creditBazaarIntegrator.tenantId }}</td>
+              <td>{{ creditBazaarIntegrator.integratorId }}</td>
+              <td>{{ creditBazaarIntegrator.orgId }}</td>
+              <td>{{ creditBazaarIntegrator.customerName }}</td>
+              <td>{{ creditBazaarIntegrator.orgName }}</td>
+              <td>{{ creditBazaarIntegrator.gstId }}</td>
+              <td>{{ creditBazaarIntegrator.phoneNumber }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/credit-bazaar-integrator', creditBazaarIntegrator.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/credit-bazaar-integrator', creditBazaarIntegrator.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(creditBazaarIntegrator)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (creditBazaarIntegrators && creditBazaarIntegrators.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

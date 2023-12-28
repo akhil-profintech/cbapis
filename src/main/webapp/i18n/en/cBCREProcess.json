@@ -1,0 +1,40 @@
+{
+  "cbapisApp": {
+    "cBCREProcess": {
+      "home": {
+        "title": "CBCRE Processes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CBCRE Process",
+        "createOrEditLabel": "Create or edit a CBCRE Process",
+        "notFound": "No CBCRE Processes found"
+      },
+      "created": "A new CBCRE Process is created with identifier {{ param }}",
+      "updated": "A CBCRE Process is updated with identifier {{ param }}",
+      "deleted": "A CBCRE Process is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CBCRE Process {{ id }}?"
+      },
+      "detail": {
+        "title": "CBCRE Process"
+      },
+      "id": "ID",
+      "cbProcessId": "Cb Process Id",
+      "financeRequestId": "Finance Request Id",
+      "anchorTraderId": "Anchor Trader Id",
+      "anchortTraderGst": "Anchort Trader Gst",
+      "financeAmount": "Finance Amount",
+      "processDateTime": "Process Date Time",
+      "creProcessStatus": "Cre Process Status",
+      "responseDateTime": "Response Date Time",
+      "creRequestId": "Cre Request Id",
+      "cumilativetradescore": "Cumilativetradescore",
+      "timestamp": "Timestamp",
+      "totalAmountRequested": "Total Amount Requested",
+      "totalInvoiceAmount": "Total Invoice Amount",
+      "cREHighlights": "C RE Highlights",
+      "cREObservations": "C RE Observations",
+      "requestOffer": "Request Offer",
+      "individualAssessment": "Individual Assessment"
+    }
+  }
+}

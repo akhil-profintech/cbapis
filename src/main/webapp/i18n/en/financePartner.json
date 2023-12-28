@@ -1,0 +1,33 @@
+{
+  "cbapisApp": {
+    "financePartner": {
+      "home": {
+        "title": "Finance Partners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Finance Partner",
+        "createOrEditLabel": "Create or edit a Finance Partner",
+        "notFound": "No Finance Partners found"
+      },
+      "created": "A new Finance Partner is created with identifier {{ param }}",
+      "updated": "A Finance Partner is updated with identifier {{ param }}",
+      "deleted": "A Finance Partner is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Finance Partner {{ id }}?"
+      },
+      "detail": {
+        "title": "Finance Partner"
+      },
+      "id": "ID",
+      "tenantId": "Tenant Id",
+      "fpId": "Fp Id",
+      "orgId": "Org Id",
+      "customerName": "Customer Name",
+      "orgName": "Org Name",
+      "gstId": "Gst Id",
+      "phoneNumber": "Phone Number",
+      "disbursement": "Disbursement",
+      "placedOffer": "Placed Offer",
+      "acceptedOffer": "Accepted Offer"
+    }
+  }
+}

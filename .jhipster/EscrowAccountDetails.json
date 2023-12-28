@@ -1,0 +1,66 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131600"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "escrow_account_details",
+  "fields": [
+    {
+      "fieldName": "escrowDetailsId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tenantId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "customerId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "accName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "virtualAccNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "poolingAccNumber",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "EscrowAccountDetails",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "dbmtRequestId",
+      "otherEntityName": "disbursement",
+      "relationshipName": "disbursement",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "repaymentId",
+      "otherEntityName": "repayment",
+      "relationshipName": "repayment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

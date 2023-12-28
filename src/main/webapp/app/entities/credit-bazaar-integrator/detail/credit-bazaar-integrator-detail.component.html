@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (creditBazaarIntegrator) {
+      <div>
+        <h2 data-cy="creditBazaarIntegratorDetailsHeading">
+          <span jhiTranslate="cbapisApp.creditBazaarIntegrator.detail.title">Credit Bazaar Integrator</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorId">Integrator Id</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.integratorId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.orgId">Org Id</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.orgId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.orgName">Org Name</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.orgName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.gstId">Gst Id</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.gstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditBazaarIntegrator.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ creditBazaarIntegrator.phoneNumber }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/credit-bazaar-integrator', creditBazaarIntegrator.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

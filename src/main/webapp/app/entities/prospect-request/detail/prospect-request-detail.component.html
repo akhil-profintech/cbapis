@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (prospectRequest) {
+      <div>
+        <h2 data-cy="prospectRequestDetailsHeading"><span jhiTranslate="cbapisApp.prospectRequest.detail.title">Prospect Request</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ prospectRequest.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.prospectRequestId">Prospect Request Id</span></dt>
+          <dd>
+            <span>{{ prospectRequest.prospectRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.anchorTraderId">Anchor Trader Id</span></dt>
+          <dd>
+            <span>{{ prospectRequest.anchorTraderId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.requestAmount">Request Amount</span></dt>
+          <dd>
+            <span>{{ prospectRequest.requestAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.prospectRequestDate">Prospect Request Date</span></dt>
+          <dd>
+            <span>{{ prospectRequest.prospectRequestDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.currency">Currency</span></dt>
+          <dd>
+            <span>{{ prospectRequest.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.prospectRequest.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (prospectRequest.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', prospectRequest.financerequest.id, 'view']">{{
+                  prospectRequest.financerequest.requestId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/prospect-request', prospectRequest.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

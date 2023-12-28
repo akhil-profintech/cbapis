@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cREHighlights) {
+      <div>
+        <h2 data-cy="cREHighlightsDetailsHeading"><span jhiTranslate="cbapisApp.cREHighlights.detail.title">CRE Highlights</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cREHighlights.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREHighlights.creHighlightsId">Cre Highlights Id</span></dt>
+          <dd>
+            <span>{{ cREHighlights.creHighlightsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREHighlights.creRequestId">Cre Request Id</span></dt>
+          <dd>
+            <span>{{ cREHighlights.creRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREHighlights.highlights">Highlights</span></dt>
+          <dd>
+            <span>{{ cREHighlights.highlights }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREHighlights.cbcreprocess">Cbcreprocess</span></dt>
+          <dd>
+            @if (cREHighlights.cbcreprocess) {
+              <div>
+                <a [routerLink]="['/cbcre-process', cREHighlights.cbcreprocess.id, 'view']">{{ cREHighlights.cbcreprocess.cbProcessId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREHighlights.individualassessment">Individualassessment</span></dt>
+          <dd>
+            @if (cREHighlights.individualassessment) {
+              <div>
+                <a [routerLink]="['/individual-assessment', cREHighlights.individualassessment.id, 'view']">{{
+                  cREHighlights.individualassessment.assessmentId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cre-highlights', cREHighlights.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,56 @@
+{
+  "cbapisApp": {
+    "repayment": {
+      "home": {
+        "title": "Repayments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Repayment",
+        "createOrEditLabel": "Create or edit a Repayment",
+        "notFound": "No Repayments found"
+      },
+      "created": "A new Repayment is created with identifier {{ param }}",
+      "updated": "A Repayment is updated with identifier {{ param }}",
+      "deleted": "A Repayment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Repayment {{ id }}?"
+      },
+      "detail": {
+        "title": "Repayment"
+      },
+      "id": "ID",
+      "repaymentId": "Repayment Id",
+      "repaymentRefNo": "Repayment Ref No",
+      "acceptedOfferId": "Accepted Offer Id",
+      "offerId": "Offer Id",
+      "offerAcceptedDate": "Offer Accepted Date",
+      "dbmtRequestId": "Dbmt Request Id",
+      "dbmtstatus": "Dbmtstatus",
+      "dbmtDateTime": "Dbmt Date Time",
+      "dbmtId": "Dbmt Id",
+      "dbmtAmount": "Dbmt Amount",
+      "currency": "Currency",
+      "repaymentStatus": "Repayment Status",
+      "repaymentDate": "Repayment Date",
+      "repaymentAmount": "Repayment Amount",
+      "ftTrnxDetailsId": "Ft Trnx Details Id",
+      "collectionTrnxDetailsId": "Collection Trnx Details Id",
+      "docId": "Doc Id",
+      "financeRequestId": "Finance Request Id",
+      "repaymentDueDate": "Repayment Due Date",
+      "totalRepaymentAmount": "Total Repayment Amount",
+      "amountRepayed": "Amount Repayed",
+      "amountToBePaid": "Amount To Be Paid",
+      "sourceAccountName": "Source Account Name",
+      "sourceAccountNumber": "Source Account Number",
+      "ifscCode": "Ifsc Code",
+      "status": "Status",
+      "referenceNumber": "Reference Number",
+      "creditAccountDetails": "Credit Account Details",
+      "escrowAccountDetails": "Escrow Account Details",
+      "docDetails": "Doc Details",
+      "fTTransactionDetails": "F T Transaction Details",
+      "collectionTransactionDetails": "Collection Transaction Details",
+      "financerequest": "Financerequest"
+    }
+  }
+}

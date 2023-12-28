@@ -1,0 +1,39 @@
+{
+  "cbapisApp": {
+    "collectionTransactionDetails": {
+      "home": {
+        "title": "Collection Transaction Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Collection Transaction Details",
+        "createOrEditLabel": "Create or edit a Collection Transaction Details",
+        "notFound": "No Collection Transaction Details found"
+      },
+      "created": "A new Collection Transaction Details is created with identifier {{ param }}",
+      "updated": "A Collection Transaction Details is updated with identifier {{ param }}",
+      "deleted": "A Collection Transaction Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Collection Transaction Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Collection Transaction Details"
+      },
+      "id": "ID",
+      "trnxDetailsid": "Trnx Detailsid",
+      "customerCode": "Customer Code",
+      "customerName": "Customer Name",
+      "productCode": "Product Code",
+      "transactionType": "Transaction Type",
+      "batchAmt": "Batch Amt",
+      "batchAmtCcd": "Batch Amt Ccd",
+      "creditDate": "Credit Date",
+      "vaNumber": "Va Number",
+      "utrNo": "Utr No",
+      "creditGenerationTime": "Credit Generation Time",
+      "remitterName": "Remitter Name",
+      "remitterAccountNumber": "Remitter Account Number",
+      "ifscCode": "Ifsc Code",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment"
+    }
+  }
+}

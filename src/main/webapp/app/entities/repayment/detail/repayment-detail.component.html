@@ -1,0 +1,146 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (repayment) {
+      <div>
+        <h2 data-cy="repaymentDetailsHeading"><span jhiTranslate="cbapisApp.repayment.detail.title">Repayment</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ repayment.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentId">Repayment Id</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentRefNo">Repayment Ref No</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.acceptedOfferId">Accepted Offer Id</span></dt>
+          <dd>
+            <span>{{ repayment.acceptedOfferId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.offerId">Offer Id</span></dt>
+          <dd>
+            <span>{{ repayment.offerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.offerAcceptedDate">Offer Accepted Date</span></dt>
+          <dd>
+            <span>{{ repayment.offerAcceptedDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.dbmtRequestId">Dbmt Request Id</span></dt>
+          <dd>
+            <span>{{ repayment.dbmtRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.dbmtstatus">Dbmtstatus</span></dt>
+          <dd>
+            <span>{{ repayment.dbmtstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.dbmtDateTime">Dbmt Date Time</span></dt>
+          <dd>
+            <span>{{ repayment.dbmtDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.dbmtId">Dbmt Id</span></dt>
+          <dd>
+            <span>{{ repayment.dbmtId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.dbmtAmount">Dbmt Amount</span></dt>
+          <dd>
+            <span>{{ repayment.dbmtAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.currency">Currency</span></dt>
+          <dd>
+            <span>{{ repayment.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentStatus">Repayment Status</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentDate">Repayment Date</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentAmount">Repayment Amount</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.ftTrnxDetailsId">Ft Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ repayment.ftTrnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.collectionTrnxDetailsId">Collection Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ repayment.collectionTrnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.docId">Doc Id</span></dt>
+          <dd>
+            <span>{{ repayment.docId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.financeRequestId">Finance Request Id</span></dt>
+          <dd>
+            <span>{{ repayment.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.repaymentDueDate">Repayment Due Date</span></dt>
+          <dd>
+            <span>{{ repayment.repaymentDueDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.totalRepaymentAmount">Total Repayment Amount</span></dt>
+          <dd>
+            <span>{{ repayment.totalRepaymentAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.amountRepayed">Amount Repayed</span></dt>
+          <dd>
+            <span>{{ repayment.amountRepayed }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.amountToBePaid">Amount To Be Paid</span></dt>
+          <dd>
+            <span>{{ repayment.amountToBePaid }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.sourceAccountName">Source Account Name</span></dt>
+          <dd>
+            <span>{{ repayment.sourceAccountName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.sourceAccountNumber">Source Account Number</span></dt>
+          <dd>
+            <span>{{ repayment.sourceAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ repayment.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.status">Status</span></dt>
+          <dd>
+            <span>{{ repayment.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.referenceNumber">Reference Number</span></dt>
+          <dd>
+            <span>{{ repayment.referenceNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.repayment.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (repayment.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', repayment.financerequest.id, 'view']">{{ repayment.financerequest.requestId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/repayment', repayment.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

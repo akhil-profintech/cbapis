@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (vANumber) {
+      <div>
+        <h2 data-cy="vANumberDetailsHeading"><span jhiTranslate="cbapisApp.vANumber.detail.title">VA Number</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ vANumber.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.vaId">Va Id</span></dt>
+          <dd>
+            <span>{{ vANumber.vaId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.poolingAccNumber">Pooling Acc Number</span></dt>
+          <dd>
+            <span>{{ vANumber.poolingAccNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.virtualAccNumber">Virtual Acc Number</span></dt>
+          <dd>
+            <span>{{ vANumber.virtualAccNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.vaStatus">Va Status</span></dt>
+          <dd>
+            <span>{{ vANumber.vaStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.financeRequestId">Finance Request Id</span></dt>
+          <dd>
+            <span>{{ vANumber.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.subGroupId">Sub Group Id</span></dt>
+          <dd>
+            <span>{{ vANumber.subGroupId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.vANumber.tradeEntity">Trade Entity</span></dt>
+          <dd>
+            @if (vANumber.tradeEntity) {
+              <div>
+                <a [routerLink]="['/trade-entity', vANumber.tradeEntity.id, 'view']">{{ vANumber.tradeEntity.entityId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/va-number', vANumber.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

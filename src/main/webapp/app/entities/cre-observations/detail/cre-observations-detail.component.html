@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cREObservations) {
+      <div>
+        <h2 data-cy="cREObservationsDetailsHeading"><span jhiTranslate="cbapisApp.cREObservations.detail.title">CRE Observations</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cREObservations.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.creObservationsId">Cre Observations Id</span></dt>
+          <dd>
+            <span>{{ cREObservations.creObservationsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.creRequestId">Cre Request Id</span></dt>
+          <dd>
+            <span>{{ cREObservations.creRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.observations">Observations</span></dt>
+          <dd>
+            <span>{{ cREObservations.observations }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.cbcreprocess">Cbcreprocess</span></dt>
+          <dd>
+            @if (cREObservations.cbcreprocess) {
+              <div>
+                <a [routerLink]="['/cbcre-process', cREObservations.cbcreprocess.id, 'view']">{{
+                  cREObservations.cbcreprocess.cbProcessId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.individualassessment">Individualassessment</span></dt>
+          <dd>
+            @if (cREObservations.individualassessment) {
+              <div>
+                <a [routerLink]="['/individual-assessment', cREObservations.individualassessment.id, 'view']">{{
+                  cREObservations.individualassessment.assessmentId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cre-observations', cREObservations.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

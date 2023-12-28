@@ -1,0 +1,30 @@
+{
+  "cbapisApp": {
+    "vANumber": {
+      "home": {
+        "title": "VA Numbers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new VA Number",
+        "createOrEditLabel": "Create or edit a VA Number",
+        "notFound": "No VA Numbers found"
+      },
+      "created": "A new VA Number is created with identifier {{ param }}",
+      "updated": "A VA Number is updated with identifier {{ param }}",
+      "deleted": "A VA Number is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete VA Number {{ id }}?"
+      },
+      "detail": {
+        "title": "VA Number"
+      },
+      "id": "ID",
+      "vaId": "Va Id",
+      "poolingAccNumber": "Pooling Acc Number",
+      "virtualAccNumber": "Virtual Acc Number",
+      "vaStatus": "Va Status",
+      "financeRequestId": "Finance Request Id",
+      "subGroupId": "Sub Group Id",
+      "tradeEntity": "Trade Entity"
+    }
+  }
+}

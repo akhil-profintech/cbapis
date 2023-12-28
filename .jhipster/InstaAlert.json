@@ -1,0 +1,103 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132700"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "insta_alert",
+  "fields": [
+    {
+      "fieldName": "instaAlertId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "finReqId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subGrpId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "poolingAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "batchAmt",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "batchAmtCcd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vaNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "utrNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditGenerationTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remitterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remitterAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastupdatedDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastUpdatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "InstaAlert",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "entityId",
+      "otherEntityName": "tradeEntity",
+      "relationshipName": "tradeEntity",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

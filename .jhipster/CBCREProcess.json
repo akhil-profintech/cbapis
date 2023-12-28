@@ -1,0 +1,97 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133100"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "cbcre_process",
+  "fields": [
+    {
+      "fieldName": "cbProcessId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financeRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchortTraderGst",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financeAmount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "processDateTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creProcessStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responseDateTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cumilativetradescore",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "timestamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalAmountRequested",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "totalInvoiceAmount",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "CBCREProcess",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "cREHighlights",
+      "otherEntityRelationshipName": "cbcreprocess",
+      "relationshipName": "cREHighlights",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cREObservations",
+      "otherEntityRelationshipName": "cbcreprocess",
+      "relationshipName": "cREObservations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "requestOffer",
+      "otherEntityRelationshipName": "cbcreprocess",
+      "relationshipName": "requestOffer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "individualAssessment",
+      "otherEntityRelationshipName": "cbcreprocess",
+      "relationshipName": "individualAssessment",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,110 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (participantSettlement) {
+      <div>
+        <h2 data-cy="participantSettlementDetailsHeading">
+          <span jhiTranslate="cbapisApp.participantSettlement.detail.title">Participant Settlement</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ participantSettlement.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.participantSettlementId">Participant Settlement Id</span></dt>
+          <dd>
+            <span>{{ participantSettlement.participantSettlementId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.participantId">Participant Id</span></dt>
+          <dd>
+            <span>{{ participantSettlement.participantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.participantName">Participant Name</span></dt>
+          <dd>
+            <span>{{ participantSettlement.participantName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.gstId">Gst Id</span></dt>
+          <dd>
+            <span>{{ participantSettlement.gstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementType">Settlement Type</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementAmount">Settlement Amount</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementDate">Settlement Date</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementDueDate">Settlement Due Date</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementDueDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementContactInfo">Settlement Contact Info</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementContactInfo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.patronOfPayment">Patron Of Payment</span></dt>
+          <dd>
+            <span>{{ participantSettlement.patronOfPayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.recipientOfPayment">Recipient Of Payment</span></dt>
+          <dd>
+            <span>{{ participantSettlement.recipientOfPayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementMethod">Settlement Method</span></dt>
+          <dd>
+            <span>{{ participantSettlement.settlementMethod }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ participantSettlement.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.accName">Acc Name</span></dt>
+          <dd>
+            <span>{{ participantSettlement.accName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ participantSettlement.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.accNumber">Acc Number</span></dt>
+          <dd>
+            <span>{{ participantSettlement.accNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.docId">Doc Id</span></dt>
+          <dd>
+            <span>{{ participantSettlement.docId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.settlement">Settlement</span></dt>
+          <dd>
+            @if (participantSettlement.settlement) {
+              <div>
+                <a [routerLink]="['/settlement', participantSettlement.settlement.id, 'view']">{{
+                  participantSettlement.settlement.settlementId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/participant-settlement', participantSettlement.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

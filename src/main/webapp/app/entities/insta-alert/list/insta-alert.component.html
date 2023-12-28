@@ -1,0 +1,262 @@
+<div>
+  <h2 id="page-heading" data-cy="InstaAlertHeading">
+    <span jhiTranslate="cbapisApp.instaAlert.home.title">Insta Alerts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.instaAlert.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-insta-alert"
+        [routerLink]="['/insta-alert/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.instaAlert.home.createLabel">Create a new Insta Alert</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (instaAlerts?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.instaAlert.home.notFound">No Insta Alerts found</span>
+    </div>
+  }
+
+  @if (instaAlerts && instaAlerts.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instaAlertId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.instaAlertId">Insta Alert Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finReqId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.finReqId">Fin Req Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="subGrpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.subGrpId">Sub Grp Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.customerCode">Customer Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="productCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.productCode">Product Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="poolingAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.poolingAccountNumber">Pooling Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.transactionType">Transaction Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmt">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.batchAmt">Batch Amt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmtCcd">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.batchAmtCcd">Batch Amt Ccd</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.creditDate">Credit Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vaNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.vaNumber">Va Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="utrNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.utrNo">Utr No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditGenerationTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.creditGenerationTime">Credit Generation Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.remitterAccountNumber">Remitter Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastupdatedDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.lastupdatedDateTime">Lastupdated Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastUpdatedBy">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.lastUpdatedBy">Last Updated By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeEntity.entityId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.tradeEntity">Trade Entity</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (instaAlert of instaAlerts; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/insta-alert', instaAlert.id, 'view']">{{ instaAlert.id }}</a>
+              </td>
+              <td>{{ instaAlert.instaAlertId }}</td>
+              <td>{{ instaAlert.finReqId }}</td>
+              <td>{{ instaAlert.subGrpId }}</td>
+              <td>{{ instaAlert.customerCode }}</td>
+              <td>{{ instaAlert.customerName }}</td>
+              <td>{{ instaAlert.productCode }}</td>
+              <td>{{ instaAlert.poolingAccountNumber }}</td>
+              <td>{{ instaAlert.transactionType }}</td>
+              <td>{{ instaAlert.batchAmt }}</td>
+              <td>{{ instaAlert.batchAmtCcd }}</td>
+              <td>{{ instaAlert.creditDate }}</td>
+              <td>{{ instaAlert.vaNumber }}</td>
+              <td>{{ instaAlert.utrNo }}</td>
+              <td>{{ instaAlert.creditGenerationTime }}</td>
+              <td>{{ instaAlert.remitterName }}</td>
+              <td>{{ instaAlert.remitterAccountNumber }}</td>
+              <td>{{ instaAlert.ifscCode }}</td>
+              <td>{{ instaAlert.lastupdatedDateTime }}</td>
+              <td>{{ instaAlert.lastUpdatedBy }}</td>
+              <td>
+                @if (instaAlert.tradeEntity) {
+                  <div>
+                    <a [routerLink]="['/trade-entity', instaAlert.tradeEntity.id, 'view']">{{ instaAlert.tradeEntity.entityId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/insta-alert', instaAlert.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/insta-alert', instaAlert.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(instaAlert)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (instaAlerts && instaAlerts.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (anchorTrader) {
+      <div>
+        <h2 data-cy="anchorTraderDetailsHeading"><span jhiTranslate="cbapisApp.anchorTrader.detail.title">Anchor Trader</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ anchorTrader.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ anchorTrader.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.atId">At Id</span></dt>
+          <dd>
+            <span>{{ anchorTrader.atId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.orgId">Org Id</span></dt>
+          <dd>
+            <span>{{ anchorTrader.orgId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ anchorTrader.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.orgName">Org Name</span></dt>
+          <dd>
+            <span>{{ anchorTrader.orgName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.gstId">Gst Id</span></dt>
+          <dd>
+            <span>{{ anchorTrader.gstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ anchorTrader.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.anchorTraderName">Anchor Trader Name</span></dt>
+          <dd>
+            <span>{{ anchorTrader.anchorTraderName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.location">Location</span></dt>
+          <dd>
+            <span>{{ anchorTrader.location }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.anchorTraderGST">Anchor Trader GST</span></dt>
+          <dd>
+            <span>{{ anchorTrader.anchorTraderGST }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.anchorTraderSector">Anchor Trader Sector</span></dt>
+          <dd>
+            <span>{{ anchorTrader.anchorTraderSector }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.anchorTraderPAN">Anchor Trader PAN</span></dt>
+          <dd>
+            <span>{{ anchorTrader.anchorTraderPAN }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.kycCompleted">Kyc Completed</span></dt>
+          <dd>
+            <span>{{ anchorTrader.kycCompleted }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTrader.bankDetails">Bank Details</span></dt>
+          <dd>
+            <span>{{ anchorTrader.bankDetails }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/anchor-trader', anchorTrader.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

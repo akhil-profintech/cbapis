@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (financeRequest) {
+      <div>
+        <h2 data-cy="financeRequestDetailsHeading"><span jhiTranslate="cbapisApp.financeRequest.detail.title">Finance Request</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ financeRequest.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.requestId">Request Id</span></dt>
+          <dd>
+            <span>{{ financeRequest.requestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.financeRequestRefNo">Finance Request Ref No</span></dt>
+          <dd>
+            <span>{{ financeRequest.financeRequestRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.requestAmount">Request Amount</span></dt>
+          <dd>
+            <span>{{ financeRequest.requestAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.requestDate">Request Date</span></dt>
+          <dd>
+            <span>{{ financeRequest.requestDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.currency">Currency</span></dt>
+          <dd>
+            <span>{{ financeRequest.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.requestStatus">Request Status</span></dt>
+          <dd>
+            <span>{{ financeRequest.requestStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.dueDate">Due Date</span></dt>
+          <dd>
+            <span>{{ financeRequest.dueDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.anchortrader">Anchortrader</span></dt>
+          <dd>
+            @if (financeRequest.anchortrader) {
+              <div>
+                <a [routerLink]="['/anchor-trader', financeRequest.anchortrader.id, 'view']">{{ financeRequest.anchortrader.atId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/finance-request', financeRequest.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,311 @@
+<div>
+  <h2 id="page-heading" data-cy="DisbursementHeading">
+    <span jhiTranslate="cbapisApp.disbursement.home.title">Disbursements</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.disbursement.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-disbursement"
+        [routerLink]="['/disbursement/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.disbursement.home.createLabel">Create a new Disbursement</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (disbursements?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.disbursement.home.notFound">No Disbursements found</span>
+    </div>
+  }
+
+  @if (disbursements && disbursements.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtId">Dbmt Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursementRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.disbursementRefNo">Disbursement Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="acceptedOfferId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.acceptedOfferId">Accepted Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.offerId">Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerAcceptedDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.offerAcceptedDate">Offer Accepted Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtRequestId">Dbmt Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtReqAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtReqAmount">Dbmt Req Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currency">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.currency">Currency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtRequestDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtRequestDate">Dbmt Request Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtstatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtstatus">Dbmtstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.offerStatus">Offer Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ftTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.ftTrnxDetailsId">Ft Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="collectionTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.collectionTrnxDetailsId">Collection Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.docId">Doc Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtDateTime">Dbmt Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.dbmtAmount">Dbmt Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.financeRequestId">Finance Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountToBeDisbursed">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.amountToBeDisbursed">Amount To Be Disbursed</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="destinationAccountName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.destinationAccountName">Destination Account Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="destinationAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.destinationAccountNumber">Destination Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="actionByDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.actionByDate">Action By Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financerequest.requestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.financerequest">Financerequest</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financepartner.fpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.financepartner">Financepartner</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (disbursement of disbursements; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/disbursement', disbursement.id, 'view']">{{ disbursement.id }}</a>
+              </td>
+              <td>{{ disbursement.dbmtId }}</td>
+              <td>{{ disbursement.disbursementRefNo }}</td>
+              <td>{{ disbursement.acceptedOfferId }}</td>
+              <td>{{ disbursement.offerId }}</td>
+              <td>{{ disbursement.offerAcceptedDate | formatMediumDate }}</td>
+              <td>{{ disbursement.dbmtRequestId }}</td>
+              <td>{{ disbursement.dbmtReqAmount }}</td>
+              <td>{{ disbursement.currency }}</td>
+              <td>{{ disbursement.dbmtRequestDate | formatMediumDate }}</td>
+              <td>{{ disbursement.dbmtstatus }}</td>
+              <td>{{ disbursement.offerStatus }}</td>
+              <td>{{ disbursement.ftTrnxDetailsId }}</td>
+              <td>{{ disbursement.collectionTrnxDetailsId }}</td>
+              <td>{{ disbursement.docId }}</td>
+              <td>{{ disbursement.dbmtDateTime }}</td>
+              <td>{{ disbursement.dbmtAmount }}</td>
+              <td>{{ disbursement.financeRequestId }}</td>
+              <td>{{ disbursement.amountToBeDisbursed }}</td>
+              <td>{{ disbursement.destinationAccountName }}</td>
+              <td>{{ disbursement.destinationAccountNumber }}</td>
+              <td>{{ disbursement.ifscCode }}</td>
+              <td>{{ disbursement.status }}</td>
+              <td>{{ disbursement.actionByDate }}</td>
+              <td>
+                @if (disbursement.financerequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', disbursement.financerequest.id, 'view']">{{
+                      disbursement.financerequest.requestId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (disbursement.financepartner) {
+                  <div>
+                    <a [routerLink]="['/finance-partner', disbursement.financepartner.id, 'view']">{{
+                      disbursement.financepartner.fpId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/disbursement', disbursement.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/disbursement', disbursement.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(disbursement)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (disbursements && disbursements.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

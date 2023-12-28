@@ -1,0 +1,52 @@
+{
+  "cbapisApp": {
+    "beneValidation": {
+      "home": {
+        "title": "Bene Validations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bene Validation",
+        "createOrEditLabel": "Create or edit a Bene Validation",
+        "notFound": "No Bene Validations found"
+      },
+      "created": "A new Bene Validation is created with identifier {{ param }}",
+      "updated": "A Bene Validation is updated with identifier {{ param }}",
+      "deleted": "A Bene Validation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bene Validation {{ id }}?"
+      },
+      "detail": {
+        "title": "Bene Validation"
+      },
+      "id": "ID",
+      "benevalidationId": "Benevalidation Id",
+      "finReqId": "Fin Req Id",
+      "subGrpId": "Sub Grp Id",
+      "remitterName": "Remitter Name",
+      "remitterMobileNumber": "Remitter Mobile Number",
+      "debtorAccountId": "Debtor Account Id",
+      "accountType": "Account Type",
+      "creditorAccountId": "Creditor Account Id",
+      "ifscCode": "Ifsc Code",
+      "paymentDescription": "Payment Description",
+      "transactionReferenceNumber": "Transaction Reference Number",
+      "merchantCode": "Merchant Code",
+      "identifier": "Identifier",
+      "requestDateTime": "Request Date Time",
+      "metaDataStatus": "Meta Data Status",
+      "metaDataMessage": "Meta Data Message",
+      "metaDataVersion": "Meta Data Version",
+      "metaDataTime": "Meta Data Time",
+      "resourceDataCreditorAccountId": "Resource Data Creditor Account Id",
+      "resourceDataCreditorName": "Resource Data Creditor Name",
+      "resourceDataTransactionReferenceNumber": "Resource Data Transaction Reference Number",
+      "resourceDataTransactionId": "Resource Data Transaction Id",
+      "resourceDataResponseCode": "Resource Data Response Code",
+      "resourceDataTransactionTime": "Resource Data Transaction Time",
+      "resourceDataIdentifier": "Resource Data Identifier",
+      "responseDateTime": "Response Date Time",
+      "lastupdatedDateTime": "Lastupdated Date Time",
+      "lastUpdatedBy": "Last Updated By",
+      "tradeEntity": "Trade Entity"
+    }
+  }
+}

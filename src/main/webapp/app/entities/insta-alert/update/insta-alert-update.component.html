@@ -1,0 +1,277 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-insta-alert-heading" data-cy="InstaAlertCreateUpdateHeading" jhiTranslate="cbapisApp.instaAlert.home.createOrEditLabel">
+        Create or edit a Insta Alert
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.instaAlertId" for="field_instaAlertId">Insta Alert Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="instaAlertId"
+            id="field_instaAlertId"
+            data-cy="instaAlertId"
+            formControlName="instaAlertId"
+          />
+          @if (editForm.get('instaAlertId')!.invalid && (editForm.get('instaAlertId')!.dirty || editForm.get('instaAlertId')!.touched)) {
+            <div>
+              @if (editForm.get('instaAlertId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('instaAlertId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.finReqId" for="field_finReqId">Fin Req Id</label>
+          <input type="text" class="form-control" name="finReqId" id="field_finReqId" data-cy="finReqId" formControlName="finReqId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.subGrpId" for="field_subGrpId">Sub Grp Id</label>
+          <input type="text" class="form-control" name="subGrpId" id="field_subGrpId" data-cy="subGrpId" formControlName="subGrpId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.customerCode" for="field_customerCode">Customer Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerCode"
+            id="field_customerCode"
+            data-cy="customerCode"
+            formControlName="customerCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.customerName" for="field_customerName">Customer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.productCode" for="field_productCode">Product Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="productCode"
+            id="field_productCode"
+            data-cy="productCode"
+            formControlName="productCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.poolingAccountNumber" for="field_poolingAccountNumber"
+            >Pooling Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="poolingAccountNumber"
+            id="field_poolingAccountNumber"
+            data-cy="poolingAccountNumber"
+            formControlName="poolingAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.transactionType" for="field_transactionType">Transaction Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="transactionType"
+            id="field_transactionType"
+            data-cy="transactionType"
+            formControlName="transactionType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.batchAmt" for="field_batchAmt">Batch Amt</label>
+          <input type="number" class="form-control" name="batchAmt" id="field_batchAmt" data-cy="batchAmt" formControlName="batchAmt" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.batchAmtCcd" for="field_batchAmtCcd">Batch Amt Ccd</label>
+          <input
+            type="text"
+            class="form-control"
+            name="batchAmtCcd"
+            id="field_batchAmtCcd"
+            data-cy="batchAmtCcd"
+            formControlName="batchAmtCcd"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.creditDate" for="field_creditDate">Credit Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="creditDate"
+            id="field_creditDate"
+            data-cy="creditDate"
+            formControlName="creditDate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.vaNumber" for="field_vaNumber">Va Number</label>
+          <input type="text" class="form-control" name="vaNumber" id="field_vaNumber" data-cy="vaNumber" formControlName="vaNumber" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.utrNo" for="field_utrNo">Utr No</label>
+          <input type="text" class="form-control" name="utrNo" id="field_utrNo" data-cy="utrNo" formControlName="utrNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.creditGenerationTime" for="field_creditGenerationTime"
+            >Credit Generation Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditGenerationTime"
+            id="field_creditGenerationTime"
+            data-cy="creditGenerationTime"
+            formControlName="creditGenerationTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.remitterName" for="field_remitterName">Remitter Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="remitterName"
+            id="field_remitterName"
+            data-cy="remitterName"
+            formControlName="remitterName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.remitterAccountNumber" for="field_remitterAccountNumber"
+            >Remitter Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remitterAccountNumber"
+            id="field_remitterAccountNumber"
+            data-cy="remitterAccountNumber"
+            formControlName="remitterAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.lastupdatedDateTime" for="field_lastupdatedDateTime"
+            >Lastupdated Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastupdatedDateTime"
+            id="field_lastupdatedDateTime"
+            data-cy="lastupdatedDateTime"
+            formControlName="lastupdatedDateTime"
+          />
+          @if (
+            editForm.get('lastupdatedDateTime')!.invalid &&
+            (editForm.get('lastupdatedDateTime')!.dirty || editForm.get('lastupdatedDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('lastupdatedDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdatedBy"
+            id="field_lastUpdatedBy"
+            data-cy="lastUpdatedBy"
+            formControlName="lastUpdatedBy"
+          />
+          @if (editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)) {
+            <div>
+              @if (editForm.get('lastUpdatedBy')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.instaAlert.tradeEntity" for="field_tradeEntity">Trade Entity</label>
+          <select
+            class="form-control"
+            id="field_tradeEntity"
+            data-cy="tradeEntity"
+            name="tradeEntity"
+            formControlName="tradeEntity"
+            [compareWith]="compareTradeEntity"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradeEntityOption of tradeEntitiesSharedCollection; track $index) {
+              <option [ngValue]="tradeEntityOption">{{ tradeEntityOption.entityId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

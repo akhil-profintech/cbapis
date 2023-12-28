@@ -1,0 +1,44 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133500"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "action",
+  "fields": [
+    {
+      "fieldName": "actionId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "actionCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "actionDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "actionVal",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cpCode",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Action",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "context",
+      "otherEntityRelationshipName": "action",
+      "relationshipName": "context",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

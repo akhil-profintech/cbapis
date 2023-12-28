@@ -1,0 +1,116 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (acceptedOffer) {
+      <div>
+        <h2 data-cy="acceptedOfferDetailsHeading"><span jhiTranslate="cbapisApp.acceptedOffer.detail.title">Accepted Offer</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.offerId">Offer Id</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.offerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferRefNo">Accepted Offer Ref No</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.acceptedOfferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.reqOffId">Req Off Id</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.reqOffId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.value">Value</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.reqAmount">Req Amount</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.reqAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.marginPtg">Margin Ptg</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.marginPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.marginValue">Margin Value</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.marginValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.amountAftMargin">Amount Aft Margin</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.amountAftMargin }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.interestPtg">Interest Ptg</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.interestPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.term">Term</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.term }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.interestValue">Interest Value</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.interestValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.netAmount">Net Amount</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.netAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.status">Status</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.offerDate">Offer Date</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.offerDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.offerAcceptedDate">Offer Accepted Date</span></dt>
+          <dd>
+            <span>{{ acceptedOffer.offerAcceptedDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (acceptedOffer.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', acceptedOffer.financerequest.id, 'view']">{{
+                  acceptedOffer.financerequest.requestId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span></dt>
+          <dd>
+            @if (acceptedOffer.financepartner) {
+              <div>
+                <a [routerLink]="['/finance-partner', acceptedOffer.financepartner.id, 'view']">{{ acceptedOffer.financepartner.fpId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.anchortrader">Anchortrader</span></dt>
+          <dd>
+            @if (acceptedOffer.anchortrader) {
+              <div>
+                <a [routerLink]="['/anchor-trader', acceptedOffer.anchortrader.id, 'view']">{{ acceptedOffer.anchortrader.atId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/accepted-offer', acceptedOffer.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (settlement) {
+      <div>
+        <h2 data-cy="settlementDetailsHeading"><span jhiTranslate="cbapisApp.settlement.detail.title">Settlement</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ settlement.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.settlementId">Settlement Id</span></dt>
+          <dd>
+            <span>{{ settlement.settlementId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.settlementRefNo">Settlement Ref No</span></dt>
+          <dd>
+            <span>{{ settlement.settlementRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.offerId">Offer Id</span></dt>
+          <dd>
+            <span>{{ settlement.offerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.dbmtRequestId">Dbmt Request Id</span></dt>
+          <dd>
+            <span>{{ settlement.dbmtRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.dbmtId">Dbmt Id</span></dt>
+          <dd>
+            <span>{{ settlement.dbmtId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.dbmtDate">Dbmt Date</span></dt>
+          <dd>
+            <span>{{ settlement.dbmtDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.dbmtStatus">Dbmt Status</span></dt>
+          <dd>
+            <span>{{ settlement.dbmtStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.dbmtAmount">Dbmt Amount</span></dt>
+          <dd>
+            <span>{{ settlement.dbmtAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.currency">Currency</span></dt>
+          <dd>
+            <span>{{ settlement.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (settlement.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', settlement.financerequest.id, 'view']">{{ settlement.financerequest.requestId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/settlement', settlement.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,341 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-trade-heading" data-cy="TradeCreateUpdateHeading" jhiTranslate="cbapisApp.trade.home.createOrEditLabel">
+        Create or edit a Trade
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeId" for="field_tradeId">Trade Id</label>
+          <input type="number" class="form-control" name="tradeId" id="field_tradeId" data-cy="tradeId" formControlName="tradeId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeRefNumber" for="field_tradeRefNumber">Trade Ref Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeRefNumber"
+            id="field_tradeRefNumber"
+            data-cy="tradeRefNumber"
+            formControlName="tradeRefNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.sellerGstId" for="field_sellerGstId">Seller Gst Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sellerGstId"
+            id="field_sellerGstId"
+            data-cy="sellerGstId"
+            formControlName="sellerGstId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.buyerGstId" for="field_buyerGstId">Buyer Gst Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="buyerGstId"
+            id="field_buyerGstId"
+            data-cy="buyerGstId"
+            formControlName="buyerGstId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeAmount" for="field_tradeAmount">Trade Amount</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeAmount"
+            id="field_tradeAmount"
+            data-cy="tradeAmount"
+            formControlName="tradeAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.invoiceDate" for="field_invoiceDate">Invoice Date</label>
+          <div class="input-group">
+            <input
+              id="field_invoiceDate"
+              data-cy="invoiceDate"
+              type="text"
+              class="form-control"
+              name="invoiceDate"
+              ngbDatepicker
+              #invoiceDateDp="ngbDatepicker"
+              formControlName="invoiceDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="invoiceDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.invoiceNumber" for="field_invoiceNumber">Invoice Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="invoiceNumber"
+            id="field_invoiceNumber"
+            data-cy="invoiceNumber"
+            formControlName="invoiceNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeDocType" for="field_tradeDocType">Trade Doc Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeDocType"
+            id="field_tradeDocType"
+            data-cy="tradeDocType"
+            formControlName="tradeDocType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeDocSource" for="field_tradeDocSource">Trade Doc Source</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeDocSource"
+            id="field_tradeDocSource"
+            data-cy="tradeDocSource"
+            formControlName="tradeDocSource"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeDocCredibility" for="field_tradeDocCredibility"
+            >Trade Doc Credibility</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradeDocCredibility"
+            id="field_tradeDocCredibility"
+            data-cy="tradeDocCredibility"
+            formControlName="tradeDocCredibility"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeMilestoneStatus" for="field_tradeMilestoneStatus"
+            >Trade Milestone Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradeMilestoneStatus"
+            id="field_tradeMilestoneStatus"
+            data-cy="tradeMilestoneStatus"
+            formControlName="tradeMilestoneStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeAdvancePayment" for="field_tradeAdvancePayment"
+            >Trade Advance Payment</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradeAdvancePayment"
+            id="field_tradeAdvancePayment"
+            data-cy="tradeAdvancePayment"
+            formControlName="tradeAdvancePayment"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.anchorTraderName" for="field_anchorTraderName">Anchor Trader Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderName"
+            id="field_anchorTraderName"
+            data-cy="anchorTraderName"
+            formControlName="anchorTraderName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradePartnerName" for="field_tradePartnerName">Trade Partner Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerName"
+            id="field_tradePartnerName"
+            data-cy="tradePartnerName"
+            formControlName="tradePartnerName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.invoiceTerm" for="field_invoiceTerm">Invoice Term</label>
+          <input
+            type="number"
+            class="form-control"
+            name="invoiceTerm"
+            id="field_invoiceTerm"
+            data-cy="invoiceTerm"
+            formControlName="invoiceTerm"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.acceptanceFromTradePartner" for="field_acceptanceFromTradePartner"
+            >Acceptance From Trade Partner</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acceptanceFromTradePartner"
+            id="field_acceptanceFromTradePartner"
+            data-cy="acceptanceFromTradePartner"
+            formControlName="acceptanceFromTradePartner"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.reasonForFinance" for="field_reasonForFinance">Reason For Finance</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reasonForFinance"
+            id="field_reasonForFinance"
+            data-cy="reasonForFinance"
+            formControlName="reasonForFinance"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradePartnerSector" for="field_tradePartnerSector"
+            >Trade Partner Sector</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerSector"
+            id="field_tradePartnerSector"
+            data-cy="tradePartnerSector"
+            formControlName="tradePartnerSector"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradePartnerLocation" for="field_tradePartnerLocation"
+            >Trade Partner Location</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerLocation"
+            id="field_tradePartnerLocation"
+            data-cy="tradePartnerLocation"
+            formControlName="tradePartnerLocation"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradePartnerGstComplianceScore" for="field_tradePartnerGstComplianceScore"
+            >Trade Partner Gst Compliance Score</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerGstComplianceScore"
+            id="field_tradePartnerGstComplianceScore"
+            data-cy="tradePartnerGstComplianceScore"
+            formControlName="tradePartnerGstComplianceScore"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.financerequest" for="field_financerequest">Financerequest</label>
+          <select
+            class="form-control"
+            id="field_financerequest"
+            data-cy="financerequest"
+            name="financerequest"
+            formControlName="financerequest"
+            [compareWith]="compareFinanceRequest"
+          >
+            <option [ngValue]="null"></option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradepartner" for="field_tradepartner">Tradepartner</label>
+          <select
+            class="form-control"
+            id="field_tradepartner"
+            data-cy="tradepartner"
+            name="tradepartner"
+            formControlName="tradepartner"
+            [compareWith]="compareTradePartner"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradePartnerOption of tradePartnersSharedCollection; track $index) {
+              <option [ngValue]="tradePartnerOption">{{ tradePartnerOption.tpId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.anchortrader" for="field_anchortrader">Anchortrader</label>
+          <select
+            class="form-control"
+            id="field_anchortrader"
+            data-cy="anchortrader"
+            name="anchortrader"
+            formControlName="anchortrader"
+            [compareWith]="compareAnchorTrader"
+          >
+            <option [ngValue]="null"></option>
+            @for (anchorTraderOption of anchorTradersSharedCollection; track $index) {
+              <option [ngValue]="anchorTraderOption">{{ anchorTraderOption.atId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

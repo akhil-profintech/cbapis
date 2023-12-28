@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (docDetails) {
+      <div>
+        <h2 data-cy="docDetailsDetailsHeading"><span jhiTranslate="cbapisApp.docDetails.detail.title">Doc Details</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ docDetails.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.docDetailsId">Doc Details Id</span></dt>
+          <dd>
+            <span>{{ docDetails.docDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.docRecordId">Doc Record Id</span></dt>
+          <dd>
+            <span>{{ docDetails.docRecordId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.link">Link</span></dt>
+          <dd>
+            <span>{{ docDetails.link }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.description">Description</span></dt>
+          <dd>
+            <span>{{ docDetails.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.docType">Doc Type</span></dt>
+          <dd>
+            <span>{{ docDetails.docType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.status">Status</span></dt>
+          <dd>
+            <span>{{ docDetails.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.disbursement">Disbursement</span></dt>
+          <dd>
+            @if (docDetails.disbursement) {
+              <div>
+                <a [routerLink]="['/disbursement', docDetails.disbursement.id, 'view']">{{ docDetails.disbursement.dbmtRequestId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.repayment">Repayment</span></dt>
+          <dd>
+            @if (docDetails.repayment) {
+              <div>
+                <a [routerLink]="['/repayment', docDetails.repayment.id, 'view']">{{ docDetails.repayment.repaymentId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.docDetails.participantsettlement">Participantsettlement</span></dt>
+          <dd>
+            @if (docDetails.participantsettlement) {
+              <div>
+                <a [routerLink]="['/participant-settlement', docDetails.participantsettlement.id, 'view']">{{
+                  docDetails.participantsettlement.participantSettlementId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/doc-details', docDetails.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

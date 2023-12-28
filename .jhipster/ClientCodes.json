@@ -1,0 +1,28 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133600"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "client_codes",
+  "fields": [
+    {
+      "fieldName": "clientCode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "clientCharsCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clientName",
+      "fieldType": "String"
+    }
+  ],
+  "name": "ClientCodes",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

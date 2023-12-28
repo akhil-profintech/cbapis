@@ -1,0 +1,467 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-repayment-heading" data-cy="RepaymentCreateUpdateHeading" jhiTranslate="cbapisApp.repayment.home.createOrEditLabel">
+        Create or edit a Repayment
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentId" for="field_repaymentId">Repayment Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="repaymentId"
+            id="field_repaymentId"
+            data-cy="repaymentId"
+            formControlName="repaymentId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentRefNo" for="field_repaymentRefNo">Repayment Ref No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="repaymentRefNo"
+            id="field_repaymentRefNo"
+            data-cy="repaymentRefNo"
+            formControlName="repaymentRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.acceptedOfferId" for="field_acceptedOfferId">Accepted Offer Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="acceptedOfferId"
+            id="field_acceptedOfferId"
+            data-cy="acceptedOfferId"
+            formControlName="acceptedOfferId"
+          />
+          @if (
+            editForm.get('acceptedOfferId')!.invalid && (editForm.get('acceptedOfferId')!.dirty || editForm.get('acceptedOfferId')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('acceptedOfferId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('acceptedOfferId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.offerId" for="field_offerId">Offer Id</label>
+          <input type="number" class="form-control" name="offerId" id="field_offerId" data-cy="offerId" formControlName="offerId" />
+          @if (editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)) {
+            <div>
+              @if (editForm.get('offerId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('offerId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.offerAcceptedDate" for="field_offerAcceptedDate"
+            >Offer Accepted Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_offerAcceptedDate"
+              data-cy="offerAcceptedDate"
+              type="text"
+              class="form-control"
+              name="offerAcceptedDate"
+              ngbDatepicker
+              #offerAcceptedDateDp="ngbDatepicker"
+              formControlName="offerAcceptedDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="offerAcceptedDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          @if (
+            editForm.get('offerAcceptedDate')!.invalid &&
+            (editForm.get('offerAcceptedDate')!.dirty || editForm.get('offerAcceptedDate')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('offerAcceptedDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtRequestId" for="field_dbmtRequestId">Dbmt Request Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dbmtRequestId"
+            id="field_dbmtRequestId"
+            data-cy="dbmtRequestId"
+            formControlName="dbmtRequestId"
+          />
+          @if (editForm.get('dbmtRequestId')!.invalid && (editForm.get('dbmtRequestId')!.dirty || editForm.get('dbmtRequestId')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtRequestId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtstatus" for="field_dbmtstatus">Dbmtstatus</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dbmtstatus"
+            id="field_dbmtstatus"
+            data-cy="dbmtstatus"
+            formControlName="dbmtstatus"
+          />
+          @if (editForm.get('dbmtstatus')!.invalid && (editForm.get('dbmtstatus')!.dirty || editForm.get('dbmtstatus')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtstatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtDateTime" for="field_dbmtDateTime">Dbmt Date Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dbmtDateTime"
+            id="field_dbmtDateTime"
+            data-cy="dbmtDateTime"
+            formControlName="dbmtDateTime"
+          />
+          @if (editForm.get('dbmtDateTime')!.invalid && (editForm.get('dbmtDateTime')!.dirty || editForm.get('dbmtDateTime')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtId" for="field_dbmtId">Dbmt Id</label>
+          <input type="text" class="form-control" name="dbmtId" id="field_dbmtId" data-cy="dbmtId" formControlName="dbmtId" />
+          @if (editForm.get('dbmtId')!.invalid && (editForm.get('dbmtId')!.dirty || editForm.get('dbmtId')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtAmount" for="field_dbmtAmount">Dbmt Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="dbmtAmount"
+            id="field_dbmtAmount"
+            data-cy="dbmtAmount"
+            formControlName="dbmtAmount"
+          />
+          @if (editForm.get('dbmtAmount')!.invalid && (editForm.get('dbmtAmount')!.dirty || editForm.get('dbmtAmount')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtAmount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('dbmtAmount')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.currency" for="field_currency">Currency</label>
+          <input type="text" class="form-control" name="currency" id="field_currency" data-cy="currency" formControlName="currency" />
+          @if (editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)) {
+            <div>
+              @if (editForm.get('currency')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentStatus" for="field_repaymentStatus">Repayment Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="repaymentStatus"
+            id="field_repaymentStatus"
+            data-cy="repaymentStatus"
+            formControlName="repaymentStatus"
+          />
+          @if (
+            editForm.get('repaymentStatus')!.invalid && (editForm.get('repaymentStatus')!.dirty || editForm.get('repaymentStatus')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('repaymentStatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentDate" for="field_repaymentDate">Repayment Date</label>
+          <div class="input-group">
+            <input
+              id="field_repaymentDate"
+              data-cy="repaymentDate"
+              type="text"
+              class="form-control"
+              name="repaymentDate"
+              ngbDatepicker
+              #repaymentDateDp="ngbDatepicker"
+              formControlName="repaymentDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="repaymentDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentAmount" for="field_repaymentAmount">Repayment Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="repaymentAmount"
+            id="field_repaymentAmount"
+            data-cy="repaymentAmount"
+            formControlName="repaymentAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.ftTrnxDetailsId" for="field_ftTrnxDetailsId"
+            >Ft Trnx Details Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="ftTrnxDetailsId"
+            id="field_ftTrnxDetailsId"
+            data-cy="ftTrnxDetailsId"
+            formControlName="ftTrnxDetailsId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.collectionTrnxDetailsId" for="field_collectionTrnxDetailsId"
+            >Collection Trnx Details Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="collectionTrnxDetailsId"
+            id="field_collectionTrnxDetailsId"
+            data-cy="collectionTrnxDetailsId"
+            formControlName="collectionTrnxDetailsId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.docId" for="field_docId">Doc Id</label>
+          <input type="number" class="form-control" name="docId" id="field_docId" data-cy="docId" formControlName="docId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.financeRequestId" for="field_financeRequestId"
+            >Finance Request Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financeRequestId"
+            id="field_financeRequestId"
+            data-cy="financeRequestId"
+            formControlName="financeRequestId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentDueDate" for="field_repaymentDueDate"
+            >Repayment Due Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_repaymentDueDate"
+              data-cy="repaymentDueDate"
+              type="text"
+              class="form-control"
+              name="repaymentDueDate"
+              ngbDatepicker
+              #repaymentDueDateDp="ngbDatepicker"
+              formControlName="repaymentDueDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="repaymentDueDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.totalRepaymentAmount" for="field_totalRepaymentAmount"
+            >Total Repayment Amount</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="totalRepaymentAmount"
+            id="field_totalRepaymentAmount"
+            data-cy="totalRepaymentAmount"
+            formControlName="totalRepaymentAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.amountRepayed" for="field_amountRepayed">Amount Repayed</label>
+          <input
+            type="text"
+            class="form-control"
+            name="amountRepayed"
+            id="field_amountRepayed"
+            data-cy="amountRepayed"
+            formControlName="amountRepayed"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.amountToBePaid" for="field_amountToBePaid">Amount To Be Paid</label>
+          <input
+            type="text"
+            class="form-control"
+            name="amountToBePaid"
+            id="field_amountToBePaid"
+            data-cy="amountToBePaid"
+            formControlName="amountToBePaid"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.sourceAccountName" for="field_sourceAccountName"
+            >Source Account Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sourceAccountName"
+            id="field_sourceAccountName"
+            data-cy="sourceAccountName"
+            formControlName="sourceAccountName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.sourceAccountNumber" for="field_sourceAccountNumber"
+            >Source Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="sourceAccountNumber"
+            id="field_sourceAccountNumber"
+            data-cy="sourceAccountNumber"
+            formControlName="sourceAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.referenceNumber" for="field_referenceNumber">Reference Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="referenceNumber"
+            id="field_referenceNumber"
+            data-cy="referenceNumber"
+            formControlName="referenceNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.financerequest" for="field_financerequest">Financerequest</label>
+          <select
+            class="form-control"
+            id="field_financerequest"
+            data-cy="financerequest"
+            name="financerequest"
+            formControlName="financerequest"
+            [compareWith]="compareFinanceRequest"
+          >
+            <option [ngValue]="null"></option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

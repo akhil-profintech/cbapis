@@ -1,0 +1,43 @@
+{
+  "cbapisApp": {
+    "placedOffer": {
+      "home": {
+        "title": "Placed Offers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Placed Offer",
+        "createOrEditLabel": "Create or edit a Placed Offer",
+        "notFound": "No Placed Offers found"
+      },
+      "created": "A new Placed Offer is created with identifier {{ param }}",
+      "updated": "A Placed Offer is updated with identifier {{ param }}",
+      "deleted": "A Placed Offer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Placed Offer {{ id }}?"
+      },
+      "detail": {
+        "title": "Placed Offer"
+      },
+      "id": "ID",
+      "reqOffId": "Req Off Id",
+      "placedOfferRefNo": "Placed Offer Ref No",
+      "value": "Value",
+      "reqAmount": "Req Amount",
+      "marginPtg": "Margin Ptg",
+      "marginValue": "Margin Value",
+      "amountAftMargin": "Amount Aft Margin",
+      "interestPtg": "Interest Ptg",
+      "term": "Term",
+      "interestValue": "Interest Value",
+      "netAmount": "Net Amount",
+      "status": "Status",
+      "offerDate": "Offer Date",
+      "requestId": "Request Id",
+      "placedOfferDate": "Placed Offer Date",
+      "anchorTrader": "Anchor Trader",
+      "tradePartner": "Trade Partner",
+      "disbursalAmount": "Disbursal Amount",
+      "financerequest": "Financerequest",
+      "financepartner": "Financepartner"
+    }
+  }
+}

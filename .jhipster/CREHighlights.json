@@ -1,0 +1,44 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133300"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "cre_highlights",
+  "fields": [
+    {
+      "fieldName": "creHighlightsId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "creRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "highlights",
+      "fieldType": "String"
+    }
+  ],
+  "name": "CREHighlights",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "cbProcessId",
+      "otherEntityName": "cBCREProcess",
+      "relationshipName": "cbcreprocess",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "assessmentId",
+      "otherEntityName": "individualAssessment",
+      "relationshipName": "individualassessment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

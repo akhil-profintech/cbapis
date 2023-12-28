@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (placedOffer) {
+      <div>
+        <h2 data-cy="placedOfferDetailsHeading"><span jhiTranslate="cbapisApp.placedOffer.detail.title">Placed Offer</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ placedOffer.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.reqOffId">Req Off Id</span></dt>
+          <dd>
+            <span>{{ placedOffer.reqOffId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo">Placed Offer Ref No</span></dt>
+          <dd>
+            <span>{{ placedOffer.placedOfferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.value">Value</span></dt>
+          <dd>
+            <span>{{ placedOffer.value }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.reqAmount">Req Amount</span></dt>
+          <dd>
+            <span>{{ placedOffer.reqAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.marginPtg">Margin Ptg</span></dt>
+          <dd>
+            <span>{{ placedOffer.marginPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.marginValue">Margin Value</span></dt>
+          <dd>
+            <span>{{ placedOffer.marginValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.amountAftMargin">Amount Aft Margin</span></dt>
+          <dd>
+            <span>{{ placedOffer.amountAftMargin }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.interestPtg">Interest Ptg</span></dt>
+          <dd>
+            <span>{{ placedOffer.interestPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.term">Term</span></dt>
+          <dd>
+            <span>{{ placedOffer.term }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.interestValue">Interest Value</span></dt>
+          <dd>
+            <span>{{ placedOffer.interestValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.netAmount">Net Amount</span></dt>
+          <dd>
+            <span>{{ placedOffer.netAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.status">Status</span></dt>
+          <dd>
+            <span>{{ placedOffer.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span></dt>
+          <dd>
+            <span>{{ placedOffer.offerDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.requestId">Request Id</span></dt>
+          <dd>
+            <span>{{ placedOffer.requestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferDate">Placed Offer Date</span></dt>
+          <dd>
+            <span>{{ placedOffer.placedOfferDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.anchorTrader">Anchor Trader</span></dt>
+          <dd>
+            <span>{{ placedOffer.anchorTrader }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.tradePartner">Trade Partner</span></dt>
+          <dd>
+            <span>{{ placedOffer.tradePartner }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.disbursalAmount">Disbursal Amount</span></dt>
+          <dd>
+            <span>{{ placedOffer.disbursalAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (placedOffer.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', placedOffer.financerequest.id, 'view']">{{ placedOffer.financerequest.requestId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.financepartner">Financepartner</span></dt>
+          <dd>
+            @if (placedOffer.financepartner) {
+              <div>
+                <a [routerLink]="['/finance-partner', placedOffer.financepartner.id, 'view']">{{ placedOffer.financepartner.fpId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/placed-offer', placedOffer.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

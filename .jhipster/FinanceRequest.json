@@ -1,0 +1,113 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131100"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "finance_request",
+  "fields": [
+    {
+      "fieldName": "requestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financeRequestRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestAmount",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "requestDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "requestStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dueDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "FinanceRequest",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "repayment",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "repayment",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "requestOffer",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "requestOffer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "disbursement",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "disbursement",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "prospectRequest",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "prospectRequest",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "trade",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "trade",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "placedOffer",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "placedOffer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "acceptedOffer",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "acceptedOffer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "settlement",
+      "otherEntityRelationshipName": "financerequest",
+      "relationshipName": "settlement",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "atId",
+      "otherEntityName": "anchorTrader",
+      "relationshipName": "anchortrader",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

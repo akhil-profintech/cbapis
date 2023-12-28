@@ -1,0 +1,224 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-escrow-account-details-heading"
+        data-cy="EscrowAccountDetailsCreateUpdateHeading"
+        jhiTranslate="cbapisApp.escrowAccountDetails.home.createOrEditLabel"
+      >
+        Create or edit a Escrow Account Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.escrowDetailsId" for="field_escrowDetailsId"
+            >Escrow Details Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="escrowDetailsId"
+            id="field_escrowDetailsId"
+            data-cy="escrowDetailsId"
+            formControlName="escrowDetailsId"
+          />
+          @if (
+            editForm.get('escrowDetailsId')!.invalid && (editForm.get('escrowDetailsId')!.dirty || editForm.get('escrowDetailsId')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('escrowDetailsId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('escrowDetailsId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="number" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('tenantId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.customerId" for="field_customerId">Customer Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="customerId"
+            id="field_customerId"
+            data-cy="customerId"
+            formControlName="customerId"
+          />
+          @if (editForm.get('customerId')!.invalid && (editForm.get('customerId')!.dirty || editForm.get('customerId')!.touched)) {
+            <div>
+              @if (editForm.get('customerId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('customerId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.accName" for="field_accName">Acc Name</label>
+          <input type="text" class="form-control" name="accName" id="field_accName" data-cy="accName" formControlName="accName" />
+          @if (editForm.get('accName')!.invalid && (editForm.get('accName')!.dirty || editForm.get('accName')!.touched)) {
+            <div>
+              @if (editForm.get('accName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+          @if (editForm.get('ifscCode')!.invalid && (editForm.get('ifscCode')!.dirty || editForm.get('ifscCode')!.touched)) {
+            <div>
+              @if (editForm.get('ifscCode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.virtualAccNumber" for="field_virtualAccNumber"
+            >Virtual Acc Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="virtualAccNumber"
+            id="field_virtualAccNumber"
+            data-cy="virtualAccNumber"
+            formControlName="virtualAccNumber"
+          />
+          @if (
+            editForm.get('virtualAccNumber')!.invalid &&
+            (editForm.get('virtualAccNumber')!.dirty || editForm.get('virtualAccNumber')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('virtualAccNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.poolingAccNumber" for="field_poolingAccNumber"
+            >Pooling Acc Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="poolingAccNumber"
+            id="field_poolingAccNumber"
+            data-cy="poolingAccNumber"
+            formControlName="poolingAccNumber"
+          />
+          @if (
+            editForm.get('poolingAccNumber')!.invalid &&
+            (editForm.get('poolingAccNumber')!.dirty || editForm.get('poolingAccNumber')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('poolingAccNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('poolingAccNumber')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.disbursement" for="field_disbursement">Disbursement</label>
+          <select
+            class="form-control"
+            id="field_disbursement"
+            data-cy="disbursement"
+            name="disbursement"
+            formControlName="disbursement"
+            [compareWith]="compareDisbursement"
+          >
+            <option [ngValue]="null"></option>
+            @for (disbursementOption of disbursementsSharedCollection; track $index) {
+              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtRequestId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.repayment" for="field_repayment">Repayment</label>
+          <select
+            class="form-control"
+            id="field_repayment"
+            data-cy="repayment"
+            name="repayment"
+            formControlName="repayment"
+            [compareWith]="compareRepayment"
+          >
+            <option [ngValue]="null"></option>
+            @for (repaymentOption of repaymentsSharedCollection; track $index) {
+              <option [ngValue]="repaymentOption">{{ repaymentOption.repaymentId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,344 @@
+<div>
+  <h2 id="page-heading" data-cy="BeneValidationHeading">
+    <span jhiTranslate="cbapisApp.beneValidation.home.title">Bene Validations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.beneValidation.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bene-validation"
+        [routerLink]="['/bene-validation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.beneValidation.home.createLabel">Create a new Bene Validation</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (beneValidations?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.beneValidation.home.notFound">No Bene Validations found</span>
+    </div>
+  }
+
+  @if (beneValidations && beneValidations.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="benevalidationId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.benevalidationId">Benevalidation Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finReqId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.finReqId">Fin Req Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="subGrpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.subGrpId">Sub Grp Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterMobileNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.remitterMobileNumber">Remitter Mobile Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorAccountId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.debtorAccountId">Debtor Account Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accountType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.accountType">Account Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditorAccountId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.creditorAccountId">Creditor Account Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paymentDescription">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.paymentDescription">Payment Description</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionReferenceNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.transactionReferenceNumber">Transaction Reference Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="merchantCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.merchantCode">Merchant Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="identifier">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.identifier">Identifier</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.requestDateTime">Request Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="metaDataStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.metaDataStatus">Meta Data Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="metaDataMessage">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.metaDataMessage">Meta Data Message</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="metaDataVersion">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.metaDataVersion">Meta Data Version</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="metaDataTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.metaDataTime">Meta Data Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataCreditorAccountId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorAccountId">Resource Data Creditor Account Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataCreditorName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorName">Resource Data Creditor Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataTransactionReferenceNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionReferenceNumber"
+                  >Resource Data Transaction Reference Number</span
+                >
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataTransactionId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionId">Resource Data Transaction Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataResponseCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataResponseCode">Resource Data Response Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataTransactionTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionTime">Resource Data Transaction Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="resourceDataIdentifier">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.resourceDataIdentifier">Resource Data Identifier</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="responseDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.responseDateTime">Response Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastupdatedDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.lastupdatedDateTime">Lastupdated Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastUpdatedBy">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.lastUpdatedBy">Last Updated By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeEntity.entityId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.beneValidation.tradeEntity">Trade Entity</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (beneValidation of beneValidations; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/bene-validation', beneValidation.id, 'view']">{{ beneValidation.id }}</a>
+              </td>
+              <td>{{ beneValidation.benevalidationId }}</td>
+              <td>{{ beneValidation.finReqId }}</td>
+              <td>{{ beneValidation.subGrpId }}</td>
+              <td>{{ beneValidation.remitterName }}</td>
+              <td>{{ beneValidation.remitterMobileNumber }}</td>
+              <td>{{ beneValidation.debtorAccountId }}</td>
+              <td>{{ beneValidation.accountType }}</td>
+              <td>{{ beneValidation.creditorAccountId }}</td>
+              <td>{{ beneValidation.ifscCode }}</td>
+              <td>{{ beneValidation.paymentDescription }}</td>
+              <td>{{ beneValidation.transactionReferenceNumber }}</td>
+              <td>{{ beneValidation.merchantCode }}</td>
+              <td>{{ beneValidation.identifier }}</td>
+              <td>{{ beneValidation.requestDateTime }}</td>
+              <td>{{ beneValidation.metaDataStatus }}</td>
+              <td>{{ beneValidation.metaDataMessage }}</td>
+              <td>{{ beneValidation.metaDataVersion }}</td>
+              <td>{{ beneValidation.metaDataTime }}</td>
+              <td>{{ beneValidation.resourceDataCreditorAccountId }}</td>
+              <td>{{ beneValidation.resourceDataCreditorName }}</td>
+              <td>{{ beneValidation.resourceDataTransactionReferenceNumber }}</td>
+              <td>{{ beneValidation.resourceDataTransactionId }}</td>
+              <td>{{ beneValidation.resourceDataResponseCode }}</td>
+              <td>{{ beneValidation.resourceDataTransactionTime }}</td>
+              <td>{{ beneValidation.resourceDataIdentifier }}</td>
+              <td>{{ beneValidation.responseDateTime }}</td>
+              <td>{{ beneValidation.lastupdatedDateTime }}</td>
+              <td>{{ beneValidation.lastUpdatedBy }}</td>
+              <td>
+                @if (beneValidation.tradeEntity) {
+                  <div>
+                    <a [routerLink]="['/trade-entity', beneValidation.tradeEntity.id, 'view']">{{ beneValidation.tradeEntity.entityId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/bene-validation', beneValidation.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/bene-validation', beneValidation.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(beneValidation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (beneValidations && beneValidations.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

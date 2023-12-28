@@ -1,0 +1,201 @@
+<div>
+  <h2 id="page-heading" data-cy="CBCREProcessHeading">
+    <span jhiTranslate="cbapisApp.cBCREProcess.home.title">CBCRE Processes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.cBCREProcess.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cbcre-process"
+        [routerLink]="['/cbcre-process/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.cBCREProcess.home.createLabel">Create a new CBCRE Process</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (cBCREProcesses?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.cBCREProcess.home.notFound">No CBCRE Processes found</span>
+    </div>
+  }
+
+  @if (cBCREProcesses && cBCREProcesses.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbProcessId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.cbProcessId">Cb Process Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.financeRequestId">Finance Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.anchorTraderId">Anchor Trader Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchortTraderGst">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.anchortTraderGst">Anchort Trader Gst</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.financeAmount">Finance Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="processDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.processDateTime">Process Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creProcessStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.creProcessStatus">Cre Process Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="responseDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.responseDateTime">Response Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.creRequestId">Cre Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cumilativetradescore">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.cumilativetradescore">Cumilativetradescore</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="timestamp">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.timestamp">Timestamp</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalAmountRequested">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.totalAmountRequested">Total Amount Requested</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalInvoiceAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.totalInvoiceAmount">Total Invoice Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (cBCREProcess of cBCREProcesses; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/cbcre-process', cBCREProcess.id, 'view']">{{ cBCREProcess.id }}</a>
+              </td>
+              <td>{{ cBCREProcess.cbProcessId }}</td>
+              <td>{{ cBCREProcess.financeRequestId }}</td>
+              <td>{{ cBCREProcess.anchorTraderId }}</td>
+              <td>{{ cBCREProcess.anchortTraderGst }}</td>
+              <td>{{ cBCREProcess.financeAmount }}</td>
+              <td>{{ cBCREProcess.processDateTime }}</td>
+              <td>{{ cBCREProcess.creProcessStatus }}</td>
+              <td>{{ cBCREProcess.responseDateTime }}</td>
+              <td>{{ cBCREProcess.creRequestId }}</td>
+              <td>{{ cBCREProcess.cumilativetradescore }}</td>
+              <td>{{ cBCREProcess.timestamp }}</td>
+              <td>{{ cBCREProcess.totalAmountRequested }}</td>
+              <td>{{ cBCREProcess.totalInvoiceAmount }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/cbcre-process', cBCREProcess.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/cbcre-process', cBCREProcess.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(cBCREProcess)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (cBCREProcesses && cBCREProcesses.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

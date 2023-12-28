@@ -1,0 +1,32 @@
+{
+  "cbapisApp": {
+    "docDetails": {
+      "home": {
+        "title": "Doc Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Doc Details",
+        "createOrEditLabel": "Create or edit a Doc Details",
+        "notFound": "No Doc Details found"
+      },
+      "created": "A new Doc Details is created with identifier {{ param }}",
+      "updated": "A Doc Details is updated with identifier {{ param }}",
+      "deleted": "A Doc Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Doc Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Doc Details"
+      },
+      "id": "ID",
+      "docDetailsId": "Doc Details Id",
+      "docRecordId": "Doc Record Id",
+      "link": "Link",
+      "description": "Description",
+      "docType": "Doc Type",
+      "status": "Status",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment",
+      "participantsettlement": "Participantsettlement"
+    }
+  }
+}

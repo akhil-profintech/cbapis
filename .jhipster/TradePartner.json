@@ -1,0 +1,79 @@
+{
+  "annotations": {
+    "changelogDate": "20231228130800"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "trade_partner",
+  "fields": [
+    {
+      "fieldName": "tenantId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tpId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orgId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orgName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gstId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tradePartnerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradepartnerGST",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerSector",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acceptanceFromTradePartner",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TradePartner",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "trade",
+      "otherEntityRelationshipName": "tradepartner",
+      "relationshipName": "trade",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,34 @@
+{
+  "cbapisApp": {
+    "settlement": {
+      "home": {
+        "title": "Settlements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Settlement",
+        "createOrEditLabel": "Create or edit a Settlement",
+        "notFound": "No Settlements found"
+      },
+      "created": "A new Settlement is created with identifier {{ param }}",
+      "updated": "A Settlement is updated with identifier {{ param }}",
+      "deleted": "A Settlement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Settlement {{ id }}?"
+      },
+      "detail": {
+        "title": "Settlement"
+      },
+      "id": "ID",
+      "settlementId": "Settlement Id",
+      "settlementRefNo": "Settlement Ref No",
+      "offerId": "Offer Id",
+      "dbmtRequestId": "Dbmt Request Id",
+      "dbmtId": "Dbmt Id",
+      "dbmtDate": "Dbmt Date",
+      "dbmtStatus": "Dbmt Status",
+      "dbmtAmount": "Dbmt Amount",
+      "currency": "Currency",
+      "participantSettlement": "Participant Settlement",
+      "financerequest": "Financerequest"
+    }
+  }
+}

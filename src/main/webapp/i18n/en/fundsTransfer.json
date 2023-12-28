@@ -1,0 +1,54 @@
+{
+  "cbapisApp": {
+    "fundsTransfer": {
+      "home": {
+        "title": "Funds Transfers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Funds Transfer",
+        "createOrEditLabel": "Create or edit a Funds Transfer",
+        "notFound": "No Funds Transfers found"
+      },
+      "created": "A new Funds Transfer is created with identifier {{ param }}",
+      "updated": "A Funds Transfer is updated with identifier {{ param }}",
+      "deleted": "A Funds Transfer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Funds Transfer {{ id }}?"
+      },
+      "detail": {
+        "title": "Funds Transfer"
+      },
+      "id": "ID",
+      "fundsTransferId": "Funds Transfer Id",
+      "fundsTransferRefNo": "Funds Transfer Ref No",
+      "finReqId": "Fin Req Id",
+      "subGrpId": "Sub Grp Id",
+      "transactionId": "Transaction Id",
+      "debitAccountNumber": "Debit Account Number",
+      "creditAccountNumber": "Credit Account Number",
+      "remitterName": "Remitter Name",
+      "amount": "Amount",
+      "currency": "Currency",
+      "transactionType": "Transaction Type",
+      "paymentDescription": "Payment Description",
+      "beneficiaryIFSC": "Beneficiary IFSC",
+      "beneficiaryName": "Beneficiary Name",
+      "beneficiaryAddress": "Beneficiary Address",
+      "emailId": "Email Id",
+      "mobileNo": "Mobile No",
+      "messageType": "Message Type",
+      "transactionDateTime": "Transaction Date Time",
+      "transactionRefNo": "Transaction Ref No",
+      "trnxMetaDataStatus": "Trnx Meta Data Status",
+      "trnxMetaDataMessage": "Trnx Meta Data Message",
+      "trnxMetaDataVersion": "Trnx Meta Data Version",
+      "trnxMetaDataTime": "Trnx Meta Data Time",
+      "trnxResourceDataBeneficiaryName": "Trnx Resource Data Beneficiary Name",
+      "trnxResourceDataTransactionId": "Trnx Resource Data Transaction Id",
+      "trnxResourceDataStatus": "Trnx Resource Data Status",
+      "fundsTransferStatus": "Funds Transfer Status",
+      "lastupdatedDateTime": "Lastupdated Date Time",
+      "lastUpdatedBy": "Last Updated By",
+      "tradeEntity": "Trade Entity"
+    }
+  }
+}

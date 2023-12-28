@@ -1,0 +1,159 @@
+<div>
+  <h2 id="page-heading" data-cy="CREObservationsHeading">
+    <span jhiTranslate="cbapisApp.cREObservations.home.title">CRE Observations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.cREObservations.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cre-observations"
+        [routerLink]="['/cre-observations/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.cREObservations.home.createLabel">Create a new CRE Observations</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (cREObservations?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.cREObservations.home.notFound">No CRE Observations found</span>
+    </div>
+  }
+
+  @if (cREObservations && cREObservations.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creObservationsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.creObservationsId">Cre Observations Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.creRequestId">Cre Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="observations">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.observations">Observations</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.cbcreprocess">Cbcreprocess</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="individualassessment.assessmentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.individualassessment">Individualassessment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (cREObservations of cREObservations; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/cre-observations', cREObservations.id, 'view']">{{ cREObservations.id }}</a>
+              </td>
+              <td>{{ cREObservations.creObservationsId }}</td>
+              <td>{{ cREObservations.creRequestId }}</td>
+              <td>{{ cREObservations.observations }}</td>
+              <td>
+                @if (cREObservations.cbcreprocess) {
+                  <div>
+                    <a [routerLink]="['/cbcre-process', cREObservations.cbcreprocess.id, 'view']">{{
+                      cREObservations.cbcreprocess.cbProcessId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (cREObservations.individualassessment) {
+                  <div>
+                    <a [routerLink]="['/individual-assessment', cREObservations.individualassessment.id, 'view']">{{
+                      cREObservations.individualassessment.assessmentId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/cre-observations', cREObservations.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/cre-observations', cREObservations.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(cREObservations)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (cREObservations && cREObservations.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

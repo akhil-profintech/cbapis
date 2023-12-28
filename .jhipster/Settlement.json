@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132300"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "settlement",
+  "fields": [
+    {
+      "fieldName": "settlementId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "settlementRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offerId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtRequestId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtDate",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Settlement",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "participantSettlement",
+      "otherEntityRelationshipName": "settlement",
+      "relationshipName": "participantSettlement",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

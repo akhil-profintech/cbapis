@@ -1,0 +1,29 @@
+{
+  "cbapisApp": {
+    "prospectRequest": {
+      "home": {
+        "title": "Prospect Requests",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Prospect Request",
+        "createOrEditLabel": "Create or edit a Prospect Request",
+        "notFound": "No Prospect Requests found"
+      },
+      "created": "A new Prospect Request is created with identifier {{ param }}",
+      "updated": "A Prospect Request is updated with identifier {{ param }}",
+      "deleted": "A Prospect Request is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Prospect Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Prospect Request"
+      },
+      "id": "ID",
+      "prospectRequestId": "Prospect Request Id",
+      "anchorTraderId": "Anchor Trader Id",
+      "requestAmount": "Request Amount",
+      "prospectRequestDate": "Prospect Request Date",
+      "currency": "Currency",
+      "financerequest": "Financerequest"
+    }
+  }
+}

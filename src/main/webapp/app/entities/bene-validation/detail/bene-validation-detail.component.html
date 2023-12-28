@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (beneValidation) {
+      <div>
+        <h2 data-cy="beneValidationDetailsHeading"><span jhiTranslate="cbapisApp.beneValidation.detail.title">Bene Validation</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ beneValidation.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.benevalidationId">Benevalidation Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.benevalidationId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.finReqId">Fin Req Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.finReqId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.subGrpId">Sub Grp Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.subGrpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ beneValidation.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.remitterMobileNumber">Remitter Mobile Number</span></dt>
+          <dd>
+            <span>{{ beneValidation.remitterMobileNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.debtorAccountId">Debtor Account Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.debtorAccountId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.accountType">Account Type</span></dt>
+          <dd>
+            <span>{{ beneValidation.accountType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.creditorAccountId">Creditor Account Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.creditorAccountId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ beneValidation.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.paymentDescription">Payment Description</span></dt>
+          <dd>
+            <span>{{ beneValidation.paymentDescription }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.transactionReferenceNumber">Transaction Reference Number</span></dt>
+          <dd>
+            <span>{{ beneValidation.transactionReferenceNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.merchantCode">Merchant Code</span></dt>
+          <dd>
+            <span>{{ beneValidation.merchantCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.identifier">Identifier</span></dt>
+          <dd>
+            <span>{{ beneValidation.identifier }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.requestDateTime">Request Date Time</span></dt>
+          <dd>
+            <span>{{ beneValidation.requestDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.metaDataStatus">Meta Data Status</span></dt>
+          <dd>
+            <span>{{ beneValidation.metaDataStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.metaDataMessage">Meta Data Message</span></dt>
+          <dd>
+            <span>{{ beneValidation.metaDataMessage }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.metaDataVersion">Meta Data Version</span></dt>
+          <dd>
+            <span>{{ beneValidation.metaDataVersion }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.metaDataTime">Meta Data Time</span></dt>
+          <dd>
+            <span>{{ beneValidation.metaDataTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorAccountId">Resource Data Creditor Account Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataCreditorAccountId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorName">Resource Data Creditor Name</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataCreditorName }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionReferenceNumber"
+              >Resource Data Transaction Reference Number</span
+            >
+          </dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataTransactionReferenceNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionId">Resource Data Transaction Id</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataTransactionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataResponseCode">Resource Data Response Code</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataResponseCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionTime">Resource Data Transaction Time</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataTransactionTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.resourceDataIdentifier">Resource Data Identifier</span></dt>
+          <dd>
+            <span>{{ beneValidation.resourceDataIdentifier }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.responseDateTime">Response Date Time</span></dt>
+          <dd>
+            <span>{{ beneValidation.responseDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.lastupdatedDateTime">Lastupdated Date Time</span></dt>
+          <dd>
+            <span>{{ beneValidation.lastupdatedDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.lastUpdatedBy">Last Updated By</span></dt>
+          <dd>
+            <span>{{ beneValidation.lastUpdatedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.beneValidation.tradeEntity">Trade Entity</span></dt>
+          <dd>
+            @if (beneValidation.tradeEntity) {
+              <div>
+                <a [routerLink]="['/trade-entity', beneValidation.tradeEntity.id, 'view']">{{ beneValidation.tradeEntity.entityId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/bene-validation', beneValidation.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

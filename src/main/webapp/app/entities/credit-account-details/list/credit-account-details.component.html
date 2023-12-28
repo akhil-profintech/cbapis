@@ -1,0 +1,183 @@
+<div>
+  <h2 id="page-heading" data-cy="CreditAccountDetailsHeading">
+    <span jhiTranslate="cbapisApp.creditAccountDetails.home.title">Credit Account Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.creditAccountDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-credit-account-details"
+        [routerLink]="['/credit-account-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.creditAccountDetails.home.createLabel">Create a new Credit Account Details</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (creditAccountDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.creditAccountDetails.home.notFound">No Credit Account Details found</span>
+    </div>
+  }
+
+  @if (creditAccountDetails && creditAccountDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditAccDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.creditAccDetailsId">Credit Acc Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.tenantId">Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.customerId">Customer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.accName">Acc Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.accNumber">Acc Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.dbmtRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.disbursement">Disbursement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repayment.repaymentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.repayment">Repayment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (creditAccountDetails of creditAccountDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/credit-account-details', creditAccountDetails.id, 'view']">{{ creditAccountDetails.id }}</a>
+              </td>
+              <td>{{ creditAccountDetails.creditAccDetailsId }}</td>
+              <td>{{ creditAccountDetails.tenantId }}</td>
+              <td>{{ creditAccountDetails.customerId }}</td>
+              <td>{{ creditAccountDetails.accName }}</td>
+              <td>{{ creditAccountDetails.ifscCode }}</td>
+              <td>{{ creditAccountDetails.accNumber }}</td>
+              <td>
+                @if (creditAccountDetails.disbursement) {
+                  <div>
+                    <a [routerLink]="['/disbursement', creditAccountDetails.disbursement.id, 'view']">{{
+                      creditAccountDetails.disbursement.dbmtRequestId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (creditAccountDetails.repayment) {
+                  <div>
+                    <a [routerLink]="['/repayment', creditAccountDetails.repayment.id, 'view']">{{
+                      creditAccountDetails.repayment.repaymentId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/credit-account-details', creditAccountDetails.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/credit-account-details', creditAccountDetails.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(creditAccountDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (creditAccountDetails && creditAccountDetails.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

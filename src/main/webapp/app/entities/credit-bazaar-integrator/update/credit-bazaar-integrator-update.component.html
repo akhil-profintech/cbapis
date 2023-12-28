@@ -1,0 +1,155 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-credit-bazaar-integrator-heading"
+        data-cy="CreditBazaarIntegratorCreateUpdateHeading"
+        jhiTranslate="cbapisApp.creditBazaarIntegrator.home.createOrEditLabel"
+      >
+        Create or edit a Credit Bazaar Integrator
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorId" for="field_integratorId"
+            >Integrator Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="integratorId"
+            id="field_integratorId"
+            data-cy="integratorId"
+            formControlName="integratorId"
+          />
+          @if (editForm.get('integratorId')!.invalid && (editForm.get('integratorId')!.dirty || editForm.get('integratorId')!.touched)) {
+            <div>
+              @if (editForm.get('integratorId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.orgId" for="field_orgId">Org Id</label>
+          <input type="text" class="form-control" name="orgId" id="field_orgId" data-cy="orgId" formControlName="orgId" />
+          @if (editForm.get('orgId')!.invalid && (editForm.get('orgId')!.dirty || editForm.get('orgId')!.touched)) {
+            <div>
+              @if (editForm.get('orgId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.customerName" for="field_customerName"
+            >Customer Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+          @if (editForm.get('customerName')!.invalid && (editForm.get('customerName')!.dirty || editForm.get('customerName')!.touched)) {
+            <div>
+              @if (editForm.get('customerName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.orgName" for="field_orgName">Org Name</label>
+          <input type="text" class="form-control" name="orgName" id="field_orgName" data-cy="orgName" formControlName="orgName" />
+          @if (editForm.get('orgName')!.invalid && (editForm.get('orgName')!.dirty || editForm.get('orgName')!.touched)) {
+            <div>
+              @if (editForm.get('orgName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.gstId" for="field_gstId">Gst Id</label>
+          <input type="text" class="form-control" name="gstId" id="field_gstId" data-cy="gstId" formControlName="gstId" />
+          @if (editForm.get('gstId')!.invalid && (editForm.get('gstId')!.dirty || editForm.get('gstId')!.touched)) {
+            <div>
+              @if (editForm.get('gstId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          @if (editForm.get('phoneNumber')!.invalid && (editForm.get('phoneNumber')!.dirty || editForm.get('phoneNumber')!.touched)) {
+            <div>
+              @if (editForm.get('phoneNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('phoneNumber')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

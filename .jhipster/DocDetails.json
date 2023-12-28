@@ -1,0 +1,68 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131900"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "doc_details",
+  "fields": [
+    {
+      "fieldName": "docDetailsId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "docRecordId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "link",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "docType",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "DocDetails",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "dbmtRequestId",
+      "otherEntityName": "disbursement",
+      "relationshipName": "disbursement",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "repaymentId",
+      "otherEntityName": "repayment",
+      "relationshipName": "repayment",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "participantSettlementId",
+      "otherEntityName": "participantSettlement",
+      "relationshipName": "participantsettlement",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

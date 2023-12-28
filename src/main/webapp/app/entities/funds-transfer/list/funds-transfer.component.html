@@ -1,0 +1,350 @@
+<div>
+  <h2 id="page-heading" data-cy="FundsTransferHeading">
+    <span jhiTranslate="cbapisApp.fundsTransfer.home.title">Funds Transfers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.fundsTransfer.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-funds-transfer"
+        [routerLink]="['/funds-transfer/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.fundsTransfer.home.createLabel">Create a new Funds Transfer</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (fundsTransfers?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.fundsTransfer.home.notFound">No Funds Transfers found</span>
+    </div>
+  }
+
+  @if (fundsTransfers && fundsTransfers.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fundsTransferId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferId">Funds Transfer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fundsTransferRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferRefNo">Funds Transfer Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="finReqId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.finReqId">Fin Req Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="subGrpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.subGrpId">Sub Grp Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.transactionId">Transaction Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debitAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.debitAccountNumber">Debit Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.creditAccountNumber">Credit Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.amount">Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currency">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.currency">Currency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.transactionType">Transaction Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paymentDescription">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.paymentDescription">Payment Description</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryIFSC">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryIFSC">Beneficiary IFSC</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryName">Beneficiary Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryAddress">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryAddress">Beneficiary Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="emailId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.emailId">Email Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mobileNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.mobileNo">Mobile No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messageType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.messageType">Message Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.transactionDateTime">Transaction Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.transactionRefNo">Transaction Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxMetaDataStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataStatus">Trnx Meta Data Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxMetaDataMessage">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataMessage">Trnx Meta Data Message</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxMetaDataVersion">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataVersion">Trnx Meta Data Version</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxMetaDataTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataTime">Trnx Meta Data Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxResourceDataBeneficiaryName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataBeneficiaryName">Trnx Resource Data Beneficiary Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxResourceDataTransactionId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataTransactionId">Trnx Resource Data Transaction Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxResourceDataStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataStatus">Trnx Resource Data Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="fundsTransferStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferStatus">Funds Transfer Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastupdatedDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.lastupdatedDateTime">Lastupdated Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastUpdatedBy">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.lastUpdatedBy">Last Updated By</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeEntity.entityId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fundsTransfer.tradeEntity">Trade Entity</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fundsTransfer of fundsTransfers; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/funds-transfer', fundsTransfer.id, 'view']">{{ fundsTransfer.id }}</a>
+              </td>
+              <td>{{ fundsTransfer.fundsTransferId }}</td>
+              <td>{{ fundsTransfer.fundsTransferRefNo }}</td>
+              <td>{{ fundsTransfer.finReqId }}</td>
+              <td>{{ fundsTransfer.subGrpId }}</td>
+              <td>{{ fundsTransfer.transactionId }}</td>
+              <td>{{ fundsTransfer.debitAccountNumber }}</td>
+              <td>{{ fundsTransfer.creditAccountNumber }}</td>
+              <td>{{ fundsTransfer.remitterName }}</td>
+              <td>{{ fundsTransfer.amount }}</td>
+              <td>{{ fundsTransfer.currency }}</td>
+              <td>{{ fundsTransfer.transactionType }}</td>
+              <td>{{ fundsTransfer.paymentDescription }}</td>
+              <td>{{ fundsTransfer.beneficiaryIFSC }}</td>
+              <td>{{ fundsTransfer.beneficiaryName }}</td>
+              <td>{{ fundsTransfer.beneficiaryAddress }}</td>
+              <td>{{ fundsTransfer.emailId }}</td>
+              <td>{{ fundsTransfer.mobileNo }}</td>
+              <td>{{ fundsTransfer.messageType }}</td>
+              <td>{{ fundsTransfer.transactionDateTime }}</td>
+              <td>{{ fundsTransfer.transactionRefNo }}</td>
+              <td>{{ fundsTransfer.trnxMetaDataStatus }}</td>
+              <td>{{ fundsTransfer.trnxMetaDataMessage }}</td>
+              <td>{{ fundsTransfer.trnxMetaDataVersion }}</td>
+              <td>{{ fundsTransfer.trnxMetaDataTime }}</td>
+              <td>{{ fundsTransfer.trnxResourceDataBeneficiaryName }}</td>
+              <td>{{ fundsTransfer.trnxResourceDataTransactionId }}</td>
+              <td>{{ fundsTransfer.trnxResourceDataStatus }}</td>
+              <td>{{ fundsTransfer.fundsTransferStatus }}</td>
+              <td>{{ fundsTransfer.lastupdatedDateTime }}</td>
+              <td>{{ fundsTransfer.lastUpdatedBy }}</td>
+              <td>
+                @if (fundsTransfer.tradeEntity) {
+                  <div>
+                    <a [routerLink]="['/trade-entity', fundsTransfer.tradeEntity.id, 'view']">{{ fundsTransfer.tradeEntity.entityId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/funds-transfer', fundsTransfer.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/funds-transfer', fundsTransfer.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(fundsTransfer)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (fundsTransfers && fundsTransfers.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

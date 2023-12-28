@@ -1,0 +1,176 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-finance-request-heading"
+        data-cy="FinanceRequestCreateUpdateHeading"
+        jhiTranslate="cbapisApp.financeRequest.home.createOrEditLabel"
+      >
+        Create or edit a Finance Request
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.requestId" for="field_requestId">Request Id</label>
+          <input type="text" class="form-control" name="requestId" id="field_requestId" data-cy="requestId" formControlName="requestId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.financeRequestRefNo" for="field_financeRequestRefNo"
+            >Finance Request Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financeRequestRefNo"
+            id="field_financeRequestRefNo"
+            data-cy="financeRequestRefNo"
+            formControlName="financeRequestRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.requestAmount" for="field_requestAmount">Request Amount</label>
+          <input
+            type="text"
+            class="form-control"
+            name="requestAmount"
+            id="field_requestAmount"
+            data-cy="requestAmount"
+            formControlName="requestAmount"
+          />
+          @if (editForm.get('requestAmount')!.invalid && (editForm.get('requestAmount')!.dirty || editForm.get('requestAmount')!.touched)) {
+            <div>
+              @if (editForm.get('requestAmount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.requestDate" for="field_requestDate">Request Date</label>
+          <div class="input-group">
+            <input
+              id="field_requestDate"
+              data-cy="requestDate"
+              type="text"
+              class="form-control"
+              name="requestDate"
+              ngbDatepicker
+              #requestDateDp="ngbDatepicker"
+              formControlName="requestDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="requestDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          @if (editForm.get('requestDate')!.invalid && (editForm.get('requestDate')!.dirty || editForm.get('requestDate')!.touched)) {
+            <div>
+              @if (editForm.get('requestDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.currency" for="field_currency">Currency</label>
+          <input type="text" class="form-control" name="currency" id="field_currency" data-cy="currency" formControlName="currency" />
+          @if (editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)) {
+            <div>
+              @if (editForm.get('currency')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.requestStatus" for="field_requestStatus">Request Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="requestStatus"
+            id="field_requestStatus"
+            data-cy="requestStatus"
+            formControlName="requestStatus"
+          />
+          @if (editForm.get('requestStatus')!.invalid && (editForm.get('requestStatus')!.dirty || editForm.get('requestStatus')!.touched)) {
+            <div>
+              @if (editForm.get('requestStatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.dueDate" for="field_dueDate">Due Date</label>
+          <div class="input-group">
+            <input
+              id="field_dueDate"
+              data-cy="dueDate"
+              type="text"
+              class="form-control"
+              name="dueDate"
+              ngbDatepicker
+              #dueDateDp="ngbDatepicker"
+              formControlName="dueDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dueDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (editForm.get('dueDate')!.invalid && (editForm.get('dueDate')!.dirty || editForm.get('dueDate')!.touched)) {
+            <div>
+              @if (editForm.get('dueDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.anchortrader" for="field_anchortrader">Anchortrader</label>
+          <select
+            class="form-control"
+            id="field_anchortrader"
+            data-cy="anchortrader"
+            name="anchortrader"
+            formControlName="anchortrader"
+            [compareWith]="compareAnchorTrader"
+          >
+            <option [ngValue]="null"></option>
+            @for (anchorTraderOption of anchorTradersSharedCollection; track $index) {
+              <option [ngValue]="anchorTraderOption">{{ anchorTraderOption.atId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

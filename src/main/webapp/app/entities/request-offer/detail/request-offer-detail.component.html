@@ -1,0 +1,136 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (requestOffer) {
+      <div>
+        <h2 data-cy="requestOfferDetailsHeading"><span jhiTranslate="cbapisApp.requestOffer.detail.title">Request Offer</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ requestOffer.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.reqOffId">Req Off Id</span></dt>
+          <dd>
+            <span>{{ requestOffer.reqOffId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo">Request Offer Ref No</span></dt>
+          <dd>
+            <span>{{ requestOffer.requestOfferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.offerValue">Offer Value</span></dt>
+          <dd>
+            <span>{{ requestOffer.offerValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.requestAmt">Request Amt</span></dt>
+          <dd>
+            <span>{{ requestOffer.requestAmt }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.tradeValue">Trade Value</span></dt>
+          <dd>
+            <span>{{ requestOffer.tradeValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.marginPtg">Margin Ptg</span></dt>
+          <dd>
+            <span>{{ requestOffer.marginPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.marginValue">Margin Value</span></dt>
+          <dd>
+            <span>{{ requestOffer.marginValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.amountAftMargin">Amount Aft Margin</span></dt>
+          <dd>
+            <span>{{ requestOffer.amountAftMargin }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.interestPtg">Interest Ptg</span></dt>
+          <dd>
+            <span>{{ requestOffer.interestPtg }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.term">Term</span></dt>
+          <dd>
+            <span>{{ requestOffer.term }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.interestValue">Interest Value</span></dt>
+          <dd>
+            <span>{{ requestOffer.interestValue }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.netAmount">Net Amount</span></dt>
+          <dd>
+            <span>{{ requestOffer.netAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.status">Status</span></dt>
+          <dd>
+            <span>{{ requestOffer.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.financeRequestDate">Finance Request Date</span></dt>
+          <dd>
+            <span>{{ requestOffer.financeRequestDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderName">Anchor Trader Name</span></dt>
+          <dd>
+            <span>{{ requestOffer.anchorTraderName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.tradePartnerName">Trade Partner Name</span></dt>
+          <dd>
+            <span>{{ requestOffer.tradePartnerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderGst">Anchor Trader Gst</span></dt>
+          <dd>
+            <span>{{ requestOffer.anchorTraderGst }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.tradePartnerGst">Trade Partner Gst</span></dt>
+          <dd>
+            <span>{{ requestOffer.tradePartnerGst }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.sellerName">Seller Name</span></dt>
+          <dd>
+            <span>{{ requestOffer.sellerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.buyerName">Buyer Name</span></dt>
+          <dd>
+            <span>{{ requestOffer.buyerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore">Anchor Trader Gst Compliance Score</span></dt>
+          <dd>
+            <span>{{ requestOffer.anchorTraderGstComplianceScore }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore">Anchor Trader Erp Peer Score</span></dt>
+          <dd>
+            <span>{{ requestOffer.anchorTraderErpPeerScore }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (requestOffer.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', requestOffer.financerequest.id, 'view']">{{
+                  requestOffer.financerequest.requestId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.cbcreprocess">Cbcreprocess</span></dt>
+          <dd>
+            @if (requestOffer.cbcreprocess) {
+              <div>
+                <a [routerLink]="['/cbcre-process', requestOffer.cbcreprocess.id, 'view']">{{ requestOffer.cbcreprocess.cbProcessId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/request-offer', requestOffer.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

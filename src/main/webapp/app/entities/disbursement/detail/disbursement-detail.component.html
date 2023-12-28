@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (disbursement) {
+      <div>
+        <h2 data-cy="disbursementDetailsHeading"><span jhiTranslate="cbapisApp.disbursement.detail.title">Disbursement</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ disbursement.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtId">Dbmt Id</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.disbursementRefNo">Disbursement Ref No</span></dt>
+          <dd>
+            <span>{{ disbursement.disbursementRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.acceptedOfferId">Accepted Offer Id</span></dt>
+          <dd>
+            <span>{{ disbursement.acceptedOfferId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.offerId">Offer Id</span></dt>
+          <dd>
+            <span>{{ disbursement.offerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.offerAcceptedDate">Offer Accepted Date</span></dt>
+          <dd>
+            <span>{{ disbursement.offerAcceptedDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtRequestId">Dbmt Request Id</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtReqAmount">Dbmt Req Amount</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtReqAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.currency">Currency</span></dt>
+          <dd>
+            <span>{{ disbursement.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtRequestDate">Dbmt Request Date</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtRequestDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtstatus">Dbmtstatus</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.offerStatus">Offer Status</span></dt>
+          <dd>
+            <span>{{ disbursement.offerStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.ftTrnxDetailsId">Ft Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ disbursement.ftTrnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.collectionTrnxDetailsId">Collection Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ disbursement.collectionTrnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.docId">Doc Id</span></dt>
+          <dd>
+            <span>{{ disbursement.docId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtDateTime">Dbmt Date Time</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtAmount">Dbmt Amount</span></dt>
+          <dd>
+            <span>{{ disbursement.dbmtAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.financeRequestId">Finance Request Id</span></dt>
+          <dd>
+            <span>{{ disbursement.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.amountToBeDisbursed">Amount To Be Disbursed</span></dt>
+          <dd>
+            <span>{{ disbursement.amountToBeDisbursed }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.destinationAccountName">Destination Account Name</span></dt>
+          <dd>
+            <span>{{ disbursement.destinationAccountName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.destinationAccountNumber">Destination Account Number</span></dt>
+          <dd>
+            <span>{{ disbursement.destinationAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ disbursement.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.status">Status</span></dt>
+          <dd>
+            <span>{{ disbursement.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.actionByDate">Action By Date</span></dt>
+          <dd>
+            <span>{{ disbursement.actionByDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (disbursement.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', disbursement.financerequest.id, 'view']">{{
+                  disbursement.financerequest.requestId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.financepartner">Financepartner</span></dt>
+          <dd>
+            @if (disbursement.financepartner) {
+              <div>
+                <a [routerLink]="['/finance-partner', disbursement.financepartner.id, 'view']">{{ disbursement.financepartner.fpId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/disbursement', disbursement.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,177 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131400"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "repayment",
+  "fields": [
+    {
+      "fieldName": "repaymentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "repaymentRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acceptedOfferId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "offerId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "offerAcceptedDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtRequestId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtstatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repaymentStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repaymentDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "repaymentAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ftTrnxDetailsId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "collectionTrnxDetailsId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "financeRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "repaymentDueDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "totalRepaymentAmount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amountRepayed",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amountToBePaid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sourceAccountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sourceAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "referenceNumber",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Repayment",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "creditAccountDetails",
+      "otherEntityRelationshipName": "repayment",
+      "relationshipName": "creditAccountDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "escrowAccountDetails",
+      "otherEntityRelationshipName": "repayment",
+      "relationshipName": "escrowAccountDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "docDetails",
+      "otherEntityRelationshipName": "repayment",
+      "relationshipName": "docDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fTTransactionDetails",
+      "otherEntityRelationshipName": "repayment",
+      "relationshipName": "fTTransactionDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "collectionTransactionDetails",
+      "otherEntityRelationshipName": "repayment",
+      "relationshipName": "collectionTransactionDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

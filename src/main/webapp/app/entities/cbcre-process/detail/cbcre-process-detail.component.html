@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cBCREProcess) {
+      <div>
+        <h2 data-cy="cBCREProcessDetailsHeading"><span jhiTranslate="cbapisApp.cBCREProcess.detail.title">CBCRE Process</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cbProcessId">Cb Process Id</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.cbProcessId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.financeRequestId">Finance Request Id</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.anchorTraderId">Anchor Trader Id</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.anchorTraderId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.anchortTraderGst">Anchort Trader Gst</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.anchortTraderGst }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.financeAmount">Finance Amount</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.financeAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.processDateTime">Process Date Time</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.processDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.creProcessStatus">Cre Process Status</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.creProcessStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.responseDateTime">Response Date Time</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.responseDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.creRequestId">Cre Request Id</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.creRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cumilativetradescore">Cumilativetradescore</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.cumilativetradescore }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.timestamp">Timestamp</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.timestamp }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.totalAmountRequested">Total Amount Requested</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.totalAmountRequested }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.totalInvoiceAmount">Total Invoice Amount</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.totalInvoiceAmount }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/cbcre-process', cBCREProcess.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

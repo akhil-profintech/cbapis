@@ -1,0 +1,141 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132800"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "bene_validation",
+  "fields": [
+    {
+      "fieldName": "benevalidationId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "finReqId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subGrpId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remitterName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "remitterMobileNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "debtorAccountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditorAccountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDescription",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "transactionReferenceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "merchantCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "identifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "metaDataStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "metaDataMessage",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "metaDataVersion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "metaDataTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataCreditorAccountId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataCreditorName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataTransactionReferenceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataTransactionId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataResponseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataTransactionTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "resourceDataIdentifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "responseDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastupdatedDateTime",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastUpdatedBy",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "BeneValidation",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "entityId",
+      "otherEntityName": "tradeEntity",
+      "relationshipName": "tradeEntity",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

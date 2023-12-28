@@ -1,0 +1,229 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-anchor-trader-heading"
+        data-cy="AnchorTraderCreateUpdateHeading"
+        jhiTranslate="cbapisApp.anchorTrader.home.createOrEditLabel"
+      >
+        Create or edit a Anchor Trader
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.atId" for="field_atId">At Id</label>
+          <input type="text" class="form-control" name="atId" id="field_atId" data-cy="atId" formControlName="atId" />
+          @if (editForm.get('atId')!.invalid && (editForm.get('atId')!.dirty || editForm.get('atId')!.touched)) {
+            <div>
+              @if (editForm.get('atId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.orgId" for="field_orgId">Org Id</label>
+          <input type="text" class="form-control" name="orgId" id="field_orgId" data-cy="orgId" formControlName="orgId" />
+          @if (editForm.get('orgId')!.invalid && (editForm.get('orgId')!.dirty || editForm.get('orgId')!.touched)) {
+            <div>
+              @if (editForm.get('orgId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.customerName" for="field_customerName">Customer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+          @if (editForm.get('customerName')!.invalid && (editForm.get('customerName')!.dirty || editForm.get('customerName')!.touched)) {
+            <div>
+              @if (editForm.get('customerName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.orgName" for="field_orgName">Org Name</label>
+          <input type="text" class="form-control" name="orgName" id="field_orgName" data-cy="orgName" formControlName="orgName" />
+          @if (editForm.get('orgName')!.invalid && (editForm.get('orgName')!.dirty || editForm.get('orgName')!.touched)) {
+            <div>
+              @if (editForm.get('orgName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.gstId" for="field_gstId">Gst Id</label>
+          <input type="text" class="form-control" name="gstId" id="field_gstId" data-cy="gstId" formControlName="gstId" />
+          @if (editForm.get('gstId')!.invalid && (editForm.get('gstId')!.dirty || editForm.get('gstId')!.touched)) {
+            <div>
+              @if (editForm.get('gstId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          @if (editForm.get('phoneNumber')!.invalid && (editForm.get('phoneNumber')!.dirty || editForm.get('phoneNumber')!.touched)) {
+            <div>
+              @if (editForm.get('phoneNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('phoneNumber')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.anchorTraderName" for="field_anchorTraderName"
+            >Anchor Trader Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderName"
+            id="field_anchorTraderName"
+            data-cy="anchorTraderName"
+            formControlName="anchorTraderName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.anchorTraderGST" for="field_anchorTraderGST"
+            >Anchor Trader GST</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderGST"
+            id="field_anchorTraderGST"
+            data-cy="anchorTraderGST"
+            formControlName="anchorTraderGST"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.anchorTraderSector" for="field_anchorTraderSector"
+            >Anchor Trader Sector</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderSector"
+            id="field_anchorTraderSector"
+            data-cy="anchorTraderSector"
+            formControlName="anchorTraderSector"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.anchorTraderPAN" for="field_anchorTraderPAN"
+            >Anchor Trader PAN</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderPAN"
+            id="field_anchorTraderPAN"
+            data-cy="anchorTraderPAN"
+            formControlName="anchorTraderPAN"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.kycCompleted" for="field_kycCompleted">Kyc Completed</label>
+          <input
+            type="text"
+            class="form-control"
+            name="kycCompleted"
+            id="field_kycCompleted"
+            data-cy="kycCompleted"
+            formControlName="kycCompleted"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.bankDetails" for="field_bankDetails">Bank Details</label>
+          <input
+            type="text"
+            class="form-control"
+            name="bankDetails"
+            id="field_bankDetails"
+            data-cy="bankDetails"
+            formControlName="bankDetails"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

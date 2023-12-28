@@ -1,0 +1,43 @@
+{
+  "cbapisApp": {
+    "instaAlert": {
+      "home": {
+        "title": "Insta Alerts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Insta Alert",
+        "createOrEditLabel": "Create or edit a Insta Alert",
+        "notFound": "No Insta Alerts found"
+      },
+      "created": "A new Insta Alert is created with identifier {{ param }}",
+      "updated": "A Insta Alert is updated with identifier {{ param }}",
+      "deleted": "A Insta Alert is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Insta Alert {{ id }}?"
+      },
+      "detail": {
+        "title": "Insta Alert"
+      },
+      "id": "ID",
+      "instaAlertId": "Insta Alert Id",
+      "finReqId": "Fin Req Id",
+      "subGrpId": "Sub Grp Id",
+      "customerCode": "Customer Code",
+      "customerName": "Customer Name",
+      "productCode": "Product Code",
+      "poolingAccountNumber": "Pooling Account Number",
+      "transactionType": "Transaction Type",
+      "batchAmt": "Batch Amt",
+      "batchAmtCcd": "Batch Amt Ccd",
+      "creditDate": "Credit Date",
+      "vaNumber": "Va Number",
+      "utrNo": "Utr No",
+      "creditGenerationTime": "Credit Generation Time",
+      "remitterName": "Remitter Name",
+      "remitterAccountNumber": "Remitter Account Number",
+      "ifscCode": "Ifsc Code",
+      "lastupdatedDateTime": "Lastupdated Date Time",
+      "lastUpdatedBy": "Last Updated By",
+      "tradeEntity": "Trade Entity"
+    }
+  }
+}

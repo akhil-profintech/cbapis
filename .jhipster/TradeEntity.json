@@ -1,0 +1,68 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133000"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "trade_entity",
+  "fields": [
+    {
+      "fieldName": "entityId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "entityName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "entityDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "entityGST",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TradeEntity",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "beneValidation",
+      "otherEntityRelationshipName": "tradeEntity",
+      "relationshipName": "beneValidation",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "instaAlert",
+      "otherEntityRelationshipName": "tradeEntity",
+      "relationshipName": "instaAlert",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fundsTransfer",
+      "otherEntityRelationshipName": "tradeEntity",
+      "relationshipName": "fundsTransfer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "updateVA",
+      "otherEntityRelationshipName": "tradeEntity",
+      "relationshipName": "updateVA",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "vANumber",
+      "otherEntityRelationshipName": "tradeEntity",
+      "relationshipName": "vANumber",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

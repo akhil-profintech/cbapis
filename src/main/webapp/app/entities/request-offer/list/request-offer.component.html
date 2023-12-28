@@ -1,0 +1,303 @@
+<div>
+  <h2 id="page-heading" data-cy="RequestOfferHeading">
+    <span jhiTranslate="cbapisApp.requestOffer.home.title">Request Offers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.requestOffer.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-request-offer"
+        [routerLink]="['/request-offer/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.requestOffer.home.createLabel">Create a new Request Offer</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (requestOffers?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.requestOffer.home.notFound">No Request Offers found</span>
+    </div>
+  }
+
+  @if (requestOffers && requestOffers.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.reqOffId">Req Off Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestOfferRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo">Request Offer Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.offerValue">Offer Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestAmt">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.requestAmt">Request Amt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.tradeValue">Trade Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marginPtg">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.marginPtg">Margin Ptg</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marginValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.marginValue">Margin Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountAftMargin">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.amountAftMargin">Amount Aft Margin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="interestPtg">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.interestPtg">Interest Ptg</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="term">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.term">Term</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="interestValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.interestValue">Interest Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="netAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.netAmount">Net Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.financeRequestDate">Finance Request Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderName">Anchor Trader Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.tradePartnerName">Trade Partner Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderGst">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderGst">Anchor Trader Gst</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerGst">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.tradePartnerGst">Trade Partner Gst</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sellerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.sellerName">Seller Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="buyerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.buyerName">Buyer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderGstComplianceScore">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore">Anchor Trader Gst Compliance Score</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderErpPeerScore">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore">Anchor Trader Erp Peer Score</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financerequest.requestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.financerequest">Financerequest</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.requestOffer.cbcreprocess">Cbcreprocess</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (requestOffer of requestOffers; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/request-offer', requestOffer.id, 'view']">{{ requestOffer.id }}</a>
+              </td>
+              <td>{{ requestOffer.reqOffId }}</td>
+              <td>{{ requestOffer.requestOfferRefNo }}</td>
+              <td>{{ requestOffer.offerValue }}</td>
+              <td>{{ requestOffer.requestAmt }}</td>
+              <td>{{ requestOffer.tradeValue }}</td>
+              <td>{{ requestOffer.marginPtg }}</td>
+              <td>{{ requestOffer.marginValue }}</td>
+              <td>{{ requestOffer.amountAftMargin }}</td>
+              <td>{{ requestOffer.interestPtg }}</td>
+              <td>{{ requestOffer.term }}</td>
+              <td>{{ requestOffer.interestValue }}</td>
+              <td>{{ requestOffer.netAmount }}</td>
+              <td>{{ requestOffer.status }}</td>
+              <td>{{ requestOffer.financeRequestDate | formatMediumDate }}</td>
+              <td>{{ requestOffer.anchorTraderName }}</td>
+              <td>{{ requestOffer.tradePartnerName }}</td>
+              <td>{{ requestOffer.anchorTraderGst }}</td>
+              <td>{{ requestOffer.tradePartnerGst }}</td>
+              <td>{{ requestOffer.sellerName }}</td>
+              <td>{{ requestOffer.buyerName }}</td>
+              <td>{{ requestOffer.anchorTraderGstComplianceScore }}</td>
+              <td>{{ requestOffer.anchorTraderErpPeerScore }}</td>
+              <td>
+                @if (requestOffer.financerequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', requestOffer.financerequest.id, 'view']">{{
+                      requestOffer.financerequest.requestId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (requestOffer.cbcreprocess) {
+                  <div>
+                    <a [routerLink]="['/cbcre-process', requestOffer.cbcreprocess.id, 'view']">{{
+                      requestOffer.cbcreprocess.cbProcessId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/request-offer', requestOffer.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/request-offer', requestOffer.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(requestOffer)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (requestOffers && requestOffers.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

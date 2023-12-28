@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-va-number-heading" data-cy="VANumberCreateUpdateHeading" jhiTranslate="cbapisApp.vANumber.home.createOrEditLabel">
+        Create or edit a VA Number
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.vaId" for="field_vaId">Va Id</label>
+          <input type="number" class="form-control" name="vaId" id="field_vaId" data-cy="vaId" formControlName="vaId" />
+          @if (editForm.get('vaId')!.invalid && (editForm.get('vaId')!.dirty || editForm.get('vaId')!.touched)) {
+            <div>
+              @if (editForm.get('vaId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('vaId')?.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.poolingAccNumber" for="field_poolingAccNumber"
+            >Pooling Acc Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="poolingAccNumber"
+            id="field_poolingAccNumber"
+            data-cy="poolingAccNumber"
+            formControlName="poolingAccNumber"
+          />
+          @if (
+            editForm.get('poolingAccNumber')!.invalid &&
+            (editForm.get('poolingAccNumber')!.dirty || editForm.get('poolingAccNumber')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('poolingAccNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.virtualAccNumber" for="field_virtualAccNumber"
+            >Virtual Acc Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="virtualAccNumber"
+            id="field_virtualAccNumber"
+            data-cy="virtualAccNumber"
+            formControlName="virtualAccNumber"
+          />
+          @if (
+            editForm.get('virtualAccNumber')!.invalid &&
+            (editForm.get('virtualAccNumber')!.dirty || editForm.get('virtualAccNumber')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('virtualAccNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.vaStatus" for="field_vaStatus">Va Status</label>
+          <input type="text" class="form-control" name="vaStatus" id="field_vaStatus" data-cy="vaStatus" formControlName="vaStatus" />
+          @if (editForm.get('vaStatus')!.invalid && (editForm.get('vaStatus')!.dirty || editForm.get('vaStatus')!.touched)) {
+            <div>
+              @if (editForm.get('vaStatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.financeRequestId" for="field_financeRequestId"
+            >Finance Request Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financeRequestId"
+            id="field_financeRequestId"
+            data-cy="financeRequestId"
+            formControlName="financeRequestId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.subGroupId" for="field_subGroupId">Sub Group Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="subGroupId"
+            id="field_subGroupId"
+            data-cy="subGroupId"
+            formControlName="subGroupId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.vANumber.tradeEntity" for="field_tradeEntity">Trade Entity</label>
+          <select
+            class="form-control"
+            id="field_tradeEntity"
+            data-cy="tradeEntity"
+            name="tradeEntity"
+            formControlName="tradeEntity"
+            [compareWith]="compareTradeEntity"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradeEntityOption of tradeEntitiesSharedCollection; track $index) {
+              <option [ngValue]="tradeEntityOption">{{ tradeEntityOption.entityId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

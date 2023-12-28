@@ -1,0 +1,28 @@
+{
+  "cbapisApp": {
+    "cREHighlights": {
+      "home": {
+        "title": "CRE Highlights",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CRE Highlights",
+        "createOrEditLabel": "Create or edit a CRE Highlights",
+        "notFound": "No CRE Highlights found"
+      },
+      "created": "A new CRE Highlights is created with identifier {{ param }}",
+      "updated": "A CRE Highlights is updated with identifier {{ param }}",
+      "deleted": "A CRE Highlights is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CRE Highlights {{ id }}?"
+      },
+      "detail": {
+        "title": "CRE Highlights"
+      },
+      "id": "ID",
+      "creHighlightsId": "Cre Highlights Id",
+      "creRequestId": "Cre Request Id",
+      "highlights": "Highlights",
+      "cbcreprocess": "Cbcreprocess",
+      "individualassessment": "Individualassessment"
+    }
+  }
+}

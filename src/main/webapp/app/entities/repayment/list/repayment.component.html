@@ -1,0 +1,326 @@
+<div>
+  <h2 id="page-heading" data-cy="RepaymentHeading">
+    <span jhiTranslate="cbapisApp.repayment.home.title">Repayments</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.repayment.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-repayment"
+        [routerLink]="['/repayment/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.repayment.home.createLabel">Create a new Repayment</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (repayments?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.repayment.home.notFound">No Repayments found</span>
+    </div>
+  }
+
+  @if (repayments && repayments.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentId">Repayment Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentRefNo">Repayment Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="acceptedOfferId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.acceptedOfferId">Accepted Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.offerId">Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerAcceptedDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.offerAcceptedDate">Offer Accepted Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.dbmtRequestId">Dbmt Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtstatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.dbmtstatus">Dbmtstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.dbmtDateTime">Dbmt Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.dbmtId">Dbmt Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dbmtAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.dbmtAmount">Dbmt Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currency">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.currency">Currency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentStatus">Repayment Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentDate">Repayment Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentAmount">Repayment Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ftTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.ftTrnxDetailsId">Ft Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="collectionTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.collectionTrnxDetailsId">Collection Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.docId">Doc Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.financeRequestId">Finance Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repaymentDueDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentDueDate">Repayment Due Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="totalRepaymentAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.totalRepaymentAmount">Total Repayment Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountRepayed">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.amountRepayed">Amount Repayed</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountToBePaid">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.amountToBePaid">Amount To Be Paid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sourceAccountName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.sourceAccountName">Source Account Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sourceAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.sourceAccountNumber">Source Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="referenceNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.referenceNumber">Reference Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financerequest.requestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.financerequest">Financerequest</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (repayment of repayments; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/repayment', repayment.id, 'view']">{{ repayment.id }}</a>
+              </td>
+              <td>{{ repayment.repaymentId }}</td>
+              <td>{{ repayment.repaymentRefNo }}</td>
+              <td>{{ repayment.acceptedOfferId }}</td>
+              <td>{{ repayment.offerId }}</td>
+              <td>{{ repayment.offerAcceptedDate | formatMediumDate }}</td>
+              <td>{{ repayment.dbmtRequestId }}</td>
+              <td>{{ repayment.dbmtstatus }}</td>
+              <td>{{ repayment.dbmtDateTime }}</td>
+              <td>{{ repayment.dbmtId }}</td>
+              <td>{{ repayment.dbmtAmount }}</td>
+              <td>{{ repayment.currency }}</td>
+              <td>{{ repayment.repaymentStatus }}</td>
+              <td>{{ repayment.repaymentDate | formatMediumDate }}</td>
+              <td>{{ repayment.repaymentAmount }}</td>
+              <td>{{ repayment.ftTrnxDetailsId }}</td>
+              <td>{{ repayment.collectionTrnxDetailsId }}</td>
+              <td>{{ repayment.docId }}</td>
+              <td>{{ repayment.financeRequestId }}</td>
+              <td>{{ repayment.repaymentDueDate | formatMediumDate }}</td>
+              <td>{{ repayment.totalRepaymentAmount }}</td>
+              <td>{{ repayment.amountRepayed }}</td>
+              <td>{{ repayment.amountToBePaid }}</td>
+              <td>{{ repayment.sourceAccountName }}</td>
+              <td>{{ repayment.sourceAccountNumber }}</td>
+              <td>{{ repayment.ifscCode }}</td>
+              <td>{{ repayment.status }}</td>
+              <td>{{ repayment.referenceNumber }}</td>
+              <td>
+                @if (repayment.financerequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', repayment.financerequest.id, 'view']">{{ repayment.financerequest.requestId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/repayment', repayment.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/repayment', repayment.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(repayment)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (repayments && repayments.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,133 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132100"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "request_offer",
+  "fields": [
+    {
+      "fieldName": "reqOffId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestOfferRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offerValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "requestAmt",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tradeValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "marginPtg",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "marginValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amountAftMargin",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestPtg",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "term",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestValue",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "netAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "financeRequestDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "anchorTraderName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "tradePartnerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "anchorTraderGst",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerGst",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sellerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderGstComplianceScore",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderErpPeerScore",
+      "fieldType": "String"
+    }
+  ],
+  "name": "RequestOffer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "cbProcessId",
+      "otherEntityName": "cBCREProcess",
+      "relationshipName": "cbcreprocess",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

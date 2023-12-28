@@ -1,0 +1,74 @@
+{
+  "annotations": {
+    "changelogDate": "20231228133200"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "individual_assessment",
+  "fields": [
+    {
+      "fieldName": "assessmentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creditScore",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "finalverdict",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "timestamp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradepartnerGST",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradepartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "invoiceId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "IndividualAssessment",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "cREHighlights",
+      "otherEntityRelationshipName": "individualassessment",
+      "relationshipName": "cREHighlights",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cREObservations",
+      "otherEntityRelationshipName": "individualassessment",
+      "relationshipName": "cREObservations",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "cbProcessId",
+      "otherEntityName": "cBCREProcess",
+      "relationshipName": "cbcreprocess",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

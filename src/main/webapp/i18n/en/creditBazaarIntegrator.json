@@ -1,0 +1,30 @@
+{
+  "cbapisApp": {
+    "creditBazaarIntegrator": {
+      "home": {
+        "title": "Credit Bazaar Integrators",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Credit Bazaar Integrator",
+        "createOrEditLabel": "Create or edit a Credit Bazaar Integrator",
+        "notFound": "No Credit Bazaar Integrators found"
+      },
+      "created": "A new Credit Bazaar Integrator is created with identifier {{ param }}",
+      "updated": "A Credit Bazaar Integrator is updated with identifier {{ param }}",
+      "deleted": "A Credit Bazaar Integrator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Credit Bazaar Integrator {{ id }}?"
+      },
+      "detail": {
+        "title": "Credit Bazaar Integrator"
+      },
+      "id": "ID",
+      "tenantId": "Tenant Id",
+      "integratorId": "Integrator Id",
+      "orgId": "Org Id",
+      "customerName": "Customer Name",
+      "orgName": "Org Name",
+      "gstId": "Gst Id",
+      "phoneNumber": "Phone Number"
+    }
+  }
+}

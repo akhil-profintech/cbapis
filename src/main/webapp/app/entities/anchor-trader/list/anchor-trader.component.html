@@ -1,0 +1,209 @@
+<div>
+  <h2 id="page-heading" data-cy="AnchorTraderHeading">
+    <span jhiTranslate="cbapisApp.anchorTrader.home.title">Anchor Traders</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.anchorTrader.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-anchor-trader"
+        [routerLink]="['/anchor-trader/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.anchorTrader.home.createLabel">Create a new Anchor Trader</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (anchorTraders?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.anchorTrader.home.notFound">No Anchor Traders found</span>
+    </div>
+  }
+
+  @if (anchorTraders && anchorTraders.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.tenantId">Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="atId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.atId">At Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.orgId">Org Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.orgName">Org Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.gstId">Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.anchorTraderName">Anchor Trader Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="location">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.location">Location</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderGST">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.anchorTraderGST">Anchor Trader GST</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderSector">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.anchorTraderSector">Anchor Trader Sector</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderPAN">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.anchorTraderPAN">Anchor Trader PAN</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="kycCompleted">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.kycCompleted">Kyc Completed</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bankDetails">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.bankDetails">Bank Details</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (anchorTrader of anchorTraders; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/anchor-trader', anchorTrader.id, 'view']">{{ anchorTrader.id }}</a>
+              </td>
+              <td>{{ anchorTrader.tenantId }}</td>
+              <td>{{ anchorTrader.atId }}</td>
+              <td>{{ anchorTrader.orgId }}</td>
+              <td>{{ anchorTrader.customerName }}</td>
+              <td>{{ anchorTrader.orgName }}</td>
+              <td>{{ anchorTrader.gstId }}</td>
+              <td>{{ anchorTrader.phoneNumber }}</td>
+              <td>{{ anchorTrader.anchorTraderName }}</td>
+              <td>{{ anchorTrader.location }}</td>
+              <td>{{ anchorTrader.anchorTraderGST }}</td>
+              <td>{{ anchorTrader.anchorTraderSector }}</td>
+              <td>{{ anchorTrader.anchorTraderPAN }}</td>
+              <td>{{ anchorTrader.kycCompleted }}</td>
+              <td>{{ anchorTrader.bankDetails }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/anchor-trader', anchorTrader.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/anchor-trader', anchorTrader.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(anchorTrader)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (anchorTraders && anchorTraders.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

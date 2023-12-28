@@ -1,0 +1,26 @@
+{
+  "cbapisApp": {
+    "clientCodes": {
+      "home": {
+        "title": "Client Codes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Client Codes",
+        "createOrEditLabel": "Create or edit a Client Codes",
+        "notFound": "No Client Codes found"
+      },
+      "created": "A new Client Codes is created with identifier {{ param }}",
+      "updated": "A Client Codes is updated with identifier {{ param }}",
+      "deleted": "A Client Codes is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Client Codes {{ id }}?"
+      },
+      "detail": {
+        "title": "Client Codes"
+      },
+      "id": "ID",
+      "clientCode": "Client Code",
+      "clientCharsCode": "Client Chars Code",
+      "clientName": "Client Name"
+    }
+  }
+}

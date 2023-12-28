@@ -1,0 +1,294 @@
+<div>
+  <h2 id="page-heading" data-cy="FTTransactionDetailsHeading">
+    <span jhiTranslate="cbapisApp.fTTransactionDetails.home.title">FT Transaction Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.fTTransactionDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ft-transaction-details"
+        [routerLink]="['/ft-transaction-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.fTTransactionDetails.home.createLabel">Create a new FT Transaction Details</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (fTTransactionDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.fTTransactionDetails.home.notFound">No FT Transaction Details found</span>
+    </div>
+  }
+
+  @if (fTTransactionDetails && fTTransactionDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.trnxDetailsId">Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionID">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionID">Transaction ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debitAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.debitAccountNumber">Debit Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.creditAccountNumber">Credit Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.amount">Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="currency">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.currency">Currency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionType">Transaction Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="paymentDescription">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.paymentDescription">Payment Description</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryIFSC">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryIFSC">Beneficiary IFSC</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryName">Beneficiary Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryAddress">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryAddress">Beneficiary Address</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="emailId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.emailId">Email Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="mobileNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.mobileNo">Mobile No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionRefNo">Transaction Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxResourceDataStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.trnxResourceDataStatus">Trnx Resource Data Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxMetaDataStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.trnxMetaDataStatus">Trnx Meta Data Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionDateTime">Transaction Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.ftTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.disbursement">Disbursement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repayment.ftTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.repayment">Repayment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="participantsettlement.participantSettlementId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fTTransactionDetails of fTTransactionDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/ft-transaction-details', fTTransactionDetails.id, 'view']">{{ fTTransactionDetails.id }}</a>
+              </td>
+              <td>{{ fTTransactionDetails.trnxDetailsId }}</td>
+              <td>{{ fTTransactionDetails.transactionID }}</td>
+              <td>{{ fTTransactionDetails.debitAccountNumber }}</td>
+              <td>{{ fTTransactionDetails.creditAccountNumber }}</td>
+              <td>{{ fTTransactionDetails.remitterName }}</td>
+              <td>{{ fTTransactionDetails.amount }}</td>
+              <td>{{ fTTransactionDetails.currency }}</td>
+              <td>{{ fTTransactionDetails.transactionType }}</td>
+              <td>{{ fTTransactionDetails.paymentDescription }}</td>
+              <td>{{ fTTransactionDetails.beneficiaryIFSC }}</td>
+              <td>{{ fTTransactionDetails.beneficiaryName }}</td>
+              <td>{{ fTTransactionDetails.beneficiaryAddress }}</td>
+              <td>{{ fTTransactionDetails.emailId }}</td>
+              <td>{{ fTTransactionDetails.mobileNo }}</td>
+              <td>{{ fTTransactionDetails.transactionRefNo }}</td>
+              <td>{{ fTTransactionDetails.trnxResourceDataStatus }}</td>
+              <td>{{ fTTransactionDetails.trnxMetaDataStatus }}</td>
+              <td>{{ fTTransactionDetails.transactionDateTime }}</td>
+              <td>
+                @if (fTTransactionDetails.disbursement) {
+                  <div>
+                    <a [routerLink]="['/disbursement', fTTransactionDetails.disbursement.id, 'view']">{{
+                      fTTransactionDetails.disbursement.ftTrnxDetailsId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (fTTransactionDetails.repayment) {
+                  <div>
+                    <a [routerLink]="['/repayment', fTTransactionDetails.repayment.id, 'view']">{{
+                      fTTransactionDetails.repayment.ftTrnxDetailsId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (fTTransactionDetails.participantsettlement) {
+                  <div>
+                    <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
+                      fTTransactionDetails.participantsettlement.participantSettlementId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/ft-transaction-details', fTTransactionDetails.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/ft-transaction-details', fTTransactionDetails.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(fTTransactionDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (fTTransactionDetails && fTTransactionDetails.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,28 @@
+{
+  "cbapisApp": {
+    "cREObservations": {
+      "home": {
+        "title": "CRE Observations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CRE Observations",
+        "createOrEditLabel": "Create or edit a CRE Observations",
+        "notFound": "No CRE Observations found"
+      },
+      "created": "A new CRE Observations is created with identifier {{ param }}",
+      "updated": "A CRE Observations is updated with identifier {{ param }}",
+      "deleted": "A CRE Observations is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CRE Observations {{ id }}?"
+      },
+      "detail": {
+        "title": "CRE Observations"
+      },
+      "id": "ID",
+      "creObservationsId": "Cre Observations Id",
+      "creRequestId": "Cre Request Id",
+      "observations": "Observations",
+      "cbcreprocess": "Cbcreprocess",
+      "individualassessment": "Individualassessment"
+    }
+  }
+}

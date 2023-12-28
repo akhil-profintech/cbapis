@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (context) {
+      <div>
+        <h2 data-cy="contextDetailsHeading"><span jhiTranslate="cbapisApp.context.detail.title">Context</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ context.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.transactionId">Transaction Id</span></dt>
+          <dd>
+            <span>{{ context.transactionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.transactionDate">Transaction Date</span></dt>
+          <dd>
+            <span>{{ context.transactionDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.clientId">Client Id</span></dt>
+          <dd>
+            <span>{{ context.clientId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.cpCode">Cp Code</span></dt>
+          <dd>
+            <span>{{ context.cpCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.action">Action</span></dt>
+          <dd>
+            @if (context.action) {
+              <div>
+                <a [routerLink]="['/action', context.action.id, 'view']">{{ context.action.actionVal }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/context', context.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

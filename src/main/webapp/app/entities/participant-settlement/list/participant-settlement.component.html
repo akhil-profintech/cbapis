@@ -1,0 +1,256 @@
+<div>
+  <h2 id="page-heading" data-cy="ParticipantSettlementHeading">
+    <span jhiTranslate="cbapisApp.participantSettlement.home.title">Participant Settlements</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.participantSettlement.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-participant-settlement"
+        [routerLink]="['/participant-settlement/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.participantSettlement.home.createLabel">Create a new Participant Settlement</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (participantSettlements?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.participantSettlement.home.notFound">No Participant Settlements found</span>
+    </div>
+  }
+
+  @if (participantSettlements && participantSettlements.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="participantSettlementId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.participantSettlementId">Participant Settlement Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="participantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.participantId">Participant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="participantName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.participantName">Participant Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.gstId">Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementType">Settlement Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementAmount">Settlement Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementDate">Settlement Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementDueDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementDueDate">Settlement Due Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementContactInfo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementContactInfo">Settlement Contact Info</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="patronOfPayment">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.patronOfPayment">Patron Of Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="recipientOfPayment">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.recipientOfPayment">Recipient Of Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlementMethod">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlementMethod">Settlement Method</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.tenantId">Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.accName">Acc Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.accNumber">Acc Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.docId">Doc Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="settlement.settlementId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.settlement">Settlement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (participantSettlement of participantSettlements; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/participant-settlement', participantSettlement.id, 'view']">{{ participantSettlement.id }}</a>
+              </td>
+              <td>{{ participantSettlement.participantSettlementId }}</td>
+              <td>{{ participantSettlement.participantId }}</td>
+              <td>{{ participantSettlement.participantName }}</td>
+              <td>{{ participantSettlement.gstId }}</td>
+              <td>{{ participantSettlement.settlementType }}</td>
+              <td>{{ participantSettlement.settlementAmount }}</td>
+              <td>{{ participantSettlement.settlementDate }}</td>
+              <td>{{ participantSettlement.settlementDueDate }}</td>
+              <td>{{ participantSettlement.settlementContactInfo }}</td>
+              <td>{{ participantSettlement.patronOfPayment }}</td>
+              <td>{{ participantSettlement.recipientOfPayment }}</td>
+              <td>{{ participantSettlement.settlementMethod }}</td>
+              <td>{{ participantSettlement.tenantId }}</td>
+              <td>{{ participantSettlement.accName }}</td>
+              <td>{{ participantSettlement.ifscCode }}</td>
+              <td>{{ participantSettlement.accNumber }}</td>
+              <td>{{ participantSettlement.docId }}</td>
+              <td>
+                @if (participantSettlement.settlement) {
+                  <div>
+                    <a [routerLink]="['/settlement', participantSettlement.settlement.id, 'view']">{{
+                      participantSettlement.settlement.settlementId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/participant-settlement', participantSettlement.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/participant-settlement', participantSettlement.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(participantSettlement)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (participantSettlements && participantSettlements.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

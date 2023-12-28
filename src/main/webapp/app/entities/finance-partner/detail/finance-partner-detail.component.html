@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (financePartner) {
+      <div>
+        <h2 data-cy="financePartnerDetailsHeading"><span jhiTranslate="cbapisApp.financePartner.detail.title">Finance Partner</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ financePartner.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ financePartner.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.fpId">Fp Id</span></dt>
+          <dd>
+            <span>{{ financePartner.fpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.orgId">Org Id</span></dt>
+          <dd>
+            <span>{{ financePartner.orgId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ financePartner.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.orgName">Org Name</span></dt>
+          <dd>
+            <span>{{ financePartner.orgName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.gstId">Gst Id</span></dt>
+          <dd>
+            <span>{{ financePartner.gstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financePartner.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ financePartner.phoneNumber }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/finance-partner', financePartner.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

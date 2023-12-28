@@ -1,0 +1,40 @@
+{
+  "cbapisApp": {
+    "anchorTrader": {
+      "home": {
+        "title": "Anchor Traders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Anchor Trader",
+        "createOrEditLabel": "Create or edit a Anchor Trader",
+        "notFound": "No Anchor Traders found"
+      },
+      "created": "A new Anchor Trader is created with identifier {{ param }}",
+      "updated": "A Anchor Trader is updated with identifier {{ param }}",
+      "deleted": "A Anchor Trader is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Anchor Trader {{ id }}?"
+      },
+      "detail": {
+        "title": "Anchor Trader"
+      },
+      "id": "ID",
+      "tenantId": "Tenant Id",
+      "atId": "At Id",
+      "orgId": "Org Id",
+      "customerName": "Customer Name",
+      "orgName": "Org Name",
+      "gstId": "Gst Id",
+      "phoneNumber": "Phone Number",
+      "anchorTraderName": "Anchor Trader Name",
+      "location": "Location",
+      "anchorTraderGST": "Anchor Trader GST",
+      "anchorTraderSector": "Anchor Trader Sector",
+      "anchorTraderPAN": "Anchor Trader PAN",
+      "kycCompleted": "Kyc Completed",
+      "bankDetails": "Bank Details",
+      "financeRequest": "Finance Request",
+      "acceptedOffer": "Accepted Offer",
+      "trade": "Trade"
+    }
+  }
+}

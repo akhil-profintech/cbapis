@@ -1,0 +1,468 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-bene-validation-heading"
+        data-cy="BeneValidationCreateUpdateHeading"
+        jhiTranslate="cbapisApp.beneValidation.home.createOrEditLabel"
+      >
+        Create or edit a Bene Validation
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.benevalidationId" for="field_benevalidationId"
+            >Benevalidation Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="benevalidationId"
+            id="field_benevalidationId"
+            data-cy="benevalidationId"
+            formControlName="benevalidationId"
+          />
+          @if (
+            editForm.get('benevalidationId')!.invalid &&
+            (editForm.get('benevalidationId')!.dirty || editForm.get('benevalidationId')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('benevalidationId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.finReqId" for="field_finReqId">Fin Req Id</label>
+          <input type="text" class="form-control" name="finReqId" id="field_finReqId" data-cy="finReqId" formControlName="finReqId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.subGrpId" for="field_subGrpId">Sub Grp Id</label>
+          <input type="text" class="form-control" name="subGrpId" id="field_subGrpId" data-cy="subGrpId" formControlName="subGrpId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.remitterName" for="field_remitterName">Remitter Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="remitterName"
+            id="field_remitterName"
+            data-cy="remitterName"
+            formControlName="remitterName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.remitterMobileNumber" for="field_remitterMobileNumber"
+            >Remitter Mobile Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remitterMobileNumber"
+            id="field_remitterMobileNumber"
+            data-cy="remitterMobileNumber"
+            formControlName="remitterMobileNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.debtorAccountId" for="field_debtorAccountId"
+            >Debtor Account Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="debtorAccountId"
+            id="field_debtorAccountId"
+            data-cy="debtorAccountId"
+            formControlName="debtorAccountId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.accountType" for="field_accountType">Account Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="accountType"
+            id="field_accountType"
+            data-cy="accountType"
+            formControlName="accountType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.creditorAccountId" for="field_creditorAccountId"
+            >Creditor Account Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditorAccountId"
+            id="field_creditorAccountId"
+            data-cy="creditorAccountId"
+            formControlName="creditorAccountId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.paymentDescription" for="field_paymentDescription"
+            >Payment Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentDescription"
+            id="field_paymentDescription"
+            data-cy="paymentDescription"
+            formControlName="paymentDescription"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.beneValidation.transactionReferenceNumber"
+            for="field_transactionReferenceNumber"
+            >Transaction Reference Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transactionReferenceNumber"
+            id="field_transactionReferenceNumber"
+            data-cy="transactionReferenceNumber"
+            formControlName="transactionReferenceNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.merchantCode" for="field_merchantCode">Merchant Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="merchantCode"
+            id="field_merchantCode"
+            data-cy="merchantCode"
+            formControlName="merchantCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.identifier" for="field_identifier">Identifier</label>
+          <input
+            type="text"
+            class="form-control"
+            name="identifier"
+            id="field_identifier"
+            data-cy="identifier"
+            formControlName="identifier"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.requestDateTime" for="field_requestDateTime"
+            >Request Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="requestDateTime"
+            id="field_requestDateTime"
+            data-cy="requestDateTime"
+            formControlName="requestDateTime"
+          />
+          @if (
+            editForm.get('requestDateTime')!.invalid && (editForm.get('requestDateTime')!.dirty || editForm.get('requestDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('requestDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.metaDataStatus" for="field_metaDataStatus"
+            >Meta Data Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="metaDataStatus"
+            id="field_metaDataStatus"
+            data-cy="metaDataStatus"
+            formControlName="metaDataStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.metaDataMessage" for="field_metaDataMessage"
+            >Meta Data Message</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="metaDataMessage"
+            id="field_metaDataMessage"
+            data-cy="metaDataMessage"
+            formControlName="metaDataMessage"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.metaDataVersion" for="field_metaDataVersion"
+            >Meta Data Version</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="metaDataVersion"
+            id="field_metaDataVersion"
+            data-cy="metaDataVersion"
+            formControlName="metaDataVersion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.metaDataTime" for="field_metaDataTime">Meta Data Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="metaDataTime"
+            id="field_metaDataTime"
+            data-cy="metaDataTime"
+            formControlName="metaDataTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorAccountId"
+            for="field_resourceDataCreditorAccountId"
+            >Resource Data Creditor Account Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataCreditorAccountId"
+            id="field_resourceDataCreditorAccountId"
+            data-cy="resourceDataCreditorAccountId"
+            formControlName="resourceDataCreditorAccountId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.resourceDataCreditorName" for="field_resourceDataCreditorName"
+            >Resource Data Creditor Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataCreditorName"
+            id="field_resourceDataCreditorName"
+            data-cy="resourceDataCreditorName"
+            formControlName="resourceDataCreditorName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionReferenceNumber"
+            for="field_resourceDataTransactionReferenceNumber"
+            >Resource Data Transaction Reference Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataTransactionReferenceNumber"
+            id="field_resourceDataTransactionReferenceNumber"
+            data-cy="resourceDataTransactionReferenceNumber"
+            formControlName="resourceDataTransactionReferenceNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionId" for="field_resourceDataTransactionId"
+            >Resource Data Transaction Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataTransactionId"
+            id="field_resourceDataTransactionId"
+            data-cy="resourceDataTransactionId"
+            formControlName="resourceDataTransactionId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.resourceDataResponseCode" for="field_resourceDataResponseCode"
+            >Resource Data Response Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataResponseCode"
+            id="field_resourceDataResponseCode"
+            data-cy="resourceDataResponseCode"
+            formControlName="resourceDataResponseCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.beneValidation.resourceDataTransactionTime"
+            for="field_resourceDataTransactionTime"
+            >Resource Data Transaction Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataTransactionTime"
+            id="field_resourceDataTransactionTime"
+            data-cy="resourceDataTransactionTime"
+            formControlName="resourceDataTransactionTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.resourceDataIdentifier" for="field_resourceDataIdentifier"
+            >Resource Data Identifier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="resourceDataIdentifier"
+            id="field_resourceDataIdentifier"
+            data-cy="resourceDataIdentifier"
+            formControlName="resourceDataIdentifier"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.responseDateTime" for="field_responseDateTime"
+            >Response Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="responseDateTime"
+            id="field_responseDateTime"
+            data-cy="responseDateTime"
+            formControlName="responseDateTime"
+          />
+          @if (
+            editForm.get('responseDateTime')!.invalid &&
+            (editForm.get('responseDateTime')!.dirty || editForm.get('responseDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('responseDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.lastupdatedDateTime" for="field_lastupdatedDateTime"
+            >Lastupdated Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastupdatedDateTime"
+            id="field_lastupdatedDateTime"
+            data-cy="lastupdatedDateTime"
+            formControlName="lastupdatedDateTime"
+          />
+          @if (
+            editForm.get('lastupdatedDateTime')!.invalid &&
+            (editForm.get('lastupdatedDateTime')!.dirty || editForm.get('lastupdatedDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('lastupdatedDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdatedBy"
+            id="field_lastUpdatedBy"
+            data-cy="lastUpdatedBy"
+            formControlName="lastUpdatedBy"
+          />
+          @if (editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)) {
+            <div>
+              @if (editForm.get('lastUpdatedBy')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.beneValidation.tradeEntity" for="field_tradeEntity">Trade Entity</label>
+          <select
+            class="form-control"
+            id="field_tradeEntity"
+            data-cy="tradeEntity"
+            name="tradeEntity"
+            formControlName="tradeEntity"
+            [compareWith]="compareTradeEntity"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradeEntityOption of tradeEntitiesSharedCollection; track $index) {
+              <option [ngValue]="tradeEntityOption">{{ tradeEntityOption.entityId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

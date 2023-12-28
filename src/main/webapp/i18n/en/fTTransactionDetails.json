@@ -1,0 +1,44 @@
+{
+  "cbapisApp": {
+    "fTTransactionDetails": {
+      "home": {
+        "title": "FT Transaction Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new FT Transaction Details",
+        "createOrEditLabel": "Create or edit a FT Transaction Details",
+        "notFound": "No FT Transaction Details found"
+      },
+      "created": "A new FT Transaction Details is created with identifier {{ param }}",
+      "updated": "A FT Transaction Details is updated with identifier {{ param }}",
+      "deleted": "A FT Transaction Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete FT Transaction Details {{ id }}?"
+      },
+      "detail": {
+        "title": "FT Transaction Details"
+      },
+      "id": "ID",
+      "trnxDetailsId": "Trnx Details Id",
+      "transactionID": "Transaction ID",
+      "debitAccountNumber": "Debit Account Number",
+      "creditAccountNumber": "Credit Account Number",
+      "remitterName": "Remitter Name",
+      "amount": "Amount",
+      "currency": "Currency",
+      "transactionType": "Transaction Type",
+      "paymentDescription": "Payment Description",
+      "beneficiaryIFSC": "Beneficiary IFSC",
+      "beneficiaryName": "Beneficiary Name",
+      "beneficiaryAddress": "Beneficiary Address",
+      "emailId": "Email Id",
+      "mobileNo": "Mobile No",
+      "transactionRefNo": "Transaction Ref No",
+      "trnxResourceDataStatus": "Trnx Resource Data Status",
+      "trnxMetaDataStatus": "Trnx Meta Data Status",
+      "transactionDateTime": "Transaction Date Time",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment",
+      "participantsettlement": "Participantsettlement"
+    }
+  }
+}

@@ -1,0 +1,257 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-update-va-heading" data-cy="UpdateVACreateUpdateHeading" jhiTranslate="cbapisApp.updateVA.home.createOrEditLabel">
+        Create or edit a Update VA
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.updateVirAccId" for="field_updateVirAccId">Update Vir Acc Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="updateVirAccId"
+            id="field_updateVirAccId"
+            data-cy="updateVirAccId"
+            formControlName="updateVirAccId"
+          />
+          @if (
+            editForm.get('updateVirAccId')!.invalid && (editForm.get('updateVirAccId')!.dirty || editForm.get('updateVirAccId')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('updateVirAccId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('updateVirAccId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.finReqId" for="field_finReqId">Fin Req Id</label>
+          <input type="text" class="form-control" name="finReqId" id="field_finReqId" data-cy="finReqId" formControlName="finReqId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.subGrpId" for="field_subGrpId">Sub Grp Id</label>
+          <input type="text" class="form-control" name="subGrpId" id="field_subGrpId" data-cy="subGrpId" formControlName="subGrpId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.msgId" for="field_msgId">Msg Id</label>
+          <input type="text" class="form-control" name="msgId" id="field_msgId" data-cy="msgId" formControlName="msgId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.cnvId" for="field_cnvId">Cnv Id</label>
+          <input type="text" class="form-control" name="cnvId" id="field_cnvId" data-cy="cnvId" formControlName="cnvId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.extRefId" for="field_extRefId">Ext Ref Id</label>
+          <input type="text" class="form-control" name="extRefId" id="field_extRefId" data-cy="extRefId" formControlName="extRefId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.bizObjId" for="field_bizObjId">Biz Obj Id</label>
+          <input type="text" class="form-control" name="bizObjId" id="field_bizObjId" data-cy="bizObjId" formControlName="bizObjId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.appId" for="field_appId">App Id</label>
+          <input type="text" class="form-control" name="appId" id="field_appId" data-cy="appId" formControlName="appId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.timestamp" for="field_timestamp">Timestamp</label>
+          <input type="text" class="form-control" name="timestamp" id="field_timestamp" data-cy="timestamp" formControlName="timestamp" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.vaNum" for="field_vaNum">Va Num</label>
+          <input type="text" class="form-control" name="vaNum" id="field_vaNum" data-cy="vaNum" formControlName="vaNum" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.finPar" for="field_finPar">Fin Par</label>
+          <input type="text" class="form-control" name="finPar" id="field_finPar" data-cy="finPar" formControlName="finPar" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.clientCode" for="field_clientCode">Client Code</label>
+          <input
+            type="text"
+            class="form-control"
+            name="clientCode"
+            id="field_clientCode"
+            data-cy="clientCode"
+            formControlName="clientCode"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.requestDateTime" for="field_requestDateTime">Request Date Time</label>
+          <input
+            type="text"
+            class="form-control"
+            name="requestDateTime"
+            id="field_requestDateTime"
+            data-cy="requestDateTime"
+            formControlName="requestDateTime"
+          />
+          @if (
+            editForm.get('requestDateTime')!.invalid && (editForm.get('requestDateTime')!.dirty || editForm.get('requestDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('requestDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.reslt" for="field_reslt">Reslt</label>
+          <input type="text" class="form-control" name="reslt" id="field_reslt" data-cy="reslt" formControlName="reslt" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.statusDesc" for="field_statusDesc">Status Desc</label>
+          <input
+            type="text"
+            class="form-control"
+            name="statusDesc"
+            id="field_statusDesc"
+            data-cy="statusDesc"
+            formControlName="statusDesc"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.errorCode" for="field_errorCode">Error Code</label>
+          <input type="text" class="form-control" name="errorCode" id="field_errorCode" data-cy="errorCode" formControlName="errorCode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.responseDateTime" for="field_responseDateTime"
+            >Response Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="responseDateTime"
+            id="field_responseDateTime"
+            data-cy="responseDateTime"
+            formControlName="responseDateTime"
+          />
+          @if (
+            editForm.get('responseDateTime')!.invalid &&
+            (editForm.get('responseDateTime')!.dirty || editForm.get('responseDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('responseDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.lastupdatedDateTime" for="field_lastupdatedDateTime"
+            >Lastupdated Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastupdatedDateTime"
+            id="field_lastupdatedDateTime"
+            data-cy="lastupdatedDateTime"
+            formControlName="lastupdatedDateTime"
+          />
+          @if (
+            editForm.get('lastupdatedDateTime')!.invalid &&
+            (editForm.get('lastupdatedDateTime')!.dirty || editForm.get('lastupdatedDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('lastupdatedDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdatedBy"
+            id="field_lastUpdatedBy"
+            data-cy="lastUpdatedBy"
+            formControlName="lastUpdatedBy"
+          />
+          @if (editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)) {
+            <div>
+              @if (editForm.get('lastUpdatedBy')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.updateVA.tradeEntity" for="field_tradeEntity">Trade Entity</label>
+          <select
+            class="form-control"
+            id="field_tradeEntity"
+            data-cy="tradeEntity"
+            name="tradeEntity"
+            formControlName="tradeEntity"
+            [compareWith]="compareTradeEntity"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradeEntityOption of tradeEntitiesSharedCollection; track $index) {
+              <option [ngValue]="tradeEntityOption">{{ tradeEntityOption.entityId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

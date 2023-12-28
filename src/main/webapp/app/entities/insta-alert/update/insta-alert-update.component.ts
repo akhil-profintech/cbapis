@@ -1,0 +1,104 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { finalize, map } from 'rxjs/operators';
+
+import SharedModule from 'app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { ITradeEntity } from 'app/entities/trade-entity/trade-entity.model';
+import { TradeEntityService } from 'app/entities/trade-entity/service/trade-entity.service';
+import { IInstaAlert } from '../insta-alert.model';
+import { InstaAlertService } from '../service/insta-alert.service';
+import { InstaAlertFormService, InstaAlertFormGroup } from './insta-alert-form.service';
+
+@Component({
+  standalone: true,
+  selector: 'jhi-insta-alert-update',
+  templateUrl: './insta-alert-update.component.html',
+  imports: [SharedModule, FormsModule, ReactiveFormsModule],
+})
+export class InstaAlertUpdateComponent implements OnInit {
+  isSaving = false;
+  instaAlert: IInstaAlert | null = null;
+
+  tradeEntitiesSharedCollection: ITradeEntity[] = [];
+
+  editForm: InstaAlertFormGroup = this.instaAlertFormService.createInstaAlertFormGroup();
+
+  constructor(
+    protected instaAlertService: InstaAlertService,
+    protected instaAlertFormService: InstaAlertFormService,
+    protected tradeEntityService: TradeEntityService,
+    protected activatedRoute: ActivatedRoute,
+  ) {}
+
+  compareTradeEntity = (o1: ITradeEntity | null, o2: ITradeEntity | null): boolean => this.tradeEntityService.compareTradeEntity(o1, o2);
+
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ instaAlert }) => {
+      this.instaAlert = instaAlert;
+      if (instaAlert) {
+        this.updateForm(instaAlert);
+      }
+
+      this.loadRelationshipsOptions();
+    });
+  }
+
+  previousState(): void {
+    window.history.back();
+  }
+
+  save(): void {
+    this.isSaving = true;
+    const instaAlert = this.instaAlertFormService.getInstaAlert(this.editForm);
+    if (instaAlert.id !== null) {
+      this.subscribeToSaveResponse(this.instaAlertService.update(instaAlert));
+    } else {
+      this.subscribeToSaveResponse(this.instaAlertService.create(instaAlert));
+    }
+  }
+
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IInstaAlert>>): void {
+    result.pipe(finalize(() => this.onSaveFinalize())).subscribe({
+      next: () => this.onSaveSuccess(),
+      error: () => this.onSaveError(),
+    });
+  }
+
+  protected onSaveSuccess(): void {
+    this.previousState();
+  }
+
+  protected onSaveError(): void {
+    // Api for inheritance.
+  }
+
+  protected onSaveFinalize(): void {
+    this.isSaving = false;
+  }
+
+  protected updateForm(instaAlert: IInstaAlert): void {
+    this.instaAlert = instaAlert;
+    this.instaAlertFormService.resetForm(this.editForm, instaAlert);
+
+    this.tradeEntitiesSharedCollection = this.tradeEntityService.addTradeEntityToCollectionIfMissing<ITradeEntity>(
+      this.tradeEntitiesSharedCollection,
+      instaAlert.tradeEntity,
+    );
+  }
+
+  protected loadRelationshipsOptions(): void {
+    this.tradeEntityService
+      .query()
+      .pipe(map((res: HttpResponse<ITradeEntity[]>) => res.body ?? []))
+      .pipe(
+        map((tradeEntities: ITradeEntity[]) =>
+          this.tradeEntityService.addTradeEntityToCollectionIfMissing<ITradeEntity>(tradeEntities, this.instaAlert?.tradeEntity),
+        ),
+      )
+      .subscribe((tradeEntities: ITradeEntity[]) => (this.tradeEntitiesSharedCollection = tradeEntities));
+  }
+}

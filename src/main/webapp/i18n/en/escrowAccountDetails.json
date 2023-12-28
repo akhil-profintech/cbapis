@@ -1,0 +1,32 @@
+{
+  "cbapisApp": {
+    "escrowAccountDetails": {
+      "home": {
+        "title": "Escrow Account Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Escrow Account Details",
+        "createOrEditLabel": "Create or edit a Escrow Account Details",
+        "notFound": "No Escrow Account Details found"
+      },
+      "created": "A new Escrow Account Details is created with identifier {{ param }}",
+      "updated": "A Escrow Account Details is updated with identifier {{ param }}",
+      "deleted": "A Escrow Account Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Escrow Account Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Escrow Account Details"
+      },
+      "id": "ID",
+      "escrowDetailsId": "Escrow Details Id",
+      "tenantId": "Tenant Id",
+      "customerId": "Customer Id",
+      "accName": "Acc Name",
+      "ifscCode": "Ifsc Code",
+      "virtualAccNumber": "Virtual Acc Number",
+      "poolingAccNumber": "Pooling Acc Number",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment"
+    }
+  }
+}

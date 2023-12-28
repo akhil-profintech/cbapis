@@ -1,0 +1,296 @@
+<div>
+  <h2 id="page-heading" data-cy="TradeHeading">
+    <span jhiTranslate="cbapisApp.trade.home.title">Trades</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.trade.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-trade"
+        [routerLink]="['/trade/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.trade.home.createLabel">Create a new Trade</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (trades?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.trade.home.notFound">No Trades found</span>
+    </div>
+  }
+
+  @if (trades && trades.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeId">Trade Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeRefNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeRefNumber">Trade Ref Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="sellerGstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.sellerGstId">Seller Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="buyerGstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.buyerGstId">Buyer Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeAmount">Trade Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="invoiceDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.invoiceDate">Invoice Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="invoiceNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.invoiceNumber">Invoice Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeDocType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeDocType">Trade Doc Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeDocSource">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeDocSource">Trade Doc Source</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeDocCredibility">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeDocCredibility">Trade Doc Credibility</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeMilestoneStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeMilestoneStatus">Trade Milestone Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeAdvancePayment">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradeAdvancePayment">Trade Advance Payment</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.anchorTraderName">Anchor Trader Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradePartnerName">Trade Partner Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="invoiceTerm">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.invoiceTerm">Invoice Term</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="acceptanceFromTradePartner">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.acceptanceFromTradePartner">Acceptance From Trade Partner</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reasonForFinance">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.reasonForFinance">Reason For Finance</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerSector">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradePartnerSector">Trade Partner Sector</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerLocation">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradePartnerLocation">Trade Partner Location</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerGstComplianceScore">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradePartnerGstComplianceScore">Trade Partner Gst Compliance Score</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financerequest.requestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.financerequest">Financerequest</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradepartner.tpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchortrader.atId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.anchortrader">Anchortrader</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (trade of trades; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/trade', trade.id, 'view']">{{ trade.id }}</a>
+              </td>
+              <td>{{ trade.tradeId }}</td>
+              <td>{{ trade.tradeRefNumber }}</td>
+              <td>{{ trade.sellerGstId }}</td>
+              <td>{{ trade.buyerGstId }}</td>
+              <td>{{ trade.tradeAmount }}</td>
+              <td>{{ trade.invoiceDate | formatMediumDate }}</td>
+              <td>{{ trade.invoiceNumber }}</td>
+              <td>{{ trade.tradeDocType }}</td>
+              <td>{{ trade.tradeDocSource }}</td>
+              <td>{{ trade.tradeDocCredibility }}</td>
+              <td>{{ trade.tradeMilestoneStatus }}</td>
+              <td>{{ trade.tradeAdvancePayment }}</td>
+              <td>{{ trade.anchorTraderName }}</td>
+              <td>{{ trade.tradePartnerName }}</td>
+              <td>{{ trade.invoiceTerm }}</td>
+              <td>{{ trade.acceptanceFromTradePartner }}</td>
+              <td>{{ trade.reasonForFinance }}</td>
+              <td>{{ trade.tradePartnerSector }}</td>
+              <td>{{ trade.tradePartnerLocation }}</td>
+              <td>{{ trade.tradePartnerGstComplianceScore }}</td>
+              <td>
+                @if (trade.financerequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.requestId }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (trade.tradepartner) {
+                  <div>
+                    <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (trade.anchortrader) {
+                  <div>
+                    <a [routerLink]="['/anchor-trader', trade.anchortrader.id, 'view']">{{ trade.anchortrader.atId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/trade', trade.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/trade', trade.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(trade)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (trades && trades.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

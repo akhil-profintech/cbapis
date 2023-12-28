@@ -1,0 +1,208 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-settlement-heading" data-cy="SettlementCreateUpdateHeading" jhiTranslate="cbapisApp.settlement.home.createOrEditLabel">
+        Create or edit a Settlement
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.settlementId" for="field_settlementId">Settlement Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="settlementId"
+            id="field_settlementId"
+            data-cy="settlementId"
+            formControlName="settlementId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.settlementRefNo" for="field_settlementRefNo"
+            >Settlement Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="settlementRefNo"
+            id="field_settlementRefNo"
+            data-cy="settlementRefNo"
+            formControlName="settlementRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.offerId" for="field_offerId">Offer Id</label>
+          <input type="number" class="form-control" name="offerId" id="field_offerId" data-cy="offerId" formControlName="offerId" />
+          @if (editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)) {
+            <div>
+              @if (editForm.get('offerId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('offerId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.dbmtRequestId" for="field_dbmtRequestId">Dbmt Request Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="dbmtRequestId"
+            id="field_dbmtRequestId"
+            data-cy="dbmtRequestId"
+            formControlName="dbmtRequestId"
+          />
+          @if (editForm.get('dbmtRequestId')!.invalid && (editForm.get('dbmtRequestId')!.dirty || editForm.get('dbmtRequestId')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtRequestId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('dbmtRequestId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.dbmtId" for="field_dbmtId">Dbmt Id</label>
+          <input type="number" class="form-control" name="dbmtId" id="field_dbmtId" data-cy="dbmtId" formControlName="dbmtId" />
+          @if (editForm.get('dbmtId')!.invalid && (editForm.get('dbmtId')!.dirty || editForm.get('dbmtId')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('dbmtId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.dbmtDate" for="field_dbmtDate">Dbmt Date</label>
+          <input type="text" class="form-control" name="dbmtDate" id="field_dbmtDate" data-cy="dbmtDate" formControlName="dbmtDate" />
+          @if (editForm.get('dbmtDate')!.invalid && (editForm.get('dbmtDate')!.dirty || editForm.get('dbmtDate')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.dbmtStatus" for="field_dbmtStatus">Dbmt Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="dbmtStatus"
+            id="field_dbmtStatus"
+            data-cy="dbmtStatus"
+            formControlName="dbmtStatus"
+          />
+          @if (editForm.get('dbmtStatus')!.invalid && (editForm.get('dbmtStatus')!.dirty || editForm.get('dbmtStatus')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtStatus')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.dbmtAmount" for="field_dbmtAmount">Dbmt Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="dbmtAmount"
+            id="field_dbmtAmount"
+            data-cy="dbmtAmount"
+            formControlName="dbmtAmount"
+          />
+          @if (editForm.get('dbmtAmount')!.invalid && (editForm.get('dbmtAmount')!.dirty || editForm.get('dbmtAmount')!.touched)) {
+            <div>
+              @if (editForm.get('dbmtAmount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('dbmtAmount')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.currency" for="field_currency">Currency</label>
+          <input type="text" class="form-control" name="currency" id="field_currency" data-cy="currency" formControlName="currency" />
+          @if (editForm.get('currency')!.invalid && (editForm.get('currency')!.dirty || editForm.get('currency')!.touched)) {
+            <div>
+              @if (editForm.get('currency')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.financerequest" for="field_financerequest">Financerequest</label>
+          <select
+            class="form-control"
+            id="field_financerequest"
+            data-cy="financerequest"
+            name="financerequest"
+            formControlName="financerequest"
+            [compareWith]="compareFinanceRequest"
+          >
+            <option [ngValue]="null"></option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

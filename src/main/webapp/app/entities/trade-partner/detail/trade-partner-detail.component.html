@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (tradePartner) {
+      <div>
+        <h2 data-cy="tradePartnerDetailsHeading"><span jhiTranslate="cbapisApp.tradePartner.detail.title">Trade Partner</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ tradePartner.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ tradePartner.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.tpId">Tp Id</span></dt>
+          <dd>
+            <span>{{ tradePartner.tpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.orgId">Org Id</span></dt>
+          <dd>
+            <span>{{ tradePartner.orgId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ tradePartner.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.orgName">Org Name</span></dt>
+          <dd>
+            <span>{{ tradePartner.orgName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.gstId">Gst Id</span></dt>
+          <dd>
+            <span>{{ tradePartner.gstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.phoneNumber">Phone Number</span></dt>
+          <dd>
+            <span>{{ tradePartner.phoneNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.tradePartnerName">Trade Partner Name</span></dt>
+          <dd>
+            <span>{{ tradePartner.tradePartnerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.location">Location</span></dt>
+          <dd>
+            <span>{{ tradePartner.location }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.tradepartnerGST">Tradepartner GST</span></dt>
+          <dd>
+            <span>{{ tradePartner.tradepartnerGST }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.tradePartnerSector">Trade Partner Sector</span></dt>
+          <dd>
+            <span>{{ tradePartner.tradePartnerSector }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradePartner.acceptanceFromTradePartner">Acceptance From Trade Partner</span></dt>
+          <dd>
+            <span>{{ tradePartner.acceptanceFromTradePartner }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/trade-partner', tradePartner.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

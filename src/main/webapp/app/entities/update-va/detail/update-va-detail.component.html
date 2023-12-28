@@ -1,0 +1,118 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (updateVA) {
+      <div>
+        <h2 data-cy="updateVADetailsHeading"><span jhiTranslate="cbapisApp.updateVA.detail.title">Update VA</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ updateVA.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.updateVirAccId">Update Vir Acc Id</span></dt>
+          <dd>
+            <span>{{ updateVA.updateVirAccId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.finReqId">Fin Req Id</span></dt>
+          <dd>
+            <span>{{ updateVA.finReqId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.subGrpId">Sub Grp Id</span></dt>
+          <dd>
+            <span>{{ updateVA.subGrpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.msgId">Msg Id</span></dt>
+          <dd>
+            <span>{{ updateVA.msgId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.cnvId">Cnv Id</span></dt>
+          <dd>
+            <span>{{ updateVA.cnvId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.extRefId">Ext Ref Id</span></dt>
+          <dd>
+            <span>{{ updateVA.extRefId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.bizObjId">Biz Obj Id</span></dt>
+          <dd>
+            <span>{{ updateVA.bizObjId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.appId">App Id</span></dt>
+          <dd>
+            <span>{{ updateVA.appId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.timestamp">Timestamp</span></dt>
+          <dd>
+            <span>{{ updateVA.timestamp }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.vaNum">Va Num</span></dt>
+          <dd>
+            <span>{{ updateVA.vaNum }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.finPar">Fin Par</span></dt>
+          <dd>
+            <span>{{ updateVA.finPar }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.clientCode">Client Code</span></dt>
+          <dd>
+            <span>{{ updateVA.clientCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.requestDateTime">Request Date Time</span></dt>
+          <dd>
+            <span>{{ updateVA.requestDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.reslt">Reslt</span></dt>
+          <dd>
+            <span>{{ updateVA.reslt }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.status">Status</span></dt>
+          <dd>
+            <span>{{ updateVA.status }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.statusDesc">Status Desc</span></dt>
+          <dd>
+            <span>{{ updateVA.statusDesc }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.errorCode">Error Code</span></dt>
+          <dd>
+            <span>{{ updateVA.errorCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.responseDateTime">Response Date Time</span></dt>
+          <dd>
+            <span>{{ updateVA.responseDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.lastupdatedDateTime">Lastupdated Date Time</span></dt>
+          <dd>
+            <span>{{ updateVA.lastupdatedDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.lastUpdatedBy">Last Updated By</span></dt>
+          <dd>
+            <span>{{ updateVA.lastUpdatedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.updateVA.tradeEntity">Trade Entity</span></dt>
+          <dd>
+            @if (updateVA.tradeEntity) {
+              <div>
+                <a [routerLink]="['/trade-entity', updateVA.tradeEntity.id, 'view']">{{ updateVA.tradeEntity.entityId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/update-va', updateVA.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

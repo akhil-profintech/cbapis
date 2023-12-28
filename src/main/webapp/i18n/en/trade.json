@@ -1,0 +1,46 @@
+{
+  "cbapisApp": {
+    "trade": {
+      "home": {
+        "title": "Trades",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Trade",
+        "createOrEditLabel": "Create or edit a Trade",
+        "notFound": "No Trades found"
+      },
+      "created": "A new Trade is created with identifier {{ param }}",
+      "updated": "A Trade is updated with identifier {{ param }}",
+      "deleted": "A Trade is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Trade {{ id }}?"
+      },
+      "detail": {
+        "title": "Trade"
+      },
+      "id": "ID",
+      "tradeId": "Trade Id",
+      "tradeRefNumber": "Trade Ref Number",
+      "sellerGstId": "Seller Gst Id",
+      "buyerGstId": "Buyer Gst Id",
+      "tradeAmount": "Trade Amount",
+      "invoiceDate": "Invoice Date",
+      "invoiceNumber": "Invoice Number",
+      "tradeDocType": "Trade Doc Type",
+      "tradeDocSource": "Trade Doc Source",
+      "tradeDocCredibility": "Trade Doc Credibility",
+      "tradeMilestoneStatus": "Trade Milestone Status",
+      "tradeAdvancePayment": "Trade Advance Payment",
+      "anchorTraderName": "Anchor Trader Name",
+      "tradePartnerName": "Trade Partner Name",
+      "invoiceTerm": "Invoice Term",
+      "acceptanceFromTradePartner": "Acceptance From Trade Partner",
+      "reasonForFinance": "Reason For Finance",
+      "tradePartnerSector": "Trade Partner Sector",
+      "tradePartnerLocation": "Trade Partner Location",
+      "tradePartnerGstComplianceScore": "Trade Partner Gst Compliance Score",
+      "financerequest": "Financerequest",
+      "tradepartner": "Tradepartner",
+      "anchortrader": "Anchortrader"
+    }
+  }
+}

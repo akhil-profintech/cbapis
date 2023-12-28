@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (trade) {
+      <div>
+        <h2 data-cy="tradeDetailsHeading"><span jhiTranslate="cbapisApp.trade.detail.title">Trade</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ trade.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeId">Trade Id</span></dt>
+          <dd>
+            <span>{{ trade.tradeId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeRefNumber">Trade Ref Number</span></dt>
+          <dd>
+            <span>{{ trade.tradeRefNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.sellerGstId">Seller Gst Id</span></dt>
+          <dd>
+            <span>{{ trade.sellerGstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.buyerGstId">Buyer Gst Id</span></dt>
+          <dd>
+            <span>{{ trade.buyerGstId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeAmount">Trade Amount</span></dt>
+          <dd>
+            <span>{{ trade.tradeAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.invoiceDate">Invoice Date</span></dt>
+          <dd>
+            <span>{{ trade.invoiceDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.invoiceNumber">Invoice Number</span></dt>
+          <dd>
+            <span>{{ trade.invoiceNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeDocType">Trade Doc Type</span></dt>
+          <dd>
+            <span>{{ trade.tradeDocType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeDocSource">Trade Doc Source</span></dt>
+          <dd>
+            <span>{{ trade.tradeDocSource }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeDocCredibility">Trade Doc Credibility</span></dt>
+          <dd>
+            <span>{{ trade.tradeDocCredibility }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeMilestoneStatus">Trade Milestone Status</span></dt>
+          <dd>
+            <span>{{ trade.tradeMilestoneStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeAdvancePayment">Trade Advance Payment</span></dt>
+          <dd>
+            <span>{{ trade.tradeAdvancePayment }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.anchorTraderName">Anchor Trader Name</span></dt>
+          <dd>
+            <span>{{ trade.anchorTraderName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradePartnerName">Trade Partner Name</span></dt>
+          <dd>
+            <span>{{ trade.tradePartnerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.invoiceTerm">Invoice Term</span></dt>
+          <dd>
+            <span>{{ trade.invoiceTerm }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.acceptanceFromTradePartner">Acceptance From Trade Partner</span></dt>
+          <dd>
+            <span>{{ trade.acceptanceFromTradePartner }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.reasonForFinance">Reason For Finance</span></dt>
+          <dd>
+            <span>{{ trade.reasonForFinance }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradePartnerSector">Trade Partner Sector</span></dt>
+          <dd>
+            <span>{{ trade.tradePartnerSector }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradePartnerLocation">Trade Partner Location</span></dt>
+          <dd>
+            <span>{{ trade.tradePartnerLocation }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradePartnerGstComplianceScore">Trade Partner Gst Compliance Score</span></dt>
+          <dd>
+            <span>{{ trade.tradePartnerGstComplianceScore }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.financerequest">Financerequest</span></dt>
+          <dd>
+            @if (trade.financerequest) {
+              <div>
+                <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.requestId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span></dt>
+          <dd>
+            @if (trade.tradepartner) {
+              <div>
+                <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.anchortrader">Anchortrader</span></dt>
+          <dd>
+            @if (trade.anchortrader) {
+              <div>
+                <a [routerLink]="['/anchor-trader', trade.anchortrader.id, 'view']">{{ trade.anchortrader.atId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/trade', trade.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

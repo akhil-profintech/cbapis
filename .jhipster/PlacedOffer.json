@@ -1,0 +1,113 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131000"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "placed_offer",
+  "fields": [
+    {
+      "fieldName": "reqOffId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placedOfferRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "reqAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "marginPtg",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "marginValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amountAftMargin",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestPtg",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "term",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "interestValue",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "netAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offerDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "requestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "placedOfferDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "anchorTrader",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "disbursalAmount",
+      "fieldType": "String"
+    }
+  ],
+  "name": "PlacedOffer",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "fpId",
+      "otherEntityName": "financePartner",
+      "relationshipName": "financepartner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

@@ -1,0 +1,44 @@
+{
+  "cbapisApp": {
+    "updateVA": {
+      "home": {
+        "title": "Update VAS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Update VA",
+        "createOrEditLabel": "Create or edit a Update VA",
+        "notFound": "No Update VAS found"
+      },
+      "created": "A new Update VA is created with identifier {{ param }}",
+      "updated": "A Update VA is updated with identifier {{ param }}",
+      "deleted": "A Update VA is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Update VA {{ id }}?"
+      },
+      "detail": {
+        "title": "Update VA"
+      },
+      "id": "ID",
+      "updateVirAccId": "Update Vir Acc Id",
+      "finReqId": "Fin Req Id",
+      "subGrpId": "Sub Grp Id",
+      "msgId": "Msg Id",
+      "cnvId": "Cnv Id",
+      "extRefId": "Ext Ref Id",
+      "bizObjId": "Biz Obj Id",
+      "appId": "App Id",
+      "timestamp": "Timestamp",
+      "vaNum": "Va Num",
+      "finPar": "Fin Par",
+      "clientCode": "Client Code",
+      "requestDateTime": "Request Date Time",
+      "reslt": "Reslt",
+      "status": "Status",
+      "statusDesc": "Status Desc",
+      "errorCode": "Error Code",
+      "responseDateTime": "Response Date Time",
+      "lastupdatedDateTime": "Lastupdated Date Time",
+      "lastUpdatedBy": "Last Updated By",
+      "tradeEntity": "Trade Entity"
+    }
+  }
+}

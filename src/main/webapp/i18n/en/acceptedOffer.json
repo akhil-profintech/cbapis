@@ -1,0 +1,41 @@
+{
+  "cbapisApp": {
+    "acceptedOffer": {
+      "home": {
+        "title": "Accepted Offers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Accepted Offer",
+        "createOrEditLabel": "Create or edit a Accepted Offer",
+        "notFound": "No Accepted Offers found"
+      },
+      "created": "A new Accepted Offer is created with identifier {{ param }}",
+      "updated": "A Accepted Offer is updated with identifier {{ param }}",
+      "deleted": "A Accepted Offer is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Accepted Offer {{ id }}?"
+      },
+      "detail": {
+        "title": "Accepted Offer"
+      },
+      "id": "ID",
+      "offerId": "Offer Id",
+      "acceptedOfferRefNo": "Accepted Offer Ref No",
+      "reqOffId": "Req Off Id",
+      "value": "Value",
+      "reqAmount": "Req Amount",
+      "marginPtg": "Margin Ptg",
+      "marginValue": "Margin Value",
+      "amountAftMargin": "Amount Aft Margin",
+      "interestPtg": "Interest Ptg",
+      "term": "Term",
+      "interestValue": "Interest Value",
+      "netAmount": "Net Amount",
+      "status": "Status",
+      "offerDate": "Offer Date",
+      "offerAcceptedDate": "Offer Accepted Date",
+      "financerequest": "Financerequest",
+      "financepartner": "Financepartner",
+      "anchortrader": "Anchortrader"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "cbapisApp": {
+    "participantSettlement": {
+      "home": {
+        "title": "Participant Settlements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Participant Settlement",
+        "createOrEditLabel": "Create or edit a Participant Settlement",
+        "notFound": "No Participant Settlements found"
+      },
+      "created": "A new Participant Settlement is created with identifier {{ param }}",
+      "updated": "A Participant Settlement is updated with identifier {{ param }}",
+      "deleted": "A Participant Settlement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Participant Settlement {{ id }}?"
+      },
+      "detail": {
+        "title": "Participant Settlement"
+      },
+      "id": "ID",
+      "participantSettlementId": "Participant Settlement Id",
+      "participantId": "Participant Id",
+      "participantName": "Participant Name",
+      "gstId": "Gst Id",
+      "settlementType": "Settlement Type",
+      "settlementAmount": "Settlement Amount",
+      "settlementDate": "Settlement Date",
+      "settlementDueDate": "Settlement Due Date",
+      "settlementContactInfo": "Settlement Contact Info",
+      "patronOfPayment": "Patron Of Payment",
+      "recipientOfPayment": "Recipient Of Payment",
+      "settlementMethod": "Settlement Method",
+      "tenantId": "Tenant Id",
+      "accName": "Acc Name",
+      "ifscCode": "Ifsc Code",
+      "accNumber": "Acc Number",
+      "docId": "Doc Id",
+      "fTTransactionDetails": "F T Transaction Details",
+      "docDetails": "Doc Details",
+      "settlement": "Settlement"
+    }
+  }
+}

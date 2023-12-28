@@ -1,0 +1,186 @@
+<div>
+  <h2 id="page-heading" data-cy="DocDetailsHeading">
+    <span jhiTranslate="cbapisApp.docDetails.home.title">Doc Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.docDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-doc-details"
+        [routerLink]="['/doc-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.docDetails.home.createLabel">Create a new Doc Details</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (docDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.docDetails.home.notFound">No Doc Details found</span>
+    </div>
+  }
+
+  @if (docDetails && docDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.docDetailsId">Doc Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docRecordId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.docRecordId">Doc Record Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="link">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.link">Link</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="description">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.description">Description</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="docType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.docType">Doc Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.dbmtRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.disbursement">Disbursement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repayment.repaymentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.repayment">Repayment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="participantsettlement.participantSettlementId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.participantsettlement">Participantsettlement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (docDetails of docDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/doc-details', docDetails.id, 'view']">{{ docDetails.id }}</a>
+              </td>
+              <td>{{ docDetails.docDetailsId }}</td>
+              <td>{{ docDetails.docRecordId }}</td>
+              <td>{{ docDetails.link }}</td>
+              <td>{{ docDetails.description }}</td>
+              <td>{{ docDetails.docType }}</td>
+              <td>{{ docDetails.status }}</td>
+              <td>
+                @if (docDetails.disbursement) {
+                  <div>
+                    <a [routerLink]="['/disbursement', docDetails.disbursement.id, 'view']">{{ docDetails.disbursement.dbmtRequestId }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (docDetails.repayment) {
+                  <div>
+                    <a [routerLink]="['/repayment', docDetails.repayment.id, 'view']">{{ docDetails.repayment.repaymentId }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (docDetails.participantsettlement) {
+                  <div>
+                    <a [routerLink]="['/participant-settlement', docDetails.participantsettlement.id, 'view']">{{
+                      docDetails.participantsettlement.participantSettlementId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/doc-details', docDetails.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/doc-details', docDetails.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(docDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (docDetails && docDetails.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

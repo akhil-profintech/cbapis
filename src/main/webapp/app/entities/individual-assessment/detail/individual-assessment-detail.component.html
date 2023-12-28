@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (individualAssessment) {
+      <div>
+        <h2 data-cy="individualAssessmentDetailsHeading">
+          <span jhiTranslate="cbapisApp.individualAssessment.detail.title">Individual Assessment</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ individualAssessment.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.assessmentId">Assessment Id</span></dt>
+          <dd>
+            <span>{{ individualAssessment.assessmentId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.creditScore">Credit Score</span></dt>
+          <dd>
+            <span>{{ individualAssessment.creditScore }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.finalverdict">Finalverdict</span></dt>
+          <dd>
+            <span>{{ individualAssessment.finalverdict }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.creRequestId">Cre Request Id</span></dt>
+          <dd>
+            <span>{{ individualAssessment.creRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.timestamp">Timestamp</span></dt>
+          <dd>
+            <span>{{ individualAssessment.timestamp }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.tradepartnerGST">Tradepartner GST</span></dt>
+          <dd>
+            <span>{{ individualAssessment.tradepartnerGST }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.tradepartnerId">Tradepartner Id</span></dt>
+          <dd>
+            <span>{{ individualAssessment.tradepartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.invoiceAmount">Invoice Amount</span></dt>
+          <dd>
+            <span>{{ individualAssessment.invoiceAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.invoiceId">Invoice Id</span></dt>
+          <dd>
+            <span>{{ individualAssessment.invoiceId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.individualAssessment.cbcreprocess">Cbcreprocess</span></dt>
+          <dd>
+            @if (individualAssessment.cbcreprocess) {
+              <div>
+                <a [routerLink]="['/cbcre-process', individualAssessment.cbcreprocess.id, 'view']">{{
+                  individualAssessment.cbcreprocess.cbProcessId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/individual-assessment', individualAssessment.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

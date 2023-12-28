@@ -1,0 +1,161 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-individual-assessment-heading"
+        data-cy="IndividualAssessmentCreateUpdateHeading"
+        jhiTranslate="cbapisApp.individualAssessment.home.createOrEditLabel"
+      >
+        Create or edit a Individual Assessment
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.assessmentId" for="field_assessmentId"
+            >Assessment Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="assessmentId"
+            id="field_assessmentId"
+            data-cy="assessmentId"
+            formControlName="assessmentId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.creditScore" for="field_creditScore">Credit Score</label>
+          <input
+            type="number"
+            class="form-control"
+            name="creditScore"
+            id="field_creditScore"
+            data-cy="creditScore"
+            formControlName="creditScore"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.finalverdict" for="field_finalverdict">Finalverdict</label>
+          <input
+            type="text"
+            class="form-control"
+            name="finalverdict"
+            id="field_finalverdict"
+            data-cy="finalverdict"
+            formControlName="finalverdict"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.creRequestId" for="field_creRequestId"
+            >Cre Request Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creRequestId"
+            id="field_creRequestId"
+            data-cy="creRequestId"
+            formControlName="creRequestId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.timestamp" for="field_timestamp">Timestamp</label>
+          <input type="text" class="form-control" name="timestamp" id="field_timestamp" data-cy="timestamp" formControlName="timestamp" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.tradepartnerGST" for="field_tradepartnerGST"
+            >Tradepartner GST</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradepartnerGST"
+            id="field_tradepartnerGST"
+            data-cy="tradepartnerGST"
+            formControlName="tradepartnerGST"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.tradepartnerId" for="field_tradepartnerId"
+            >Tradepartner Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradepartnerId"
+            id="field_tradepartnerId"
+            data-cy="tradepartnerId"
+            formControlName="tradepartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.invoiceAmount" for="field_invoiceAmount"
+            >Invoice Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="invoiceAmount"
+            id="field_invoiceAmount"
+            data-cy="invoiceAmount"
+            formControlName="invoiceAmount"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.invoiceId" for="field_invoiceId">Invoice Id</label>
+          <input type="text" class="form-control" name="invoiceId" id="field_invoiceId" data-cy="invoiceId" formControlName="invoiceId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.individualAssessment.cbcreprocess" for="field_cbcreprocess">Cbcreprocess</label>
+          <select
+            class="form-control"
+            id="field_cbcreprocess"
+            data-cy="cbcreprocess"
+            name="cbcreprocess"
+            formControlName="cbcreprocess"
+            [compareWith]="compareCBCREProcess"
+          >
+            <option [ngValue]="null"></option>
+            @for (cBCREProcessOption of cBCREProcessesSharedCollection; track $index) {
+              <option [ngValue]="cBCREProcessOption">{{ cBCREProcessOption.cbProcessId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,254 @@
+<div>
+  <h2 id="page-heading" data-cy="CollectionTransactionDetailsHeading">
+    <span jhiTranslate="cbapisApp.collectionTransactionDetails.home.title">Collection Transaction Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.collectionTransactionDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-collection-transaction-details"
+        [routerLink]="['/collection-transaction-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.collectionTransactionDetails.home.createLabel">Create a new Collection Transaction Details</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (collectionTransactionDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.collectionTransactionDetails.home.notFound">No Collection Transaction Details found</span>
+    </div>
+  }
+
+  @if (collectionTransactionDetails && collectionTransactionDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="trnxDetailsid">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.trnxDetailsid">Trnx Detailsid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.customerCode">Customer Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="productCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.productCode">Product Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.transactionType">Transaction Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmt">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.batchAmt">Batch Amt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmtCcd">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.batchAmtCcd">Batch Amt Ccd</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.creditDate">Credit Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vaNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.vaNumber">Va Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="utrNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.utrNo">Utr No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditGenerationTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.creditGenerationTime">Credit Generation Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.remitterAccountNumber">Remitter Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.collectionTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.disbursement">Disbursement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repayment.collectionTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.collectionTransactionDetails.repayment">Repayment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (collectionTransactionDetails of collectionTransactionDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/collection-transaction-details', collectionTransactionDetails.id, 'view']">{{
+                  collectionTransactionDetails.id
+                }}</a>
+              </td>
+              <td>{{ collectionTransactionDetails.trnxDetailsid }}</td>
+              <td>{{ collectionTransactionDetails.customerCode }}</td>
+              <td>{{ collectionTransactionDetails.customerName }}</td>
+              <td>{{ collectionTransactionDetails.productCode }}</td>
+              <td>{{ collectionTransactionDetails.transactionType }}</td>
+              <td>{{ collectionTransactionDetails.batchAmt }}</td>
+              <td>{{ collectionTransactionDetails.batchAmtCcd }}</td>
+              <td>{{ collectionTransactionDetails.creditDate }}</td>
+              <td>{{ collectionTransactionDetails.vaNumber }}</td>
+              <td>{{ collectionTransactionDetails.utrNo }}</td>
+              <td>{{ collectionTransactionDetails.creditGenerationTime }}</td>
+              <td>{{ collectionTransactionDetails.remitterName }}</td>
+              <td>{{ collectionTransactionDetails.remitterAccountNumber }}</td>
+              <td>{{ collectionTransactionDetails.ifscCode }}</td>
+              <td>
+                @if (collectionTransactionDetails.disbursement) {
+                  <div>
+                    <a [routerLink]="['/disbursement', collectionTransactionDetails.disbursement.id, 'view']">{{
+                      collectionTransactionDetails.disbursement.collectionTrnxDetailsId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (collectionTransactionDetails.repayment) {
+                  <div>
+                    <a [routerLink]="['/repayment', collectionTransactionDetails.repayment.id, 'view']">{{
+                      collectionTransactionDetails.repayment.collectionTrnxDetailsId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/collection-transaction-details', collectionTransactionDetails.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/collection-transaction-details', collectionTransactionDetails.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(collectionTransactionDetails)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (collectionTransactionDetails && collectionTransactionDetails.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

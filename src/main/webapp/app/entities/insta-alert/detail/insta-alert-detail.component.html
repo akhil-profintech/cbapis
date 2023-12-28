@@ -1,0 +1,114 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (instaAlert) {
+      <div>
+        <h2 data-cy="instaAlertDetailsHeading"><span jhiTranslate="cbapisApp.instaAlert.detail.title">Insta Alert</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ instaAlert.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.instaAlertId">Insta Alert Id</span></dt>
+          <dd>
+            <span>{{ instaAlert.instaAlertId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.finReqId">Fin Req Id</span></dt>
+          <dd>
+            <span>{{ instaAlert.finReqId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.subGrpId">Sub Grp Id</span></dt>
+          <dd>
+            <span>{{ instaAlert.subGrpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.customerCode">Customer Code</span></dt>
+          <dd>
+            <span>{{ instaAlert.customerCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ instaAlert.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.productCode">Product Code</span></dt>
+          <dd>
+            <span>{{ instaAlert.productCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.poolingAccountNumber">Pooling Account Number</span></dt>
+          <dd>
+            <span>{{ instaAlert.poolingAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.transactionType">Transaction Type</span></dt>
+          <dd>
+            <span>{{ instaAlert.transactionType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.batchAmt">Batch Amt</span></dt>
+          <dd>
+            <span>{{ instaAlert.batchAmt }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.batchAmtCcd">Batch Amt Ccd</span></dt>
+          <dd>
+            <span>{{ instaAlert.batchAmtCcd }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.creditDate">Credit Date</span></dt>
+          <dd>
+            <span>{{ instaAlert.creditDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.vaNumber">Va Number</span></dt>
+          <dd>
+            <span>{{ instaAlert.vaNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.utrNo">Utr No</span></dt>
+          <dd>
+            <span>{{ instaAlert.utrNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.creditGenerationTime">Credit Generation Time</span></dt>
+          <dd>
+            <span>{{ instaAlert.creditGenerationTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ instaAlert.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.remitterAccountNumber">Remitter Account Number</span></dt>
+          <dd>
+            <span>{{ instaAlert.remitterAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ instaAlert.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.lastupdatedDateTime">Lastupdated Date Time</span></dt>
+          <dd>
+            <span>{{ instaAlert.lastupdatedDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.lastUpdatedBy">Last Updated By</span></dt>
+          <dd>
+            <span>{{ instaAlert.lastUpdatedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.instaAlert.tradeEntity">Trade Entity</span></dt>
+          <dd>
+            @if (instaAlert.tradeEntity) {
+              <div>
+                <a [routerLink]="['/trade-entity', instaAlert.tradeEntity.id, 'view']">{{ instaAlert.tradeEntity.entityId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/insta-alert', instaAlert.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

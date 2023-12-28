@@ -1,0 +1,451 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-funds-transfer-heading"
+        data-cy="FundsTransferCreateUpdateHeading"
+        jhiTranslate="cbapisApp.fundsTransfer.home.createOrEditLabel"
+      >
+        Create or edit a Funds Transfer
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.fundsTransferId" for="field_fundsTransferId"
+            >Funds Transfer Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="fundsTransferId"
+            id="field_fundsTransferId"
+            data-cy="fundsTransferId"
+            formControlName="fundsTransferId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.fundsTransferRefNo" for="field_fundsTransferRefNo"
+            >Funds Transfer Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="fundsTransferRefNo"
+            id="field_fundsTransferRefNo"
+            data-cy="fundsTransferRefNo"
+            formControlName="fundsTransferRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.finReqId" for="field_finReqId">Fin Req Id</label>
+          <input type="text" class="form-control" name="finReqId" id="field_finReqId" data-cy="finReqId" formControlName="finReqId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.subGrpId" for="field_subGrpId">Sub Grp Id</label>
+          <input type="text" class="form-control" name="subGrpId" id="field_subGrpId" data-cy="subGrpId" formControlName="subGrpId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.transactionId" for="field_transactionId">Transaction Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="transactionId"
+            id="field_transactionId"
+            data-cy="transactionId"
+            formControlName="transactionId"
+          />
+          @if (editForm.get('transactionId')!.invalid && (editForm.get('transactionId')!.dirty || editForm.get('transactionId')!.touched)) {
+            <div>
+              @if (editForm.get('transactionId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('transactionId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.debitAccountNumber" for="field_debitAccountNumber"
+            >Debit Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="debitAccountNumber"
+            id="field_debitAccountNumber"
+            data-cy="debitAccountNumber"
+            formControlName="debitAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.creditAccountNumber" for="field_creditAccountNumber"
+            >Credit Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditAccountNumber"
+            id="field_creditAccountNumber"
+            data-cy="creditAccountNumber"
+            formControlName="creditAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.remitterName" for="field_remitterName">Remitter Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="remitterName"
+            id="field_remitterName"
+            data-cy="remitterName"
+            formControlName="remitterName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.currency" for="field_currency">Currency</label>
+          <input type="text" class="form-control" name="currency" id="field_currency" data-cy="currency" formControlName="currency" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.transactionType" for="field_transactionType"
+            >Transaction Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transactionType"
+            id="field_transactionType"
+            data-cy="transactionType"
+            formControlName="transactionType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.paymentDescription" for="field_paymentDescription"
+            >Payment Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentDescription"
+            id="field_paymentDescription"
+            data-cy="paymentDescription"
+            formControlName="paymentDescription"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.beneficiaryIFSC" for="field_beneficiaryIFSC"
+            >Beneficiary IFSC</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="beneficiaryIFSC"
+            id="field_beneficiaryIFSC"
+            data-cy="beneficiaryIFSC"
+            formControlName="beneficiaryIFSC"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.beneficiaryName" for="field_beneficiaryName"
+            >Beneficiary Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="beneficiaryName"
+            id="field_beneficiaryName"
+            data-cy="beneficiaryName"
+            formControlName="beneficiaryName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.beneficiaryAddress" for="field_beneficiaryAddress"
+            >Beneficiary Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="beneficiaryAddress"
+            id="field_beneficiaryAddress"
+            data-cy="beneficiaryAddress"
+            formControlName="beneficiaryAddress"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.emailId" for="field_emailId">Email Id</label>
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.mobileNo" for="field_mobileNo">Mobile No</label>
+          <input type="number" class="form-control" name="mobileNo" id="field_mobileNo" data-cy="mobileNo" formControlName="mobileNo" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.messageType" for="field_messageType">Message Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="messageType"
+            id="field_messageType"
+            data-cy="messageType"
+            formControlName="messageType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.transactionDateTime" for="field_transactionDateTime"
+            >Transaction Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transactionDateTime"
+            id="field_transactionDateTime"
+            data-cy="transactionDateTime"
+            formControlName="transactionDateTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.transactionRefNo" for="field_transactionRefNo"
+            >Transaction Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transactionRefNo"
+            id="field_transactionRefNo"
+            data-cy="transactionRefNo"
+            formControlName="transactionRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataStatus" for="field_trnxMetaDataStatus"
+            >Trnx Meta Data Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxMetaDataStatus"
+            id="field_trnxMetaDataStatus"
+            data-cy="trnxMetaDataStatus"
+            formControlName="trnxMetaDataStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataMessage" for="field_trnxMetaDataMessage"
+            >Trnx Meta Data Message</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxMetaDataMessage"
+            id="field_trnxMetaDataMessage"
+            data-cy="trnxMetaDataMessage"
+            formControlName="trnxMetaDataMessage"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataVersion" for="field_trnxMetaDataVersion"
+            >Trnx Meta Data Version</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxMetaDataVersion"
+            id="field_trnxMetaDataVersion"
+            data-cy="trnxMetaDataVersion"
+            formControlName="trnxMetaDataVersion"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataTime" for="field_trnxMetaDataTime"
+            >Trnx Meta Data Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxMetaDataTime"
+            id="field_trnxMetaDataTime"
+            data-cy="trnxMetaDataTime"
+            formControlName="trnxMetaDataTime"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataBeneficiaryName"
+            for="field_trnxResourceDataBeneficiaryName"
+            >Trnx Resource Data Beneficiary Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxResourceDataBeneficiaryName"
+            id="field_trnxResourceDataBeneficiaryName"
+            data-cy="trnxResourceDataBeneficiaryName"
+            formControlName="trnxResourceDataBeneficiaryName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataTransactionId"
+            for="field_trnxResourceDataTransactionId"
+            >Trnx Resource Data Transaction Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxResourceDataTransactionId"
+            id="field_trnxResourceDataTransactionId"
+            data-cy="trnxResourceDataTransactionId"
+            formControlName="trnxResourceDataTransactionId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataStatus" for="field_trnxResourceDataStatus"
+            >Trnx Resource Data Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trnxResourceDataStatus"
+            id="field_trnxResourceDataStatus"
+            data-cy="trnxResourceDataStatus"
+            formControlName="trnxResourceDataStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.fundsTransferStatus" for="field_fundsTransferStatus"
+            >Funds Transfer Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="fundsTransferStatus"
+            id="field_fundsTransferStatus"
+            data-cy="fundsTransferStatus"
+            formControlName="fundsTransferStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.lastupdatedDateTime" for="field_lastupdatedDateTime"
+            >Lastupdated Date Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastupdatedDateTime"
+            id="field_lastupdatedDateTime"
+            data-cy="lastupdatedDateTime"
+            formControlName="lastupdatedDateTime"
+          />
+          @if (
+            editForm.get('lastupdatedDateTime')!.invalid &&
+            (editForm.get('lastupdatedDateTime')!.dirty || editForm.get('lastupdatedDateTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('lastupdatedDateTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.lastUpdatedBy" for="field_lastUpdatedBy">Last Updated By</label>
+          <input
+            type="text"
+            class="form-control"
+            name="lastUpdatedBy"
+            id="field_lastUpdatedBy"
+            data-cy="lastUpdatedBy"
+            formControlName="lastUpdatedBy"
+          />
+          @if (editForm.get('lastUpdatedBy')!.invalid && (editForm.get('lastUpdatedBy')!.dirty || editForm.get('lastUpdatedBy')!.touched)) {
+            <div>
+              @if (editForm.get('lastUpdatedBy')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fundsTransfer.tradeEntity" for="field_tradeEntity">Trade Entity</label>
+          <select
+            class="form-control"
+            id="field_tradeEntity"
+            data-cy="tradeEntity"
+            name="tradeEntity"
+            formControlName="tradeEntity"
+            [compareWith]="compareTradeEntity"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradeEntityOption of tradeEntitiesSharedCollection; track $index) {
+              <option [ngValue]="tradeEntityOption">{{ tradeEntityOption.entityId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

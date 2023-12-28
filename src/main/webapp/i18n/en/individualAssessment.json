@@ -1,0 +1,35 @@
+{
+  "cbapisApp": {
+    "individualAssessment": {
+      "home": {
+        "title": "Individual Assessments",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Individual Assessment",
+        "createOrEditLabel": "Create or edit a Individual Assessment",
+        "notFound": "No Individual Assessments found"
+      },
+      "created": "A new Individual Assessment is created with identifier {{ param }}",
+      "updated": "A Individual Assessment is updated with identifier {{ param }}",
+      "deleted": "A Individual Assessment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Individual Assessment {{ id }}?"
+      },
+      "detail": {
+        "title": "Individual Assessment"
+      },
+      "id": "ID",
+      "assessmentId": "Assessment Id",
+      "creditScore": "Credit Score",
+      "finalverdict": "Finalverdict",
+      "creRequestId": "Cre Request Id",
+      "timestamp": "Timestamp",
+      "tradepartnerGST": "Tradepartner GST",
+      "tradepartnerId": "Tradepartner Id",
+      "invoiceAmount": "Invoice Amount",
+      "invoiceId": "Invoice Id",
+      "cREHighlights": "C RE Highlights",
+      "cREObservations": "C RE Observations",
+      "cbcreprocess": "Cbcreprocess"
+    }
+  }
+}

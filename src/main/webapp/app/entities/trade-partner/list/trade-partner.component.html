@@ -1,0 +1,193 @@
+<div>
+  <h2 id="page-heading" data-cy="TradePartnerHeading">
+    <span jhiTranslate="cbapisApp.tradePartner.home.title">Trade Partners</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.tradePartner.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-trade-partner"
+        [routerLink]="['/trade-partner/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.tradePartner.home.createLabel">Create a new Trade Partner</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (tradePartners?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.tradePartner.home.notFound">No Trade Partners found</span>
+    </div>
+  }
+
+  @if (tradePartners && tradePartners.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tenantId">Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tpId">Tp Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.orgId">Org Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="orgName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.orgName">Org Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="gstId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.gstId">Gst Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="phoneNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.phoneNumber">Phone Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tradePartnerName">Trade Partner Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="location">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.location">Location</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradepartnerGST">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tradepartnerGST">Tradepartner GST</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerSector">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tradePartnerSector">Trade Partner Sector</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="acceptanceFromTradePartner">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.acceptanceFromTradePartner">Acceptance From Trade Partner</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tradePartner of tradePartners; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/trade-partner', tradePartner.id, 'view']">{{ tradePartner.id }}</a>
+              </td>
+              <td>{{ tradePartner.tenantId }}</td>
+              <td>{{ tradePartner.tpId }}</td>
+              <td>{{ tradePartner.orgId }}</td>
+              <td>{{ tradePartner.customerName }}</td>
+              <td>{{ tradePartner.orgName }}</td>
+              <td>{{ tradePartner.gstId }}</td>
+              <td>{{ tradePartner.phoneNumber }}</td>
+              <td>{{ tradePartner.tradePartnerName }}</td>
+              <td>{{ tradePartner.location }}</td>
+              <td>{{ tradePartner.tradepartnerGST }}</td>
+              <td>{{ tradePartner.tradePartnerSector }}</td>
+              <td>{{ tradePartner.acceptanceFromTradePartner }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/trade-partner', tradePartner.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/trade-partner', tradePartner.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(tradePartner)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (tradePartners && tradePartners.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,118 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132200"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "trade",
+  "fields": [
+    {
+      "fieldName": "tradeId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "tradeRefNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sellerGstId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "buyerGstId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeAmount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "invoiceNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeDocType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeDocSource",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeDocCredibility",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeMilestoneStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradeAdvancePayment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "invoiceTerm",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "acceptanceFromTradePartner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reasonForFinance",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerSector",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerLocation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerGstComplianceScore",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Trade",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "tpId",
+      "otherEntityName": "tradePartner",
+      "relationshipName": "tradepartner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "atId",
+      "otherEntityName": "anchorTrader",
+      "relationshipName": "anchortrader",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

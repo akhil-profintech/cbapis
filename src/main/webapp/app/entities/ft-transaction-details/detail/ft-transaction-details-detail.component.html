@@ -1,0 +1,134 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fTTransactionDetails) {
+      <div>
+        <h2 data-cy="fTTransactionDetailsDetailsHeading">
+          <span jhiTranslate="cbapisApp.fTTransactionDetails.detail.title">FT Transaction Details</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.trnxDetailsId">Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.trnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionID">Transaction ID</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.transactionID }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.debitAccountNumber">Debit Account Number</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.debitAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.creditAccountNumber">Credit Account Number</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.creditAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.amount">Amount</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.currency">Currency</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionType">Transaction Type</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.transactionType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.paymentDescription">Payment Description</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.paymentDescription }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryIFSC">Beneficiary IFSC</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.beneficiaryIFSC }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryName">Beneficiary Name</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.beneficiaryName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.beneficiaryAddress">Beneficiary Address</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.beneficiaryAddress }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.emailId">Email Id</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.emailId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.mobileNo">Mobile No</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.mobileNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionRefNo">Transaction Ref No</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.transactionRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.trnxResourceDataStatus">Trnx Resource Data Status</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.trnxResourceDataStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.trnxMetaDataStatus">Trnx Meta Data Status</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.trnxMetaDataStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionDateTime">Transaction Date Time</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.transactionDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.disbursement">Disbursement</span></dt>
+          <dd>
+            @if (fTTransactionDetails.disbursement) {
+              <div>
+                <a [routerLink]="['/disbursement', fTTransactionDetails.disbursement.id, 'view']">{{
+                  fTTransactionDetails.disbursement.ftTrnxDetailsId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.repayment">Repayment</span></dt>
+          <dd>
+            @if (fTTransactionDetails.repayment) {
+              <div>
+                <a [routerLink]="['/repayment', fTTransactionDetails.repayment.id, 'view']">{{
+                  fTTransactionDetails.repayment.ftTrnxDetailsId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span></dt>
+          <dd>
+            @if (fTTransactionDetails.participantsettlement) {
+              <div>
+                <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
+                  fTTransactionDetails.participantsettlement.participantSettlementId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/ft-transaction-details', fTTransactionDetails.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

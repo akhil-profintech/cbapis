@@ -1,0 +1,31 @@
+{
+  "cbapisApp": {
+    "creditAccountDetails": {
+      "home": {
+        "title": "Credit Account Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Credit Account Details",
+        "createOrEditLabel": "Create or edit a Credit Account Details",
+        "notFound": "No Credit Account Details found"
+      },
+      "created": "A new Credit Account Details is created with identifier {{ param }}",
+      "updated": "A Credit Account Details is updated with identifier {{ param }}",
+      "deleted": "A Credit Account Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Credit Account Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Credit Account Details"
+      },
+      "id": "ID",
+      "creditAccDetailsId": "Credit Acc Details Id",
+      "tenantId": "Tenant Id",
+      "customerId": "Customer Id",
+      "accName": "Acc Name",
+      "ifscCode": "Ifsc Code",
+      "accNumber": "Acc Number",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "cbapisApp": {
+    "disbursement": {
+      "home": {
+        "title": "Disbursements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Disbursement",
+        "createOrEditLabel": "Create or edit a Disbursement",
+        "notFound": "No Disbursements found"
+      },
+      "created": "A new Disbursement is created with identifier {{ param }}",
+      "updated": "A Disbursement is updated with identifier {{ param }}",
+      "deleted": "A Disbursement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Disbursement {{ id }}?"
+      },
+      "detail": {
+        "title": "Disbursement"
+      },
+      "id": "ID",
+      "dbmtId": "Dbmt Id",
+      "disbursementRefNo": "Disbursement Ref No",
+      "acceptedOfferId": "Accepted Offer Id",
+      "offerId": "Offer Id",
+      "offerAcceptedDate": "Offer Accepted Date",
+      "dbmtRequestId": "Dbmt Request Id",
+      "dbmtReqAmount": "Dbmt Req Amount",
+      "currency": "Currency",
+      "dbmtRequestDate": "Dbmt Request Date",
+      "dbmtstatus": "Dbmtstatus",
+      "offerStatus": "Offer Status",
+      "ftTrnxDetailsId": "Ft Trnx Details Id",
+      "collectionTrnxDetailsId": "Collection Trnx Details Id",
+      "docId": "Doc Id",
+      "dbmtDateTime": "Dbmt Date Time",
+      "dbmtAmount": "Dbmt Amount",
+      "financeRequestId": "Finance Request Id",
+      "amountToBeDisbursed": "Amount To Be Disbursed",
+      "destinationAccountName": "Destination Account Name",
+      "destinationAccountNumber": "Destination Account Number",
+      "ifscCode": "Ifsc Code",
+      "status": "Status",
+      "actionByDate": "Action By Date",
+      "creditAccountDetails": "Credit Account Details",
+      "escrowAccountDetails": "Escrow Account Details",
+      "docDetails": "Doc Details",
+      "fTTransactionDetails": "F T Transaction Details",
+      "collectionTransactionDetails": "Collection Transaction Details",
+      "financerequest": "Financerequest",
+      "financepartner": "Financepartner"
+    }
+  }
+}

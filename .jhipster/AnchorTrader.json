@@ -1,0 +1,101 @@
+{
+  "annotations": {
+    "changelogDate": "20231228130600"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "anchor_trader",
+  "fields": [
+    {
+      "fieldName": "tenantId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "atId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orgId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "customerName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orgName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gstId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "anchorTraderName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderGST",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderSector",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderPAN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "kycCompleted",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankDetails",
+      "fieldType": "String"
+    }
+  ],
+  "name": "AnchorTrader",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "financeRequest",
+      "otherEntityRelationshipName": "anchortrader",
+      "relationshipName": "financeRequest",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "acceptedOffer",
+      "otherEntityRelationshipName": "anchortrader",
+      "relationshipName": "acceptedOffer",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "trade",
+      "otherEntityRelationshipName": "anchortrader",
+      "relationshipName": "trade",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

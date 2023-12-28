@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (action) {
+      <div>
+        <h2 data-cy="actionDetailsHeading"><span jhiTranslate="cbapisApp.action.detail.title">Action</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ action.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.action.actionId">Action Id</span></dt>
+          <dd>
+            <span>{{ action.actionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.action.actionCode">Action Code</span></dt>
+          <dd>
+            <span>{{ action.actionCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.action.actionDescription">Action Description</span></dt>
+          <dd>
+            <span>{{ action.actionDescription }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.action.actionVal">Action Val</span></dt>
+          <dd>
+            <span>{{ action.actionVal }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.action.cpCode">Cp Code</span></dt>
+          <dd>
+            <span>{{ action.cpCode }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/action', action.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

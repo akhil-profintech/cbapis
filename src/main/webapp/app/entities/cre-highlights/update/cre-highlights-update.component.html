@@ -1,0 +1,129 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-cre-highlights-heading"
+        data-cy="CREHighlightsCreateUpdateHeading"
+        jhiTranslate="cbapisApp.cREHighlights.home.createOrEditLabel"
+      >
+        Create or edit a CRE Highlights
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.creHighlightsId" for="field_creHighlightsId"
+            >Cre Highlights Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="creHighlightsId"
+            id="field_creHighlightsId"
+            data-cy="creHighlightsId"
+            formControlName="creHighlightsId"
+          />
+          @if (
+            editForm.get('creHighlightsId')!.invalid && (editForm.get('creHighlightsId')!.dirty || editForm.get('creHighlightsId')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('creHighlightsId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('creHighlightsId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.creRequestId" for="field_creRequestId">Cre Request Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="creRequestId"
+            id="field_creRequestId"
+            data-cy="creRequestId"
+            formControlName="creRequestId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.highlights" for="field_highlights">Highlights</label>
+          <input
+            type="text"
+            class="form-control"
+            name="highlights"
+            id="field_highlights"
+            data-cy="highlights"
+            formControlName="highlights"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.cbcreprocess" for="field_cbcreprocess">Cbcreprocess</label>
+          <select
+            class="form-control"
+            id="field_cbcreprocess"
+            data-cy="cbcreprocess"
+            name="cbcreprocess"
+            formControlName="cbcreprocess"
+            [compareWith]="compareCBCREProcess"
+          >
+            <option [ngValue]="null"></option>
+            @for (cBCREProcessOption of cBCREProcessesSharedCollection; track $index) {
+              <option [ngValue]="cBCREProcessOption">{{ cBCREProcessOption.cbProcessId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.individualassessment" for="field_individualassessment"
+            >Individualassessment</label
+          >
+          <select
+            class="form-control"
+            id="field_individualassessment"
+            data-cy="individualassessment"
+            name="individualassessment"
+            formControlName="individualassessment"
+            [compareWith]="compareIndividualAssessment"
+          >
+            <option [ngValue]="null"></option>
+            @for (individualAssessmentOption of individualAssessmentsSharedCollection; track $index) {
+              <option [ngValue]="individualAssessmentOption">{{ individualAssessmentOption.assessmentId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

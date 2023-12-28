@@ -1,0 +1,36 @@
+{
+  "cbapisApp": {
+    "tradePartner": {
+      "home": {
+        "title": "Trade Partners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Trade Partner",
+        "createOrEditLabel": "Create or edit a Trade Partner",
+        "notFound": "No Trade Partners found"
+      },
+      "created": "A new Trade Partner is created with identifier {{ param }}",
+      "updated": "A Trade Partner is updated with identifier {{ param }}",
+      "deleted": "A Trade Partner is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Trade Partner {{ id }}?"
+      },
+      "detail": {
+        "title": "Trade Partner"
+      },
+      "id": "ID",
+      "tenantId": "Tenant Id",
+      "tpId": "Tp Id",
+      "orgId": "Org Id",
+      "customerName": "Customer Name",
+      "orgName": "Org Name",
+      "gstId": "Gst Id",
+      "phoneNumber": "Phone Number",
+      "tradePartnerName": "Trade Partner Name",
+      "location": "Location",
+      "tradepartnerGST": "Tradepartner GST",
+      "tradePartnerSector": "Trade Partner Sector",
+      "acceptanceFromTradePartner": "Acceptance From Trade Partner",
+      "trade": "Trade"
+    }
+  }
+}

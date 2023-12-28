@@ -1,0 +1,260 @@
+<div>
+  <h2 id="page-heading" data-cy="AcceptedOfferHeading">
+    <span jhiTranslate="cbapisApp.acceptedOffer.home.title">Accepted Offers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.acceptedOffer.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-accepted-offer"
+        [routerLink]="['/accepted-offer/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.acceptedOffer.home.createLabel">Create a new Accepted Offer</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (acceptedOffers?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.acceptedOffer.home.notFound">No Accepted Offers found</span>
+    </div>
+  }
+
+  @if (acceptedOffers && acceptedOffers.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.offerId">Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="acceptedOfferRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferRefNo">Accepted Offer Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.reqOffId">Req Off Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="value">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.value">Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.reqAmount">Req Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marginPtg">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.marginPtg">Margin Ptg</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="marginValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.marginValue">Margin Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amountAftMargin">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.amountAftMargin">Amount Aft Margin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="interestPtg">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.interestPtg">Interest Ptg</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="term">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.term">Term</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="interestValue">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.interestValue">Interest Value</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="netAmount">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.netAmount">Net Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.offerDate">Offer Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="offerAcceptedDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.offerAcceptedDate">Offer Accepted Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financerequest.requestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.financerequest">Financerequest</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financepartner.fpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchortrader.atId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.anchortrader">Anchortrader</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (acceptedOffer of acceptedOffers; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/accepted-offer', acceptedOffer.id, 'view']">{{ acceptedOffer.id }}</a>
+              </td>
+              <td>{{ acceptedOffer.offerId }}</td>
+              <td>{{ acceptedOffer.acceptedOfferRefNo }}</td>
+              <td>{{ acceptedOffer.reqOffId }}</td>
+              <td>{{ acceptedOffer.value }}</td>
+              <td>{{ acceptedOffer.reqAmount }}</td>
+              <td>{{ acceptedOffer.marginPtg }}</td>
+              <td>{{ acceptedOffer.marginValue }}</td>
+              <td>{{ acceptedOffer.amountAftMargin }}</td>
+              <td>{{ acceptedOffer.interestPtg }}</td>
+              <td>{{ acceptedOffer.term }}</td>
+              <td>{{ acceptedOffer.interestValue }}</td>
+              <td>{{ acceptedOffer.netAmount }}</td>
+              <td>{{ acceptedOffer.status }}</td>
+              <td>{{ acceptedOffer.offerDate | formatMediumDate }}</td>
+              <td>{{ acceptedOffer.offerAcceptedDate | formatMediumDate }}</td>
+              <td>
+                @if (acceptedOffer.financerequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', acceptedOffer.financerequest.id, 'view']">{{
+                      acceptedOffer.financerequest.requestId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (acceptedOffer.financepartner) {
+                  <div>
+                    <a [routerLink]="['/finance-partner', acceptedOffer.financepartner.id, 'view']">{{
+                      acceptedOffer.financepartner.fpId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (acceptedOffer.anchortrader) {
+                  <div>
+                    <a [routerLink]="['/anchor-trader', acceptedOffer.anchortrader.id, 'view']">{{ acceptedOffer.anchortrader.atId }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/accepted-offer', acceptedOffer.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a [routerLink]="['/accepted-offer', acceptedOffer.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(acceptedOffer)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (acceptedOffers && acceptedOffers.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

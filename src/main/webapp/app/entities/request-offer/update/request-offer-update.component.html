@@ -1,0 +1,490 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-request-offer-heading"
+        data-cy="RequestOfferCreateUpdateHeading"
+        jhiTranslate="cbapisApp.requestOffer.home.createOrEditLabel"
+      >
+        Create or edit a Request Offer
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.reqOffId" for="field_reqOffId">Req Off Id</label>
+          <input type="text" class="form-control" name="reqOffId" id="field_reqOffId" data-cy="reqOffId" formControlName="reqOffId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo" for="field_requestOfferRefNo"
+            >Request Offer Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="requestOfferRefNo"
+            id="field_requestOfferRefNo"
+            data-cy="requestOfferRefNo"
+            formControlName="requestOfferRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.offerValue" for="field_offerValue">Offer Value</label>
+          <input
+            type="number"
+            class="form-control"
+            name="offerValue"
+            id="field_offerValue"
+            data-cy="offerValue"
+            formControlName="offerValue"
+          />
+          @if (editForm.get('offerValue')!.invalid && (editForm.get('offerValue')!.dirty || editForm.get('offerValue')!.touched)) {
+            <div>
+              @if (editForm.get('offerValue')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('offerValue')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.requestAmt" for="field_requestAmt">Request Amt</label>
+          <input
+            type="number"
+            class="form-control"
+            name="requestAmt"
+            id="field_requestAmt"
+            data-cy="requestAmt"
+            formControlName="requestAmt"
+          />
+          @if (editForm.get('requestAmt')!.invalid && (editForm.get('requestAmt')!.dirty || editForm.get('requestAmt')!.touched)) {
+            <div>
+              @if (editForm.get('requestAmt')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('requestAmt')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.tradeValue" for="field_tradeValue">Trade Value</label>
+          <input
+            type="number"
+            class="form-control"
+            name="tradeValue"
+            id="field_tradeValue"
+            data-cy="tradeValue"
+            formControlName="tradeValue"
+          />
+          @if (editForm.get('tradeValue')!.invalid && (editForm.get('tradeValue')!.dirty || editForm.get('tradeValue')!.touched)) {
+            <div>
+              @if (editForm.get('tradeValue')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('tradeValue')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.marginPtg" for="field_marginPtg">Margin Ptg</label>
+          <input type="number" class="form-control" name="marginPtg" id="field_marginPtg" data-cy="marginPtg" formControlName="marginPtg" />
+          @if (editForm.get('marginPtg')!.invalid && (editForm.get('marginPtg')!.dirty || editForm.get('marginPtg')!.touched)) {
+            <div>
+              @if (editForm.get('marginPtg')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('marginPtg')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.marginValue" for="field_marginValue">Margin Value</label>
+          <input
+            type="number"
+            class="form-control"
+            name="marginValue"
+            id="field_marginValue"
+            data-cy="marginValue"
+            formControlName="marginValue"
+          />
+          @if (editForm.get('marginValue')!.invalid && (editForm.get('marginValue')!.dirty || editForm.get('marginValue')!.touched)) {
+            <div>
+              @if (editForm.get('marginValue')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('marginValue')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.amountAftMargin" for="field_amountAftMargin"
+            >Amount Aft Margin</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="amountAftMargin"
+            id="field_amountAftMargin"
+            data-cy="amountAftMargin"
+            formControlName="amountAftMargin"
+          />
+          @if (
+            editForm.get('amountAftMargin')!.invalid && (editForm.get('amountAftMargin')!.dirty || editForm.get('amountAftMargin')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('amountAftMargin')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('amountAftMargin')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.interestPtg" for="field_interestPtg">Interest Ptg</label>
+          <input
+            type="number"
+            class="form-control"
+            name="interestPtg"
+            id="field_interestPtg"
+            data-cy="interestPtg"
+            formControlName="interestPtg"
+          />
+          @if (editForm.get('interestPtg')!.invalid && (editForm.get('interestPtg')!.dirty || editForm.get('interestPtg')!.touched)) {
+            <div>
+              @if (editForm.get('interestPtg')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('interestPtg')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.term" for="field_term">Term</label>
+          <input type="number" class="form-control" name="term" id="field_term" data-cy="term" formControlName="term" />
+          @if (editForm.get('term')!.invalid && (editForm.get('term')!.dirty || editForm.get('term')!.touched)) {
+            <div>
+              @if (editForm.get('term')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!editForm.get('term')?.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.interestValue" for="field_interestValue">Interest Value</label>
+          <input
+            type="number"
+            class="form-control"
+            name="interestValue"
+            id="field_interestValue"
+            data-cy="interestValue"
+            formControlName="interestValue"
+          />
+          @if (editForm.get('interestValue')!.invalid && (editForm.get('interestValue')!.dirty || editForm.get('interestValue')!.touched)) {
+            <div>
+              @if (editForm.get('interestValue')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('interestValue')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.netAmount" for="field_netAmount">Net Amount</label>
+          <input type="number" class="form-control" name="netAmount" id="field_netAmount" data-cy="netAmount" formControlName="netAmount" />
+          @if (editForm.get('netAmount')!.invalid && (editForm.get('netAmount')!.dirty || editForm.get('netAmount')!.touched)) {
+            <div>
+              @if (editForm.get('netAmount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('netAmount')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+          @if (editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)) {
+            <div>
+              @if (editForm.get('status')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.financeRequestDate" for="field_financeRequestDate"
+            >Finance Request Date</label
+          >
+          <div class="input-group">
+            <input
+              id="field_financeRequestDate"
+              data-cy="financeRequestDate"
+              type="text"
+              class="form-control"
+              name="financeRequestDate"
+              ngbDatepicker
+              #financeRequestDateDp="ngbDatepicker"
+              formControlName="financeRequestDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="financeRequestDateDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+          @if (
+            editForm.get('financeRequestDate')!.invalid &&
+            (editForm.get('financeRequestDate')!.dirty || editForm.get('financeRequestDate')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('financeRequestDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.anchorTraderName" for="field_anchorTraderName"
+            >Anchor Trader Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderName"
+            id="field_anchorTraderName"
+            data-cy="anchorTraderName"
+            formControlName="anchorTraderName"
+          />
+          @if (
+            editForm.get('anchorTraderName')!.invalid &&
+            (editForm.get('anchorTraderName')!.dirty || editForm.get('anchorTraderName')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('anchorTraderName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.tradePartnerName" for="field_tradePartnerName"
+            >Trade Partner Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerName"
+            id="field_tradePartnerName"
+            data-cy="tradePartnerName"
+            formControlName="tradePartnerName"
+          />
+          @if (
+            editForm.get('tradePartnerName')!.invalid &&
+            (editForm.get('tradePartnerName')!.dirty || editForm.get('tradePartnerName')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('tradePartnerName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.anchorTraderGst" for="field_anchorTraderGst"
+            >Anchor Trader Gst</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderGst"
+            id="field_anchorTraderGst"
+            data-cy="anchorTraderGst"
+            formControlName="anchorTraderGst"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.tradePartnerGst" for="field_tradePartnerGst"
+            >Trade Partner Gst</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerGst"
+            id="field_tradePartnerGst"
+            data-cy="tradePartnerGst"
+            formControlName="tradePartnerGst"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.sellerName" for="field_sellerName">Seller Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="sellerName"
+            id="field_sellerName"
+            data-cy="sellerName"
+            formControlName="sellerName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.buyerName" for="field_buyerName">Buyer Name</label>
+          <input type="text" class="form-control" name="buyerName" id="field_buyerName" data-cy="buyerName" formControlName="buyerName" />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore"
+            for="field_anchorTraderGstComplianceScore"
+            >Anchor Trader Gst Compliance Score</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderGstComplianceScore"
+            id="field_anchorTraderGstComplianceScore"
+            data-cy="anchorTraderGstComplianceScore"
+            formControlName="anchorTraderGstComplianceScore"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore" for="field_anchorTraderErpPeerScore"
+            >Anchor Trader Erp Peer Score</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderErpPeerScore"
+            id="field_anchorTraderErpPeerScore"
+            data-cy="anchorTraderErpPeerScore"
+            formControlName="anchorTraderErpPeerScore"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.financerequest" for="field_financerequest">Financerequest</label>
+          <select
+            class="form-control"
+            id="field_financerequest"
+            data-cy="financerequest"
+            name="financerequest"
+            formControlName="financerequest"
+            [compareWith]="compareFinanceRequest"
+          >
+            <option [ngValue]="null"></option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.cbcreprocess" for="field_cbcreprocess">Cbcreprocess</label>
+          <select
+            class="form-control"
+            id="field_cbcreprocess"
+            data-cy="cbcreprocess"
+            name="cbcreprocess"
+            formControlName="cbcreprocess"
+            [compareWith]="compareCBCREProcess"
+          >
+            <option [ngValue]="null"></option>
+            @for (cBCREProcessOption of cBCREProcessesSharedCollection; track $index) {
+              <option [ngValue]="cBCREProcessOption">{{ cBCREProcessOption.cbProcessId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

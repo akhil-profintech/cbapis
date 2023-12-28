@@ -1,0 +1,52 @@
+{
+  "annotations": {
+    "changelogDate": "20231228132900"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "va_number",
+  "fields": [
+    {
+      "fieldName": "vaId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "poolingAccNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "virtualAccNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "vaStatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "financeRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subGroupId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "VANumber",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "entityId",
+      "otherEntityName": "tradeEntity",
+      "relationshipName": "tradeEntity",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

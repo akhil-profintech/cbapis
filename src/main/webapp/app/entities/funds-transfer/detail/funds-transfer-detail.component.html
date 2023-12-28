@@ -1,0 +1,158 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fundsTransfer) {
+      <div>
+        <h2 data-cy="fundsTransferDetailsHeading"><span jhiTranslate="cbapisApp.fundsTransfer.detail.title">Funds Transfer</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferId">Funds Transfer Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.fundsTransferId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferRefNo">Funds Transfer Ref No</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.fundsTransferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.finReqId">Fin Req Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.finReqId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.subGrpId">Sub Grp Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.subGrpId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.transactionId">Transaction Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.transactionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.debitAccountNumber">Debit Account Number</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.debitAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.creditAccountNumber">Credit Account Number</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.creditAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.amount">Amount</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.currency">Currency</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.currency }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.transactionType">Transaction Type</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.transactionType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.paymentDescription">Payment Description</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.paymentDescription }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryIFSC">Beneficiary IFSC</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.beneficiaryIFSC }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryName">Beneficiary Name</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.beneficiaryName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.beneficiaryAddress">Beneficiary Address</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.beneficiaryAddress }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.emailId">Email Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.emailId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.mobileNo">Mobile No</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.mobileNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.messageType">Message Type</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.messageType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.transactionDateTime">Transaction Date Time</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.transactionDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.transactionRefNo">Transaction Ref No</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.transactionRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataStatus">Trnx Meta Data Status</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxMetaDataStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataMessage">Trnx Meta Data Message</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxMetaDataMessage }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataVersion">Trnx Meta Data Version</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxMetaDataVersion }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxMetaDataTime">Trnx Meta Data Time</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxMetaDataTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataBeneficiaryName">Trnx Resource Data Beneficiary Name</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxResourceDataBeneficiaryName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataTransactionId">Trnx Resource Data Transaction Id</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxResourceDataTransactionId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.trnxResourceDataStatus">Trnx Resource Data Status</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.trnxResourceDataStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.fundsTransferStatus">Funds Transfer Status</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.fundsTransferStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.lastupdatedDateTime">Lastupdated Date Time</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.lastupdatedDateTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.lastUpdatedBy">Last Updated By</span></dt>
+          <dd>
+            <span>{{ fundsTransfer.lastUpdatedBy }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fundsTransfer.tradeEntity">Trade Entity</span></dt>
+          <dd>
+            @if (fundsTransfer.tradeEntity) {
+              <div>
+                <a [routerLink]="['/trade-entity', fundsTransfer.tradeEntity.id, 'view']">{{ fundsTransfer.tradeEntity.entityId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/funds-transfer', fundsTransfer.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (collectionTransactionDetails) {
+      <div>
+        <h2 data-cy="collectionTransactionDetailsDetailsHeading">
+          <span jhiTranslate="cbapisApp.collectionTransactionDetails.detail.title">Collection Transaction Details</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.trnxDetailsid">Trnx Detailsid</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.trnxDetailsid }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.customerCode">Customer Code</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.customerCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.productCode">Product Code</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.productCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.transactionType">Transaction Type</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.transactionType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.batchAmt">Batch Amt</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.batchAmt }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.batchAmtCcd">Batch Amt Ccd</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.batchAmtCcd }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.creditDate">Credit Date</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.creditDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.vaNumber">Va Number</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.vaNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.utrNo">Utr No</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.utrNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.creditGenerationTime">Credit Generation Time</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.creditGenerationTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.remitterAccountNumber">Remitter Account Number</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.remitterAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ collectionTransactionDetails.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.disbursement">Disbursement</span></dt>
+          <dd>
+            @if (collectionTransactionDetails.disbursement) {
+              <div>
+                <a [routerLink]="['/disbursement', collectionTransactionDetails.disbursement.id, 'view']">{{
+                  collectionTransactionDetails.disbursement.collectionTrnxDetailsId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.collectionTransactionDetails.repayment">Repayment</span></dt>
+          <dd>
+            @if (collectionTransactionDetails.repayment) {
+              <div>
+                <a [routerLink]="['/repayment', collectionTransactionDetails.repayment.id, 'view']">{{
+                  collectionTransactionDetails.repayment.collectionTrnxDetailsId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/collection-transaction-details', collectionTransactionDetails.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

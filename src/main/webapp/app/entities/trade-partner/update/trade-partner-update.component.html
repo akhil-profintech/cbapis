@@ -1,0 +1,205 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-trade-partner-heading"
+        data-cy="TradePartnerCreateUpdateHeading"
+        jhiTranslate="cbapisApp.tradePartner.home.createOrEditLabel"
+      >
+        Create or edit a Trade Partner
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tpId" for="field_tpId">Tp Id</label>
+          <input type="text" class="form-control" name="tpId" id="field_tpId" data-cy="tpId" formControlName="tpId" />
+          @if (editForm.get('tpId')!.invalid && (editForm.get('tpId')!.dirty || editForm.get('tpId')!.touched)) {
+            <div>
+              @if (editForm.get('tpId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.orgId" for="field_orgId">Org Id</label>
+          <input type="text" class="form-control" name="orgId" id="field_orgId" data-cy="orgId" formControlName="orgId" />
+          @if (editForm.get('orgId')!.invalid && (editForm.get('orgId')!.dirty || editForm.get('orgId')!.touched)) {
+            <div>
+              @if (editForm.get('orgId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.customerName" for="field_customerName">Customer Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+          @if (editForm.get('customerName')!.invalid && (editForm.get('customerName')!.dirty || editForm.get('customerName')!.touched)) {
+            <div>
+              @if (editForm.get('customerName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.orgName" for="field_orgName">Org Name</label>
+          <input type="text" class="form-control" name="orgName" id="field_orgName" data-cy="orgName" formControlName="orgName" />
+          @if (editForm.get('orgName')!.invalid && (editForm.get('orgName')!.dirty || editForm.get('orgName')!.touched)) {
+            <div>
+              @if (editForm.get('orgName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.gstId" for="field_gstId">Gst Id</label>
+          <input type="text" class="form-control" name="gstId" id="field_gstId" data-cy="gstId" formControlName="gstId" />
+          @if (editForm.get('gstId')!.invalid && (editForm.get('gstId')!.dirty || editForm.get('gstId')!.touched)) {
+            <div>
+              @if (editForm.get('gstId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.phoneNumber" for="field_phoneNumber">Phone Number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="phoneNumber"
+            id="field_phoneNumber"
+            data-cy="phoneNumber"
+            formControlName="phoneNumber"
+          />
+          @if (editForm.get('phoneNumber')!.invalid && (editForm.get('phoneNumber')!.dirty || editForm.get('phoneNumber')!.touched)) {
+            <div>
+              @if (editForm.get('phoneNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('phoneNumber')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tradePartnerName" for="field_tradePartnerName"
+            >Trade Partner Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerName"
+            id="field_tradePartnerName"
+            data-cy="tradePartnerName"
+            formControlName="tradePartnerName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.location" for="field_location">Location</label>
+          <input type="text" class="form-control" name="location" id="field_location" data-cy="location" formControlName="location" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tradepartnerGST" for="field_tradepartnerGST"
+            >Tradepartner GST</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradepartnerGST"
+            id="field_tradepartnerGST"
+            data-cy="tradepartnerGST"
+            formControlName="tradepartnerGST"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tradePartnerSector" for="field_tradePartnerSector"
+            >Trade Partner Sector</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerSector"
+            id="field_tradePartnerSector"
+            data-cy="tradePartnerSector"
+            formControlName="tradePartnerSector"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.acceptanceFromTradePartner" for="field_acceptanceFromTradePartner"
+            >Acceptance From Trade Partner</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acceptanceFromTradePartner"
+            id="field_acceptanceFromTradePartner"
+            data-cy="acceptanceFromTradePartner"
+            formControlName="acceptanceFromTradePartner"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

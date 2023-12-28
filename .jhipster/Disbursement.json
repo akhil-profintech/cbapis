@@ -1,0 +1,166 @@
+{
+  "annotations": {
+    "changelogDate": "20231228131300"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "disbursement",
+  "fields": [
+    {
+      "fieldName": "dbmtId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "disbursementRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acceptedOfferId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "offerId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "offerAcceptedDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtRequestId",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtReqAmount",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "currency",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtRequestDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dbmtstatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "offerStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ftTrnxDetailsId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "collectionTrnxDetailsId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dbmtDateTime",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dbmtAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "financeRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amountToBeDisbursed",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "destinationAccountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "destinationAccountNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "actionByDate",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Disbursement",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "creditAccountDetails",
+      "otherEntityRelationshipName": "disbursement",
+      "relationshipName": "creditAccountDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "escrowAccountDetails",
+      "otherEntityRelationshipName": "disbursement",
+      "relationshipName": "escrowAccountDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "docDetails",
+      "otherEntityRelationshipName": "disbursement",
+      "relationshipName": "docDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "fTTransactionDetails",
+      "otherEntityRelationshipName": "disbursement",
+      "relationshipName": "fTTransactionDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "collectionTransactionDetails",
+      "otherEntityRelationshipName": "disbursement",
+      "relationshipName": "collectionTransactionDetails",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "requestId",
+      "otherEntityName": "financeRequest",
+      "relationshipName": "financerequest",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "fpId",
+      "otherEntityName": "financePartner",
+      "relationshipName": "financepartner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
