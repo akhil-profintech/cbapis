@@ -19,7 +19,9 @@ type PlacedOfferFormDefaults = Pick<NewPlacedOffer, 'id'>;
 type PlacedOfferFormGroupContent = {
   id: FormControl<IPlacedOffer['id'] | NewPlacedOffer['id']>;
   reqOffId: FormControl<IPlacedOffer['reqOffId']>;
+  placedOfferId: FormControl<IPlacedOffer['placedOfferId']>;
   placedOfferRefNo: FormControl<IPlacedOffer['placedOfferRefNo']>;
+  requestOfferRefNo: FormControl<IPlacedOffer['requestOfferRefNo']>;
   value: FormControl<IPlacedOffer['value']>;
   reqAmount: FormControl<IPlacedOffer['reqAmount']>;
   marginPtg: FormControl<IPlacedOffer['marginPtg']>;
@@ -29,13 +31,13 @@ type PlacedOfferFormGroupContent = {
   term: FormControl<IPlacedOffer['term']>;
   interestValue: FormControl<IPlacedOffer['interestValue']>;
   netAmount: FormControl<IPlacedOffer['netAmount']>;
-  status: FormControl<IPlacedOffer['status']>;
   offerDate: FormControl<IPlacedOffer['offerDate']>;
   requestId: FormControl<IPlacedOffer['requestId']>;
   placedOfferDate: FormControl<IPlacedOffer['placedOfferDate']>;
   anchorTrader: FormControl<IPlacedOffer['anchorTrader']>;
   tradePartner: FormControl<IPlacedOffer['tradePartner']>;
   disbursalAmount: FormControl<IPlacedOffer['disbursalAmount']>;
+  status: FormControl<IPlacedOffer['status']>;
   financerequest: FormControl<IPlacedOffer['financerequest']>;
   financepartner: FormControl<IPlacedOffer['financepartner']>;
 };
@@ -58,7 +60,9 @@ export class PlacedOfferFormService {
         },
       ),
       reqOffId: new FormControl(placedOfferRawValue.reqOffId),
+      placedOfferId: new FormControl(placedOfferRawValue.placedOfferId),
       placedOfferRefNo: new FormControl(placedOfferRawValue.placedOfferRefNo),
+      requestOfferRefNo: new FormControl(placedOfferRawValue.requestOfferRefNo),
       value: new FormControl(placedOfferRawValue.value, {
         validators: [Validators.required],
       }),
@@ -86,7 +90,6 @@ export class PlacedOfferFormService {
       netAmount: new FormControl(placedOfferRawValue.netAmount, {
         validators: [Validators.required],
       }),
-      status: new FormControl(placedOfferRawValue.status),
       offerDate: new FormControl(placedOfferRawValue.offerDate, {
         validators: [Validators.required],
       }),
@@ -95,6 +98,7 @@ export class PlacedOfferFormService {
       anchorTrader: new FormControl(placedOfferRawValue.anchorTrader),
       tradePartner: new FormControl(placedOfferRawValue.tradePartner),
       disbursalAmount: new FormControl(placedOfferRawValue.disbursalAmount),
+      status: new FormControl(placedOfferRawValue.status),
       financerequest: new FormControl(placedOfferRawValue.financerequest),
       financepartner: new FormControl(placedOfferRawValue.financepartner),
     });

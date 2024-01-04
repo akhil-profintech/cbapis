@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.RequestOfferRepository;
 import in.pft.apis.creditbazaar.service.dto.RequestOfferDTO;
 import in.pft.apis.creditbazaar.service.mapper.RequestOfferMapper;
@@ -24,9 +25,15 @@ public class RequestOfferService {
 
     private final RequestOfferMapper requestOfferMapper;
 
+    private static final ULID ulid = new ULID();
+
     public RequestOfferService(RequestOfferRepository requestOfferRepository, RequestOfferMapper requestOfferMapper) {
         this.requestOfferRepository = requestOfferRepository;
         this.requestOfferMapper = requestOfferMapper;
+    }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +44,24 @@ public class RequestOfferService {
      */
     public Mono<RequestOfferDTO> save(RequestOfferDTO requestOfferDTO) {
         log.debug("Request to save RequestOffer : {}", requestOfferDTO);
-        return requestOfferRepository.save(requestOfferMapper.toEntity(requestOfferDTO)).map(requestOfferMapper::toDto);
+        return requestOfferRepository
+            .save(requestOfferMapper.toEntity(requestOfferDTO))
+            .flatMap(savedEntity->{
+
+                requestOfferDTO.setReqOffId(generateUlid());
+
+                requestOfferDTO.setRequestOfferRefNo("ROCR-IKF-"+savedEntity.getId());
+
+                return requestOfferRepository.findById(savedEntity.getId())
+                    .flatMap(existingEntity->{
+
+                    existingEntity.setReqOffId(requestOfferDTO.getReqOffId());
+                    existingEntity.setRequestOfferRefNo(requestOfferDTO.getRequestOfferRefNo());
+
+                    return requestOfferRepository.save(existingEntity)
+                        .map(requestOfferMapper::toDto);
+                    });
+            });
     }
 
     /**

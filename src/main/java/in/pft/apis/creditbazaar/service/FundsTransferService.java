@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.FundsTransferRepository;
 import in.pft.apis.creditbazaar.service.dto.FundsTransferDTO;
 import in.pft.apis.creditbazaar.service.mapper.FundsTransferMapper;
@@ -24,9 +25,15 @@ public class FundsTransferService {
 
     private final FundsTransferMapper fundsTransferMapper;
 
+    private static final ULID ulid = new ULID();
+
     public FundsTransferService(FundsTransferRepository fundsTransferRepository, FundsTransferMapper fundsTransferMapper) {
         this.fundsTransferRepository = fundsTransferRepository;
         this.fundsTransferMapper = fundsTransferMapper;
+    }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +44,24 @@ public class FundsTransferService {
      */
     public Mono<FundsTransferDTO> save(FundsTransferDTO fundsTransferDTO) {
         log.debug("Request to save FundsTransfer : {}", fundsTransferDTO);
-        return fundsTransferRepository.save(fundsTransferMapper.toEntity(fundsTransferDTO)).map(fundsTransferMapper::toDto);
+
+       return fundsTransferRepository.save(fundsTransferMapper.toEntity(fundsTransferDTO))
+            .flatMap(savedEntity->{
+
+
+                fundsTransferDTO.setFundsTransferId(generateUlid());
+                fundsTransferDTO.setFundsTransferRefNo("STCD-IKF-"+savedEntity.getId());
+
+                return fundsTransferRepository.findById(savedEntity.getId())
+                    .flatMap(existingEntity->{
+
+                        existingEntity.setFundsTransferId(fundsTransferDTO.getFundsTransferId());
+                        existingEntity.setFundsTransferRefNo(fundsTransferDTO.getFundsTransferRefNo());
+
+                        return fundsTransferRepository.save(existingEntity).map(fundsTransferMapper::toDto);
+                    });
+            });
+
     }
 
     /**

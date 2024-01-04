@@ -1,11 +1,11 @@
-id;req_off_id;placed_offer_ref_no;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;status;offer_date;request_id;placed_offer_date;anchor_trader;trade_partner;disbursal_amount
-1;too;pegboard financing punt;24937;2833;14199.17;18620;930;27780.06;17298;9116;15623;whenever hence since;2023-12-28;punctually below venerated;2023-12-28;sympathise;and likely;rapidly weasel like
-2;overestimate;ha including;26487;8286;26332.83;22478;31877;16459.17;24882;24636;26920;icecream;2023-12-28;pasture like;2023-12-28;alienated;er refund qua;hence who
-3;careless ouch rotating;propound;27857;20313;21181.5;13269;20346;29158.42;20241;30493;1354;what vastly;2023-12-27;amidst;2023-12-28;underpin;pish minus difficult;till
-4;brr miserably;drat;6249;13727;14268.86;29812;7283;19915.18;4398;13930;30503;composed seed ick;2023-12-27;quicker instead lament;2023-12-27;eek;however;where marxism eyelashes
-5;pfft filly;frankly notwithstanding;5247;24019;32034.05;31196;21526;27823.54;12274;10660;27270;like weakly try;2023-12-28;meh;2023-12-28;untrue notwithstanding;psst;flippant yet
-6;below clockwork furiously;blah boo response;29122;24624;21256.55;28508;516;18927.4;31215;21813;1539;decongestant;2023-12-28;geez fatally how;2023-12-28;agile only;among gigantic;knavishly
-7;anchored salary yowza;expert;24993;12817;14716.28;16549;7798;9547.36;5576;28957;28867;yum;2023-12-28;properly well as;2023-12-28;yahoo rivulet gosh;paltry aw after;sacrifice given
-8;litter huzzah heavily;practical gadzooks;3812;5724;7169.47;9391;28521;32548.77;10122;2955;7278;wherever oh patent;2023-12-27;sulks lanky;2023-12-28;flashy yuck boohoo;vanity;whoever
-9;purple circa anti;beyond frog;30267;31878;11933.94;32250;8325;5677;32516;20281;8596;wary;2023-12-28;whirlwind fervently;2023-12-28;washbasin;owlishly frantically;yippee furthermore
-10;next underneath bluster;publish rendezvous doubtfully;18882;14259;24840.94;2213;22700;27441.78;27523;13990;19269;hm;2023-12-27;unnecessarily dot;2023-12-28;yearly patty;hungrily yum guide;anti lest
+id;req_off_id;placed_offer_id;placed_offer_ref_no;request_offer_ref_no;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;offer_date;request_id;placed_offer_date;anchor_trader;trade_partner;disbursal_amount;status
+1;too;pegboard financing punt;ew dimly hence;plaster bleakly;2075;9903;19915.89;6004;22499;25320.84;9577;31646;14950;2023-12-28;elementary sink;2023-12-27;and likely;rapidly weasel like;overestimate;ha including
+2;silky might oh;equipment following;transplant moisturize reconstitute;dull;31240;1086;7220.6;19933;7915;8822.87;19316;2620;31842;2023-12-28;while but unexpectedly;2023-12-27;up uniform banish;strict gleefully;intently spawn;insignificant nullify detainee
+3;halibut;quicker app drat;excepting;wherever eek even;31004;18747;24802.72;32540;21046;15119.6;25422;32180;9853;2023-12-27;drat than;2023-12-28;below;wasabi where marxism;owlishly pfft;from
+4;naturally complete helpfully;past handgun aggravating;if too remortgage;while ouch screwdriver;21301;27166;10826.44;29891;32144;22598.66;20433;1014;26566;2023-12-28;times speakerphone drat;2023-12-28;ha nor;whose abaft woot;potentially pillar potable;including huzzah
+5;signal reassuringly;miracle hush;soften vaguely;yahoo which;2975;30678;29783.16;2656;11626;27042.47;8283;10277;12219;2023-12-27;hmph nothing;2023-12-28;though;boo;tail;sternly
+6;supposing greedily;oof;limply voluminous;hose;4703;5185;1267.83;23730;27939;5916.63;22767;16096;10534;2023-12-27;decent before;2023-12-28;duh;pfft instead spearhead;sulks lanky;practical eek
+7;boohoo;vanity;whoever;purple circa anti;19140;8221;14796.78;5850;11318;3782.72;20750;11069;11879;2023-12-28;circa and wary;2023-12-28;whirlwind fervently;nit;eleventh autograph versus;stealthily geez whereas
+8;buoyant;mash;rendezvous doubtfully;excepting mid;10049;11732;27740.14;11485;12447;25148.68;20862;31968;4057;2023-12-28;dot pfft um;2023-12-27;beside psst;guide;anti lest;oof vice
+9;after oh;searchingly whoa;sedately;that;30910;22781;27067.78;15907;9591;12096.38;24371;31032;10684;2023-12-27;without once for;2023-12-28;though up;dear frayed;nor;ouch among truly
+10;poisoning atop;vivaciously foolish;but before;whenever out maximise;22396;1326;29283.34;24678;740;32713.25;13203;23341;16741;2023-12-28;after;2023-12-27;sudden bah whoa;blue oof;round lathe;fervently care

@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.RepaymentRepository;
 import in.pft.apis.creditbazaar.service.dto.RepaymentDTO;
 import in.pft.apis.creditbazaar.service.mapper.RepaymentMapper;
@@ -24,10 +25,17 @@ public class RepaymentService {
 
     private final RepaymentMapper repaymentMapper;
 
+    private static final ULID ulid = new ULID();
+
     public RepaymentService(RepaymentRepository repaymentRepository, RepaymentMapper repaymentMapper) {
         this.repaymentRepository = repaymentRepository;
         this.repaymentMapper = repaymentMapper;
     }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
+    }
+
 
     /**
      * Save a repayment.
@@ -37,7 +45,23 @@ public class RepaymentService {
      */
     public Mono<RepaymentDTO> save(RepaymentDTO repaymentDTO) {
         log.debug("Request to save Repayment : {}", repaymentDTO);
-        return repaymentRepository.save(repaymentMapper.toEntity(repaymentDTO)).map(repaymentMapper::toDto);
+
+        return repaymentRepository
+            .save(repaymentMapper.toEntity(repaymentDTO))
+            .flatMap(savedEntity->{
+
+                repaymentDTO.setRepaymentId(generateUlid());
+                repaymentDTO.setRepaymentRefNo("RPCR-IKF-"+savedEntity.getId());
+
+            return repaymentRepository.findById(savedEntity.getId())
+                .flatMap(existingEntity->{
+
+                    existingEntity.setRepaymentId(repaymentDTO.getRepaymentId());
+                    existingEntity.setRepaymentRefNo(repaymentDTO.getRepaymentRefNo());
+
+                    return repaymentRepository.save(existingEntity).map(repaymentMapper::toDto);
+                });
+            });
     }
 
     /**

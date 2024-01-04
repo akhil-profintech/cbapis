@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.FinanceRequestRepository;
 import in.pft.apis.creditbazaar.service.dto.FinanceRequestDTO;
 import in.pft.apis.creditbazaar.service.mapper.FinanceRequestMapper;
@@ -24,10 +25,18 @@ public class FinanceRequestService {
 
     private final FinanceRequestMapper financeRequestMapper;
 
+    private static final ULID ulid = new ULID();
+
+
     public FinanceRequestService(FinanceRequestRepository financeRequestRepository, FinanceRequestMapper financeRequestMapper) {
         this.financeRequestRepository = financeRequestRepository;
         this.financeRequestMapper = financeRequestMapper;
     }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
+    }
+
 
     /**
      * Save a financeRequest.
@@ -37,7 +46,24 @@ public class FinanceRequestService {
      */
     public Mono<FinanceRequestDTO> save(FinanceRequestDTO financeRequestDTO) {
         log.debug("Request to save FinanceRequest : {}", financeRequestDTO);
-        return financeRequestRepository.save(financeRequestMapper.toEntity(financeRequestDTO)).map(financeRequestMapper::toDto);
+
+        return financeRequestRepository
+            .save(financeRequestMapper.toEntity(financeRequestDTO))
+            .flatMap(savedEntity->{
+
+                financeRequestDTO.setRequestId(generateUlid());
+                financeRequestDTO.setFinanceRequestRefNo("FRCR-IKF-" + savedEntity.getId());
+
+                return financeRequestRepository.findById(savedEntity.getId())
+                    .flatMap(existingEntity->{
+
+                        existingEntity.setRequestId(financeRequestDTO.getRequestId());
+                        existingEntity.setFinanceRequestRefNo(financeRequestDTO.getFinanceRequestRefNo());
+
+                    return financeRequestRepository.save(existingEntity)
+                        .map(financeRequestMapper::toDto);
+                    });
+            });
     }
 
     /**

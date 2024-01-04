@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.AcceptedOfferRepository;
 import in.pft.apis.creditbazaar.service.dto.AcceptedOfferDTO;
 import in.pft.apis.creditbazaar.service.mapper.AcceptedOfferMapper;
@@ -24,9 +25,16 @@ public class AcceptedOfferService {
 
     private final AcceptedOfferMapper acceptedOfferMapper;
 
+    private static final ULID ulid=new ULID();
+
     public AcceptedOfferService(AcceptedOfferRepository acceptedOfferRepository, AcceptedOfferMapper acceptedOfferMapper) {
         this.acceptedOfferRepository = acceptedOfferRepository;
         this.acceptedOfferMapper = acceptedOfferMapper;
+    }
+
+    public String generateUlid()
+    {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +45,23 @@ public class AcceptedOfferService {
      */
     public Mono<AcceptedOfferDTO> save(AcceptedOfferDTO acceptedOfferDTO) {
         log.debug("Request to save AcceptedOffer : {}", acceptedOfferDTO);
-        return acceptedOfferRepository.save(acceptedOfferMapper.toEntity(acceptedOfferDTO)).map(acceptedOfferMapper::toDto);
+
+        return acceptedOfferRepository
+            .save(acceptedOfferMapper.toEntity(acceptedOfferDTO))
+            .flatMap(savedEntity->{
+
+                acceptedOfferDTO.setOfferId(generateUlid());
+                acceptedOfferDTO.setAcceptedOfferRefNo("OFAD-IKF-"+savedEntity.getId());
+
+               return acceptedOfferRepository.findById(savedEntity.getId())
+                   .flatMap(existingEntity->{
+
+                   existingEntity.setOfferId(acceptedOfferDTO.getOfferId());
+                   existingEntity.setAcceptedOfferRefNo(acceptedOfferDTO.getAcceptedOfferRefNo());
+
+                   return acceptedOfferRepository.save(existingEntity).map(acceptedOfferMapper::toDto);
+                   });
+            });
     }
 
     /**

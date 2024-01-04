@@ -27,7 +27,9 @@ public class PlacedOfferRowMapper implements BiFunction<Row, String, PlacedOffer
         PlacedOffer entity = new PlacedOffer();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
         entity.setReqOffId(converter.fromRow(row, prefix + "_req_off_id", String.class));
+        entity.setPlacedOfferId(converter.fromRow(row, prefix + "_placed_offer_id", String.class));
         entity.setPlacedOfferRefNo(converter.fromRow(row, prefix + "_placed_offer_ref_no", String.class));
+        entity.setRequestOfferRefNo(converter.fromRow(row, prefix + "_request_offer_ref_no", String.class));
         entity.setValue(converter.fromRow(row, prefix + "_value", Long.class));
         entity.setReqAmount(converter.fromRow(row, prefix + "_req_amount", Long.class));
         entity.setMarginPtg(converter.fromRow(row, prefix + "_margin_ptg", Float.class));
@@ -37,13 +39,13 @@ public class PlacedOfferRowMapper implements BiFunction<Row, String, PlacedOffer
         entity.setTerm(converter.fromRow(row, prefix + "_term", Long.class));
         entity.setInterestValue(converter.fromRow(row, prefix + "_interest_value", Long.class));
         entity.setNetAmount(converter.fromRow(row, prefix + "_net_amount", Long.class));
-        entity.setStatus(converter.fromRow(row, prefix + "_status", String.class));
         entity.setOfferDate(converter.fromRow(row, prefix + "_offer_date", LocalDate.class));
         entity.setRequestId(converter.fromRow(row, prefix + "_request_id", String.class));
         entity.setPlacedOfferDate(converter.fromRow(row, prefix + "_placed_offer_date", LocalDate.class));
         entity.setAnchorTrader(converter.fromRow(row, prefix + "_anchor_trader", String.class));
         entity.setTradePartner(converter.fromRow(row, prefix + "_trade_partner", String.class));
         entity.setDisbursalAmount(converter.fromRow(row, prefix + "_disbursal_amount", String.class));
+        entity.setStatus(converter.fromRow(row, prefix + "_status", String.class));
         entity.setFinancerequestId(converter.fromRow(row, prefix + "_financerequest_id", Long.class));
         entity.setFinancepartnerId(converter.fromRow(row, prefix + "_financepartner_id", Long.class));
         return entity;

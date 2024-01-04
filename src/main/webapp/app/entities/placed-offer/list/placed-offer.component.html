@@ -49,9 +49,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="placedOfferId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.placedOffer.placedOfferId">Placed Offer Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="placedOfferRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo">Placed Offer Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestOfferRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.placedOffer.requestOfferRefNo">Request Offer Ref No</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -119,13 +133,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="status">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.status">Status</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="offerDate">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span>
@@ -168,6 +175,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="status">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.placedOffer.status">Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="financerequest.requestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.placedOffer.financerequest">Financerequest</span>
@@ -190,7 +204,9 @@
                 <a [routerLink]="['/placed-offer', placedOffer.id, 'view']">{{ placedOffer.id }}</a>
               </td>
               <td>{{ placedOffer.reqOffId }}</td>
+              <td>{{ placedOffer.placedOfferId }}</td>
               <td>{{ placedOffer.placedOfferRefNo }}</td>
+              <td>{{ placedOffer.requestOfferRefNo }}</td>
               <td>{{ placedOffer.value }}</td>
               <td>{{ placedOffer.reqAmount }}</td>
               <td>{{ placedOffer.marginPtg }}</td>
@@ -200,13 +216,13 @@
               <td>{{ placedOffer.term }}</td>
               <td>{{ placedOffer.interestValue }}</td>
               <td>{{ placedOffer.netAmount }}</td>
-              <td>{{ placedOffer.status }}</td>
               <td>{{ placedOffer.offerDate | formatMediumDate }}</td>
               <td>{{ placedOffer.requestId }}</td>
               <td>{{ placedOffer.placedOfferDate | formatMediumDate }}</td>
               <td>{{ placedOffer.anchorTrader }}</td>
               <td>{{ placedOffer.tradePartner }}</td>
               <td>{{ placedOffer.disbursalAmount }}</td>
+              <td>{{ placedOffer.status }}</td>
               <td>
                 @if (placedOffer.financerequest) {
                   <div>

@@ -25,6 +25,18 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.placedOfferId" for="field_placedOfferId">Placed Offer Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="placedOfferId"
+            id="field_placedOfferId"
+            data-cy="placedOfferId"
+            formControlName="placedOfferId"
+          />
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo" for="field_placedOfferRefNo"
             >Placed Offer Ref No</label
           >
@@ -35,6 +47,20 @@
             id="field_placedOfferRefNo"
             data-cy="placedOfferRefNo"
             formControlName="placedOfferRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.requestOfferRefNo" for="field_requestOfferRefNo"
+            >Request Offer Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="requestOfferRefNo"
+            id="field_requestOfferRefNo"
+            data-cy="requestOfferRefNo"
+            formControlName="requestOfferRefNo"
           />
         </div>
 
@@ -227,11 +253,6 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.status" for="field_status">Status</label>
-          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
-        </div>
-
-        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.placedOffer.offerDate" for="field_offerDate">Offer Date</label>
           <div class="input-group">
             <input
@@ -317,6 +338,11 @@
             data-cy="disbursalAmount"
             formControlName="disbursalAmount"
           />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
         </div>
 
         <div class="mb-3">

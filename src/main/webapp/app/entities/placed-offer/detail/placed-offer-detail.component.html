@@ -19,9 +19,17 @@
           <dd>
             <span>{{ placedOffer.reqOffId }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferId">Placed Offer Id</span></dt>
+          <dd>
+            <span>{{ placedOffer.placedOfferId }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo">Placed Offer Ref No</span></dt>
           <dd>
             <span>{{ placedOffer.placedOfferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.requestOfferRefNo">Request Offer Ref No</span></dt>
+          <dd>
+            <span>{{ placedOffer.requestOfferRefNo }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.value">Value</span></dt>
           <dd>
@@ -59,10 +67,6 @@
           <dd>
             <span>{{ placedOffer.netAmount }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.placedOffer.status">Status</span></dt>
-          <dd>
-            <span>{{ placedOffer.status }}</span>
-          </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span></dt>
           <dd>
             <span>{{ placedOffer.offerDate | formatMediumDate }}</span>
@@ -86,6 +90,10 @@
           <dt><span jhiTranslate="cbapisApp.placedOffer.disbursalAmount">Disbursal Amount</span></dt>
           <dd>
             <span>{{ placedOffer.disbursalAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.status">Status</span></dt>
+          <dd>
+            <span>{{ placedOffer.status }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.financerequest">Financerequest</span></dt>
           <dd>

@@ -25,8 +25,14 @@ public class PlacedOffer implements Serializable {
     @Column("req_off_id")
     private String reqOffId;
 
+    @Column("placed_offer_id")
+    private String placedOfferId;
+
     @Column("placed_offer_ref_no")
     private String placedOfferRefNo;
+
+    @Column("request_offer_ref_no")
+    private String requestOfferRefNo;
 
     @NotNull(message = "must not be null")
     @Column("value")
@@ -64,9 +70,6 @@ public class PlacedOffer implements Serializable {
     @Column("net_amount")
     private Long netAmount;
 
-    @Column("status")
-    private String status;
-
     @NotNull(message = "must not be null")
     @Column("offer_date")
     private LocalDate offerDate;
@@ -85,6 +88,9 @@ public class PlacedOffer implements Serializable {
 
     @Column("disbursal_amount")
     private String disbursalAmount;
+
+    @Column("status")
+    private String status;
 
     @Transient
     @JsonIgnoreProperties(
@@ -141,6 +147,19 @@ public class PlacedOffer implements Serializable {
         this.reqOffId = reqOffId;
     }
 
+    public String getPlacedOfferId() {
+        return this.placedOfferId;
+    }
+
+    public PlacedOffer placedOfferId(String placedOfferId) {
+        this.setPlacedOfferId(placedOfferId);
+        return this;
+    }
+
+    public void setPlacedOfferId(String placedOfferId) {
+        this.placedOfferId = placedOfferId;
+    }
+
     public String getPlacedOfferRefNo() {
         return this.placedOfferRefNo;
     }
@@ -152,6 +171,19 @@ public class PlacedOffer implements Serializable {
 
     public void setPlacedOfferRefNo(String placedOfferRefNo) {
         this.placedOfferRefNo = placedOfferRefNo;
+    }
+
+    public String getRequestOfferRefNo() {
+        return this.requestOfferRefNo;
+    }
+
+    public PlacedOffer requestOfferRefNo(String requestOfferRefNo) {
+        this.setRequestOfferRefNo(requestOfferRefNo);
+        return this;
+    }
+
+    public void setRequestOfferRefNo(String requestOfferRefNo) {
+        this.requestOfferRefNo = requestOfferRefNo;
     }
 
     public Long getValue() {
@@ -271,19 +303,6 @@ public class PlacedOffer implements Serializable {
         this.netAmount = netAmount;
     }
 
-    public String getStatus() {
-        return this.status;
-    }
-
-    public PlacedOffer status(String status) {
-        this.setStatus(status);
-        return this;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public LocalDate getOfferDate() {
         return this.offerDate;
     }
@@ -362,6 +381,19 @@ public class PlacedOffer implements Serializable {
         this.disbursalAmount = disbursalAmount;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public PlacedOffer status(String status) {
+        this.setStatus(status);
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public FinanceRequest getFinancerequest() {
         return this.financerequest;
     }
@@ -431,7 +463,9 @@ public class PlacedOffer implements Serializable {
         return "PlacedOffer{" +
             "id=" + getId() +
             ", reqOffId='" + getReqOffId() + "'" +
+            ", placedOfferId='" + getPlacedOfferId() + "'" +
             ", placedOfferRefNo='" + getPlacedOfferRefNo() + "'" +
+            ", requestOfferRefNo='" + getRequestOfferRefNo() + "'" +
             ", value=" + getValue() +
             ", reqAmount=" + getReqAmount() +
             ", marginPtg=" + getMarginPtg() +
@@ -441,13 +475,13 @@ public class PlacedOffer implements Serializable {
             ", term=" + getTerm() +
             ", interestValue=" + getInterestValue() +
             ", netAmount=" + getNetAmount() +
-            ", status='" + getStatus() + "'" +
             ", offerDate='" + getOfferDate() + "'" +
             ", requestId='" + getRequestId() + "'" +
             ", placedOfferDate='" + getPlacedOfferDate() + "'" +
             ", anchorTrader='" + getAnchorTrader() + "'" +
             ", tradePartner='" + getTradePartner() + "'" +
             ", disbursalAmount='" + getDisbursalAmount() + "'" +
+            ", status='" + getStatus() + "'" +
             "}";
     }
 }

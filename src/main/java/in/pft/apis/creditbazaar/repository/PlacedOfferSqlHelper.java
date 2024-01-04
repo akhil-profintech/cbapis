@@ -12,7 +12,9 @@ public class PlacedOfferSqlHelper {
         List<Expression> columns = new ArrayList<>();
         columns.add(Column.aliased("id", table, columnPrefix + "_id"));
         columns.add(Column.aliased("req_off_id", table, columnPrefix + "_req_off_id"));
+        columns.add(Column.aliased("placed_offer_id", table, columnPrefix + "_placed_offer_id"));
         columns.add(Column.aliased("placed_offer_ref_no", table, columnPrefix + "_placed_offer_ref_no"));
+        columns.add(Column.aliased("request_offer_ref_no", table, columnPrefix + "_request_offer_ref_no"));
         columns.add(Column.aliased("value", table, columnPrefix + "_value"));
         columns.add(Column.aliased("req_amount", table, columnPrefix + "_req_amount"));
         columns.add(Column.aliased("margin_ptg", table, columnPrefix + "_margin_ptg"));
@@ -22,13 +24,13 @@ public class PlacedOfferSqlHelper {
         columns.add(Column.aliased("term", table, columnPrefix + "_term"));
         columns.add(Column.aliased("interest_value", table, columnPrefix + "_interest_value"));
         columns.add(Column.aliased("net_amount", table, columnPrefix + "_net_amount"));
-        columns.add(Column.aliased("status", table, columnPrefix + "_status"));
         columns.add(Column.aliased("offer_date", table, columnPrefix + "_offer_date"));
         columns.add(Column.aliased("request_id", table, columnPrefix + "_request_id"));
         columns.add(Column.aliased("placed_offer_date", table, columnPrefix + "_placed_offer_date"));
         columns.add(Column.aliased("anchor_trader", table, columnPrefix + "_anchor_trader"));
         columns.add(Column.aliased("trade_partner", table, columnPrefix + "_trade_partner"));
         columns.add(Column.aliased("disbursal_amount", table, columnPrefix + "_disbursal_amount"));
+        columns.add(Column.aliased("status", table, columnPrefix + "_status"));
 
         columns.add(Column.aliased("financerequest_id", table, columnPrefix + "_financerequest_id"));
         columns.add(Column.aliased("financepartner_id", table, columnPrefix + "_financepartner_id"));

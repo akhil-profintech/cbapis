@@ -12,7 +12,15 @@
       "fieldType": "String"
     },
     {
+      "fieldName": "placedOfferId",
+      "fieldType": "String"
+    },
+    {
       "fieldName": "placedOfferRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "requestOfferRefNo",
       "fieldType": "String"
     },
     {
@@ -61,10 +69,6 @@
       "fieldValidateRules": ["required"]
     },
     {
-      "fieldName": "status",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "offerDate",
       "fieldType": "LocalDate",
       "fieldValidateRules": ["required"]
@@ -87,6 +91,10 @@
     },
     {
       "fieldName": "disbursalAmount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
       "fieldType": "String"
     }
   ],

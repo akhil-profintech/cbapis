@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.DisbursementRepository;
 import in.pft.apis.creditbazaar.service.dto.DisbursementDTO;
 import in.pft.apis.creditbazaar.service.mapper.DisbursementMapper;
@@ -22,11 +23,17 @@ public class DisbursementService {
 
     private final DisbursementRepository disbursementRepository;
 
+    private static final ULID ulid = new ULID();
+
     private final DisbursementMapper disbursementMapper;
 
     public DisbursementService(DisbursementRepository disbursementRepository, DisbursementMapper disbursementMapper) {
         this.disbursementRepository = disbursementRepository;
         this.disbursementMapper = disbursementMapper;
+    }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +44,24 @@ public class DisbursementService {
      */
     public Mono<DisbursementDTO> save(DisbursementDTO disbursementDTO) {
         log.debug("Request to save Disbursement : {}", disbursementDTO);
-        return disbursementRepository.save(disbursementMapper.toEntity(disbursementDTO)).map(disbursementMapper::toDto);
+
+        return disbursementRepository
+            .save(disbursementMapper.toEntity(disbursementDTO))
+            .flatMap(savedEntity->{
+
+                disbursementDTO.setDbmtId(generateUlid());
+                disbursementDTO.setDisbursementRefNo("DBCR-IKF-"+savedEntity.getId());
+
+               return disbursementRepository.findById(savedEntity.getId())
+                   .flatMap(existingEntity->{
+
+                   existingEntity.setDbmtId(disbursementDTO.getDbmtId());
+                   existingEntity.setDisbursementRefNo(disbursementDTO.getDisbursementRefNo());
+
+                   return disbursementRepository.save(existingEntity)
+                       .map(disbursementMapper::toDto);
+                   });
+            });
     }
 
     /**

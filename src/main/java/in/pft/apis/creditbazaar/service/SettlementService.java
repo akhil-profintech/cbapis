@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.SettlementRepository;
 import in.pft.apis.creditbazaar.service.dto.SettlementDTO;
 import in.pft.apis.creditbazaar.service.mapper.SettlementMapper;
@@ -24,9 +25,16 @@ public class SettlementService {
 
     private final SettlementMapper settlementMapper;
 
+
+    private static final ULID ulid=new ULID();
+
     public SettlementService(SettlementRepository settlementRepository, SettlementMapper settlementMapper) {
         this.settlementRepository = settlementRepository;
         this.settlementMapper = settlementMapper;
+    }
+
+    public  String generateUlid() {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +45,23 @@ public class SettlementService {
      */
     public Mono<SettlementDTO> save(SettlementDTO settlementDTO) {
         log.debug("Request to save Settlement : {}", settlementDTO);
-        return settlementRepository.save(settlementMapper.toEntity(settlementDTO)).map(settlementMapper::toDto);
+
+        return settlementRepository
+            .save(settlementMapper.toEntity(settlementDTO))
+            .flatMap(savedEntity->{
+
+                settlementDTO.setSettlementId(generateUlid());
+                settlementDTO.setSettlementRefNo("STCR-IKF-"+savedEntity.getId());
+
+             return settlementRepository.findById(savedEntity.getId())
+                 .flatMap(existingEntity->{
+
+                     existingEntity.setSettlementId(settlementDTO.getSettlementId());
+                     existingEntity.setSettlementRefNo(settlementDTO.getSettlementRefNo());
+
+                     return settlementRepository.save(existingEntity).map(settlementMapper::toDto);
+                 });
+            });
     }
 
     /**

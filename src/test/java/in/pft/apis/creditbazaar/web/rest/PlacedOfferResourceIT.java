@@ -42,8 +42,14 @@ class PlacedOfferResourceIT {
     private static final String DEFAULT_REQ_OFF_ID = "AAAAAAAAAA";
     private static final String UPDATED_REQ_OFF_ID = "BBBBBBBBBB";
 
+    private static final String DEFAULT_PLACED_OFFER_ID = "AAAAAAAAAA";
+    private static final String UPDATED_PLACED_OFFER_ID = "BBBBBBBBBB";
+
     private static final String DEFAULT_PLACED_OFFER_REF_NO = "AAAAAAAAAA";
     private static final String UPDATED_PLACED_OFFER_REF_NO = "BBBBBBBBBB";
+
+    private static final String DEFAULT_REQUEST_OFFER_REF_NO = "AAAAAAAAAA";
+    private static final String UPDATED_REQUEST_OFFER_REF_NO = "BBBBBBBBBB";
 
     private static final Long DEFAULT_VALUE = 1L;
     private static final Long UPDATED_VALUE = 2L;
@@ -72,9 +78,6 @@ class PlacedOfferResourceIT {
     private static final Long DEFAULT_NET_AMOUNT = 1L;
     private static final Long UPDATED_NET_AMOUNT = 2L;
 
-    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
-    private static final String UPDATED_STATUS = "BBBBBBBBBB";
-
     private static final LocalDate DEFAULT_OFFER_DATE = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_OFFER_DATE = LocalDate.now(ZoneId.systemDefault());
 
@@ -92,6 +95,9 @@ class PlacedOfferResourceIT {
 
     private static final String DEFAULT_DISBURSAL_AMOUNT = "AAAAAAAAAA";
     private static final String UPDATED_DISBURSAL_AMOUNT = "BBBBBBBBBB";
+
+    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_STATUS = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/placed-offers";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -128,7 +134,9 @@ class PlacedOfferResourceIT {
     public static PlacedOffer createEntity(EntityManager em) {
         PlacedOffer placedOffer = new PlacedOffer()
             .reqOffId(DEFAULT_REQ_OFF_ID)
+            .placedOfferId(DEFAULT_PLACED_OFFER_ID)
             .placedOfferRefNo(DEFAULT_PLACED_OFFER_REF_NO)
+            .requestOfferRefNo(DEFAULT_REQUEST_OFFER_REF_NO)
             .value(DEFAULT_VALUE)
             .reqAmount(DEFAULT_REQ_AMOUNT)
             .marginPtg(DEFAULT_MARGIN_PTG)
@@ -138,13 +146,13 @@ class PlacedOfferResourceIT {
             .term(DEFAULT_TERM)
             .interestValue(DEFAULT_INTEREST_VALUE)
             .netAmount(DEFAULT_NET_AMOUNT)
-            .status(DEFAULT_STATUS)
             .offerDate(DEFAULT_OFFER_DATE)
             .requestId(DEFAULT_REQUEST_ID)
             .placedOfferDate(DEFAULT_PLACED_OFFER_DATE)
             .anchorTrader(DEFAULT_ANCHOR_TRADER)
             .tradePartner(DEFAULT_TRADE_PARTNER)
-            .disbursalAmount(DEFAULT_DISBURSAL_AMOUNT);
+            .disbursalAmount(DEFAULT_DISBURSAL_AMOUNT)
+            .status(DEFAULT_STATUS);
         return placedOffer;
     }
 
@@ -157,7 +165,9 @@ class PlacedOfferResourceIT {
     public static PlacedOffer createUpdatedEntity(EntityManager em) {
         PlacedOffer placedOffer = new PlacedOffer()
             .reqOffId(UPDATED_REQ_OFF_ID)
+            .placedOfferId(UPDATED_PLACED_OFFER_ID)
             .placedOfferRefNo(UPDATED_PLACED_OFFER_REF_NO)
+            .requestOfferRefNo(UPDATED_REQUEST_OFFER_REF_NO)
             .value(UPDATED_VALUE)
             .reqAmount(UPDATED_REQ_AMOUNT)
             .marginPtg(UPDATED_MARGIN_PTG)
@@ -167,13 +177,13 @@ class PlacedOfferResourceIT {
             .term(UPDATED_TERM)
             .interestValue(UPDATED_INTEREST_VALUE)
             .netAmount(UPDATED_NET_AMOUNT)
-            .status(UPDATED_STATUS)
             .offerDate(UPDATED_OFFER_DATE)
             .requestId(UPDATED_REQUEST_ID)
             .placedOfferDate(UPDATED_PLACED_OFFER_DATE)
             .anchorTrader(UPDATED_ANCHOR_TRADER)
             .tradePartner(UPDATED_TRADE_PARTNER)
-            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT);
+            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT)
+            .status(UPDATED_STATUS);
         return placedOffer;
     }
 
@@ -215,7 +225,9 @@ class PlacedOfferResourceIT {
         assertThat(placedOfferList).hasSize(databaseSizeBeforeCreate + 1);
         PlacedOffer testPlacedOffer = placedOfferList.get(placedOfferList.size() - 1);
         assertThat(testPlacedOffer.getReqOffId()).isEqualTo(DEFAULT_REQ_OFF_ID);
+        assertThat(testPlacedOffer.getPlacedOfferId()).isEqualTo(DEFAULT_PLACED_OFFER_ID);
         assertThat(testPlacedOffer.getPlacedOfferRefNo()).isEqualTo(DEFAULT_PLACED_OFFER_REF_NO);
+        assertThat(testPlacedOffer.getRequestOfferRefNo()).isEqualTo(DEFAULT_REQUEST_OFFER_REF_NO);
         assertThat(testPlacedOffer.getValue()).isEqualTo(DEFAULT_VALUE);
         assertThat(testPlacedOffer.getReqAmount()).isEqualTo(DEFAULT_REQ_AMOUNT);
         assertThat(testPlacedOffer.getMarginPtg()).isEqualTo(DEFAULT_MARGIN_PTG);
@@ -225,13 +237,13 @@ class PlacedOfferResourceIT {
         assertThat(testPlacedOffer.getTerm()).isEqualTo(DEFAULT_TERM);
         assertThat(testPlacedOffer.getInterestValue()).isEqualTo(DEFAULT_INTEREST_VALUE);
         assertThat(testPlacedOffer.getNetAmount()).isEqualTo(DEFAULT_NET_AMOUNT);
-        assertThat(testPlacedOffer.getStatus()).isEqualTo(DEFAULT_STATUS);
         assertThat(testPlacedOffer.getOfferDate()).isEqualTo(DEFAULT_OFFER_DATE);
         assertThat(testPlacedOffer.getRequestId()).isEqualTo(DEFAULT_REQUEST_ID);
         assertThat(testPlacedOffer.getPlacedOfferDate()).isEqualTo(DEFAULT_PLACED_OFFER_DATE);
         assertThat(testPlacedOffer.getAnchorTrader()).isEqualTo(DEFAULT_ANCHOR_TRADER);
         assertThat(testPlacedOffer.getTradePartner()).isEqualTo(DEFAULT_TRADE_PARTNER);
         assertThat(testPlacedOffer.getDisbursalAmount()).isEqualTo(DEFAULT_DISBURSAL_AMOUNT);
+        assertThat(testPlacedOffer.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
     @Test
@@ -497,8 +509,12 @@ class PlacedOfferResourceIT {
             .value(hasItem(placedOffer.getId().intValue()))
             .jsonPath("$.[*].reqOffId")
             .value(hasItem(DEFAULT_REQ_OFF_ID))
+            .jsonPath("$.[*].placedOfferId")
+            .value(hasItem(DEFAULT_PLACED_OFFER_ID))
             .jsonPath("$.[*].placedOfferRefNo")
             .value(hasItem(DEFAULT_PLACED_OFFER_REF_NO))
+            .jsonPath("$.[*].requestOfferRefNo")
+            .value(hasItem(DEFAULT_REQUEST_OFFER_REF_NO))
             .jsonPath("$.[*].value")
             .value(hasItem(DEFAULT_VALUE.intValue()))
             .jsonPath("$.[*].reqAmount")
@@ -517,8 +533,6 @@ class PlacedOfferResourceIT {
             .value(hasItem(DEFAULT_INTEREST_VALUE.intValue()))
             .jsonPath("$.[*].netAmount")
             .value(hasItem(DEFAULT_NET_AMOUNT.intValue()))
-            .jsonPath("$.[*].status")
-            .value(hasItem(DEFAULT_STATUS))
             .jsonPath("$.[*].offerDate")
             .value(hasItem(DEFAULT_OFFER_DATE.toString()))
             .jsonPath("$.[*].requestId")
@@ -530,7 +544,9 @@ class PlacedOfferResourceIT {
             .jsonPath("$.[*].tradePartner")
             .value(hasItem(DEFAULT_TRADE_PARTNER))
             .jsonPath("$.[*].disbursalAmount")
-            .value(hasItem(DEFAULT_DISBURSAL_AMOUNT));
+            .value(hasItem(DEFAULT_DISBURSAL_AMOUNT))
+            .jsonPath("$.[*].status")
+            .value(hasItem(DEFAULT_STATUS));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -570,8 +586,12 @@ class PlacedOfferResourceIT {
             .value(is(placedOffer.getId().intValue()))
             .jsonPath("$.reqOffId")
             .value(is(DEFAULT_REQ_OFF_ID))
+            .jsonPath("$.placedOfferId")
+            .value(is(DEFAULT_PLACED_OFFER_ID))
             .jsonPath("$.placedOfferRefNo")
             .value(is(DEFAULT_PLACED_OFFER_REF_NO))
+            .jsonPath("$.requestOfferRefNo")
+            .value(is(DEFAULT_REQUEST_OFFER_REF_NO))
             .jsonPath("$.value")
             .value(is(DEFAULT_VALUE.intValue()))
             .jsonPath("$.reqAmount")
@@ -590,8 +610,6 @@ class PlacedOfferResourceIT {
             .value(is(DEFAULT_INTEREST_VALUE.intValue()))
             .jsonPath("$.netAmount")
             .value(is(DEFAULT_NET_AMOUNT.intValue()))
-            .jsonPath("$.status")
-            .value(is(DEFAULT_STATUS))
             .jsonPath("$.offerDate")
             .value(is(DEFAULT_OFFER_DATE.toString()))
             .jsonPath("$.requestId")
@@ -603,7 +621,9 @@ class PlacedOfferResourceIT {
             .jsonPath("$.tradePartner")
             .value(is(DEFAULT_TRADE_PARTNER))
             .jsonPath("$.disbursalAmount")
-            .value(is(DEFAULT_DISBURSAL_AMOUNT));
+            .value(is(DEFAULT_DISBURSAL_AMOUNT))
+            .jsonPath("$.status")
+            .value(is(DEFAULT_STATUS));
     }
 
     @Test
@@ -629,7 +649,9 @@ class PlacedOfferResourceIT {
         PlacedOffer updatedPlacedOffer = placedOfferRepository.findById(placedOffer.getId()).block();
         updatedPlacedOffer
             .reqOffId(UPDATED_REQ_OFF_ID)
+            .placedOfferId(UPDATED_PLACED_OFFER_ID)
             .placedOfferRefNo(UPDATED_PLACED_OFFER_REF_NO)
+            .requestOfferRefNo(UPDATED_REQUEST_OFFER_REF_NO)
             .value(UPDATED_VALUE)
             .reqAmount(UPDATED_REQ_AMOUNT)
             .marginPtg(UPDATED_MARGIN_PTG)
@@ -639,13 +661,13 @@ class PlacedOfferResourceIT {
             .term(UPDATED_TERM)
             .interestValue(UPDATED_INTEREST_VALUE)
             .netAmount(UPDATED_NET_AMOUNT)
-            .status(UPDATED_STATUS)
             .offerDate(UPDATED_OFFER_DATE)
             .requestId(UPDATED_REQUEST_ID)
             .placedOfferDate(UPDATED_PLACED_OFFER_DATE)
             .anchorTrader(UPDATED_ANCHOR_TRADER)
             .tradePartner(UPDATED_TRADE_PARTNER)
-            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT);
+            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT)
+            .status(UPDATED_STATUS);
         PlacedOfferDTO placedOfferDTO = placedOfferMapper.toDto(updatedPlacedOffer);
 
         webTestClient
@@ -662,7 +684,9 @@ class PlacedOfferResourceIT {
         assertThat(placedOfferList).hasSize(databaseSizeBeforeUpdate);
         PlacedOffer testPlacedOffer = placedOfferList.get(placedOfferList.size() - 1);
         assertThat(testPlacedOffer.getReqOffId()).isEqualTo(UPDATED_REQ_OFF_ID);
+        assertThat(testPlacedOffer.getPlacedOfferId()).isEqualTo(UPDATED_PLACED_OFFER_ID);
         assertThat(testPlacedOffer.getPlacedOfferRefNo()).isEqualTo(UPDATED_PLACED_OFFER_REF_NO);
+        assertThat(testPlacedOffer.getRequestOfferRefNo()).isEqualTo(UPDATED_REQUEST_OFFER_REF_NO);
         assertThat(testPlacedOffer.getValue()).isEqualTo(UPDATED_VALUE);
         assertThat(testPlacedOffer.getReqAmount()).isEqualTo(UPDATED_REQ_AMOUNT);
         assertThat(testPlacedOffer.getMarginPtg()).isEqualTo(UPDATED_MARGIN_PTG);
@@ -672,13 +696,13 @@ class PlacedOfferResourceIT {
         assertThat(testPlacedOffer.getTerm()).isEqualTo(UPDATED_TERM);
         assertThat(testPlacedOffer.getInterestValue()).isEqualTo(UPDATED_INTEREST_VALUE);
         assertThat(testPlacedOffer.getNetAmount()).isEqualTo(UPDATED_NET_AMOUNT);
-        assertThat(testPlacedOffer.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testPlacedOffer.getOfferDate()).isEqualTo(UPDATED_OFFER_DATE);
         assertThat(testPlacedOffer.getRequestId()).isEqualTo(UPDATED_REQUEST_ID);
         assertThat(testPlacedOffer.getPlacedOfferDate()).isEqualTo(UPDATED_PLACED_OFFER_DATE);
         assertThat(testPlacedOffer.getAnchorTrader()).isEqualTo(UPDATED_ANCHOR_TRADER);
         assertThat(testPlacedOffer.getTradePartner()).isEqualTo(UPDATED_TRADE_PARTNER);
         assertThat(testPlacedOffer.getDisbursalAmount()).isEqualTo(UPDATED_DISBURSAL_AMOUNT);
+        assertThat(testPlacedOffer.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
     @Test
@@ -762,14 +786,14 @@ class PlacedOfferResourceIT {
         partialUpdatedPlacedOffer.setId(placedOffer.getId());
 
         partialUpdatedPlacedOffer
+            .placedOfferId(UPDATED_PLACED_OFFER_ID)
             .placedOfferRefNo(UPDATED_PLACED_OFFER_REF_NO)
             .value(UPDATED_VALUE)
-            .marginPtg(UPDATED_MARGIN_PTG)
-            .offerDate(UPDATED_OFFER_DATE)
+            .netAmount(UPDATED_NET_AMOUNT)
+            .requestId(UPDATED_REQUEST_ID)
             .placedOfferDate(UPDATED_PLACED_OFFER_DATE)
             .anchorTrader(UPDATED_ANCHOR_TRADER)
-            .tradePartner(UPDATED_TRADE_PARTNER)
-            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT);
+            .tradePartner(UPDATED_TRADE_PARTNER);
 
         webTestClient
             .patch()
@@ -785,23 +809,25 @@ class PlacedOfferResourceIT {
         assertThat(placedOfferList).hasSize(databaseSizeBeforeUpdate);
         PlacedOffer testPlacedOffer = placedOfferList.get(placedOfferList.size() - 1);
         assertThat(testPlacedOffer.getReqOffId()).isEqualTo(DEFAULT_REQ_OFF_ID);
+        assertThat(testPlacedOffer.getPlacedOfferId()).isEqualTo(UPDATED_PLACED_OFFER_ID);
         assertThat(testPlacedOffer.getPlacedOfferRefNo()).isEqualTo(UPDATED_PLACED_OFFER_REF_NO);
+        assertThat(testPlacedOffer.getRequestOfferRefNo()).isEqualTo(DEFAULT_REQUEST_OFFER_REF_NO);
         assertThat(testPlacedOffer.getValue()).isEqualTo(UPDATED_VALUE);
         assertThat(testPlacedOffer.getReqAmount()).isEqualTo(DEFAULT_REQ_AMOUNT);
-        assertThat(testPlacedOffer.getMarginPtg()).isEqualTo(UPDATED_MARGIN_PTG);
+        assertThat(testPlacedOffer.getMarginPtg()).isEqualTo(DEFAULT_MARGIN_PTG);
         assertThat(testPlacedOffer.getMarginValue()).isEqualTo(DEFAULT_MARGIN_VALUE);
         assertThat(testPlacedOffer.getAmountAftMargin()).isEqualTo(DEFAULT_AMOUNT_AFT_MARGIN);
         assertThat(testPlacedOffer.getInterestPtg()).isEqualTo(DEFAULT_INTEREST_PTG);
         assertThat(testPlacedOffer.getTerm()).isEqualTo(DEFAULT_TERM);
         assertThat(testPlacedOffer.getInterestValue()).isEqualTo(DEFAULT_INTEREST_VALUE);
-        assertThat(testPlacedOffer.getNetAmount()).isEqualTo(DEFAULT_NET_AMOUNT);
-        assertThat(testPlacedOffer.getStatus()).isEqualTo(DEFAULT_STATUS);
-        assertThat(testPlacedOffer.getOfferDate()).isEqualTo(UPDATED_OFFER_DATE);
-        assertThat(testPlacedOffer.getRequestId()).isEqualTo(DEFAULT_REQUEST_ID);
+        assertThat(testPlacedOffer.getNetAmount()).isEqualTo(UPDATED_NET_AMOUNT);
+        assertThat(testPlacedOffer.getOfferDate()).isEqualTo(DEFAULT_OFFER_DATE);
+        assertThat(testPlacedOffer.getRequestId()).isEqualTo(UPDATED_REQUEST_ID);
         assertThat(testPlacedOffer.getPlacedOfferDate()).isEqualTo(UPDATED_PLACED_OFFER_DATE);
         assertThat(testPlacedOffer.getAnchorTrader()).isEqualTo(UPDATED_ANCHOR_TRADER);
         assertThat(testPlacedOffer.getTradePartner()).isEqualTo(UPDATED_TRADE_PARTNER);
-        assertThat(testPlacedOffer.getDisbursalAmount()).isEqualTo(UPDATED_DISBURSAL_AMOUNT);
+        assertThat(testPlacedOffer.getDisbursalAmount()).isEqualTo(DEFAULT_DISBURSAL_AMOUNT);
+        assertThat(testPlacedOffer.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
     @Test
@@ -817,7 +843,9 @@ class PlacedOfferResourceIT {
 
         partialUpdatedPlacedOffer
             .reqOffId(UPDATED_REQ_OFF_ID)
+            .placedOfferId(UPDATED_PLACED_OFFER_ID)
             .placedOfferRefNo(UPDATED_PLACED_OFFER_REF_NO)
+            .requestOfferRefNo(UPDATED_REQUEST_OFFER_REF_NO)
             .value(UPDATED_VALUE)
             .reqAmount(UPDATED_REQ_AMOUNT)
             .marginPtg(UPDATED_MARGIN_PTG)
@@ -827,13 +855,13 @@ class PlacedOfferResourceIT {
             .term(UPDATED_TERM)
             .interestValue(UPDATED_INTEREST_VALUE)
             .netAmount(UPDATED_NET_AMOUNT)
-            .status(UPDATED_STATUS)
             .offerDate(UPDATED_OFFER_DATE)
             .requestId(UPDATED_REQUEST_ID)
             .placedOfferDate(UPDATED_PLACED_OFFER_DATE)
             .anchorTrader(UPDATED_ANCHOR_TRADER)
             .tradePartner(UPDATED_TRADE_PARTNER)
-            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT);
+            .disbursalAmount(UPDATED_DISBURSAL_AMOUNT)
+            .status(UPDATED_STATUS);
 
         webTestClient
             .patch()
@@ -849,7 +877,9 @@ class PlacedOfferResourceIT {
         assertThat(placedOfferList).hasSize(databaseSizeBeforeUpdate);
         PlacedOffer testPlacedOffer = placedOfferList.get(placedOfferList.size() - 1);
         assertThat(testPlacedOffer.getReqOffId()).isEqualTo(UPDATED_REQ_OFF_ID);
+        assertThat(testPlacedOffer.getPlacedOfferId()).isEqualTo(UPDATED_PLACED_OFFER_ID);
         assertThat(testPlacedOffer.getPlacedOfferRefNo()).isEqualTo(UPDATED_PLACED_OFFER_REF_NO);
+        assertThat(testPlacedOffer.getRequestOfferRefNo()).isEqualTo(UPDATED_REQUEST_OFFER_REF_NO);
         assertThat(testPlacedOffer.getValue()).isEqualTo(UPDATED_VALUE);
         assertThat(testPlacedOffer.getReqAmount()).isEqualTo(UPDATED_REQ_AMOUNT);
         assertThat(testPlacedOffer.getMarginPtg()).isEqualTo(UPDATED_MARGIN_PTG);
@@ -859,13 +889,13 @@ class PlacedOfferResourceIT {
         assertThat(testPlacedOffer.getTerm()).isEqualTo(UPDATED_TERM);
         assertThat(testPlacedOffer.getInterestValue()).isEqualTo(UPDATED_INTEREST_VALUE);
         assertThat(testPlacedOffer.getNetAmount()).isEqualTo(UPDATED_NET_AMOUNT);
-        assertThat(testPlacedOffer.getStatus()).isEqualTo(UPDATED_STATUS);
         assertThat(testPlacedOffer.getOfferDate()).isEqualTo(UPDATED_OFFER_DATE);
         assertThat(testPlacedOffer.getRequestId()).isEqualTo(UPDATED_REQUEST_ID);
         assertThat(testPlacedOffer.getPlacedOfferDate()).isEqualTo(UPDATED_PLACED_OFFER_DATE);
         assertThat(testPlacedOffer.getAnchorTrader()).isEqualTo(UPDATED_ANCHOR_TRADER);
         assertThat(testPlacedOffer.getTradePartner()).isEqualTo(UPDATED_TRADE_PARTNER);
         assertThat(testPlacedOffer.getDisbursalAmount()).isEqualTo(UPDATED_DISBURSAL_AMOUNT);
+        assertThat(testPlacedOffer.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
     @Test

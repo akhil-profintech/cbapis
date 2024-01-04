@@ -17,7 +17,13 @@
             <column name="req_off_id" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
+            <column name="placed_offer_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="placed_offer_ref_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="request_offer_ref_no" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="value" type="bigint">
@@ -47,9 +53,6 @@
             <column name="net_amount" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="offer_date" type="date">
                 <constraints nullable="false" />
             </column>
@@ -66,6 +69,9 @@
                 <constraints nullable="true" />
             </column>
             <column name="disbursal_amount" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="financerequest_id" type="bigint">
@@ -96,7 +102,9 @@
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
             <column name="req_off_id" type="string"/>
+            <column name="placed_offer_id" type="string"/>
             <column name="placed_offer_ref_no" type="string"/>
+            <column name="request_offer_ref_no" type="string"/>
             <column name="value" type="numeric"/>
             <column name="req_amount" type="numeric"/>
             <column name="margin_ptg" type="numeric"/>
@@ -106,13 +114,13 @@
             <column name="term" type="numeric"/>
             <column name="interest_value" type="numeric"/>
             <column name="net_amount" type="numeric"/>
-            <column name="status" type="string"/>
             <column name="offer_date" type="date"/>
             <column name="request_id" type="string"/>
             <column name="placed_offer_date" type="date"/>
             <column name="anchor_trader" type="string"/>
             <column name="trade_partner" type="string"/>
             <column name="disbursal_amount" type="string"/>
+            <column name="status" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

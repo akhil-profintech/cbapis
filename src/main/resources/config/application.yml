@@ -206,13 +206,13 @@ jhipster:
   clientApp:
     name: 'cbapisApp'
   # By default CORS is disabled. Uncomment to enable.
-  # cors:
-  #   allowed-origins: "http://localhost:8100,http://localhost:9000"
-  #   allowed-methods: "*"
-  #   allowed-headers: "*"
-  #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
-  #   allow-credentials: true
-  #   max-age: 1800
+  cors:
+    allowed-origins: "http://localhost:3000,http://a8e3b23b39f2d451d938efcd28309ecc-452859923.ap-south-1.elb.amazonaws.com:3000"
+    allowed-methods: "GET,POST,PUT,DELETE,OPTIONS,PATCH"
+    allowed-headers: "Origin, Authorization, X-Requested-With, Content-Type, Accept"
+    exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
+    allow-credentials: true
+    max-age: 1800
   mail:
     from: cbapis@localhost
   api-docs:

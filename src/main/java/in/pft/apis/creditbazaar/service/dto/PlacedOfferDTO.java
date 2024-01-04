@@ -15,7 +15,11 @@ public class PlacedOfferDTO implements Serializable {
 
     private String reqOffId;
 
+    private String placedOfferId;
+
     private String placedOfferRefNo;
+
+    private String requestOfferRefNo;
 
     @NotNull(message = "must not be null")
     private Long value;
@@ -44,8 +48,6 @@ public class PlacedOfferDTO implements Serializable {
     @NotNull(message = "must not be null")
     private Long netAmount;
 
-    private String status;
-
     @NotNull(message = "must not be null")
     private LocalDate offerDate;
 
@@ -58,6 +60,8 @@ public class PlacedOfferDTO implements Serializable {
     private String tradePartner;
 
     private String disbursalAmount;
+
+    private String status;
 
     private FinanceRequestDTO financerequest;
 
@@ -79,12 +83,28 @@ public class PlacedOfferDTO implements Serializable {
         this.reqOffId = reqOffId;
     }
 
+    public String getPlacedOfferId() {
+        return placedOfferId;
+    }
+
+    public void setPlacedOfferId(String placedOfferId) {
+        this.placedOfferId = placedOfferId;
+    }
+
     public String getPlacedOfferRefNo() {
         return placedOfferRefNo;
     }
 
     public void setPlacedOfferRefNo(String placedOfferRefNo) {
         this.placedOfferRefNo = placedOfferRefNo;
+    }
+
+    public String getRequestOfferRefNo() {
+        return requestOfferRefNo;
+    }
+
+    public void setRequestOfferRefNo(String requestOfferRefNo) {
+        this.requestOfferRefNo = requestOfferRefNo;
     }
 
     public Long getValue() {
@@ -159,14 +179,6 @@ public class PlacedOfferDTO implements Serializable {
         this.netAmount = netAmount;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public LocalDate getOfferDate() {
         return offerDate;
     }
@@ -215,6 +227,14 @@ public class PlacedOfferDTO implements Serializable {
         this.disbursalAmount = disbursalAmount;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public FinanceRequestDTO getFinancerequest() {
         return financerequest;
     }
@@ -258,7 +278,9 @@ public class PlacedOfferDTO implements Serializable {
         return "PlacedOfferDTO{" +
             "id=" + getId() +
             ", reqOffId='" + getReqOffId() + "'" +
+            ", placedOfferId='" + getPlacedOfferId() + "'" +
             ", placedOfferRefNo='" + getPlacedOfferRefNo() + "'" +
+            ", requestOfferRefNo='" + getRequestOfferRefNo() + "'" +
             ", value=" + getValue() +
             ", reqAmount=" + getReqAmount() +
             ", marginPtg=" + getMarginPtg() +
@@ -268,13 +290,13 @@ public class PlacedOfferDTO implements Serializable {
             ", term=" + getTerm() +
             ", interestValue=" + getInterestValue() +
             ", netAmount=" + getNetAmount() +
-            ", status='" + getStatus() + "'" +
             ", offerDate='" + getOfferDate() + "'" +
             ", requestId='" + getRequestId() + "'" +
             ", placedOfferDate='" + getPlacedOfferDate() + "'" +
             ", anchorTrader='" + getAnchorTrader() + "'" +
             ", tradePartner='" + getTradePartner() + "'" +
             ", disbursalAmount='" + getDisbursalAmount() + "'" +
+            ", status='" + getStatus() + "'" +
             ", financerequest=" + getFinancerequest() +
             ", financepartner=" + getFinancepartner() +
             "}";
