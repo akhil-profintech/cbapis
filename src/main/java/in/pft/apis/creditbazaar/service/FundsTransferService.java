@@ -50,7 +50,7 @@ public class FundsTransferService {
 
 
                 fundsTransferDTO.setFundsTransferId(generateUlid());
-                fundsTransferDTO.setFundsTransferRefNo("STCD-IKF-"+savedEntity.getId());
+                fundsTransferDTO.setFundsTransferRefNo("STCD-PFT-RNH-PTS-PBY-FRCR-PTS-"+savedEntity.getId());
 
                 return fundsTransferRepository.findById(savedEntity.getId())
                     .flatMap(existingEntity->{

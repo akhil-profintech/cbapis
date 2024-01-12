@@ -42,7 +42,7 @@ public class RequestOfferService {
      * @param requestOfferDTO the entity to save.
      * @return the persisted entity.
      */
-    public Mono<RequestOfferDTO> save(RequestOfferDTO requestOfferDTO) {
+     public Mono<RequestOfferDTO> save(RequestOfferDTO requestOfferDTO) {
         log.debug("Request to save RequestOffer : {}", requestOfferDTO);
         return requestOfferRepository
             .save(requestOfferMapper.toEntity(requestOfferDTO))
@@ -50,16 +50,16 @@ public class RequestOfferService {
 
                 requestOfferDTO.setReqOffId(generateUlid());
 
-                requestOfferDTO.setRequestOfferRefNo("ROCR-IKF-"+savedEntity.getId());
+                requestOfferDTO.setRequestOfferRefNo("ROCR-PBY-FRCR-PTS-"+savedEntity.getId());
 
                 return requestOfferRepository.findById(savedEntity.getId())
                     .flatMap(existingEntity->{
 
-                    existingEntity.setReqOffId(requestOfferDTO.getReqOffId());
-                    existingEntity.setRequestOfferRefNo(requestOfferDTO.getRequestOfferRefNo());
+                        existingEntity.setReqOffId(requestOfferDTO.getReqOffId());
+                        existingEntity.setRequestOfferRefNo(requestOfferDTO.getRequestOfferRefNo());
 
-                    return requestOfferRepository.save(existingEntity)
-                        .map(requestOfferMapper::toDto);
+                        return requestOfferRepository.save(existingEntity)
+                            .map(requestOfferMapper::toDto);
                     });
             });
     }

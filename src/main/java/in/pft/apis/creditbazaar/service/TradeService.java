@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.service;
 
+import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.repository.TradeRepository;
 import in.pft.apis.creditbazaar.service.dto.TradeDTO;
 import in.pft.apis.creditbazaar.service.mapper.TradeMapper;
@@ -24,9 +25,16 @@ public class TradeService {
 
     private final TradeMapper tradeMapper;
 
+    private static final ULID ulid=new ULID();
+
     public TradeService(TradeRepository tradeRepository, TradeMapper tradeMapper) {
         this.tradeRepository = tradeRepository;
         this.tradeMapper = tradeMapper;
+    }
+
+
+    public  String generateUlid() {
+        return ulid.nextULID();
     }
 
     /**
@@ -37,7 +45,16 @@ public class TradeService {
      */
     public Mono<TradeDTO> save(TradeDTO tradeDTO) {
         log.debug("Request to save Trade : {}", tradeDTO);
-        return tradeRepository.save(tradeMapper.toEntity(tradeDTO)).map(tradeMapper::toDto);
+        return tradeRepository
+            .save(tradeMapper.toEntity(tradeDTO))
+            .flatMap(savedEntity->{
+                tradeDTO.setTradeId(generateUlid());
+             return tradeRepository.findById(savedEntity.getId())
+                 .flatMap(existingEntity->{
+                    existingEntity.setTradeId(tradeDTO.getTradeId());
+                    return tradeRepository.save(existingEntity).map(tradeMapper::toDto);
+                 });
+            });
     }
 
     /**

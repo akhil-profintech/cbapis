@@ -23,9 +23,9 @@ public class DisbursementService {
 
     private final DisbursementRepository disbursementRepository;
 
-    private static final ULID ulid = new ULID();
-
     private final DisbursementMapper disbursementMapper;
+
+    private static final ULID ulid = new ULID();
 
     public DisbursementService(DisbursementRepository disbursementRepository, DisbursementMapper disbursementMapper) {
         this.disbursementRepository = disbursementRepository;
@@ -50,7 +50,7 @@ public class DisbursementService {
             .flatMap(savedEntity->{
 
                 disbursementDTO.setDbmtId(generateUlid());
-                disbursementDTO.setDisbursementRefNo("DBCR-IKF-"+savedEntity.getId());
+                disbursementDTO.setDisbursementRefNo("DBCR-PTS-PBY-FRCR-PTS-"+savedEntity.getId());
 
                return disbursementRepository.findById(savedEntity.getId())
                    .flatMap(existingEntity->{

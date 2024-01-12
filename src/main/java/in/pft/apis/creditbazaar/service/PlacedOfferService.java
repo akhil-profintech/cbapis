@@ -43,26 +43,29 @@ public class PlacedOfferService {
      * @param placedOfferDTO the entity to save.
      * @return the persisted entity.
      */
-    public Mono<PlacedOfferDTO> save(PlacedOfferDTO placedOfferDTO) {
+       public Mono<PlacedOfferDTO> save(PlacedOfferDTO placedOfferDTO) {
         log.debug("Request to save PlacedOffer : {}", placedOfferDTO);
         return placedOfferRepository
             .save(placedOfferMapper.toEntity(placedOfferDTO))
             .flatMap(savedEntity->{
 
                 placedOfferDTO.setReqOffId(generateUlid());
-                placedOfferDTO.setPlacedOfferRefNo("OFPD-IKF-"+savedEntity.getId());
-
+                placedOfferDTO.setPlacedOfferId(generateUlid());
+                placedOfferDTO.setPlacedOfferRefNo("OFPD-PBY-FRCR-PTS-"+savedEntity.getId());
+                placedOfferDTO.setRequestOfferRefNo("ROCR-PBY-FRCR-PTS-"+savedEntity.getId());
                 return placedOfferRepository.findById(savedEntity.getId())
                     .flatMap(existingEntity->{
 
                         existingEntity.setReqOffId(placedOfferDTO.getReqOffId());
                         existingEntity.setPlacedOfferRefNo(placedOfferDTO.getPlacedOfferRefNo());
-
-                      return placedOfferRepository.save(existingEntity)
-                          .map(placedOfferMapper::toDto);
+                        existingEntity.setPlacedOfferId(placedOfferDTO.getPlacedOfferId());
+                        existingEntity.setRequestOfferRefNo(placedOfferDTO.getRequestOfferRefNo());
+                        return placedOfferRepository.save(existingEntity)
+                            .map(placedOfferMapper::toDto);
                     });
             });
     }
+
 
     /**
      * Update a placedOffer.

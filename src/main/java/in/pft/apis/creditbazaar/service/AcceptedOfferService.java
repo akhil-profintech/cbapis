@@ -51,7 +51,7 @@ public class AcceptedOfferService {
             .flatMap(savedEntity->{
 
                 acceptedOfferDTO.setOfferId(generateUlid());
-                acceptedOfferDTO.setAcceptedOfferRefNo("OFAD-IKF-"+savedEntity.getId());
+               acceptedOfferDTO.setAcceptedOfferRefNo("OFAD-PTS-PBY-FRCR-PTS-"+savedEntity.getId());
 
                return acceptedOfferRepository.findById(savedEntity.getId())
                    .flatMap(existingEntity->{

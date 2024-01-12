@@ -52,7 +52,7 @@ public class FinanceRequestService {
             .flatMap(savedEntity->{
 
                 financeRequestDTO.setRequestId(generateUlid());
-                financeRequestDTO.setFinanceRequestRefNo("FRCR-IKF-" + savedEntity.getId());
+                financeRequestDTO.setFinanceRequestRefNo("FRCR-PTS-" + savedEntity.getId());
 
                 return financeRequestRepository.findById(savedEntity.getId())
                     .flatMap(existingEntity->{

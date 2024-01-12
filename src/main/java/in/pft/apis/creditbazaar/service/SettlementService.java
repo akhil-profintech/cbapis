@@ -51,7 +51,7 @@ public class SettlementService {
             .flatMap(savedEntity->{
 
                 settlementDTO.setSettlementId(generateUlid());
-                settlementDTO.setSettlementRefNo("STCR-IKF-"+savedEntity.getId());
+                settlementDTO.setSettlementRefNo("STCR-PFT-RNH-PTS-PBY-FRCR-PTS-"+savedEntity.getId());
 
              return settlementRepository.findById(savedEntity.getId())
                  .flatMap(existingEntity->{

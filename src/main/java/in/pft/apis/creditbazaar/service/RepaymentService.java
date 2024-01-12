@@ -51,7 +51,7 @@ public class RepaymentService {
             .flatMap(savedEntity->{
 
                 repaymentDTO.setRepaymentId(generateUlid());
-                repaymentDTO.setRepaymentRefNo("RPCR-IKF-"+savedEntity.getId());
+                repaymentDTO.setRepaymentRefNo("RPCR-RNH-PTS-PBY-FRCR-PTS-"+savedEntity.getId());
 
             return repaymentRepository.findById(savedEntity.getId())
                 .flatMap(existingEntity->{
