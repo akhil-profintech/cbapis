@@ -1,0 +1,11 @@
+id;user_id;user_name;tenant_id;is_anchor_trader_enabled;anchor_trader_id;is_trade_partner_enabled;trade_partner_id;is_finance_partner_enabled;finance_partner_id;default_persona
+1;masculine;lightscreen;bagel acidly;false;worth;false;annually buttery wan;false;barring oh grounded;AnchorTrader
+2;celebrated;supposing eek;below;false;hospitable;false;passbook from;true;athwart;TradePartner
+3;saloon;flickering spoil orientate;pro abaft cwtch;false;between;true;cost;false;elderly how distorted;TradePartner
+4;nightclub ha yahoo;absent keenly whoever;excluding delight rework;true;before aluminum well-off;false;excitedly vivacious worriedly;false;ack curvy deserted;AnchorTrader
+5;delightfully drat freely;professional;oh vice;true;nightlife punctually;false;unlike;false;properly;FinancePartner
+6;budget;finally;outfit abominate;false;generous;false;as;true;zowie;FinancePartner
+7;till;titter;and yum peer-to-peer;false;rarely goodwill;true;often;false;mandolin bashfully;AnchorTrader
+8;jaywalk blissful;clack wonderfully yuck;duh;false;first;true;um;false;joyfully ah whereas;AnchorTrader
+9;fine tangerine ballot;tachometer decompress more;because gee;true;endothelium incidentally still;true;furthermore;false;what;FinancePartner
+10;tender although;powerfully as;heavily deselect picturize;true;bet daring;false;meh deaden;false;strictly positively aside;FinancePartner

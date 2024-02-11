@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (financeRequestMapping) {
+      <div>
+        <h2 data-cy="financeRequestMappingDetailsHeading">
+          <span jhiTranslate="cbapisApp.financeRequestMapping.detail.title">Finance Request Mapping</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequestMapping.financeRequestId">Finance Request Id</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequestMapping.anchorTraderId">Anchor Trader Id</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.anchorTraderId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequestMapping.financePartnerId">Finance Partner Id</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.financePartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequestMapping.anchorTraderTenantId">Anchor Trader Tenant Id</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.anchorTraderTenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequestMapping.financePartnerTenantId">Finance Partner Tenant Id</span></dt>
+          <dd>
+            <span>{{ financeRequestMapping.financePartnerTenantId }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/finance-request-mapping', financeRequestMapping.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

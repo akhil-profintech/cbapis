@@ -1,0 +1,145 @@
+<div>
+  <h2 id="page-heading" data-cy="FinanceRequestMappingHeading">
+    <span jhiTranslate="cbapisApp.financeRequestMapping.home.title">Finance Request Mappings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.financeRequestMapping.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-finance-request-mapping"
+        [routerLink]="['/finance-request-mapping/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.financeRequestMapping.home.createLabel">Create a new Finance Request Mapping</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (financeRequestMappings?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.financeRequestMapping.home.notFound">No Finance Request Mappings found</span>
+    </div>
+  }
+
+  @if (financeRequestMappings && financeRequestMappings.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.financeRequestId">Finance Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.anchorTraderId">Anchor Trader Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financePartnerId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.financePartnerId">Finance Partner Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="anchorTraderTenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.anchorTraderTenantId">Anchor Trader Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financePartnerTenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.financePartnerTenantId">Finance Partner Tenant Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (financeRequestMapping of financeRequestMappings; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/finance-request-mapping', financeRequestMapping.id, 'view']">{{ financeRequestMapping.id }}</a>
+              </td>
+              <td>{{ financeRequestMapping.financeRequestId }}</td>
+              <td>{{ financeRequestMapping.anchorTraderId }}</td>
+              <td>{{ financeRequestMapping.financePartnerId }}</td>
+              <td>{{ financeRequestMapping.anchorTraderTenantId }}</td>
+              <td>{{ financeRequestMapping.financePartnerTenantId }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/finance-request-mapping', financeRequestMapping.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/finance-request-mapping', financeRequestMapping.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(financeRequestMapping)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (financeRequestMappings && financeRequestMappings.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

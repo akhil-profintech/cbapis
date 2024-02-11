@@ -1,0 +1,65 @@
+{
+  "annotations": {
+    "changelogDate": "20240111124121"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "user_dtls",
+  "fields": [
+    {
+      "fieldName": "userId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "userName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tenantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isAnchorTraderEnabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "anchorTraderId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isTradePartnerEnabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tradePartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isFinancePartnerEnabled",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "financePartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "defaultPersona",
+      "fieldType": "Persona",
+      "fieldValues": "AnchorTrader,TradePartner,FinancePartner"
+    }
+  ],
+  "name": "UserDtls",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "orgId",
+      "otherEntityName": "organization",
+      "relationshipName": "organization",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

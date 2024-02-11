@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-trade-channel-heading"
+        data-cy="TradeChannelCreateUpdateHeading"
+        jhiTranslate="cbapisApp.tradeChannel.home.createOrEditLabel"
+      >
+        Create or edit a Trade Channel
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.tradeChannelId" for="field_tradeChannelId">Trade Channel Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeChannelId"
+            id="field_tradeChannelId"
+            data-cy="tradeChannelId"
+            formControlName="tradeChannelId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.anchorTraderId" for="field_anchorTraderId">Anchor Trader Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderId"
+            id="field_anchorTraderId"
+            data-cy="anchorTraderId"
+            formControlName="anchorTraderId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.tradePartnerId" for="field_tradePartnerId">Trade Partner Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerId"
+            id="field_tradePartnerId"
+            data-cy="tradePartnerId"
+            formControlName="tradePartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.financePartnerId" for="field_financePartnerId"
+            >Finance Partner Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financePartnerId"
+            id="field_financePartnerId"
+            data-cy="financePartnerId"
+            formControlName="financePartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.anchorTraderTenantId" for="field_anchorTraderTenantId"
+            >Anchor Trader Tenant Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderTenantId"
+            id="field_anchorTraderTenantId"
+            data-cy="anchorTraderTenantId"
+            formControlName="anchorTraderTenantId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.tradePartnerTenantId" for="field_tradePartnerTenantId"
+            >Trade Partner Tenant Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerTenantId"
+            id="field_tradePartnerTenantId"
+            data-cy="tradePartnerTenantId"
+            formControlName="tradePartnerTenantId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradeChannel.financePartnerTenantId" for="field_financePartnerTenantId"
+            >Finance Partner Tenant Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financePartnerTenantId"
+            id="field_financePartnerTenantId"
+            data-cy="financePartnerTenantId"
+            formControlName="financePartnerTenantId"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

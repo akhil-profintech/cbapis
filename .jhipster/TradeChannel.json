@@ -1,0 +1,44 @@
+{
+  "annotations": {
+    "changelogDate": "20240111123821"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "trade_channel",
+  "fields": [
+    {
+      "fieldName": "tradeChannelId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financePartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderTenantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tradePartnerTenantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financePartnerTenantId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TradeChannel",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

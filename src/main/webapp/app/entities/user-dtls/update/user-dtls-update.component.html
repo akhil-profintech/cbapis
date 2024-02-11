@@ -1,0 +1,164 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-user-dtls-heading" data-cy="UserDtlsCreateUpdateHeading" jhiTranslate="cbapisApp.userDtls.home.createOrEditLabel">
+        Create or edit a User Dtls
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.userId" for="field_userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.userName" for="field_userName">User Name</label>
+          <input type="text" class="form-control" name="userName" id="field_userName" data-cy="userName" formControlName="userName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.isAnchorTraderEnabled" for="field_isAnchorTraderEnabled"
+            >Is Anchor Trader Enabled</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isAnchorTraderEnabled"
+            id="field_isAnchorTraderEnabled"
+            data-cy="isAnchorTraderEnabled"
+            formControlName="isAnchorTraderEnabled"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.anchorTraderId" for="field_anchorTraderId">Anchor Trader Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="anchorTraderId"
+            id="field_anchorTraderId"
+            data-cy="anchorTraderId"
+            formControlName="anchorTraderId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.isTradePartnerEnabled" for="field_isTradePartnerEnabled"
+            >Is Trade Partner Enabled</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isTradePartnerEnabled"
+            id="field_isTradePartnerEnabled"
+            data-cy="isTradePartnerEnabled"
+            formControlName="isTradePartnerEnabled"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.tradePartnerId" for="field_tradePartnerId">Trade Partner Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradePartnerId"
+            id="field_tradePartnerId"
+            data-cy="tradePartnerId"
+            formControlName="tradePartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.isFinancePartnerEnabled" for="field_isFinancePartnerEnabled"
+            >Is Finance Partner Enabled</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isFinancePartnerEnabled"
+            id="field_isFinancePartnerEnabled"
+            data-cy="isFinancePartnerEnabled"
+            formControlName="isFinancePartnerEnabled"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.financePartnerId" for="field_financePartnerId"
+            >Finance Partner Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financePartnerId"
+            id="field_financePartnerId"
+            data-cy="financePartnerId"
+            formControlName="financePartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.defaultPersona" for="field_defaultPersona">Default Persona</label>
+          <select
+            class="form-control"
+            name="defaultPersona"
+            formControlName="defaultPersona"
+            id="field_defaultPersona"
+            data-cy="defaultPersona"
+          >
+            <option [ngValue]="null">{{ 'cbapisApp.Persona.null' | translate }}</option>
+            @for (persona of personaValues; track $index) {
+              <option [value]="persona">{{ 'cbapisApp.Persona.' + persona | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.organization" for="field_organization">Organization</label>
+          <select
+            class="form-control"
+            id="field_organization"
+            data-cy="organization"
+            name="organization"
+            formControlName="organization"
+            [compareWith]="compareOrganization"
+          >
+            <option [ngValue]="null"></option>
+            @for (organizationOption of organizationsSharedCollection; track $index) {
+              <option [ngValue]="organizationOption">{{ organizationOption.orgId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

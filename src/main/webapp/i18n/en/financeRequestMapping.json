@@ -1,0 +1,28 @@
+{
+  "cbapisApp": {
+    "financeRequestMapping": {
+      "home": {
+        "title": "Finance Request Mappings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Finance Request Mapping",
+        "createOrEditLabel": "Create or edit a Finance Request Mapping",
+        "notFound": "No Finance Request Mappings found"
+      },
+      "created": "A new Finance Request Mapping is created with identifier {{ param }}",
+      "updated": "A Finance Request Mapping is updated with identifier {{ param }}",
+      "deleted": "A Finance Request Mapping is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Finance Request Mapping {{ id }}?"
+      },
+      "detail": {
+        "title": "Finance Request Mapping"
+      },
+      "id": "ID",
+      "financeRequestId": "Finance Request Id",
+      "anchorTraderId": "Anchor Trader Id",
+      "financePartnerId": "Finance Partner Id",
+      "anchorTraderTenantId": "Anchor Trader Tenant Id",
+      "financePartnerTenantId": "Finance Partner Tenant Id"
+    }
+  }
+}

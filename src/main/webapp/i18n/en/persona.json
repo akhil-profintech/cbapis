@@ -1,0 +1,10 @@
+{
+  "cbapisApp": {
+    "Persona": {
+      "null": "",
+      "AnchorTrader": "AnchorTrader",
+      "TradePartner": "TradePartner",
+      "FinancePartner": "FinancePartner"
+    }
+  }
+}

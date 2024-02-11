@@ -1,0 +1,65 @@
+{
+  "annotations": {
+    "changelogDate": "20240111123721"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "organization",
+  "fields": [
+    {
+      "fieldName": "orgId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "orgAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "industryType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tenantId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Organization",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "userDtls",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "userDtls",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "tradePartner",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "tradePartner",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "anchorTrader",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "anchorTrader",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "financePartner",
+      "otherEntityRelationshipName": "organization",
+      "relationshipName": "financePartner",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

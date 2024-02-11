@@ -1,0 +1,25 @@
+{
+  "cbapisApp": {
+    "tenantDetails": {
+      "home": {
+        "title": "Tenant Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tenant Details",
+        "createOrEditLabel": "Create or edit a Tenant Details",
+        "notFound": "No Tenant Details found"
+      },
+      "created": "A new Tenant Details is created with identifier {{ param }}",
+      "updated": "A Tenant Details is updated with identifier {{ param }}",
+      "deleted": "A Tenant Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tenant Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Tenant Details"
+      },
+      "id": "ID",
+      "tenantId": "Tenant Id",
+      "tenantSchema": "Tenant Schema"
+    }
+  }
+}

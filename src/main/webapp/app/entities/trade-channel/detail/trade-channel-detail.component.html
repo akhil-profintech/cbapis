@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (tradeChannel) {
+      <div>
+        <h2 data-cy="tradeChannelDetailsHeading"><span jhiTranslate="cbapisApp.tradeChannel.detail.title">Trade Channel</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ tradeChannel.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.tradeChannelId">Trade Channel Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.tradeChannelId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.anchorTraderId">Anchor Trader Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.anchorTraderId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.tradePartnerId">Trade Partner Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.tradePartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.financePartnerId">Finance Partner Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.financePartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.anchorTraderTenantId">Anchor Trader Tenant Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.anchorTraderTenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.tradePartnerTenantId">Trade Partner Tenant Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.tradePartnerTenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.tradeChannel.financePartnerTenantId">Finance Partner Tenant Id</span></dt>
+          <dd>
+            <span>{{ tradeChannel.financePartnerTenantId }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/trade-channel', tradeChannel.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

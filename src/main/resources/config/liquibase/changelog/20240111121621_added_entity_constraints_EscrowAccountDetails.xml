@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity EscrowAccountDetails.
+    -->
+    <changeSet id="20240111121621-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="disbursement_id"
+                                 baseTableName="escrow_account_details"
+                                 constraintName="fk_escrow_account_details__disbursement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="disbursement"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="repayment_id"
+                                 baseTableName="escrow_account_details"
+                                 constraintName="fk_escrow_account_details__repayment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="repayment"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,36 @@
+{
+  "annotations": {
+    "changelogDate": "20240111123921"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "finance_request_mapping",
+  "fields": [
+    {
+      "fieldName": "financeRequestId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financePartnerId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "anchorTraderTenantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "financePartnerTenantId",
+      "fieldType": "String"
+    }
+  ],
+  "name": "FinanceRequestMapping",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

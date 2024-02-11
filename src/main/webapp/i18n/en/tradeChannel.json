@@ -1,0 +1,30 @@
+{
+  "cbapisApp": {
+    "tradeChannel": {
+      "home": {
+        "title": "Trade Channels",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Trade Channel",
+        "createOrEditLabel": "Create or edit a Trade Channel",
+        "notFound": "No Trade Channels found"
+      },
+      "created": "A new Trade Channel is created with identifier {{ param }}",
+      "updated": "A Trade Channel is updated with identifier {{ param }}",
+      "deleted": "A Trade Channel is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Trade Channel {{ id }}?"
+      },
+      "detail": {
+        "title": "Trade Channel"
+      },
+      "id": "ID",
+      "tradeChannelId": "Trade Channel Id",
+      "anchorTraderId": "Anchor Trader Id",
+      "tradePartnerId": "Trade Partner Id",
+      "financePartnerId": "Finance Partner Id",
+      "anchorTraderTenantId": "Anchor Trader Tenant Id",
+      "tradePartnerTenantId": "Trade Partner Tenant Id",
+      "financePartnerTenantId": "Finance Partner Tenant Id"
+    }
+  }
+}

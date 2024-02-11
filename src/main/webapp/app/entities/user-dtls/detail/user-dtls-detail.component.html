@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (userDtls) {
+      <div>
+        <h2 data-cy="userDtlsDetailsHeading"><span jhiTranslate="cbapisApp.userDtls.detail.title">User Dtls</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ userDtls.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.userId">User Id</span></dt>
+          <dd>
+            <span>{{ userDtls.userId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.userName">User Name</span></dt>
+          <dd>
+            <span>{{ userDtls.userName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ userDtls.tenantId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.isAnchorTraderEnabled">Is Anchor Trader Enabled</span></dt>
+          <dd>
+            <span>{{ userDtls.isAnchorTraderEnabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.anchorTraderId">Anchor Trader Id</span></dt>
+          <dd>
+            <span>{{ userDtls.anchorTraderId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.isTradePartnerEnabled">Is Trade Partner Enabled</span></dt>
+          <dd>
+            <span>{{ userDtls.isTradePartnerEnabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.tradePartnerId">Trade Partner Id</span></dt>
+          <dd>
+            <span>{{ userDtls.tradePartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.isFinancePartnerEnabled">Is Finance Partner Enabled</span></dt>
+          <dd>
+            <span>{{ userDtls.isFinancePartnerEnabled }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.financePartnerId">Finance Partner Id</span></dt>
+          <dd>
+            <span>{{ userDtls.financePartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.defaultPersona">Default Persona</span></dt>
+          <dd>
+            <span jhiTranslate="{{ 'cbapisApp.Persona.' + userDtls.defaultPersona }}">{{ userDtls.defaultPersona }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.userDtls.organization">Organization</span></dt>
+          <dd>
+            @if (userDtls.organization) {
+              <div>
+                <a [routerLink]="['/organization', userDtls.organization.id, 'view']">{{ userDtls.organization.orgId }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/user-dtls', userDtls.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

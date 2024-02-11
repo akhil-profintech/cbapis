@@ -1,0 +1,34 @@
+{
+  "cbapisApp": {
+    "userDtls": {
+      "home": {
+        "title": "User Dtls",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new User Dtls",
+        "createOrEditLabel": "Create or edit a User Dtls",
+        "notFound": "No User Dtls found"
+      },
+      "created": "A new User Dtls is created with identifier {{ param }}",
+      "updated": "A User Dtls is updated with identifier {{ param }}",
+      "deleted": "A User Dtls is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Dtls {{ id }}?"
+      },
+      "detail": {
+        "title": "User Dtls"
+      },
+      "id": "ID",
+      "userId": "User Id",
+      "userName": "User Name",
+      "tenantId": "Tenant Id",
+      "isAnchorTraderEnabled": "Is Anchor Trader Enabled",
+      "anchorTraderId": "Anchor Trader Id",
+      "isTradePartnerEnabled": "Is Trade Partner Enabled",
+      "tradePartnerId": "Trade Partner Id",
+      "isFinancePartnerEnabled": "Is Finance Partner Enabled",
+      "financePartnerId": "Finance Partner Id",
+      "defaultPersona": "Default Persona",
+      "organization": "Organization"
+    }
+  }
+}

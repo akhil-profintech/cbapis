@@ -1,0 +1,24 @@
+{
+  "annotations": {
+    "changelogDate": "20240111124021"
+  },
+  "applications": ["cbapis", "cbapismicro"],
+  "databaseType": "sql",
+  "dto": "mapstruct",
+  "entityTableName": "tenant_details",
+  "fields": [
+    {
+      "fieldName": "tenantId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tenantSchema",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TenantDetails",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
