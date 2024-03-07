@@ -29,22 +29,10 @@ public class FinanceRequestCustomRepositoryImpl implements FinanceRequestCustomR
                 criteria = criteria.and(where(parts[0]).is(parts[1]));
             }
         }
-//        return r2dbcEntityTemplate
-//            .select(FinanceRequest.class)
-//            .matching(query(criteria).with(pageable))
-//            .all();
-
         return r2dbcEntityTemplate
             .select(FinanceRequest.class)
             .matching(query(criteria).with(pageable))
-            .all()
-            .flatMap(financeRequest -> r2dbcEntityTemplate.select(AnchorTrader.class)
-                .matching(query(where("id").is(financeRequest.getAnchortraderId())))
-                .one()
-                .map(anchorTrader -> {
-                    financeRequest.setAnchortrader(anchorTrader);
-                    return financeRequest;
-                }));
+            .all();
     }
 
     @Override
