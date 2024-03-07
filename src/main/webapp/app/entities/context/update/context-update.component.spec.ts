@@ -6,8 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subject, from } from 'rxjs';
 
-import { IAction } from 'app/entities/action/action.model';
-import { ActionService } from 'app/entities/action/service/action.service';
 import { ContextService } from '../service/context.service';
 import { IContext } from '../context.model';
 import { ContextFormService } from './context-form.service';
@@ -20,7 +18,6 @@ describe('Context Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let contextFormService: ContextFormService;
   let contextService: ContextService;
-  let actionService: ActionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -42,43 +39,17 @@ describe('Context Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     contextFormService = TestBed.inject(ContextFormService);
     contextService = TestBed.inject(ContextService);
-    actionService = TestBed.inject(ActionService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call Action query and add missing value', () => {
-      const context: IContext = { id: 456 };
-      const action: IAction = { id: 32505 };
-      context.action = action;
-
-      const actionCollection: IAction[] = [{ id: 21280 }];
-      jest.spyOn(actionService, 'query').mockReturnValue(of(new HttpResponse({ body: actionCollection })));
-      const additionalActions = [action];
-      const expectedCollection: IAction[] = [...additionalActions, ...actionCollection];
-      jest.spyOn(actionService, 'addActionToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ context });
-      comp.ngOnInit();
-
-      expect(actionService.query).toHaveBeenCalled();
-      expect(actionService.addActionToCollectionIfMissing).toHaveBeenCalledWith(
-        actionCollection,
-        ...additionalActions.map(expect.objectContaining),
-      );
-      expect(comp.actionsSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should update editForm', () => {
       const context: IContext = { id: 456 };
-      const action: IAction = { id: 20417 };
-      context.action = action;
 
       activatedRoute.data = of({ context });
       comp.ngOnInit();
 
-      expect(comp.actionsSharedCollection).toContain(action);
       expect(comp.context).toEqual(context);
     });
   });
@@ -148,18 +119,6 @@ describe('Context Management Update Component', () => {
       expect(contextService.update).toHaveBeenCalled();
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Compare relationships', () => {
-    describe('compareAction', () => {
-      it('Should forward to actionService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(actionService, 'compareAction');
-        comp.compareAction(entity, entity2);
-        expect(actionService.compareAction).toHaveBeenCalledWith(entity, entity2);
-      });
     });
   });
 });

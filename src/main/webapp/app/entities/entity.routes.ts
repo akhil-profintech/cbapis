@@ -2,14 +2,14 @@ import { Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'context',
-    data: { pageTitle: 'cbapisApp.context.home.title' },
-    loadChildren: () => import('./context/context.routes'),
-  },
-  {
     path: 'anchor-trader',
     data: { pageTitle: 'cbapisApp.anchorTrader.home.title' },
     loadChildren: () => import('./anchor-trader/anchor-trader.routes'),
+  },
+  {
+    path: 'anchor-trader-partner',
+    data: { pageTitle: 'cbapisApp.anchorTraderPartner.home.title' },
+    loadChildren: () => import('./anchor-trader-partner/anchor-trader-partner.routes'),
   },
   {
     path: 'finance-partner',
@@ -67,9 +67,9 @@ const routes: Routes = [
     loadChildren: () => import('./ft-transaction-details/ft-transaction-details.routes'),
   },
   {
-    path: 'collection-transaction-details',
-    data: { pageTitle: 'cbapisApp.collectionTransactionDetails.home.title' },
-    loadChildren: () => import('./collection-transaction-details/collection-transaction-details.routes'),
+    path: 'escrow-transaction-details',
+    data: { pageTitle: 'cbapisApp.escrowTransactionDetails.home.title' },
+    loadChildren: () => import('./escrow-transaction-details/escrow-transaction-details.routes'),
   },
   {
     path: 'doc-details',
@@ -152,6 +152,11 @@ const routes: Routes = [
     loadChildren: () => import('./cre-observations/cre-observations.routes'),
   },
   {
+    path: 'context',
+    data: { pageTitle: 'cbapisApp.context.home.title' },
+    loadChildren: () => import('./context/context.routes'),
+  },
+  {
     path: 'action',
     data: { pageTitle: 'cbapisApp.action.home.title' },
     loadChildren: () => import('./action/action.routes'),
@@ -160,6 +165,36 @@ const routes: Routes = [
     path: 'client-codes',
     data: { pageTitle: 'cbapisApp.clientCodes.home.title' },
     loadChildren: () => import('./client-codes/client-codes.routes'),
+  },
+  {
+    path: 'organization',
+    data: { pageTitle: 'cbapisApp.organization.home.title' },
+    loadChildren: () => import('./organization/organization.routes'),
+  },
+  {
+    path: 'gstin',
+    data: { pageTitle: 'cbapisApp.gstin.home.title' },
+    loadChildren: () => import('./gstin/gstin.routes'),
+  },
+  {
+    path: 'trade-channel',
+    data: { pageTitle: 'cbapisApp.tradeChannel.home.title' },
+    loadChildren: () => import('./trade-channel/trade-channel.routes'),
+  },
+  {
+    path: 'finance-request-mapping',
+    data: { pageTitle: 'cbapisApp.financeRequestMapping.home.title' },
+    loadChildren: () => import('./finance-request-mapping/finance-request-mapping.routes'),
+  },
+  {
+    path: 'tenant-details',
+    data: { pageTitle: 'cbapisApp.tenantDetails.home.title' },
+    loadChildren: () => import('./tenant-details/tenant-details.routes'),
+  },
+  {
+    path: 'user-dtls',
+    data: { pageTitle: 'cbapisApp.userDtls.home.title' },
+    loadChildren: () => import('./user-dtls/user-dtls.routes'),
   },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];

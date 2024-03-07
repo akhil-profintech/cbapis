@@ -8,10 +8,10 @@ import { of, Subject, from } from 'rxjs';
 
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
-import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
-import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { IAnchorTrader } from 'app/entities/anchor-trader/anchor-trader.model';
 import { AnchorTraderService } from 'app/entities/anchor-trader/service/anchor-trader.service';
+import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
+import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { IAcceptedOffer } from '../accepted-offer.model';
 import { AcceptedOfferService } from '../service/accepted-offer.service';
 import { AcceptedOfferFormService } from './accepted-offer-form.service';
@@ -25,8 +25,8 @@ describe('AcceptedOffer Management Update Component', () => {
   let acceptedOfferFormService: AcceptedOfferFormService;
   let acceptedOfferService: AcceptedOfferService;
   let financeRequestService: FinanceRequestService;
-  let financePartnerService: FinancePartnerService;
   let anchorTraderService: AnchorTraderService;
+  let financePartnerService: FinancePartnerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,8 +49,8 @@ describe('AcceptedOffer Management Update Component', () => {
     acceptedOfferFormService = TestBed.inject(AcceptedOfferFormService);
     acceptedOfferService = TestBed.inject(AcceptedOfferService);
     financeRequestService = TestBed.inject(FinanceRequestService);
-    financePartnerService = TestBed.inject(FinancePartnerService);
     anchorTraderService = TestBed.inject(AnchorTraderService);
+    financePartnerService = TestBed.inject(FinancePartnerService);
 
     comp = fixture.componentInstance;
   });
@@ -58,10 +58,10 @@ describe('AcceptedOffer Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const acceptedOffer: IAcceptedOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 4738 };
+      const financerequest: IFinanceRequest = { id: 12251 };
       acceptedOffer.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 15071 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 17158 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -78,34 +78,12 @@ describe('AcceptedOffer Management Update Component', () => {
       expect(comp.financeRequestsSharedCollection).toEqual(expectedCollection);
     });
 
-    it('Should call FinancePartner query and add missing value', () => {
-      const acceptedOffer: IAcceptedOffer = { id: 456 };
-      const financepartner: IFinancePartner = { id: 13760 };
-      acceptedOffer.financepartner = financepartner;
-
-      const financePartnerCollection: IFinancePartner[] = [{ id: 237 }];
-      jest.spyOn(financePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: financePartnerCollection })));
-      const additionalFinancePartners = [financepartner];
-      const expectedCollection: IFinancePartner[] = [...additionalFinancePartners, ...financePartnerCollection];
-      jest.spyOn(financePartnerService, 'addFinancePartnerToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ acceptedOffer });
-      comp.ngOnInit();
-
-      expect(financePartnerService.query).toHaveBeenCalled();
-      expect(financePartnerService.addFinancePartnerToCollectionIfMissing).toHaveBeenCalledWith(
-        financePartnerCollection,
-        ...additionalFinancePartners.map(expect.objectContaining),
-      );
-      expect(comp.financePartnersSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should call AnchorTrader query and add missing value', () => {
       const acceptedOffer: IAcceptedOffer = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 29481 };
+      const anchortrader: IAnchorTrader = { id: 29457 };
       acceptedOffer.anchortrader = anchortrader;
 
-      const anchorTraderCollection: IAnchorTrader[] = [{ id: 17899 }];
+      const anchorTraderCollection: IAnchorTrader[] = [{ id: 32103 }];
       jest.spyOn(anchorTraderService, 'query').mockReturnValue(of(new HttpResponse({ body: anchorTraderCollection })));
       const additionalAnchorTraders = [anchortrader];
       const expectedCollection: IAnchorTrader[] = [...additionalAnchorTraders, ...anchorTraderCollection];
@@ -122,21 +100,43 @@ describe('AcceptedOffer Management Update Component', () => {
       expect(comp.anchorTradersSharedCollection).toEqual(expectedCollection);
     });
 
+    it('Should call FinancePartner query and add missing value', () => {
+      const acceptedOffer: IAcceptedOffer = { id: 456 };
+      const financepartner: IFinancePartner = { id: 20779 };
+      acceptedOffer.financepartner = financepartner;
+
+      const financePartnerCollection: IFinancePartner[] = [{ id: 16903 }];
+      jest.spyOn(financePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: financePartnerCollection })));
+      const additionalFinancePartners = [financepartner];
+      const expectedCollection: IFinancePartner[] = [...additionalFinancePartners, ...financePartnerCollection];
+      jest.spyOn(financePartnerService, 'addFinancePartnerToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ acceptedOffer });
+      comp.ngOnInit();
+
+      expect(financePartnerService.query).toHaveBeenCalled();
+      expect(financePartnerService.addFinancePartnerToCollectionIfMissing).toHaveBeenCalledWith(
+        financePartnerCollection,
+        ...additionalFinancePartners.map(expect.objectContaining),
+      );
+      expect(comp.financePartnersSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
       const acceptedOffer: IAcceptedOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 7 };
+      const financerequest: IFinanceRequest = { id: 10625 };
       acceptedOffer.financerequest = financerequest;
-      const financepartner: IFinancePartner = { id: 28314 };
-      acceptedOffer.financepartner = financepartner;
-      const anchortrader: IAnchorTrader = { id: 26655 };
+      const anchortrader: IAnchorTrader = { id: 22478 };
       acceptedOffer.anchortrader = anchortrader;
+      const financepartner: IFinancePartner = { id: 26221 };
+      acceptedOffer.financepartner = financepartner;
 
       activatedRoute.data = of({ acceptedOffer });
       comp.ngOnInit();
 
       expect(comp.financeRequestsSharedCollection).toContain(financerequest);
-      expect(comp.financePartnersSharedCollection).toContain(financepartner);
       expect(comp.anchorTradersSharedCollection).toContain(anchortrader);
+      expect(comp.financePartnersSharedCollection).toContain(financepartner);
       expect(comp.acceptedOffer).toEqual(acceptedOffer);
     });
   });
@@ -220,16 +220,6 @@ describe('AcceptedOffer Management Update Component', () => {
       });
     });
 
-    describe('compareFinancePartner', () => {
-      it('Should forward to financePartnerService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(financePartnerService, 'compareFinancePartner');
-        comp.compareFinancePartner(entity, entity2);
-        expect(financePartnerService.compareFinancePartner).toHaveBeenCalledWith(entity, entity2);
-      });
-    });
-
     describe('compareAnchorTrader', () => {
       it('Should forward to anchorTraderService', () => {
         const entity = { id: 123 };
@@ -237,6 +227,16 @@ describe('AcceptedOffer Management Update Component', () => {
         jest.spyOn(anchorTraderService, 'compareAnchorTrader');
         comp.compareAnchorTrader(entity, entity2);
         expect(anchorTraderService.compareAnchorTrader).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareFinancePartner', () => {
+      it('Should forward to financePartnerService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(financePartnerService, 'compareFinancePartner');
+        comp.compareFinancePartner(entity, entity2);
+        expect(financePartnerService.compareFinancePartner).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

@@ -1,0 +1,26 @@
+{
+  "cbapisApp": {
+    "gstin": {
+      "home": {
+        "title": "Gstins",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Gstin",
+        "createOrEditLabel": "Create or edit a Gstin",
+        "notFound": "No Gstins found"
+      },
+      "created": "A new Gstin is created with identifier {{ param }}",
+      "updated": "A Gstin is updated with identifier {{ param }}",
+      "deleted": "A Gstin is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Gstin {{ id }}?"
+      },
+      "detail": {
+        "title": "Gstin"
+      },
+      "id": "ID",
+      "companyName": "Company Name",
+      "gstId": "Gst Id",
+      "organization": "Organization"
+    }
+  }
+}

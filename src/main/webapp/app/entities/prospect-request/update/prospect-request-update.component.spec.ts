@@ -6,8 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subject, from } from 'rxjs';
 
-import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
-import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
 import { ProspectRequestService } from '../service/prospect-request.service';
 import { IProspectRequest } from '../prospect-request.model';
 import { ProspectRequestFormService } from './prospect-request-form.service';
@@ -20,7 +18,6 @@ describe('ProspectRequest Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let prospectRequestFormService: ProspectRequestFormService;
   let prospectRequestService: ProspectRequestService;
-  let financeRequestService: FinanceRequestService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -42,43 +39,17 @@ describe('ProspectRequest Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     prospectRequestFormService = TestBed.inject(ProspectRequestFormService);
     prospectRequestService = TestBed.inject(ProspectRequestService);
-    financeRequestService = TestBed.inject(FinanceRequestService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call FinanceRequest query and add missing value', () => {
-      const prospectRequest: IProspectRequest = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 10319 };
-      prospectRequest.financerequest = financerequest;
-
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 18721 }];
-      jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
-      const additionalFinanceRequests = [financerequest];
-      const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
-      jest.spyOn(financeRequestService, 'addFinanceRequestToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ prospectRequest });
-      comp.ngOnInit();
-
-      expect(financeRequestService.query).toHaveBeenCalled();
-      expect(financeRequestService.addFinanceRequestToCollectionIfMissing).toHaveBeenCalledWith(
-        financeRequestCollection,
-        ...additionalFinanceRequests.map(expect.objectContaining),
-      );
-      expect(comp.financeRequestsSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should update editForm', () => {
       const prospectRequest: IProspectRequest = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 24636 };
-      prospectRequest.financerequest = financerequest;
 
       activatedRoute.data = of({ prospectRequest });
       comp.ngOnInit();
 
-      expect(comp.financeRequestsSharedCollection).toContain(financerequest);
       expect(comp.prospectRequest).toEqual(prospectRequest);
     });
   });
@@ -148,18 +119,6 @@ describe('ProspectRequest Management Update Component', () => {
       expect(prospectRequestService.update).toHaveBeenCalled();
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Compare relationships', () => {
-    describe('compareFinanceRequest', () => {
-      it('Should forward to financeRequestService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(financeRequestService, 'compareFinanceRequest');
-        comp.compareFinanceRequest(entity, entity2);
-        expect(financeRequestService.compareFinanceRequest).toHaveBeenCalledWith(entity, entity2);
-      });
     });
   });
 });

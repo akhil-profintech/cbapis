@@ -20,8 +20,8 @@ describe('RequestOffer Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            reqOffId: expect.any(Object),
-            requestOfferRefNo: expect.any(Object),
+            reqOffUlidId: expect.any(Object),
+            reqOfferRefNo: expect.any(Object),
             offerValue: expect.any(Object),
             requestAmt: expect.any(Object),
             tradeValue: expect.any(Object),
@@ -38,12 +38,11 @@ describe('RequestOffer Form Service', () => {
             tradePartnerName: expect.any(Object),
             anchorTraderGst: expect.any(Object),
             tradePartnerGst: expect.any(Object),
-            sellerName: expect.any(Object),
-            buyerName: expect.any(Object),
-            anchorTraderGstComplianceScore: expect.any(Object),
-            anchorTraderErpPeerScore: expect.any(Object),
+            anchorTraderGSTComplianceScore: expect.any(Object),
+            anchorTraderGSTERPPeerScore: expect.any(Object),
+            sellerTradePerformanceIndex: expect.any(Object),
             financerequest: expect.any(Object),
-            cbcreprocess: expect.any(Object),
+            financepartner: expect.any(Object),
           }),
         );
       });
@@ -54,8 +53,8 @@ describe('RequestOffer Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            reqOffId: expect.any(Object),
-            requestOfferRefNo: expect.any(Object),
+            reqOffUlidId: expect.any(Object),
+            reqOfferRefNo: expect.any(Object),
             offerValue: expect.any(Object),
             requestAmt: expect.any(Object),
             tradeValue: expect.any(Object),
@@ -72,12 +71,11 @@ describe('RequestOffer Form Service', () => {
             tradePartnerName: expect.any(Object),
             anchorTraderGst: expect.any(Object),
             tradePartnerGst: expect.any(Object),
-            sellerName: expect.any(Object),
-            buyerName: expect.any(Object),
-            anchorTraderGstComplianceScore: expect.any(Object),
-            anchorTraderErpPeerScore: expect.any(Object),
+            anchorTraderGSTComplianceScore: expect.any(Object),
+            anchorTraderGSTERPPeerScore: expect.any(Object),
+            sellerTradePerformanceIndex: expect.any(Object),
             financerequest: expect.any(Object),
-            cbcreprocess: expect.any(Object),
+            financepartner: expect.any(Object),
           }),
         );
       });

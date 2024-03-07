@@ -21,11 +21,11 @@ describe('ProspectRequest Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             prospectRequestId: expect.any(Object),
+            prospectRequestUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             requestAmount: expect.any(Object),
             prospectRequestDate: expect.any(Object),
             currency: expect.any(Object),
-            financerequest: expect.any(Object),
           }),
         );
       });
@@ -37,11 +37,11 @@ describe('ProspectRequest Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             prospectRequestId: expect.any(Object),
+            prospectRequestUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             requestAmount: expect.any(Object),
             prospectRequestDate: expect.any(Object),
             currency: expect.any(Object),
-            financerequest: expect.any(Object),
           }),
         );
       });

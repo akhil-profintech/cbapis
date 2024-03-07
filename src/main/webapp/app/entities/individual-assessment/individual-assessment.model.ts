@@ -4,13 +4,14 @@ import { ICBCREProcess } from 'app/entities/cbcre-process/cbcre-process.model';
 
 export interface IIndividualAssessment {
   id: number;
-  assessmentId?: string | null;
+  assessmentId?: number | null;
+  assessmentUlidId?: string | null;
   creditScore?: number | null;
-  finalverdict?: string | null;
+  finalVerdict?: string | null;
   creRequestId?: string | null;
   timestamp?: string | null;
-  tradepartnerGST?: string | null;
-  tradepartnerId?: string | null;
+  tradePartnerGST?: string | null;
+  tradePartnerId?: string | null;
   invoiceAmount?: number | null;
   invoiceId?: string | null;
   cREHighlights?: Pick<ICREHighlights, 'id'>[] | null;

@@ -54,10 +54,10 @@ describe('CreditAccountDetails Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Disbursement query and add missing value', () => {
       const creditAccountDetails: ICreditAccountDetails = { id: 456 };
-      const disbursement: IDisbursement = { id: 15186 };
+      const disbursement: IDisbursement = { id: 2284 };
       creditAccountDetails.disbursement = disbursement;
 
-      const disbursementCollection: IDisbursement[] = [{ id: 22419 }];
+      const disbursementCollection: IDisbursement[] = [{ id: 12038 }];
       jest.spyOn(disbursementService, 'query').mockReturnValue(of(new HttpResponse({ body: disbursementCollection })));
       const additionalDisbursements = [disbursement];
       const expectedCollection: IDisbursement[] = [...additionalDisbursements, ...disbursementCollection];
@@ -76,10 +76,10 @@ describe('CreditAccountDetails Management Update Component', () => {
 
     it('Should call Repayment query and add missing value', () => {
       const creditAccountDetails: ICreditAccountDetails = { id: 456 };
-      const repayment: IRepayment = { id: 23979 };
+      const repayment: IRepayment = { id: 26663 };
       creditAccountDetails.repayment = repayment;
 
-      const repaymentCollection: IRepayment[] = [{ id: 24799 }];
+      const repaymentCollection: IRepayment[] = [{ id: 16386 }];
       jest.spyOn(repaymentService, 'query').mockReturnValue(of(new HttpResponse({ body: repaymentCollection })));
       const additionalRepayments = [repayment];
       const expectedCollection: IRepayment[] = [...additionalRepayments, ...repaymentCollection];
@@ -98,9 +98,9 @@ describe('CreditAccountDetails Management Update Component', () => {
 
     it('Should update editForm', () => {
       const creditAccountDetails: ICreditAccountDetails = { id: 456 };
-      const disbursement: IDisbursement = { id: 18833 };
+      const disbursement: IDisbursement = { id: 8494 };
       creditAccountDetails.disbursement = disbursement;
-      const repayment: IRepayment = { id: 30657 };
+      const repayment: IRepayment = { id: 27945 };
       creditAccountDetails.repayment = repayment;
 
       activatedRoute.data = of({ creditAccountDetails });

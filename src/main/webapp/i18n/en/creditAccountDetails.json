@@ -19,11 +19,14 @@
       },
       "id": "ID",
       "creditAccDetailsId": "Credit Acc Details Id",
+      "creditAccountDetailsUlidId": "Credit Account Details Ulid Id",
       "tenantId": "Tenant Id",
       "customerId": "Customer Id",
       "accName": "Acc Name",
       "ifscCode": "Ifsc Code",
       "accNumber": "Acc Number",
+      "destinationAccountName": "Destination Account Name",
+      "destinationAccountNumber": "Destination Account Number",
       "disbursement": "Disbursement",
       "repayment": "Repayment"
     }

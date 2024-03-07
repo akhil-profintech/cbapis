@@ -22,8 +22,7 @@
       "actionCode": "Action Code",
       "actionDescription": "Action Description",
       "actionVal": "Action Val",
-      "cpCode": "Cp Code",
-      "context": "Context"
+      "cpCode": "Cp Code"
     }
   }
 }

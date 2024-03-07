@@ -19,9 +19,9 @@
       },
       "id": "ID",
       "creObservationsId": "Cre Observations Id",
+      "creObservationsUlidId": "Cre Observations Ulid Id",
       "creRequestId": "Cre Request Id",
       "observations": "Observations",
-      "cbcreprocess": "Cbcreprocess",
       "individualassessment": "Individualassessment"
     }
   }

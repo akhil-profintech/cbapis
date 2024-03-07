@@ -50,10 +50,10 @@ describe('BeneValidation Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call TradeEntity query and add missing value', () => {
       const beneValidation: IBeneValidation = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 1596 };
+      const tradeEntity: ITradeEntity = { id: 26541 };
       beneValidation.tradeEntity = tradeEntity;
 
-      const tradeEntityCollection: ITradeEntity[] = [{ id: 26541 }];
+      const tradeEntityCollection: ITradeEntity[] = [{ id: 10595 }];
       jest.spyOn(tradeEntityService, 'query').mockReturnValue(of(new HttpResponse({ body: tradeEntityCollection })));
       const additionalTradeEntities = [tradeEntity];
       const expectedCollection: ITradeEntity[] = [...additionalTradeEntities, ...tradeEntityCollection];
@@ -72,7 +72,7 @@ describe('BeneValidation Management Update Component', () => {
 
     it('Should update editForm', () => {
       const beneValidation: IBeneValidation = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 10595 };
+      const tradeEntity: ITradeEntity = { id: 10241 };
       beneValidation.tradeEntity = tradeEntity;
 
       activatedRoute.data = of({ beneValidation });

@@ -19,18 +19,18 @@ type DisbursementFormDefaults = Pick<NewDisbursement, 'id'>;
 type DisbursementFormGroupContent = {
   id: FormControl<IDisbursement['id'] | NewDisbursement['id']>;
   dbmtId: FormControl<IDisbursement['dbmtId']>;
+  disbursementUlidId: FormControl<IDisbursement['disbursementUlidId']>;
   disbursementRefNo: FormControl<IDisbursement['disbursementRefNo']>;
-  acceptedOfferId: FormControl<IDisbursement['acceptedOfferId']>;
-  offerId: FormControl<IDisbursement['offerId']>;
+  acceptedOfferUlidId: FormControl<IDisbursement['acceptedOfferUlidId']>;
+  placedOfferUlidId: FormControl<IDisbursement['placedOfferUlidId']>;
+  reqOffUlidId: FormControl<IDisbursement['reqOffUlidId']>;
   offerAcceptedDate: FormControl<IDisbursement['offerAcceptedDate']>;
   dbmtRequestId: FormControl<IDisbursement['dbmtRequestId']>;
   dbmtReqAmount: FormControl<IDisbursement['dbmtReqAmount']>;
   currency: FormControl<IDisbursement['currency']>;
   dbmtRequestDate: FormControl<IDisbursement['dbmtRequestDate']>;
-  dbmtstatus: FormControl<IDisbursement['dbmtstatus']>;
+  dbmtStatus: FormControl<IDisbursement['dbmtStatus']>;
   offerStatus: FormControl<IDisbursement['offerStatus']>;
-  ftTrnxDetailsId: FormControl<IDisbursement['ftTrnxDetailsId']>;
-  collectionTrnxDetailsId: FormControl<IDisbursement['collectionTrnxDetailsId']>;
   docId: FormControl<IDisbursement['docId']>;
   dbmtDateTime: FormControl<IDisbursement['dbmtDateTime']>;
   dbmtAmount: FormControl<IDisbursement['dbmtAmount']>;
@@ -38,7 +38,6 @@ type DisbursementFormGroupContent = {
   amountToBeDisbursed: FormControl<IDisbursement['amountToBeDisbursed']>;
   destinationAccountName: FormControl<IDisbursement['destinationAccountName']>;
   destinationAccountNumber: FormControl<IDisbursement['destinationAccountNumber']>;
-  ifscCode: FormControl<IDisbursement['ifscCode']>;
   status: FormControl<IDisbursement['status']>;
   actionByDate: FormControl<IDisbursement['actionByDate']>;
   financerequest: FormControl<IDisbursement['financerequest']>;
@@ -63,11 +62,15 @@ export class DisbursementFormService {
         },
       ),
       dbmtId: new FormControl(disbursementRawValue.dbmtId),
+      disbursementUlidId: new FormControl(disbursementRawValue.disbursementUlidId),
       disbursementRefNo: new FormControl(disbursementRawValue.disbursementRefNo),
-      acceptedOfferId: new FormControl(disbursementRawValue.acceptedOfferId, {
+      acceptedOfferUlidId: new FormControl(disbursementRawValue.acceptedOfferUlidId, {
         validators: [Validators.required],
       }),
-      offerId: new FormControl(disbursementRawValue.offerId, {
+      placedOfferUlidId: new FormControl(disbursementRawValue.placedOfferUlidId, {
+        validators: [Validators.required],
+      }),
+      reqOffUlidId: new FormControl(disbursementRawValue.reqOffUlidId, {
         validators: [Validators.required],
       }),
       offerAcceptedDate: new FormControl(disbursementRawValue.offerAcceptedDate, {
@@ -85,12 +88,10 @@ export class DisbursementFormService {
       dbmtRequestDate: new FormControl(disbursementRawValue.dbmtRequestDate, {
         validators: [Validators.required],
       }),
-      dbmtstatus: new FormControl(disbursementRawValue.dbmtstatus, {
+      dbmtStatus: new FormControl(disbursementRawValue.dbmtStatus, {
         validators: [Validators.required],
       }),
       offerStatus: new FormControl(disbursementRawValue.offerStatus),
-      ftTrnxDetailsId: new FormControl(disbursementRawValue.ftTrnxDetailsId),
-      collectionTrnxDetailsId: new FormControl(disbursementRawValue.collectionTrnxDetailsId),
       docId: new FormControl(disbursementRawValue.docId),
       dbmtDateTime: new FormControl(disbursementRawValue.dbmtDateTime),
       dbmtAmount: new FormControl(disbursementRawValue.dbmtAmount),
@@ -98,7 +99,6 @@ export class DisbursementFormService {
       amountToBeDisbursed: new FormControl(disbursementRawValue.amountToBeDisbursed),
       destinationAccountName: new FormControl(disbursementRawValue.destinationAccountName),
       destinationAccountNumber: new FormControl(disbursementRawValue.destinationAccountNumber),
-      ifscCode: new FormControl(disbursementRawValue.ifscCode),
       status: new FormControl(disbursementRawValue.status),
       actionByDate: new FormControl(disbursementRawValue.actionByDate),
       financerequest: new FormControl(disbursementRawValue.financerequest),

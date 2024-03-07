@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="repaymentUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.repaymentUlidId">Repayment Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="repaymentRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.repayment.repaymentRefNo">Repayment Ref No</span>
@@ -56,16 +63,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="acceptedOfferId">
+            <th scope="col" jhiSortBy="acceptedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.acceptedOfferId">Accepted Offer Id</span>
+                <span jhiTranslate="cbapisApp.repayment.acceptedOfferUlidId">Accepted Offer Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="offerId">
+            <th scope="col" jhiSortBy="placedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.offerId">Offer Id</span>
+                <span jhiTranslate="cbapisApp.repayment.placedOfferUlidId">Placed Offer Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.repayment.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -84,9 +98,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="dbmtstatus">
+            <th scope="col" jhiSortBy="dbmtStatus">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.dbmtstatus">Dbmtstatus</span>
+                <span jhiTranslate="cbapisApp.repayment.dbmtStatus">Dbmt Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -136,27 +150,6 @@
             <th scope="col" jhiSortBy="repaymentAmount">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.repayment.repaymentAmount">Repayment Amount</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="ftTrnxDetailsId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.ftTrnxDetailsId">Ft Trnx Details Id</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="collectionTrnxDetailsId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.collectionTrnxDetailsId">Collection Trnx Details Id</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="docId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.docId">Doc Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -231,7 +224,7 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.repayment.financerequest">Financerequest</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
@@ -247,12 +240,14 @@
                 <a [routerLink]="['/repayment', repayment.id, 'view']">{{ repayment.id }}</a>
               </td>
               <td>{{ repayment.repaymentId }}</td>
+              <td>{{ repayment.repaymentUlidId }}</td>
               <td>{{ repayment.repaymentRefNo }}</td>
-              <td>{{ repayment.acceptedOfferId }}</td>
-              <td>{{ repayment.offerId }}</td>
+              <td>{{ repayment.acceptedOfferUlidId }}</td>
+              <td>{{ repayment.placedOfferUlidId }}</td>
+              <td>{{ repayment.reqOffUlidId }}</td>
               <td>{{ repayment.offerAcceptedDate | formatMediumDate }}</td>
               <td>{{ repayment.dbmtRequestId }}</td>
-              <td>{{ repayment.dbmtstatus }}</td>
+              <td>{{ repayment.dbmtStatus }}</td>
               <td>{{ repayment.dbmtDateTime }}</td>
               <td>{{ repayment.dbmtId }}</td>
               <td>{{ repayment.dbmtAmount }}</td>
@@ -260,9 +255,6 @@
               <td>{{ repayment.repaymentStatus }}</td>
               <td>{{ repayment.repaymentDate | formatMediumDate }}</td>
               <td>{{ repayment.repaymentAmount }}</td>
-              <td>{{ repayment.ftTrnxDetailsId }}</td>
-              <td>{{ repayment.collectionTrnxDetailsId }}</td>
-              <td>{{ repayment.docId }}</td>
               <td>{{ repayment.financeRequestId }}</td>
               <td>{{ repayment.repaymentDueDate | formatMediumDate }}</td>
               <td>{{ repayment.totalRepaymentAmount }}</td>
@@ -276,7 +268,9 @@
               <td>
                 @if (repayment.financerequest) {
                   <div>
-                    <a [routerLink]="['/finance-request', repayment.financerequest.id, 'view']">{{ repayment.financerequest.requestId }}</a>
+                    <a [routerLink]="['/finance-request', repayment.financerequest.id, 'view']">{{
+                      repayment.financerequest.financeRequestId
+                    }}</a>
                   </div>
                 }
               </td>

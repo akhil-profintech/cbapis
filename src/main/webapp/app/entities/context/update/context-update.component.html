@@ -18,41 +18,25 @@
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.context.transactionId" for="field_transactionId">Transaction Id</label>
           <input
-            type="number"
+            type="text"
             class="form-control"
             name="transactionId"
             id="field_transactionId"
             data-cy="transactionId"
             formControlName="transactionId"
           />
-          @if (editForm.get('transactionId')!.invalid && (editForm.get('transactionId')!.dirty || editForm.get('transactionId')!.touched)) {
-            <div>
-              @if (editForm.get('transactionId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('transactionId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
         </div>
 
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.context.transactionDate" for="field_transactionDate">Transaction Date</label>
-          <div class="d-flex">
-            <input
-              id="field_transactionDate"
-              data-cy="transactionDate"
-              type="datetime-local"
-              class="form-control"
-              name="transactionDate"
-              formControlName="transactionDate"
-              placeholder="YYYY-MM-DD HH:mm"
-            />
-          </div>
+          <input
+            type="text"
+            class="form-control"
+            name="transactionDate"
+            id="field_transactionDate"
+            data-cy="transactionDate"
+            formControlName="transactionDate"
+          />
           @if (
             editForm.get('transactionDate')!.invalid && (editForm.get('transactionDate')!.dirty || editForm.get('transactionDate')!.touched)
           ) {
@@ -60,30 +44,42 @@
               @if (editForm.get('transactionDate')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('transactionDate')?.errors?.datetimelocal"
-                jhiTranslate="entity.validation.datetimelocal"
-                >This field should be a date and time.</small
-              >
             </div>
           }
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.context.clientId" for="field_clientId">Client Id</label>
-          <input type="number" class="form-control" name="clientId" id="field_clientId" data-cy="clientId" formControlName="clientId" />
-          @if (editForm.get('clientId')!.invalid && (editForm.get('clientId')!.dirty || editForm.get('clientId')!.touched)) {
+          <label class="form-label" jhiTranslate="cbapisApp.context.action" for="field_action">Action</label>
+          <input type="text" class="form-control" name="action" id="field_action" data-cy="action" formControlName="action" />
+          @if (editForm.get('action')!.invalid && (editForm.get('action')!.dirty || editForm.get('action')!.touched)) {
             <div>
-              @if (editForm.get('clientId')?.errors?.required) {
+              @if (editForm.get('action')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('clientId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.context.userId" for="field_userId">User Id</label>
+          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+          @if (editForm.get('userId')!.invalid && (editForm.get('userId')!.dirty || editForm.get('userId')!.touched)) {
+            <div>
+              @if (editForm.get('userId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.context.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
             </div>
           }
         </div>
@@ -101,20 +97,22 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.context.action" for="field_action">Action</label>
-          <select
+          <label class="form-label" jhiTranslate="cbapisApp.context.msgpayload" for="field_msgpayload">Msgpayload</label>
+          <input
+            type="text"
             class="form-control"
-            id="field_action"
-            data-cy="action"
-            name="action"
-            formControlName="action"
-            [compareWith]="compareAction"
-          >
-            <option [ngValue]="null"></option>
-            @for (actionOption of actionsSharedCollection; track $index) {
-              <option [ngValue]="actionOption">{{ actionOption.actionVal }}</option>
-            }
-          </select>
+            name="msgpayload"
+            id="field_msgpayload"
+            data-cy="msgpayload"
+            formControlName="msgpayload"
+          />
+          @if (editForm.get('msgpayload')!.invalid && (editForm.get('msgpayload')!.dirty || editForm.get('msgpayload')!.touched)) {
+            <div>
+              @if (editForm.get('msgpayload')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
         </div>
       </div>
 

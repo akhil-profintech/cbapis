@@ -6,8 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subject, from } from 'rxjs';
 
-import { IOrganization } from 'app/entities/organization/organization.model';
-import { OrganizationService } from 'app/entities/organization/service/organization.service';
 import { UserDtlsService } from '../service/user-dtls.service';
 import { IUserDtls } from '../user-dtls.model';
 import { UserDtlsFormService } from './user-dtls-form.service';
@@ -20,7 +18,6 @@ describe('UserDtls Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let userDtlsFormService: UserDtlsFormService;
   let userDtlsService: UserDtlsService;
-  let organizationService: OrganizationService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -42,43 +39,17 @@ describe('UserDtls Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     userDtlsFormService = TestBed.inject(UserDtlsFormService);
     userDtlsService = TestBed.inject(UserDtlsService);
-    organizationService = TestBed.inject(OrganizationService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call Organization query and add missing value', () => {
-      const userDtls: IUserDtls = { id: 456 };
-      const organization: IOrganization = { id: 866 };
-      userDtls.organization = organization;
-
-      const organizationCollection: IOrganization[] = [{ id: 4982 }];
-      jest.spyOn(organizationService, 'query').mockReturnValue(of(new HttpResponse({ body: organizationCollection })));
-      const additionalOrganizations = [organization];
-      const expectedCollection: IOrganization[] = [...additionalOrganizations, ...organizationCollection];
-      jest.spyOn(organizationService, 'addOrganizationToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ userDtls });
-      comp.ngOnInit();
-
-      expect(organizationService.query).toHaveBeenCalled();
-      expect(organizationService.addOrganizationToCollectionIfMissing).toHaveBeenCalledWith(
-        organizationCollection,
-        ...additionalOrganizations.map(expect.objectContaining),
-      );
-      expect(comp.organizationsSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should update editForm', () => {
       const userDtls: IUserDtls = { id: 456 };
-      const organization: IOrganization = { id: 8158 };
-      userDtls.organization = organization;
 
       activatedRoute.data = of({ userDtls });
       comp.ngOnInit();
 
-      expect(comp.organizationsSharedCollection).toContain(organization);
       expect(comp.userDtls).toEqual(userDtls);
     });
   });
@@ -148,18 +119,6 @@ describe('UserDtls Management Update Component', () => {
       expect(userDtlsService.update).toHaveBeenCalled();
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Compare relationships', () => {
-    describe('compareOrganization', () => {
-      it('Should forward to organizationService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(organizationService, 'compareOrganization');
-        comp.compareOrganization(entity, entity2);
-        expect(organizationService.compareOrganization).toHaveBeenCalledWith(entity, entity2);
-      });
     });
   });
 });

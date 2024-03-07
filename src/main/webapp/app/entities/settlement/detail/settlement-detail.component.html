@@ -19,13 +19,25 @@
           <dd>
             <span>{{ settlement.settlementId }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.settlementUlidId">Settlement Ulid Id</span></dt>
+          <dd>
+            <span>{{ settlement.settlementUlidId }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.settlement.settlementRefNo">Settlement Ref No</span></dt>
           <dd>
             <span>{{ settlement.settlementRefNo }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.settlement.offerId">Offer Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.settlement.acceptedOfferUlidId">Accepted Offer Ulid Id</span></dt>
           <dd>
-            <span>{{ settlement.offerId }}</span>
+            <span>{{ settlement.acceptedOfferUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.placedOfferUlidId">Placed Offer Ulid Id</span></dt>
+          <dd>
+            <span>{{ settlement.placedOfferUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.settlement.reqOffUlidId">Req Off Ulid Id</span></dt>
+          <dd>
+            <span>{{ settlement.reqOffUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.settlement.dbmtRequestId">Dbmt Request Id</span></dt>
           <dd>
@@ -55,7 +67,9 @@
           <dd>
             @if (settlement.financerequest) {
               <div>
-                <a [routerLink]="['/finance-request', settlement.financerequest.id, 'view']">{{ settlement.financerequest.requestId }}</a>
+                <a [routerLink]="['/finance-request', settlement.financerequest.id, 'view']">{{
+                  settlement.financerequest.financeRequestId
+                }}</a>
               </div>
             }
           </dd>

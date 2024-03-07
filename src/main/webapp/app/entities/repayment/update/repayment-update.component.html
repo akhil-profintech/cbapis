@@ -18,12 +18,24 @@
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentId" for="field_repaymentId">Repayment Id</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             name="repaymentId"
             id="field_repaymentId"
             data-cy="repaymentId"
             formControlName="repaymentId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.repaymentUlidId" for="field_repaymentUlidId">Repayment Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="repaymentUlidId"
+            id="field_repaymentUlidId"
+            data-cy="repaymentUlidId"
+            formControlName="repaymentUlidId"
           />
         </div>
 
@@ -40,46 +52,68 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.acceptedOfferId" for="field_acceptedOfferId">Accepted Offer Id</label>
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.acceptedOfferUlidId" for="field_acceptedOfferUlidId"
+            >Accepted Offer Ulid Id</label
+          >
           <input
-            type="number"
+            type="text"
             class="form-control"
-            name="acceptedOfferId"
-            id="field_acceptedOfferId"
-            data-cy="acceptedOfferId"
-            formControlName="acceptedOfferId"
+            name="acceptedOfferUlidId"
+            id="field_acceptedOfferUlidId"
+            data-cy="acceptedOfferUlidId"
+            formControlName="acceptedOfferUlidId"
           />
           @if (
-            editForm.get('acceptedOfferId')!.invalid && (editForm.get('acceptedOfferId')!.dirty || editForm.get('acceptedOfferId')!.touched)
+            editForm.get('acceptedOfferUlidId')!.invalid &&
+            (editForm.get('acceptedOfferUlidId')!.dirty || editForm.get('acceptedOfferUlidId')!.touched)
           ) {
             <div>
-              @if (editForm.get('acceptedOfferId')?.errors?.required) {
+              @if (editForm.get('acceptedOfferUlidId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('acceptedOfferId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
             </div>
           }
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.offerId" for="field_offerId">Offer Id</label>
-          <input type="number" class="form-control" name="offerId" id="field_offerId" data-cy="offerId" formControlName="offerId" />
-          @if (editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)) {
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.placedOfferUlidId" for="field_placedOfferUlidId"
+            >Placed Offer Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="placedOfferUlidId"
+            id="field_placedOfferUlidId"
+            data-cy="placedOfferUlidId"
+            formControlName="placedOfferUlidId"
+          />
+          @if (
+            editForm.get('placedOfferUlidId')!.invalid &&
+            (editForm.get('placedOfferUlidId')!.dirty || editForm.get('placedOfferUlidId')!.touched)
+          ) {
             <div>
-              @if (editForm.get('offerId')?.errors?.required) {
+              @if (editForm.get('placedOfferUlidId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('offerId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.reqOffUlidId" for="field_reqOffUlidId">Req Off Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reqOffUlidId"
+            id="field_reqOffUlidId"
+            data-cy="reqOffUlidId"
+            formControlName="reqOffUlidId"
+          />
+          @if (editForm.get('reqOffUlidId')!.invalid && (editForm.get('reqOffUlidId')!.dirty || editForm.get('reqOffUlidId')!.touched)) {
+            <div>
+              @if (editForm.get('reqOffUlidId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
             </div>
           }
         </div>
@@ -135,18 +169,18 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtstatus" for="field_dbmtstatus">Dbmtstatus</label>
+          <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtStatus" for="field_dbmtStatus">Dbmt Status</label>
           <input
             type="text"
             class="form-control"
-            name="dbmtstatus"
-            id="field_dbmtstatus"
-            data-cy="dbmtstatus"
-            formControlName="dbmtstatus"
+            name="dbmtStatus"
+            id="field_dbmtStatus"
+            data-cy="dbmtStatus"
+            formControlName="dbmtStatus"
           />
-          @if (editForm.get('dbmtstatus')!.invalid && (editForm.get('dbmtstatus')!.dirty || editForm.get('dbmtstatus')!.touched)) {
+          @if (editForm.get('dbmtStatus')!.invalid && (editForm.get('dbmtStatus')!.dirty || editForm.get('dbmtStatus')!.touched)) {
             <div>
-              @if (editForm.get('dbmtstatus')?.errors?.required) {
+              @if (editForm.get('dbmtStatus')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
             </div>
@@ -174,12 +208,18 @@
 
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.repayment.dbmtId" for="field_dbmtId">Dbmt Id</label>
-          <input type="text" class="form-control" name="dbmtId" id="field_dbmtId" data-cy="dbmtId" formControlName="dbmtId" />
+          <input type="number" class="form-control" name="dbmtId" id="field_dbmtId" data-cy="dbmtId" formControlName="dbmtId" />
           @if (editForm.get('dbmtId')!.invalid && (editForm.get('dbmtId')!.dirty || editForm.get('dbmtId')!.touched)) {
             <div>
               @if (editForm.get('dbmtId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('dbmtId')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
             </div>
           }
         </div>
@@ -274,44 +314,11 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.ftTrnxDetailsId" for="field_ftTrnxDetailsId"
-            >Ft Trnx Details Id</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="ftTrnxDetailsId"
-            id="field_ftTrnxDetailsId"
-            data-cy="ftTrnxDetailsId"
-            formControlName="ftTrnxDetailsId"
-          />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.collectionTrnxDetailsId" for="field_collectionTrnxDetailsId"
-            >Collection Trnx Details Id</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="collectionTrnxDetailsId"
-            id="field_collectionTrnxDetailsId"
-            data-cy="collectionTrnxDetailsId"
-            formControlName="collectionTrnxDetailsId"
-          />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.repayment.docId" for="field_docId">Doc Id</label>
-          <input type="number" class="form-control" name="docId" id="field_docId" data-cy="docId" formControlName="docId" />
-        </div>
-
-        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.repayment.financeRequestId" for="field_financeRequestId"
             >Finance Request Id</label
           >
           <input
-            type="text"
+            type="number"
             class="form-control"
             name="financeRequestId"
             id="field_financeRequestId"
@@ -441,7 +448,7 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>

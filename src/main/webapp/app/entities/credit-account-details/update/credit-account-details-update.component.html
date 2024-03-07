@@ -31,22 +31,23 @@
             data-cy="creditAccDetailsId"
             formControlName="creditAccDetailsId"
           />
-          @if (
-            editForm.get('creditAccDetailsId')!.invalid &&
-            (editForm.get('creditAccDetailsId')!.dirty || editForm.get('creditAccDetailsId')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('creditAccDetailsId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('creditAccDetailsId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.creditAccountDetails.creditAccountDetailsUlidId"
+            for="field_creditAccountDetailsUlidId"
+            >Credit Account Details Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditAccountDetailsUlidId"
+            id="field_creditAccountDetailsUlidId"
+            data-cy="creditAccountDetailsUlidId"
+            formControlName="creditAccountDetailsUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -135,6 +136,37 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountName" for="field_destinationAccountName"
+            >Destination Account Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="destinationAccountName"
+            id="field_destinationAccountName"
+            data-cy="destinationAccountName"
+            formControlName="destinationAccountName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountNumber"
+            for="field_destinationAccountNumber"
+            >Destination Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="destinationAccountNumber"
+            id="field_destinationAccountNumber"
+            data-cy="destinationAccountNumber"
+            formControlName="destinationAccountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.creditAccountDetails.disbursement" for="field_disbursement">Disbursement</label>
           <select
             class="form-control"
@@ -146,7 +178,7 @@
           >
             <option [ngValue]="null"></option>
             @for (disbursementOption of disbursementsSharedCollection; track $index) {
-              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtRequestId }}</option>
+              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtId }}</option>
             }
           </select>
         </div>

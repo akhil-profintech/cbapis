@@ -18,8 +18,9 @@ type FTTransactionDetailsFormDefaults = Pick<NewFTTransactionDetails, 'id'>;
 
 type FTTransactionDetailsFormGroupContent = {
   id: FormControl<IFTTransactionDetails['id'] | NewFTTransactionDetails['id']>;
-  trnxDetailsId: FormControl<IFTTransactionDetails['trnxDetailsId']>;
-  transactionID: FormControl<IFTTransactionDetails['transactionID']>;
+  ftTrnxDetailsId: FormControl<IFTTransactionDetails['ftTrnxDetailsId']>;
+  ftTrnxDetailsUlid: FormControl<IFTTransactionDetails['ftTrnxDetailsUlid']>;
+  transactionId: FormControl<IFTTransactionDetails['transactionId']>;
   debitAccountNumber: FormControl<IFTTransactionDetails['debitAccountNumber']>;
   creditAccountNumber: FormControl<IFTTransactionDetails['creditAccountNumber']>;
   remitterName: FormControl<IFTTransactionDetails['remitterName']>;
@@ -36,9 +37,9 @@ type FTTransactionDetailsFormGroupContent = {
   trnxResourceDataStatus: FormControl<IFTTransactionDetails['trnxResourceDataStatus']>;
   trnxMetaDataStatus: FormControl<IFTTransactionDetails['trnxMetaDataStatus']>;
   transactionDateTime: FormControl<IFTTransactionDetails['transactionDateTime']>;
+  participantsettlement: FormControl<IFTTransactionDetails['participantsettlement']>;
   disbursement: FormControl<IFTTransactionDetails['disbursement']>;
   repayment: FormControl<IFTTransactionDetails['repayment']>;
-  participantsettlement: FormControl<IFTTransactionDetails['participantsettlement']>;
 };
 
 export type FTTransactionDetailsFormGroup = FormGroup<FTTransactionDetailsFormGroupContent>;
@@ -60,10 +61,9 @@ export class FTTransactionDetailsFormService {
           validators: [Validators.required],
         },
       ),
-      trnxDetailsId: new FormControl(fTTransactionDetailsRawValue.trnxDetailsId, {
-        validators: [Validators.required],
-      }),
-      transactionID: new FormControl(fTTransactionDetailsRawValue.transactionID, {
+      ftTrnxDetailsId: new FormControl(fTTransactionDetailsRawValue.ftTrnxDetailsId),
+      ftTrnxDetailsUlid: new FormControl(fTTransactionDetailsRawValue.ftTrnxDetailsUlid),
+      transactionId: new FormControl(fTTransactionDetailsRawValue.transactionId, {
         validators: [Validators.required],
       }),
       debitAccountNumber: new FormControl(fTTransactionDetailsRawValue.debitAccountNumber, {
@@ -114,9 +114,9 @@ export class FTTransactionDetailsFormService {
       transactionDateTime: new FormControl(fTTransactionDetailsRawValue.transactionDateTime, {
         validators: [Validators.required],
       }),
+      participantsettlement: new FormControl(fTTransactionDetailsRawValue.participantsettlement),
       disbursement: new FormControl(fTTransactionDetailsRawValue.disbursement),
       repayment: new FormControl(fTTransactionDetailsRawValue.repayment),
-      participantsettlement: new FormControl(fTTransactionDetailsRawValue.participantsettlement),
     });
   }
 

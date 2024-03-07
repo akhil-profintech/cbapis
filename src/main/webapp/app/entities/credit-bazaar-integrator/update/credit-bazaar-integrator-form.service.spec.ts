@@ -20,8 +20,8 @@ describe('CreditBazaarIntegrator Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
+            integratorUlidId: expect.any(Object),
             tenantId: expect.any(Object),
-            integratorId: expect.any(Object),
             orgId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),
@@ -37,8 +37,8 @@ describe('CreditBazaarIntegrator Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
+            integratorUlidId: expect.any(Object),
             tenantId: expect.any(Object),
-            integratorId: expect.any(Object),
             orgId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),

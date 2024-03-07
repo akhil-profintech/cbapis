@@ -19,6 +19,7 @@
       },
       "id": "ID",
       "participantSettlementId": "Participant Settlement Id",
+      "participantSettlementUlidId": "Participant Settlement Ulid Id",
       "participantId": "Participant Id",
       "participantName": "Participant Name",
       "gstId": "Gst Id",
@@ -36,7 +37,6 @@
       "accNumber": "Acc Number",
       "docId": "Doc Id",
       "fTTransactionDetails": "F T Transaction Details",
-      "docDetails": "Doc Details",
       "settlement": "Settlement"
     }
   }

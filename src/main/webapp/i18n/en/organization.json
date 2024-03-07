@@ -19,14 +19,12 @@
       },
       "id": "ID",
       "orgId": "Org Id",
+      "orgUlidId": "Org Ulid Id",
       "orgName": "Org Name",
       "orgAddress": "Org Address",
       "industryType": "Industry Type",
       "tenantId": "Tenant Id",
-      "userDtls": "User Dtls",
-      "tradePartner": "Trade Partner",
-      "anchorTrader": "Anchor Trader",
-      "financePartner": "Finance Partner"
+      "gstin": "Gstin"
     }
   }
 }

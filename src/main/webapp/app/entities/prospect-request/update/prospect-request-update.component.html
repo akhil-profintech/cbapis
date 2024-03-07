@@ -31,22 +31,20 @@
             data-cy="prospectRequestId"
             formControlName="prospectRequestId"
           />
-          @if (
-            editForm.get('prospectRequestId')!.invalid &&
-            (editForm.get('prospectRequestId')!.dirty || editForm.get('prospectRequestId')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('prospectRequestId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('prospectRequestId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.prospectRequest.prospectRequestUlidId" for="field_prospectRequestUlidId"
+            >Prospect Request Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="prospectRequestUlidId"
+            id="field_prospectRequestUlidId"
+            data-cy="prospectRequestUlidId"
+            formControlName="prospectRequestUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -138,25 +136,6 @@
               }
             </div>
           }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.prospectRequest.financerequest" for="field_financerequest"
-            >Financerequest</label
-          >
-          <select
-            class="form-control"
-            id="field_financerequest"
-            data-cy="financerequest"
-            name="financerequest"
-            formControlName="financerequest"
-            [compareWith]="compareFinanceRequest"
-          >
-            <option [ngValue]="null"></option>
-            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
-            }
-          </select>
         </div>
       </div>
 

@@ -42,16 +42,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tenantId">
+            <th scope="col" jhiSortBy="integratorUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId">Tenant Id</span>
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorUlidId">Integrator Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="integratorId">
+            <th scope="col" jhiSortBy="tenantId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorId">Integrator Id</span>
+                <span jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId">Tenant Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -100,8 +100,8 @@
               <td>
                 <a [routerLink]="['/credit-bazaar-integrator', creditBazaarIntegrator.id, 'view']">{{ creditBazaarIntegrator.id }}</a>
               </td>
+              <td>{{ creditBazaarIntegrator.integratorUlidId }}</td>
               <td>{{ creditBazaarIntegrator.tenantId }}</td>
-              <td>{{ creditBazaarIntegrator.integratorId }}</td>
               <td>{{ creditBazaarIntegrator.orgId }}</td>
               <td>{{ creditBazaarIntegrator.customerName }}</td>
               <td>{{ creditBazaarIntegrator.orgName }}</td>

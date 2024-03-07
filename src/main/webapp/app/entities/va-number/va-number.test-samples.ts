@@ -14,25 +14,25 @@ export const sampleWithPartialData: IVANumber = {
   poolingAccNumber: 'whereas',
   virtualAccNumber: 'oh meh aha',
   vaStatus: 'tiny contort instead',
-  financeRequestId: 'hm foxglove overestimate',
-  subGroupId: 'access elbow self-esteem',
+  financeRequestId: 29291,
+  subGroupId: 'impound rightfully',
 };
 
 export const sampleWithFullData: IVANumber = {
-  id: 16690,
-  vaId: 27902,
-  poolingAccNumber: 'yum',
-  virtualAccNumber: 'boohoo',
-  vaStatus: 'out',
-  financeRequestId: 'outrun however',
-  subGroupId: 'after cooked',
+  id: 3663,
+  vaId: 23579,
+  poolingAccNumber: 'frenetically entail',
+  virtualAccNumber: 'under correctly',
+  vaStatus: 'grandmom',
+  financeRequestId: 15061,
+  subGroupId: 'likewise whoa',
 };
 
 export const sampleWithNewData: NewVANumber = {
-  vaId: 2513,
-  poolingAccNumber: 'after',
-  virtualAccNumber: 'absent',
-  vaStatus: 'gallop meh',
+  vaId: 12441,
+  poolingAccNumber: 'elimination',
+  virtualAccNumber: 'before',
+  vaStatus: 'however successfully',
   id: null,
 };
 

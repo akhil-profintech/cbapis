@@ -7,6 +7,7 @@ import { IVANumber } from 'app/entities/va-number/va-number.model';
 export interface ITradeEntity {
   id: number;
   entityId?: number | null;
+  entityUlidId?: string | null;
   entityName?: string | null;
   entityDesc?: string | null;
   entityGST?: string | null;

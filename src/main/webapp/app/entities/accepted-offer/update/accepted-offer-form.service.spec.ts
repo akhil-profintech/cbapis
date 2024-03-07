@@ -20,9 +20,9 @@ describe('AcceptedOffer Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            offerId: expect.any(Object),
+            acceptedOfferUlidId: expect.any(Object),
             acceptedOfferRefNo: expect.any(Object),
-            reqOffId: expect.any(Object),
+            reqOffUlidId: expect.any(Object),
             value: expect.any(Object),
             reqAmount: expect.any(Object),
             marginPtg: expect.any(Object),
@@ -36,8 +36,8 @@ describe('AcceptedOffer Form Service', () => {
             offerDate: expect.any(Object),
             offerAcceptedDate: expect.any(Object),
             financerequest: expect.any(Object),
-            financepartner: expect.any(Object),
             anchortrader: expect.any(Object),
+            financepartner: expect.any(Object),
           }),
         );
       });
@@ -48,9 +48,9 @@ describe('AcceptedOffer Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            offerId: expect.any(Object),
+            acceptedOfferUlidId: expect.any(Object),
             acceptedOfferRefNo: expect.any(Object),
-            reqOffId: expect.any(Object),
+            reqOffUlidId: expect.any(Object),
             value: expect.any(Object),
             reqAmount: expect.any(Object),
             marginPtg: expect.any(Object),
@@ -64,8 +64,8 @@ describe('AcceptedOffer Form Service', () => {
             offerDate: expect.any(Object),
             offerAcceptedDate: expect.any(Object),
             financerequest: expect.any(Object),
-            financepartner: expect.any(Object),
             anchortrader: expect.any(Object),
+            financepartner: expect.any(Object),
           }),
         );
       });

@@ -18,8 +18,8 @@
         "title": "Trade"
       },
       "id": "ID",
-      "tradeId": "Trade Id",
-      "tradeRefNumber": "Trade Ref Number",
+      "tradeUlidId": "Trade Ulid Id",
+      "tradeRefNo": "Trade Ref No",
       "sellerGstId": "Seller Gst Id",
       "buyerGstId": "Buyer Gst Id",
       "tradeAmount": "Trade Amount",
@@ -39,8 +39,8 @@
       "tradePartnerLocation": "Trade Partner Location",
       "tradePartnerGstComplianceScore": "Trade Partner Gst Compliance Score",
       "financerequest": "Financerequest",
-      "tradepartner": "Tradepartner",
-      "anchortrader": "Anchortrader"
+      "anchortrader": "Anchortrader",
+      "tradepartner": "Tradepartner"
     }
   }
 }

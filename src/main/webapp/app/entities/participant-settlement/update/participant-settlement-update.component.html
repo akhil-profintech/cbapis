@@ -34,22 +34,23 @@
             data-cy="participantSettlementId"
             formControlName="participantSettlementId"
           />
-          @if (
-            editForm.get('participantSettlementId')!.invalid &&
-            (editForm.get('participantSettlementId')!.dirty || editForm.get('participantSettlementId')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('participantSettlementId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('participantSettlementId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.participantSettlement.participantSettlementUlidId"
+            for="field_participantSettlementUlidId"
+            >Participant Settlement Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="participantSettlementUlidId"
+            id="field_participantSettlementUlidId"
+            data-cy="participantSettlementUlidId"
+            formControlName="participantSettlementUlidId"
+          />
         </div>
 
         <div class="mb-3">

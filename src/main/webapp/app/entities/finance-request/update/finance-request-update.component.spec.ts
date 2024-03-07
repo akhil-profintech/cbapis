@@ -50,10 +50,10 @@ describe('FinanceRequest Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call AnchorTrader query and add missing value', () => {
       const financeRequest: IFinanceRequest = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 30230 };
+      const anchortrader: IAnchorTrader = { id: 110 };
       financeRequest.anchortrader = anchortrader;
 
-      const anchorTraderCollection: IAnchorTrader[] = [{ id: 7471 }];
+      const anchorTraderCollection: IAnchorTrader[] = [{ id: 3325 }];
       jest.spyOn(anchorTraderService, 'query').mockReturnValue(of(new HttpResponse({ body: anchorTraderCollection })));
       const additionalAnchorTraders = [anchortrader];
       const expectedCollection: IAnchorTrader[] = [...additionalAnchorTraders, ...anchorTraderCollection];
@@ -72,7 +72,7 @@ describe('FinanceRequest Management Update Component', () => {
 
     it('Should update editForm', () => {
       const financeRequest: IFinanceRequest = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 23107 };
+      const anchortrader: IAnchorTrader = { id: 22568 };
       financeRequest.anchortrader = anchortrader;
 
       activatedRoute.data = of({ financeRequest });

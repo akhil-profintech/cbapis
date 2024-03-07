@@ -19,22 +19,21 @@
       },
       "id": "ID",
       "cbProcessId": "Cb Process Id",
-      "financeRequestId": "Finance Request Id",
+      "cbProcessUlidId": "Cb Process Ulid Id",
+      "cbProcessRefNo": "Cb Process Ref No",
       "anchorTraderId": "Anchor Trader Id",
-      "anchortTraderGst": "Anchort Trader Gst",
+      "anchorTraderGst": "Anchor Trader Gst",
       "financeAmount": "Finance Amount",
       "processDateTime": "Process Date Time",
       "creProcessStatus": "Cre Process Status",
       "responseDateTime": "Response Date Time",
       "creRequestId": "Cre Request Id",
-      "cumilativetradescore": "Cumilativetradescore",
+      "cumilativeTradeScore": "Cumilative Trade Score",
       "timestamp": "Timestamp",
       "totalAmountRequested": "Total Amount Requested",
       "totalInvoiceAmount": "Total Invoice Amount",
-      "cREHighlights": "C RE Highlights",
-      "cREObservations": "C RE Observations",
-      "requestOffer": "Request Offer",
-      "individualAssessment": "Individual Assessment"
+      "individualAssessment": "Individual Assessment",
+      "financeRequest": "Finance Request"
     }
   }
 }

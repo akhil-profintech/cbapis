@@ -21,14 +21,13 @@ describe('DocDetails Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             docDetailsId: expect.any(Object),
+            docDetailsUlidId: expect.any(Object),
             docRecordId: expect.any(Object),
             link: expect.any(Object),
             description: expect.any(Object),
             docType: expect.any(Object),
             status: expect.any(Object),
-            disbursement: expect.any(Object),
-            repayment: expect.any(Object),
-            participantsettlement: expect.any(Object),
+            financeRequest: expect.any(Object),
           }),
         );
       });
@@ -40,14 +39,13 @@ describe('DocDetails Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             docDetailsId: expect.any(Object),
+            docDetailsUlidId: expect.any(Object),
             docRecordId: expect.any(Object),
             link: expect.any(Object),
             description: expect.any(Object),
             docType: expect.any(Object),
             status: expect.any(Object),
-            disbursement: expect.any(Object),
-            repayment: expect.any(Object),
-            participantsettlement: expect.any(Object),
+            financeRequest: expect.any(Object),
           }),
         );
       });

@@ -18,7 +18,7 @@ type TenantDetailsFormDefaults = Pick<NewTenantDetails, 'id'>;
 
 type TenantDetailsFormGroupContent = {
   id: FormControl<ITenantDetails['id'] | NewTenantDetails['id']>;
-  tenantId: FormControl<ITenantDetails['tenantId']>;
+  tenantUlidId: FormControl<ITenantDetails['tenantUlidId']>;
   tenantSchema: FormControl<ITenantDetails['tenantSchema']>;
 };
 
@@ -39,7 +39,7 @@ export class TenantDetailsFormService {
           validators: [Validators.required],
         },
       ),
-      tenantId: new FormControl(tenantDetailsRawValue.tenantId),
+      tenantUlidId: new FormControl(tenantDetailsRawValue.tenantUlidId),
       tenantSchema: new FormControl(tenantDetailsRawValue.tenantSchema),
     });
   }

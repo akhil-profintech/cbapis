@@ -6,7 +6,7 @@ export interface IVANumber {
   poolingAccNumber?: string | null;
   virtualAccNumber?: string | null;
   vaStatus?: string | null;
-  financeRequestId?: string | null;
+  financeRequestId?: number | null;
   subGroupId?: string | null;
   tradeEntity?: Pick<ITradeEntity, 'id' | 'entityId'> | null;
 }

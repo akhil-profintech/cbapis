@@ -42,16 +42,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="reqOffId">
+            <th scope="col" jhiSortBy="placedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.reqOffId">Req Off Id</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="placedOfferId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.placedOfferId">Placed Offer Id</span>
+                <span jhiTranslate="cbapisApp.placedOffer.placedOfferUlidId">Placed Offer Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -59,6 +52,13 @@
             <th scope="col" jhiSortBy="placedOfferRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo">Placed Offer Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.placedOffer.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -133,16 +133,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="offerDate">
+            <th scope="col" jhiSortBy="status">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span>
+                <span jhiTranslate="cbapisApp.placedOffer.status">Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="requestId">
+            <th scope="col" jhiSortBy="offerDate">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.requestId">Request Id</span>
+                <span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -175,14 +175,7 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="status">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.placedOffer.status">Status</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.placedOffer.financerequest">Financerequest</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
@@ -203,9 +196,9 @@
               <td>
                 <a [routerLink]="['/placed-offer', placedOffer.id, 'view']">{{ placedOffer.id }}</a>
               </td>
-              <td>{{ placedOffer.reqOffId }}</td>
-              <td>{{ placedOffer.placedOfferId }}</td>
+              <td>{{ placedOffer.placedOfferUlidId }}</td>
               <td>{{ placedOffer.placedOfferRefNo }}</td>
+              <td>{{ placedOffer.reqOffUlidId }}</td>
               <td>{{ placedOffer.requestOfferRefNo }}</td>
               <td>{{ placedOffer.value }}</td>
               <td>{{ placedOffer.reqAmount }}</td>
@@ -216,18 +209,17 @@
               <td>{{ placedOffer.term }}</td>
               <td>{{ placedOffer.interestValue }}</td>
               <td>{{ placedOffer.netAmount }}</td>
+              <td>{{ placedOffer.status }}</td>
               <td>{{ placedOffer.offerDate | formatMediumDate }}</td>
-              <td>{{ placedOffer.requestId }}</td>
               <td>{{ placedOffer.placedOfferDate | formatMediumDate }}</td>
               <td>{{ placedOffer.anchorTrader }}</td>
               <td>{{ placedOffer.tradePartner }}</td>
               <td>{{ placedOffer.disbursalAmount }}</td>
-              <td>{{ placedOffer.status }}</td>
               <td>
                 @if (placedOffer.financerequest) {
                   <div>
                     <a [routerLink]="['/finance-request', placedOffer.financerequest.id, 'view']">{{
-                      placedOffer.financerequest.requestId
+                      placedOffer.financerequest.financeRequestId
                     }}</a>
                   </div>
                 }

@@ -1,6 +1,6 @@
 export interface ITradeChannel {
   id: number;
-  tradeChannelId?: string | null;
+  tradeChannelUlidId?: string | null;
   anchorTraderId?: string | null;
   tradePartnerId?: string | null;
   financePartnerId?: string | null;

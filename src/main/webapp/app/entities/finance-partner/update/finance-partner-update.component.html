@@ -20,23 +20,21 @@
         }
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financePartner.fpId" for="field_fpId">Fp Id</label>
+          <input type="number" class="form-control" name="fpId" id="field_fpId" data-cy="fpId" formControlName="fpId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financePartner.fpUlidId" for="field_fpUlidId">Fp Ulid Id</label>
+          <input type="text" class="form-control" name="fpUlidId" id="field_fpUlidId" data-cy="fpUlidId" formControlName="fpUlidId" />
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.financePartner.tenantId" for="field_tenantId">Tenant Id</label>
           <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
           @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
             <div>
               @if (editForm.get('tenantId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.financePartner.fpId" for="field_fpId">Fp Id</label>
-          <input type="text" class="form-control" name="fpId" id="field_fpId" data-cy="fpId" formControlName="fpId" />
-          @if (editForm.get('fpId')!.invalid && (editForm.get('fpId')!.dirty || editForm.get('fpId')!.touched)) {
-            <div>
-              @if (editForm.get('fpId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
             </div>
@@ -121,6 +119,18 @@
               >
             </div>
           }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financePartner.tosDocument" for="field_tosDocument">Tos Document</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tosDocument"
+            id="field_tosDocument"
+            data-cy="tosDocument"
+            formControlName="tosDocument"
+          />
         </div>
       </div>
 

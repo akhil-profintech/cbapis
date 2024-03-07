@@ -15,17 +15,17 @@
           <dd>
             <span>{{ placedOffer.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.placedOffer.reqOffId">Req Off Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferUlidId">Placed Offer Ulid Id</span></dt>
           <dd>
-            <span>{{ placedOffer.reqOffId }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferId">Placed Offer Id</span></dt>
-          <dd>
-            <span>{{ placedOffer.placedOfferId }}</span>
+            <span>{{ placedOffer.placedOfferUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferRefNo">Placed Offer Ref No</span></dt>
           <dd>
             <span>{{ placedOffer.placedOfferRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.reqOffUlidId">Req Off Ulid Id</span></dt>
+          <dd>
+            <span>{{ placedOffer.reqOffUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.requestOfferRefNo">Request Offer Ref No</span></dt>
           <dd>
@@ -67,13 +67,13 @@
           <dd>
             <span>{{ placedOffer.netAmount }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.placedOffer.status">Status</span></dt>
+          <dd>
+            <span>{{ placedOffer.status }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.offerDate">Offer Date</span></dt>
           <dd>
             <span>{{ placedOffer.offerDate | formatMediumDate }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.placedOffer.requestId">Request Id</span></dt>
-          <dd>
-            <span>{{ placedOffer.requestId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.placedOfferDate">Placed Offer Date</span></dt>
           <dd>
@@ -91,15 +91,13 @@
           <dd>
             <span>{{ placedOffer.disbursalAmount }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.placedOffer.status">Status</span></dt>
-          <dd>
-            <span>{{ placedOffer.status }}</span>
-          </dd>
           <dt><span jhiTranslate="cbapisApp.placedOffer.financerequest">Financerequest</span></dt>
           <dd>
             @if (placedOffer.financerequest) {
               <div>
-                <a [routerLink]="['/finance-request', placedOffer.financerequest.id, 'view']">{{ placedOffer.financerequest.requestId }}</a>
+                <a [routerLink]="['/finance-request', placedOffer.financerequest.id, 'view']">{{
+                  placedOffer.financerequest.financeRequestId
+                }}</a>
               </div>
             }
           </dd>

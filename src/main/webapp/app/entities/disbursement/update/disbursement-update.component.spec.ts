@@ -54,10 +54,10 @@ describe('Disbursement Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const disbursement: IDisbursement = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 12405 };
+      const financerequest: IFinanceRequest = { id: 3280 };
       disbursement.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 23884 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 10635 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -76,10 +76,10 @@ describe('Disbursement Management Update Component', () => {
 
     it('Should call FinancePartner query and add missing value', () => {
       const disbursement: IDisbursement = { id: 456 };
-      const financepartner: IFinancePartner = { id: 19193 };
+      const financepartner: IFinancePartner = { id: 13944 };
       disbursement.financepartner = financepartner;
 
-      const financePartnerCollection: IFinancePartner[] = [{ id: 23554 }];
+      const financePartnerCollection: IFinancePartner[] = [{ id: 10528 }];
       jest.spyOn(financePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: financePartnerCollection })));
       const additionalFinancePartners = [financepartner];
       const expectedCollection: IFinancePartner[] = [...additionalFinancePartners, ...financePartnerCollection];
@@ -98,9 +98,9 @@ describe('Disbursement Management Update Component', () => {
 
     it('Should update editForm', () => {
       const disbursement: IDisbursement = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 15400 };
+      const financerequest: IFinanceRequest = { id: 20916 };
       disbursement.financerequest = financerequest;
-      const financepartner: IFinancePartner = { id: 13469 };
+      const financepartner: IFinancePartner = { id: 11958 };
       disbursement.financepartner = financepartner;
 
       activatedRoute.data = of({ disbursement });

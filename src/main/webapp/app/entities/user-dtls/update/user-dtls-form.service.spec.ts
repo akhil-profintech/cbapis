@@ -20,7 +20,7 @@ describe('UserDtls Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            userId: expect.any(Object),
+            userUlidId: expect.any(Object),
             userName: expect.any(Object),
             tenantId: expect.any(Object),
             isAnchorTraderEnabled: expect.any(Object),
@@ -30,7 +30,6 @@ describe('UserDtls Form Service', () => {
             isFinancePartnerEnabled: expect.any(Object),
             financePartnerId: expect.any(Object),
             defaultPersona: expect.any(Object),
-            organization: expect.any(Object),
           }),
         );
       });
@@ -41,7 +40,7 @@ describe('UserDtls Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            userId: expect.any(Object),
+            userUlidId: expect.any(Object),
             userName: expect.any(Object),
             tenantId: expect.any(Object),
             isAnchorTraderEnabled: expect.any(Object),
@@ -51,7 +50,6 @@ describe('UserDtls Form Service', () => {
             isFinancePartnerEnabled: expect.any(Object),
             financePartnerId: expect.any(Object),
             defaultPersona: expect.any(Object),
-            organization: expect.any(Object),
           }),
         );
       });

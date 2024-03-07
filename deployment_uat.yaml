@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cbapis-uat
+  namespace: cbapis-uat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cbapis
+  template:
+    metadata:
+      labels:
+        app: cbapis
+    spec:
+      containers:
+        - name: back-end
+          image: 220474796007.dkr.ecr.ap-south-1.amazonaws.com/cbapis-uat:latest
+          ports:
+            - containerPort: 8080

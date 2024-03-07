@@ -18,8 +18,8 @@ type RequestOfferFormDefaults = Pick<NewRequestOffer, 'id'>;
 
 type RequestOfferFormGroupContent = {
   id: FormControl<IRequestOffer['id'] | NewRequestOffer['id']>;
-  reqOffId: FormControl<IRequestOffer['reqOffId']>;
-  requestOfferRefNo: FormControl<IRequestOffer['requestOfferRefNo']>;
+  reqOffUlidId: FormControl<IRequestOffer['reqOffUlidId']>;
+  reqOfferRefNo: FormControl<IRequestOffer['reqOfferRefNo']>;
   offerValue: FormControl<IRequestOffer['offerValue']>;
   requestAmt: FormControl<IRequestOffer['requestAmt']>;
   tradeValue: FormControl<IRequestOffer['tradeValue']>;
@@ -36,12 +36,11 @@ type RequestOfferFormGroupContent = {
   tradePartnerName: FormControl<IRequestOffer['tradePartnerName']>;
   anchorTraderGst: FormControl<IRequestOffer['anchorTraderGst']>;
   tradePartnerGst: FormControl<IRequestOffer['tradePartnerGst']>;
-  sellerName: FormControl<IRequestOffer['sellerName']>;
-  buyerName: FormControl<IRequestOffer['buyerName']>;
-  anchorTraderGstComplianceScore: FormControl<IRequestOffer['anchorTraderGstComplianceScore']>;
-  anchorTraderErpPeerScore: FormControl<IRequestOffer['anchorTraderErpPeerScore']>;
+  anchorTraderGSTComplianceScore: FormControl<IRequestOffer['anchorTraderGSTComplianceScore']>;
+  anchorTraderGSTERPPeerScore: FormControl<IRequestOffer['anchorTraderGSTERPPeerScore']>;
+  sellerTradePerformanceIndex: FormControl<IRequestOffer['sellerTradePerformanceIndex']>;
   financerequest: FormControl<IRequestOffer['financerequest']>;
-  cbcreprocess: FormControl<IRequestOffer['cbcreprocess']>;
+  financepartner: FormControl<IRequestOffer['financepartner']>;
 };
 
 export type RequestOfferFormGroup = FormGroup<RequestOfferFormGroupContent>;
@@ -61,8 +60,8 @@ export class RequestOfferFormService {
           validators: [Validators.required],
         },
       ),
-      reqOffId: new FormControl(requestOfferRawValue.reqOffId),
-      requestOfferRefNo: new FormControl(requestOfferRawValue.requestOfferRefNo),
+      reqOffUlidId: new FormControl(requestOfferRawValue.reqOffUlidId),
+      reqOfferRefNo: new FormControl(requestOfferRawValue.reqOfferRefNo),
       offerValue: new FormControl(requestOfferRawValue.offerValue, {
         validators: [Validators.required],
       }),
@@ -107,12 +106,11 @@ export class RequestOfferFormService {
       }),
       anchorTraderGst: new FormControl(requestOfferRawValue.anchorTraderGst),
       tradePartnerGst: new FormControl(requestOfferRawValue.tradePartnerGst),
-      sellerName: new FormControl(requestOfferRawValue.sellerName),
-      buyerName: new FormControl(requestOfferRawValue.buyerName),
-      anchorTraderGstComplianceScore: new FormControl(requestOfferRawValue.anchorTraderGstComplianceScore),
-      anchorTraderErpPeerScore: new FormControl(requestOfferRawValue.anchorTraderErpPeerScore),
+      anchorTraderGSTComplianceScore: new FormControl(requestOfferRawValue.anchorTraderGSTComplianceScore),
+      anchorTraderGSTERPPeerScore: new FormControl(requestOfferRawValue.anchorTraderGSTERPPeerScore),
+      sellerTradePerformanceIndex: new FormControl(requestOfferRawValue.sellerTradePerformanceIndex),
       financerequest: new FormControl(requestOfferRawValue.financerequest),
-      cbcreprocess: new FormControl(requestOfferRawValue.cbcreprocess),
+      financepartner: new FormControl(requestOfferRawValue.financepartner),
     });
   }
 

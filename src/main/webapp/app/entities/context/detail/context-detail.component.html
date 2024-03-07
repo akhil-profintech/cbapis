@@ -21,23 +21,27 @@
           </dd>
           <dt><span jhiTranslate="cbapisApp.context.transactionDate">Transaction Date</span></dt>
           <dd>
-            <span>{{ context.transactionDate | formatMediumDatetime }}</span>
+            <span>{{ context.transactionDate }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.context.clientId">Client Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.context.action">Action</span></dt>
           <dd>
-            <span>{{ context.clientId }}</span>
+            <span>{{ context.action }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.userId">User Id</span></dt>
+          <dd>
+            <span>{{ context.userId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.context.tenantId">Tenant Id</span></dt>
+          <dd>
+            <span>{{ context.tenantId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.context.cpCode">Cp Code</span></dt>
           <dd>
             <span>{{ context.cpCode }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.context.action">Action</span></dt>
+          <dt><span jhiTranslate="cbapisApp.context.msgpayload">Msgpayload</span></dt>
           <dd>
-            @if (context.action) {
-              <div>
-                <a [routerLink]="['/action', context.action.id, 'view']">{{ context.action.actionVal }}</a>
-              </div>
-            }
+            <span>{{ context.msgpayload }}</span>
           </dd>
         </dl>
 

@@ -19,14 +19,13 @@
       },
       "id": "ID",
       "docDetailsId": "Doc Details Id",
+      "docDetailsUlidId": "Doc Details Ulid Id",
       "docRecordId": "Doc Record Id",
       "link": "Link",
       "description": "Description",
       "docType": "Doc Type",
       "status": "Status",
-      "disbursement": "Disbursement",
-      "repayment": "Repayment",
-      "participantsettlement": "Participantsettlement"
+      "financeRequest": "Finance Request"
     }
   }
 }

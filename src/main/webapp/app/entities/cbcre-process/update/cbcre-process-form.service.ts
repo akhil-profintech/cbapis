@@ -19,18 +19,20 @@ type CBCREProcessFormDefaults = Pick<NewCBCREProcess, 'id'>;
 type CBCREProcessFormGroupContent = {
   id: FormControl<ICBCREProcess['id'] | NewCBCREProcess['id']>;
   cbProcessId: FormControl<ICBCREProcess['cbProcessId']>;
-  financeRequestId: FormControl<ICBCREProcess['financeRequestId']>;
+  cbProcessUlidId: FormControl<ICBCREProcess['cbProcessUlidId']>;
+  cbProcessRefNo: FormControl<ICBCREProcess['cbProcessRefNo']>;
   anchorTraderId: FormControl<ICBCREProcess['anchorTraderId']>;
-  anchortTraderGst: FormControl<ICBCREProcess['anchortTraderGst']>;
+  anchorTraderGst: FormControl<ICBCREProcess['anchorTraderGst']>;
   financeAmount: FormControl<ICBCREProcess['financeAmount']>;
   processDateTime: FormControl<ICBCREProcess['processDateTime']>;
   creProcessStatus: FormControl<ICBCREProcess['creProcessStatus']>;
   responseDateTime: FormControl<ICBCREProcess['responseDateTime']>;
   creRequestId: FormControl<ICBCREProcess['creRequestId']>;
-  cumilativetradescore: FormControl<ICBCREProcess['cumilativetradescore']>;
+  cumilativeTradeScore: FormControl<ICBCREProcess['cumilativeTradeScore']>;
   timestamp: FormControl<ICBCREProcess['timestamp']>;
   totalAmountRequested: FormControl<ICBCREProcess['totalAmountRequested']>;
   totalInvoiceAmount: FormControl<ICBCREProcess['totalInvoiceAmount']>;
+  financeRequest: FormControl<ICBCREProcess['financeRequest']>;
 };
 
 export type CBCREProcessFormGroup = FormGroup<CBCREProcessFormGroupContent>;
@@ -51,18 +53,20 @@ export class CBCREProcessFormService {
         },
       ),
       cbProcessId: new FormControl(cBCREProcessRawValue.cbProcessId),
-      financeRequestId: new FormControl(cBCREProcessRawValue.financeRequestId),
+      cbProcessUlidId: new FormControl(cBCREProcessRawValue.cbProcessUlidId),
+      cbProcessRefNo: new FormControl(cBCREProcessRawValue.cbProcessRefNo),
       anchorTraderId: new FormControl(cBCREProcessRawValue.anchorTraderId),
-      anchortTraderGst: new FormControl(cBCREProcessRawValue.anchortTraderGst),
+      anchorTraderGst: new FormControl(cBCREProcessRawValue.anchorTraderGst),
       financeAmount: new FormControl(cBCREProcessRawValue.financeAmount),
       processDateTime: new FormControl(cBCREProcessRawValue.processDateTime),
       creProcessStatus: new FormControl(cBCREProcessRawValue.creProcessStatus),
       responseDateTime: new FormControl(cBCREProcessRawValue.responseDateTime),
       creRequestId: new FormControl(cBCREProcessRawValue.creRequestId),
-      cumilativetradescore: new FormControl(cBCREProcessRawValue.cumilativetradescore),
+      cumilativeTradeScore: new FormControl(cBCREProcessRawValue.cumilativeTradeScore),
       timestamp: new FormControl(cBCREProcessRawValue.timestamp),
       totalAmountRequested: new FormControl(cBCREProcessRawValue.totalAmountRequested),
       totalInvoiceAmount: new FormControl(cBCREProcessRawValue.totalInvoiceAmount),
+      financeRequest: new FormControl(cBCREProcessRawValue.financeRequest),
     });
   }
 

@@ -31,21 +31,20 @@
             data-cy="escrowDetailsId"
             formControlName="escrowDetailsId"
           />
-          @if (
-            editForm.get('escrowDetailsId')!.invalid && (editForm.get('escrowDetailsId')!.dirty || editForm.get('escrowDetailsId')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('escrowDetailsId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('escrowDetailsId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.escrowDetailsUlidId" for="field_escrowDetailsUlidId"
+            >Escrow Details Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="escrowDetailsUlidId"
+            id="field_escrowDetailsUlidId"
+            data-cy="escrowDetailsUlidId"
+            formControlName="escrowDetailsUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -167,40 +166,6 @@
               >
             </div>
           }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.disbursement" for="field_disbursement">Disbursement</label>
-          <select
-            class="form-control"
-            id="field_disbursement"
-            data-cy="disbursement"
-            name="disbursement"
-            formControlName="disbursement"
-            [compareWith]="compareDisbursement"
-          >
-            <option [ngValue]="null"></option>
-            @for (disbursementOption of disbursementsSharedCollection; track $index) {
-              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtRequestId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.escrowAccountDetails.repayment" for="field_repayment">Repayment</label>
-          <select
-            class="form-control"
-            id="field_repayment"
-            data-cy="repayment"
-            name="repayment"
-            formControlName="repayment"
-            [compareWith]="compareRepayment"
-          >
-            <option [ngValue]="null"></option>
-            @for (repaymentOption of repaymentsSharedCollection; track $index) {
-              <option [ngValue]="repaymentOption">{{ repaymentOption.repaymentId }}</option>
-            }
-          </select>
         </div>
       </div>
 

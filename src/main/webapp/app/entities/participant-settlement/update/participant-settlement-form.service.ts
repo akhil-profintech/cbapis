@@ -19,6 +19,7 @@ type ParticipantSettlementFormDefaults = Pick<NewParticipantSettlement, 'id'>;
 type ParticipantSettlementFormGroupContent = {
   id: FormControl<IParticipantSettlement['id'] | NewParticipantSettlement['id']>;
   participantSettlementId: FormControl<IParticipantSettlement['participantSettlementId']>;
+  participantSettlementUlidId: FormControl<IParticipantSettlement['participantSettlementUlidId']>;
   participantId: FormControl<IParticipantSettlement['participantId']>;
   participantName: FormControl<IParticipantSettlement['participantName']>;
   gstId: FormControl<IParticipantSettlement['gstId']>;
@@ -57,9 +58,8 @@ export class ParticipantSettlementFormService {
           validators: [Validators.required],
         },
       ),
-      participantSettlementId: new FormControl(participantSettlementRawValue.participantSettlementId, {
-        validators: [Validators.required],
-      }),
+      participantSettlementId: new FormControl(participantSettlementRawValue.participantSettlementId),
+      participantSettlementUlidId: new FormControl(participantSettlementRawValue.participantSettlementUlidId),
       participantId: new FormControl(participantSettlementRawValue.participantId, {
         validators: [Validators.required],
       }),

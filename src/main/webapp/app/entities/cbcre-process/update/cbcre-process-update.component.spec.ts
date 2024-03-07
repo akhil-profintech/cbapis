@@ -6,6 +6,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subject, from } from 'rxjs';
 
+import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
+import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
 import { CBCREProcessService } from '../service/cbcre-process.service';
 import { ICBCREProcess } from '../cbcre-process.model';
 import { CBCREProcessFormService } from './cbcre-process-form.service';
@@ -18,6 +20,7 @@ describe('CBCREProcess Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let cBCREProcessFormService: CBCREProcessFormService;
   let cBCREProcessService: CBCREProcessService;
+  let financeRequestService: FinanceRequestService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -39,17 +42,43 @@ describe('CBCREProcess Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     cBCREProcessFormService = TestBed.inject(CBCREProcessFormService);
     cBCREProcessService = TestBed.inject(CBCREProcessService);
+    financeRequestService = TestBed.inject(FinanceRequestService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should update editForm', () => {
+    it('Should call FinanceRequest query and add missing value', () => {
       const cBCREProcess: ICBCREProcess = { id: 456 };
+      const financeRequest: IFinanceRequest = { id: 7138 };
+      cBCREProcess.financeRequest = financeRequest;
+
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 31365 }];
+      jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
+      const additionalFinanceRequests = [financeRequest];
+      const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
+      jest.spyOn(financeRequestService, 'addFinanceRequestToCollectionIfMissing').mockReturnValue(expectedCollection);
 
       activatedRoute.data = of({ cBCREProcess });
       comp.ngOnInit();
 
+      expect(financeRequestService.query).toHaveBeenCalled();
+      expect(financeRequestService.addFinanceRequestToCollectionIfMissing).toHaveBeenCalledWith(
+        financeRequestCollection,
+        ...additionalFinanceRequests.map(expect.objectContaining),
+      );
+      expect(comp.financeRequestsSharedCollection).toEqual(expectedCollection);
+    });
+
+    it('Should update editForm', () => {
+      const cBCREProcess: ICBCREProcess = { id: 456 };
+      const financeRequest: IFinanceRequest = { id: 5983 };
+      cBCREProcess.financeRequest = financeRequest;
+
+      activatedRoute.data = of({ cBCREProcess });
+      comp.ngOnInit();
+
+      expect(comp.financeRequestsSharedCollection).toContain(financeRequest);
       expect(comp.cBCREProcess).toEqual(cBCREProcess);
     });
   });
@@ -119,6 +148,18 @@ describe('CBCREProcess Management Update Component', () => {
       expect(cBCREProcessService.update).toHaveBeenCalled();
       expect(comp.isSaving).toEqual(false);
       expect(comp.previousState).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Compare relationships', () => {
+    describe('compareFinanceRequest', () => {
+      it('Should forward to financeRequestService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(financeRequestService, 'compareFinanceRequest');
+        comp.compareFinanceRequest(entity, entity2);
+        expect(financeRequestService.compareFinanceRequest).toHaveBeenCalledWith(entity, entity2);
+      });
     });
   });
 });

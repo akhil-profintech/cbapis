@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="creditAccountDetailsUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.creditAccountDetailsUlidId">Credit Account Details Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="tenantId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.creditAccountDetails.tenantId">Tenant Id</span>
@@ -84,7 +91,21 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="disbursement.dbmtRequestId">
+            <th scope="col" jhiSortBy="destinationAccountName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountName">Destination Account Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="destinationAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountNumber">Destination Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.dbmtId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.creditAccountDetails.disbursement">Disbursement</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
@@ -106,16 +127,19 @@
                 <a [routerLink]="['/credit-account-details', creditAccountDetails.id, 'view']">{{ creditAccountDetails.id }}</a>
               </td>
               <td>{{ creditAccountDetails.creditAccDetailsId }}</td>
+              <td>{{ creditAccountDetails.creditAccountDetailsUlidId }}</td>
               <td>{{ creditAccountDetails.tenantId }}</td>
               <td>{{ creditAccountDetails.customerId }}</td>
               <td>{{ creditAccountDetails.accName }}</td>
               <td>{{ creditAccountDetails.ifscCode }}</td>
               <td>{{ creditAccountDetails.accNumber }}</td>
+              <td>{{ creditAccountDetails.destinationAccountName }}</td>
+              <td>{{ creditAccountDetails.destinationAccountNumber }}</td>
               <td>
                 @if (creditAccountDetails.disbursement) {
                   <div>
                     <a [routerLink]="['/disbursement', creditAccountDetails.disbursement.id, 'view']">{{
-                      creditAccountDetails.disbursement.dbmtRequestId
+                      creditAccountDetails.disbursement.dbmtId
                     }}</a>
                   </div>
                 }

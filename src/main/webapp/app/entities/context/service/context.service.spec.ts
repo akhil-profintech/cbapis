@@ -4,11 +4,10 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { IContext } from '../context.model';
 import { sampleWithRequiredData, sampleWithNewData, sampleWithPartialData, sampleWithFullData } from '../context.test-samples';
 
-import { ContextService, RestContext } from './context.service';
+import { ContextService } from './context.service';
 
-const requireRestSample: RestContext = {
+const requireRestSample: IContext = {
   ...sampleWithRequiredData,
-  transactionDate: sampleWithRequiredData.transactionDate?.toJSON(),
 };
 
 describe('Context Service', () => {

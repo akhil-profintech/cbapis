@@ -1,4 +1,4 @@
-id;user_id;user_name;tenant_id;is_anchor_trader_enabled;anchor_trader_id;is_trade_partner_enabled;trade_partner_id;is_finance_partner_enabled;finance_partner_id;default_persona
+id;user_ulid_id;user_name;tenant_id;is_anchor_trader_enabled;anchor_trader_id;is_trade_partner_enabled;trade_partner_id;is_finance_partner_enabled;finance_partner_id;default_persona
 1;masculine;lightscreen;bagel acidly;false;worth;false;annually buttery wan;false;barring oh grounded;AnchorTrader
 2;celebrated;supposing eek;below;false;hospitable;false;passbook from;true;athwart;TradePartner
 3;saloon;flickering spoil orientate;pro abaft cwtch;false;between;true;cost;false;elderly how distorted;TradePartner

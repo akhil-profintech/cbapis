@@ -20,32 +20,25 @@
         }
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorUlidId" for="field_integratorUlidId"
+            >Integrator Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="integratorUlidId"
+            id="field_integratorUlidId"
+            data-cy="integratorUlidId"
+            formControlName="integratorUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.tenantId" for="field_tenantId">Tenant Id</label>
           <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
           @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
             <div>
               @if (editForm.get('tenantId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.creditBazaarIntegrator.integratorId" for="field_integratorId"
-            >Integrator Id</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            name="integratorId"
-            id="field_integratorId"
-            data-cy="integratorId"
-            formControlName="integratorId"
-          />
-          @if (editForm.get('integratorId')!.invalid && (editForm.get('integratorId')!.dirty || editForm.get('integratorId')!.touched)) {
-            <div>
-              @if (editForm.get('integratorId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
             </div>

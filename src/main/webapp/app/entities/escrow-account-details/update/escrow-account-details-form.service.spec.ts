@@ -21,14 +21,13 @@ describe('EscrowAccountDetails Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             escrowDetailsId: expect.any(Object),
+            escrowDetailsUlidId: expect.any(Object),
             tenantId: expect.any(Object),
             customerId: expect.any(Object),
             accName: expect.any(Object),
             ifscCode: expect.any(Object),
             virtualAccNumber: expect.any(Object),
             poolingAccNumber: expect.any(Object),
-            disbursement: expect.any(Object),
-            repayment: expect.any(Object),
           }),
         );
       });
@@ -40,14 +39,13 @@ describe('EscrowAccountDetails Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             escrowDetailsId: expect.any(Object),
+            escrowDetailsUlidId: expect.any(Object),
             tenantId: expect.any(Object),
             customerId: expect.any(Object),
             accName: expect.any(Object),
             ifscCode: expect.any(Object),
             virtualAccNumber: expect.any(Object),
             poolingAccNumber: expect.any(Object),
-            disbursement: expect.any(Object),
-            repayment: expect.any(Object),
           }),
         );
       });

@@ -1,0 +1,353 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-escrow-transaction-details-heading"
+        data-cy="EscrowTransactionDetailsCreateUpdateHeading"
+        jhiTranslate="cbapisApp.escrowTransactionDetails.home.createOrEditLabel"
+      >
+        Create or edit a Escrow Transaction Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsId" for="field_escrowTrnxDetailsId"
+            >Escrow Trnx Details Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="escrowTrnxDetailsId"
+            id="field_escrowTrnxDetailsId"
+            data-cy="escrowTrnxDetailsId"
+            formControlName="escrowTrnxDetailsId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsUlidId"
+            for="field_escrowTrnxDetailsUlidId"
+            >Escrow Trnx Details Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="escrowTrnxDetailsUlidId"
+            id="field_escrowTrnxDetailsUlidId"
+            data-cy="escrowTrnxDetailsUlidId"
+            formControlName="escrowTrnxDetailsUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.customerCode" for="field_customerCode"
+            >Customer Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerCode"
+            id="field_customerCode"
+            data-cy="customerCode"
+            formControlName="customerCode"
+          />
+          @if (editForm.get('customerCode')!.invalid && (editForm.get('customerCode')!.dirty || editForm.get('customerCode')!.touched)) {
+            <div>
+              @if (editForm.get('customerCode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.customerName" for="field_customerName"
+            >Customer Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="customerName"
+            id="field_customerName"
+            data-cy="customerName"
+            formControlName="customerName"
+          />
+          @if (editForm.get('customerName')!.invalid && (editForm.get('customerName')!.dirty || editForm.get('customerName')!.touched)) {
+            <div>
+              @if (editForm.get('customerName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.productCode" for="field_productCode"
+            >Product Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="productCode"
+            id="field_productCode"
+            data-cy="productCode"
+            formControlName="productCode"
+          />
+          @if (editForm.get('productCode')!.invalid && (editForm.get('productCode')!.dirty || editForm.get('productCode')!.touched)) {
+            <div>
+              @if (editForm.get('productCode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.transactionType" for="field_transactionType"
+            >Transaction Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transactionType"
+            id="field_transactionType"
+            data-cy="transactionType"
+            formControlName="transactionType"
+          />
+          @if (
+            editForm.get('transactionType')!.invalid && (editForm.get('transactionType')!.dirty || editForm.get('transactionType')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('transactionType')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmt" for="field_batchAmt">Batch Amt</label>
+          <input type="text" class="form-control" name="batchAmt" id="field_batchAmt" data-cy="batchAmt" formControlName="batchAmt" />
+          @if (editForm.get('batchAmt')!.invalid && (editForm.get('batchAmt')!.dirty || editForm.get('batchAmt')!.touched)) {
+            <div>
+              @if (editForm.get('batchAmt')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmtCcd" for="field_batchAmtCcd"
+            >Batch Amt Ccd</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="batchAmtCcd"
+            id="field_batchAmtCcd"
+            data-cy="batchAmtCcd"
+            formControlName="batchAmtCcd"
+          />
+          @if (editForm.get('batchAmtCcd')!.invalid && (editForm.get('batchAmtCcd')!.dirty || editForm.get('batchAmtCcd')!.touched)) {
+            <div>
+              @if (editForm.get('batchAmtCcd')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.creditDate" for="field_creditDate">Credit Date</label>
+          <input
+            type="text"
+            class="form-control"
+            name="creditDate"
+            id="field_creditDate"
+            data-cy="creditDate"
+            formControlName="creditDate"
+          />
+          @if (editForm.get('creditDate')!.invalid && (editForm.get('creditDate')!.dirty || editForm.get('creditDate')!.touched)) {
+            <div>
+              @if (editForm.get('creditDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.vaNumber" for="field_vaNumber">Va Number</label>
+          <input type="text" class="form-control" name="vaNumber" id="field_vaNumber" data-cy="vaNumber" formControlName="vaNumber" />
+          @if (editForm.get('vaNumber')!.invalid && (editForm.get('vaNumber')!.dirty || editForm.get('vaNumber')!.touched)) {
+            <div>
+              @if (editForm.get('vaNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.utrNo" for="field_utrNo">Utr No</label>
+          <input type="text" class="form-control" name="utrNo" id="field_utrNo" data-cy="utrNo" formControlName="utrNo" />
+          @if (editForm.get('utrNo')!.invalid && (editForm.get('utrNo')!.dirty || editForm.get('utrNo')!.touched)) {
+            <div>
+              @if (editForm.get('utrNo')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.creditGenerationTime" for="field_creditGenerationTime"
+            >Credit Generation Time</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditGenerationTime"
+            id="field_creditGenerationTime"
+            data-cy="creditGenerationTime"
+            formControlName="creditGenerationTime"
+          />
+          @if (
+            editForm.get('creditGenerationTime')!.invalid &&
+            (editForm.get('creditGenerationTime')!.dirty || editForm.get('creditGenerationTime')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('creditGenerationTime')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.remitterName" for="field_remitterName"
+            >Remitter Name</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remitterName"
+            id="field_remitterName"
+            data-cy="remitterName"
+            formControlName="remitterName"
+          />
+          @if (editForm.get('remitterName')!.invalid && (editForm.get('remitterName')!.dirty || editForm.get('remitterName')!.touched)) {
+            <div>
+              @if (editForm.get('remitterName')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.escrowTransactionDetails.remitterAccountNumber"
+            for="field_remitterAccountNumber"
+            >Remitter Account Number</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="remitterAccountNumber"
+            id="field_remitterAccountNumber"
+            data-cy="remitterAccountNumber"
+            formControlName="remitterAccountNumber"
+          />
+          @if (
+            editForm.get('remitterAccountNumber')!.invalid &&
+            (editForm.get('remitterAccountNumber')!.dirty || editForm.get('remitterAccountNumber')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('remitterAccountNumber')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+          @if (editForm.get('ifscCode')!.invalid && (editForm.get('ifscCode')!.dirty || editForm.get('ifscCode')!.touched)) {
+            <div>
+              @if (editForm.get('ifscCode')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.disbursement" for="field_disbursement"
+            >Disbursement</label
+          >
+          <select
+            class="form-control"
+            id="field_disbursement"
+            data-cy="disbursement"
+            name="disbursement"
+            formControlName="disbursement"
+            [compareWith]="compareDisbursement"
+          >
+            <option [ngValue]="null"></option>
+            @for (disbursementOption of disbursementsSharedCollection; track $index) {
+              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.escrowTransactionDetails.repayment" for="field_repayment">Repayment</label>
+          <select
+            class="form-control"
+            id="field_repayment"
+            data-cy="repayment"
+            name="repayment"
+            formControlName="repayment"
+            [compareWith]="compareRepayment"
+          >
+            <option [ngValue]="null"></option>
+            @for (repaymentOption of repaymentsSharedCollection; track $index) {
+              <option [ngValue]="repaymentOption">{{ repaymentOption.repaymentId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

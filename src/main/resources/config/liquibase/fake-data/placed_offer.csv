@@ -1,11 +1,11 @@
-id;req_off_id;placed_offer_id;placed_offer_ref_no;request_offer_ref_no;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;offer_date;request_id;placed_offer_date;anchor_trader;trade_partner;disbursal_amount;status
-1;too;pegboard financing punt;ew dimly hence;plaster bleakly;2075;9903;19915.89;6004;22499;25320.84;9577;31646;14950;2023-12-28;elementary sink;2023-12-27;and likely;rapidly weasel like;overestimate;ha including
-2;silky might oh;equipment following;transplant moisturize reconstitute;dull;31240;1086;7220.6;19933;7915;8822.87;19316;2620;31842;2023-12-28;while but unexpectedly;2023-12-27;up uniform banish;strict gleefully;intently spawn;insignificant nullify detainee
-3;halibut;quicker app drat;excepting;wherever eek even;31004;18747;24802.72;32540;21046;15119.6;25422;32180;9853;2023-12-27;drat than;2023-12-28;below;wasabi where marxism;owlishly pfft;from
-4;naturally complete helpfully;past handgun aggravating;if too remortgage;while ouch screwdriver;21301;27166;10826.44;29891;32144;22598.66;20433;1014;26566;2023-12-28;times speakerphone drat;2023-12-28;ha nor;whose abaft woot;potentially pillar potable;including huzzah
-5;signal reassuringly;miracle hush;soften vaguely;yahoo which;2975;30678;29783.16;2656;11626;27042.47;8283;10277;12219;2023-12-27;hmph nothing;2023-12-28;though;boo;tail;sternly
-6;supposing greedily;oof;limply voluminous;hose;4703;5185;1267.83;23730;27939;5916.63;22767;16096;10534;2023-12-27;decent before;2023-12-28;duh;pfft instead spearhead;sulks lanky;practical eek
-7;boohoo;vanity;whoever;purple circa anti;19140;8221;14796.78;5850;11318;3782.72;20750;11069;11879;2023-12-28;circa and wary;2023-12-28;whirlwind fervently;nit;eleventh autograph versus;stealthily geez whereas
-8;buoyant;mash;rendezvous doubtfully;excepting mid;10049;11732;27740.14;11485;12447;25148.68;20862;31968;4057;2023-12-28;dot pfft um;2023-12-27;beside psst;guide;anti lest;oof vice
-9;after oh;searchingly whoa;sedately;that;30910;22781;27067.78;15907;9591;12096.38;24371;31032;10684;2023-12-27;without once for;2023-12-28;though up;dear frayed;nor;ouch among truly
-10;poisoning atop;vivaciously foolish;but before;whenever out maximise;22396;1326;29283.34;24678;740;32713.25;13203;23341;16741;2023-12-28;after;2023-12-27;sudden bah whoa;blue oof;round lathe;fervently care
+id;placed_offer_ulid_id;placed_offer_ref_no;req_off_ulid_id;request_offer_ref_no;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;status;offer_date;placed_offer_date;anchor_trader;trade_partner;disbursal_amount
+1;too;pegboard financing punt;ew dimly hence;plaster bleakly;2075;9903;19915.89;6004;22499;25320.84;9577;31646;14950;venerated;2024-03-06;2024-03-06;measly;besides sedately rapidly;between asphyxiate
+2;knowledgeable;junior;pfft super;icecream;10230;18502;15144.52;2203;1217;17145.63;30048;20466;20918;gleam round however;2024-03-06;2024-03-05;taunt;unwilling how unlike;doing mysterious evil
+3;third;apprehensive despite;vastly spit expedition;wilted;10177;24670;13548.25;28687;14365;2747.66;13462;30911;15820;out error;2024-03-05;2024-03-05;brr miserably;drat;excepting
+4;wherever eek even;worn hastily novel;mysteriously;furthermore;17964;4817;9498.75;31786;22856;19617.36;27587;31450;19008;financing;2024-03-05;2024-03-06;until geez;quote;but
+5;western unless like;shudder;abaft meh unto;will alongside lamb;24173;18701;9616.44;25082;25542;21300.7;27166;10826;29891;summarize boohoo about;2024-03-06;2024-03-05;substitution;bleakly ride;corsage decongestant
+6;an;fatally;fizzle optimistic defiantly;uselessly within;10830;9480;21402.74;17047;2431;17936.34;23776;6223;13638;anchored salary yowza;2024-03-06;2024-03-05;yahoo which;yum;essential oof
+7;as hungrily innocently;profile perfectly;stereotype politely;cacao;24931;29284;22265.68;24884;6075;14557.98;29001;16015;23383;antique;2024-03-05;2024-03-05;boohoo zowie tippex;edify yet;fast bah huge
+8;brr obnoxiously;flashy yuck boohoo;vanity;whoever;23047;22308;24704.72;13976;11820;17958.96;18180;21654;15415;sound hence;2024-03-06;2024-03-06;hence wingman;gasket;echidna
+9;quizzically;colorlessness for;yet;across platform suspiciously;15987;11456;31286.27;15195;7328;17737.2;19770;28993;6654;rage regularly;2024-03-05;2024-03-05;film oh duh;manhunt considering glue;hungrily
+10;who;brighten usually;unnaturally peppery fast;patent;14621;16780;1862.03;29352;27524;31874.11;6598;6290;22215;rant comptroller badger;2024-03-06;2024-03-06;plus;wherever;or

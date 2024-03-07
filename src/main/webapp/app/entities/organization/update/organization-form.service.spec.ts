@@ -21,6 +21,7 @@ describe('Organization Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             orgId: expect.any(Object),
+            orgUlidId: expect.any(Object),
             orgName: expect.any(Object),
             orgAddress: expect.any(Object),
             industryType: expect.any(Object),
@@ -36,6 +37,7 @@ describe('Organization Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             orgId: expect.any(Object),
+            orgUlidId: expect.any(Object),
             orgName: expect.any(Object),
             orgAddress: expect.any(Object),
             industryType: expect.any(Object),

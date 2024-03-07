@@ -19,9 +19,9 @@
       },
       "id": "ID",
       "creHighlightsId": "Cre Highlights Id",
+      "creHighlightsUlidId": "Cre Highlights Ulid Id",
       "creRequestId": "Cre Request Id",
       "highlights": "Highlights",
-      "cbcreprocess": "Cbcreprocess",
       "individualassessment": "Individualassessment"
     }
   }

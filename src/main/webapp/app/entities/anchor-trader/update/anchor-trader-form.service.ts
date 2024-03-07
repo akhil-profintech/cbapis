@@ -14,13 +14,25 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type AnchorTraderFormGroupInput = IAnchorTrader | PartialWithRequiredKeyOf<NewAnchorTrader>;
 
-type AnchorTraderFormDefaults = Pick<NewAnchorTrader, 'id'>;
+type AnchorTraderFormDefaults = Pick<
+  NewAnchorTrader,
+  | 'id'
+  | 'erpAccess'
+  | 'acceptTerms'
+  | 'acceptDeclaration'
+  | 'gstRegistrationCertificateUploadStatus'
+  | 'gstRegistrationCertificateVerificationStatus'
+  | 'udhyamRegistrationcertificateUploadStatus'
+  | 'udhyamRegistrationcertificateVerificationStatus'
+  | 'kycDeclaration'
+>;
 
 type AnchorTraderFormGroupContent = {
   id: FormControl<IAnchorTrader['id'] | NewAnchorTrader['id']>;
-  tenantId: FormControl<IAnchorTrader['tenantId']>;
   atId: FormControl<IAnchorTrader['atId']>;
+  atUlidId: FormControl<IAnchorTrader['atUlidId']>;
   orgId: FormControl<IAnchorTrader['orgId']>;
+  tenantId: FormControl<IAnchorTrader['tenantId']>;
   customerName: FormControl<IAnchorTrader['customerName']>;
   orgName: FormControl<IAnchorTrader['orgName']>;
   gstId: FormControl<IAnchorTrader['gstId']>;
@@ -32,6 +44,22 @@ type AnchorTraderFormGroupContent = {
   anchorTraderPAN: FormControl<IAnchorTrader['anchorTraderPAN']>;
   kycCompleted: FormControl<IAnchorTrader['kycCompleted']>;
   bankDetails: FormControl<IAnchorTrader['bankDetails']>;
+  emailId: FormControl<IAnchorTrader['emailId']>;
+  accountNumber: FormControl<IAnchorTrader['accountNumber']>;
+  ifscCode: FormControl<IAnchorTrader['ifscCode']>;
+  bankName: FormControl<IAnchorTrader['bankName']>;
+  branchName: FormControl<IAnchorTrader['branchName']>;
+  erpAccess: FormControl<IAnchorTrader['erpAccess']>;
+  typeOfFirm: FormControl<IAnchorTrader['typeOfFirm']>;
+  panStatus: FormControl<IAnchorTrader['panStatus']>;
+  tosDocument: FormControl<IAnchorTrader['tosDocument']>;
+  acceptTerms: FormControl<IAnchorTrader['acceptTerms']>;
+  acceptDeclaration: FormControl<IAnchorTrader['acceptDeclaration']>;
+  gstRegistrationCertificateUploadStatus: FormControl<IAnchorTrader['gstRegistrationCertificateUploadStatus']>;
+  gstRegistrationCertificateVerificationStatus: FormControl<IAnchorTrader['gstRegistrationCertificateVerificationStatus']>;
+  udhyamRegistrationcertificateUploadStatus: FormControl<IAnchorTrader['udhyamRegistrationcertificateUploadStatus']>;
+  udhyamRegistrationcertificateVerificationStatus: FormControl<IAnchorTrader['udhyamRegistrationcertificateVerificationStatus']>;
+  kycDeclaration: FormControl<IAnchorTrader['kycDeclaration']>;
 };
 
 export type AnchorTraderFormGroup = FormGroup<AnchorTraderFormGroupContent>;
@@ -51,13 +79,12 @@ export class AnchorTraderFormService {
           validators: [Validators.required],
         },
       ),
-      tenantId: new FormControl(anchorTraderRawValue.tenantId, {
-        validators: [Validators.required],
-      }),
-      atId: new FormControl(anchorTraderRawValue.atId, {
-        validators: [Validators.required],
-      }),
+      atId: new FormControl(anchorTraderRawValue.atId),
+      atUlidId: new FormControl(anchorTraderRawValue.atUlidId),
       orgId: new FormControl(anchorTraderRawValue.orgId, {
+        validators: [Validators.required],
+      }),
+      tenantId: new FormControl(anchorTraderRawValue.tenantId, {
         validators: [Validators.required],
       }),
       customerName: new FormControl(anchorTraderRawValue.customerName, {
@@ -79,6 +106,24 @@ export class AnchorTraderFormService {
       anchorTraderPAN: new FormControl(anchorTraderRawValue.anchorTraderPAN),
       kycCompleted: new FormControl(anchorTraderRawValue.kycCompleted),
       bankDetails: new FormControl(anchorTraderRawValue.bankDetails),
+      emailId: new FormControl(anchorTraderRawValue.emailId),
+      accountNumber: new FormControl(anchorTraderRawValue.accountNumber),
+      ifscCode: new FormControl(anchorTraderRawValue.ifscCode),
+      bankName: new FormControl(anchorTraderRawValue.bankName),
+      branchName: new FormControl(anchorTraderRawValue.branchName),
+      erpAccess: new FormControl(anchorTraderRawValue.erpAccess),
+      typeOfFirm: new FormControl(anchorTraderRawValue.typeOfFirm),
+      panStatus: new FormControl(anchorTraderRawValue.panStatus),
+      tosDocument: new FormControl(anchorTraderRawValue.tosDocument),
+      acceptTerms: new FormControl(anchorTraderRawValue.acceptTerms),
+      acceptDeclaration: new FormControl(anchorTraderRawValue.acceptDeclaration),
+      gstRegistrationCertificateUploadStatus: new FormControl(anchorTraderRawValue.gstRegistrationCertificateUploadStatus),
+      gstRegistrationCertificateVerificationStatus: new FormControl(anchorTraderRawValue.gstRegistrationCertificateVerificationStatus),
+      udhyamRegistrationcertificateUploadStatus: new FormControl(anchorTraderRawValue.udhyamRegistrationcertificateUploadStatus),
+      udhyamRegistrationcertificateVerificationStatus: new FormControl(
+        anchorTraderRawValue.udhyamRegistrationcertificateVerificationStatus,
+      ),
+      kycDeclaration: new FormControl(anchorTraderRawValue.kycDeclaration),
     });
   }
 
@@ -99,6 +144,14 @@ export class AnchorTraderFormService {
   private getFormDefaults(): AnchorTraderFormDefaults {
     return {
       id: null,
+      erpAccess: false,
+      acceptTerms: false,
+      acceptDeclaration: false,
+      gstRegistrationCertificateUploadStatus: false,
+      gstRegistrationCertificateVerificationStatus: false,
+      udhyamRegistrationcertificateUploadStatus: false,
+      udhyamRegistrationcertificateVerificationStatus: false,
+      kycDeclaration: false,
     };
   }
 }

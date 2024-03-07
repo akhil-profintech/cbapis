@@ -18,9 +18,9 @@ type AcceptedOfferFormDefaults = Pick<NewAcceptedOffer, 'id'>;
 
 type AcceptedOfferFormGroupContent = {
   id: FormControl<IAcceptedOffer['id'] | NewAcceptedOffer['id']>;
-  offerId: FormControl<IAcceptedOffer['offerId']>;
+  acceptedOfferUlidId: FormControl<IAcceptedOffer['acceptedOfferUlidId']>;
   acceptedOfferRefNo: FormControl<IAcceptedOffer['acceptedOfferRefNo']>;
-  reqOffId: FormControl<IAcceptedOffer['reqOffId']>;
+  reqOffUlidId: FormControl<IAcceptedOffer['reqOffUlidId']>;
   value: FormControl<IAcceptedOffer['value']>;
   reqAmount: FormControl<IAcceptedOffer['reqAmount']>;
   marginPtg: FormControl<IAcceptedOffer['marginPtg']>;
@@ -34,8 +34,8 @@ type AcceptedOfferFormGroupContent = {
   offerDate: FormControl<IAcceptedOffer['offerDate']>;
   offerAcceptedDate: FormControl<IAcceptedOffer['offerAcceptedDate']>;
   financerequest: FormControl<IAcceptedOffer['financerequest']>;
-  financepartner: FormControl<IAcceptedOffer['financepartner']>;
   anchortrader: FormControl<IAcceptedOffer['anchortrader']>;
+  financepartner: FormControl<IAcceptedOffer['financepartner']>;
 };
 
 export type AcceptedOfferFormGroup = FormGroup<AcceptedOfferFormGroupContent>;
@@ -55,9 +55,9 @@ export class AcceptedOfferFormService {
           validators: [Validators.required],
         },
       ),
-      offerId: new FormControl(acceptedOfferRawValue.offerId),
+      acceptedOfferUlidId: new FormControl(acceptedOfferRawValue.acceptedOfferUlidId),
       acceptedOfferRefNo: new FormControl(acceptedOfferRawValue.acceptedOfferRefNo),
-      reqOffId: new FormControl(acceptedOfferRawValue.reqOffId, {
+      reqOffUlidId: new FormControl(acceptedOfferRawValue.reqOffUlidId, {
         validators: [Validators.required],
       }),
       value: new FormControl(acceptedOfferRawValue.value, {
@@ -97,8 +97,8 @@ export class AcceptedOfferFormService {
         validators: [Validators.required],
       }),
       financerequest: new FormControl(acceptedOfferRawValue.financerequest),
-      financepartner: new FormControl(acceptedOfferRawValue.financepartner),
       anchortrader: new FormControl(acceptedOfferRawValue.anchortrader),
+      financepartner: new FormControl(acceptedOfferRawValue.financepartner),
     });
   }
 

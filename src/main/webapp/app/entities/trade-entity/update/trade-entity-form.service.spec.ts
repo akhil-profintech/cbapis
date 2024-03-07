@@ -21,6 +21,7 @@ describe('TradeEntity Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             entityId: expect.any(Object),
+            entityUlidId: expect.any(Object),
             entityName: expect.any(Object),
             entityDesc: expect.any(Object),
             entityGST: expect.any(Object),
@@ -35,6 +36,7 @@ describe('TradeEntity Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             entityId: expect.any(Object),
+            entityUlidId: expect.any(Object),
             entityName: expect.any(Object),
             entityDesc: expect.any(Object),
             entityGST: expect.any(Object),

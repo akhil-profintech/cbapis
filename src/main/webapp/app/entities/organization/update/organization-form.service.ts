@@ -19,6 +19,7 @@ type OrganizationFormDefaults = Pick<NewOrganization, 'id'>;
 type OrganizationFormGroupContent = {
   id: FormControl<IOrganization['id'] | NewOrganization['id']>;
   orgId: FormControl<IOrganization['orgId']>;
+  orgUlidId: FormControl<IOrganization['orgUlidId']>;
   orgName: FormControl<IOrganization['orgName']>;
   orgAddress: FormControl<IOrganization['orgAddress']>;
   industryType: FormControl<IOrganization['industryType']>;
@@ -43,6 +44,7 @@ export class OrganizationFormService {
         },
       ),
       orgId: new FormControl(organizationRawValue.orgId),
+      orgUlidId: new FormControl(organizationRawValue.orgUlidId),
       orgName: new FormControl(organizationRawValue.orgName),
       orgAddress: new FormControl(organizationRawValue.orgAddress),
       industryType: new FormControl(organizationRawValue.industryType),

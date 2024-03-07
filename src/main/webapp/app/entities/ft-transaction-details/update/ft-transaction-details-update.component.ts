@@ -7,12 +7,12 @@ import { finalize, map } from 'rxjs/operators';
 import SharedModule from 'app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { IParticipantSettlement } from 'app/entities/participant-settlement/participant-settlement.model';
+import { ParticipantSettlementService } from 'app/entities/participant-settlement/service/participant-settlement.service';
 import { IDisbursement } from 'app/entities/disbursement/disbursement.model';
 import { DisbursementService } from 'app/entities/disbursement/service/disbursement.service';
 import { IRepayment } from 'app/entities/repayment/repayment.model';
 import { RepaymentService } from 'app/entities/repayment/service/repayment.service';
-import { IParticipantSettlement } from 'app/entities/participant-settlement/participant-settlement.model';
-import { ParticipantSettlementService } from 'app/entities/participant-settlement/service/participant-settlement.service';
 import { FTTransactionDetailsService } from '../service/ft-transaction-details.service';
 import { IFTTransactionDetails } from '../ft-transaction-details.model';
 import { FTTransactionDetailsFormService, FTTransactionDetailsFormGroup } from './ft-transaction-details-form.service';
@@ -27,28 +27,28 @@ export class FTTransactionDetailsUpdateComponent implements OnInit {
   isSaving = false;
   fTTransactionDetails: IFTTransactionDetails | null = null;
 
+  participantSettlementsSharedCollection: IParticipantSettlement[] = [];
   disbursementsSharedCollection: IDisbursement[] = [];
   repaymentsSharedCollection: IRepayment[] = [];
-  participantSettlementsSharedCollection: IParticipantSettlement[] = [];
 
   editForm: FTTransactionDetailsFormGroup = this.fTTransactionDetailsFormService.createFTTransactionDetailsFormGroup();
 
   constructor(
     protected fTTransactionDetailsService: FTTransactionDetailsService,
     protected fTTransactionDetailsFormService: FTTransactionDetailsFormService,
+    protected participantSettlementService: ParticipantSettlementService,
     protected disbursementService: DisbursementService,
     protected repaymentService: RepaymentService,
-    protected participantSettlementService: ParticipantSettlementService,
     protected activatedRoute: ActivatedRoute,
   ) {}
+
+  compareParticipantSettlement = (o1: IParticipantSettlement | null, o2: IParticipantSettlement | null): boolean =>
+    this.participantSettlementService.compareParticipantSettlement(o1, o2);
 
   compareDisbursement = (o1: IDisbursement | null, o2: IDisbursement | null): boolean =>
     this.disbursementService.compareDisbursement(o1, o2);
 
   compareRepayment = (o1: IRepayment | null, o2: IRepayment | null): boolean => this.repaymentService.compareRepayment(o1, o2);
-
-  compareParticipantSettlement = (o1: IParticipantSettlement | null, o2: IParticipantSettlement | null): boolean =>
-    this.participantSettlementService.compareParticipantSettlement(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ fTTransactionDetails }) => {
@@ -98,6 +98,11 @@ export class FTTransactionDetailsUpdateComponent implements OnInit {
     this.fTTransactionDetails = fTTransactionDetails;
     this.fTTransactionDetailsFormService.resetForm(this.editForm, fTTransactionDetails);
 
+    this.participantSettlementsSharedCollection =
+      this.participantSettlementService.addParticipantSettlementToCollectionIfMissing<IParticipantSettlement>(
+        this.participantSettlementsSharedCollection,
+        fTTransactionDetails.participantsettlement,
+      );
     this.disbursementsSharedCollection = this.disbursementService.addDisbursementToCollectionIfMissing<IDisbursement>(
       this.disbursementsSharedCollection,
       fTTransactionDetails.disbursement,
@@ -106,14 +111,24 @@ export class FTTransactionDetailsUpdateComponent implements OnInit {
       this.repaymentsSharedCollection,
       fTTransactionDetails.repayment,
     );
-    this.participantSettlementsSharedCollection =
-      this.participantSettlementService.addParticipantSettlementToCollectionIfMissing<IParticipantSettlement>(
-        this.participantSettlementsSharedCollection,
-        fTTransactionDetails.participantsettlement,
-      );
   }
 
   protected loadRelationshipsOptions(): void {
+    this.participantSettlementService
+      .query()
+      .pipe(map((res: HttpResponse<IParticipantSettlement[]>) => res.body ?? []))
+      .pipe(
+        map((participantSettlements: IParticipantSettlement[]) =>
+          this.participantSettlementService.addParticipantSettlementToCollectionIfMissing<IParticipantSettlement>(
+            participantSettlements,
+            this.fTTransactionDetails?.participantsettlement,
+          ),
+        ),
+      )
+      .subscribe(
+        (participantSettlements: IParticipantSettlement[]) => (this.participantSettlementsSharedCollection = participantSettlements),
+      );
+
     this.disbursementService
       .query()
       .pipe(map((res: HttpResponse<IDisbursement[]>) => res.body ?? []))
@@ -136,20 +151,5 @@ export class FTTransactionDetailsUpdateComponent implements OnInit {
         ),
       )
       .subscribe((repayments: IRepayment[]) => (this.repaymentsSharedCollection = repayments));
-
-    this.participantSettlementService
-      .query()
-      .pipe(map((res: HttpResponse<IParticipantSettlement[]>) => res.body ?? []))
-      .pipe(
-        map((participantSettlements: IParticipantSettlement[]) =>
-          this.participantSettlementService.addParticipantSettlementToCollectionIfMissing<IParticipantSettlement>(
-            participantSettlements,
-            this.fTTransactionDetails?.participantsettlement,
-          ),
-        ),
-      )
-      .subscribe(
-        (participantSettlements: IParticipantSettlement[]) => (this.participantSettlementsSharedCollection = participantSettlements),
-      );
   }
 }

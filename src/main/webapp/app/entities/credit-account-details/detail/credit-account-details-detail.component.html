@@ -21,6 +21,10 @@
           <dd>
             <span>{{ creditAccountDetails.creditAccDetailsId }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.creditAccountDetails.creditAccountDetailsUlidId">Credit Account Details Ulid Id</span></dt>
+          <dd>
+            <span>{{ creditAccountDetails.creditAccountDetailsUlidId }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.creditAccountDetails.tenantId">Tenant Id</span></dt>
           <dd>
             <span>{{ creditAccountDetails.tenantId }}</span>
@@ -41,12 +45,20 @@
           <dd>
             <span>{{ creditAccountDetails.accNumber }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountName">Destination Account Name</span></dt>
+          <dd>
+            <span>{{ creditAccountDetails.destinationAccountName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.creditAccountDetails.destinationAccountNumber">Destination Account Number</span></dt>
+          <dd>
+            <span>{{ creditAccountDetails.destinationAccountNumber }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.creditAccountDetails.disbursement">Disbursement</span></dt>
           <dd>
             @if (creditAccountDetails.disbursement) {
               <div>
                 <a [routerLink]="['/disbursement', creditAccountDetails.disbursement.id, 'view']">{{
-                  creditAccountDetails.disbursement.dbmtRequestId
+                  creditAccountDetails.disbursement.dbmtId
                 }}</a>
               </div>
             }

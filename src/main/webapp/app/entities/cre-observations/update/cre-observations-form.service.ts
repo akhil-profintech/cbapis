@@ -19,9 +19,9 @@ type CREObservationsFormDefaults = Pick<NewCREObservations, 'id'>;
 type CREObservationsFormGroupContent = {
   id: FormControl<ICREObservations['id'] | NewCREObservations['id']>;
   creObservationsId: FormControl<ICREObservations['creObservationsId']>;
+  creObservationsUlidId: FormControl<ICREObservations['creObservationsUlidId']>;
   creRequestId: FormControl<ICREObservations['creRequestId']>;
   observations: FormControl<ICREObservations['observations']>;
-  cbcreprocess: FormControl<ICREObservations['cbcreprocess']>;
   individualassessment: FormControl<ICREObservations['individualassessment']>;
 };
 
@@ -42,12 +42,10 @@ export class CREObservationsFormService {
           validators: [Validators.required],
         },
       ),
-      creObservationsId: new FormControl(cREObservationsRawValue.creObservationsId, {
-        validators: [Validators.required],
-      }),
+      creObservationsId: new FormControl(cREObservationsRawValue.creObservationsId),
+      creObservationsUlidId: new FormControl(cREObservationsRawValue.creObservationsUlidId),
       creRequestId: new FormControl(cREObservationsRawValue.creRequestId),
       observations: new FormControl(cREObservationsRawValue.observations),
-      cbcreprocess: new FormControl(cREObservationsRawValue.cbcreprocess),
       individualassessment: new FormControl(cREObservationsRawValue.individualassessment),
     });
   }

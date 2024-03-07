@@ -19,12 +19,14 @@ type RepaymentFormDefaults = Pick<NewRepayment, 'id'>;
 type RepaymentFormGroupContent = {
   id: FormControl<IRepayment['id'] | NewRepayment['id']>;
   repaymentId: FormControl<IRepayment['repaymentId']>;
+  repaymentUlidId: FormControl<IRepayment['repaymentUlidId']>;
   repaymentRefNo: FormControl<IRepayment['repaymentRefNo']>;
-  acceptedOfferId: FormControl<IRepayment['acceptedOfferId']>;
-  offerId: FormControl<IRepayment['offerId']>;
+  acceptedOfferUlidId: FormControl<IRepayment['acceptedOfferUlidId']>;
+  placedOfferUlidId: FormControl<IRepayment['placedOfferUlidId']>;
+  reqOffUlidId: FormControl<IRepayment['reqOffUlidId']>;
   offerAcceptedDate: FormControl<IRepayment['offerAcceptedDate']>;
   dbmtRequestId: FormControl<IRepayment['dbmtRequestId']>;
-  dbmtstatus: FormControl<IRepayment['dbmtstatus']>;
+  dbmtStatus: FormControl<IRepayment['dbmtStatus']>;
   dbmtDateTime: FormControl<IRepayment['dbmtDateTime']>;
   dbmtId: FormControl<IRepayment['dbmtId']>;
   dbmtAmount: FormControl<IRepayment['dbmtAmount']>;
@@ -32,9 +34,6 @@ type RepaymentFormGroupContent = {
   repaymentStatus: FormControl<IRepayment['repaymentStatus']>;
   repaymentDate: FormControl<IRepayment['repaymentDate']>;
   repaymentAmount: FormControl<IRepayment['repaymentAmount']>;
-  ftTrnxDetailsId: FormControl<IRepayment['ftTrnxDetailsId']>;
-  collectionTrnxDetailsId: FormControl<IRepayment['collectionTrnxDetailsId']>;
-  docId: FormControl<IRepayment['docId']>;
   financeRequestId: FormControl<IRepayment['financeRequestId']>;
   repaymentDueDate: FormControl<IRepayment['repaymentDueDate']>;
   totalRepaymentAmount: FormControl<IRepayment['totalRepaymentAmount']>;
@@ -66,11 +65,15 @@ export class RepaymentFormService {
         },
       ),
       repaymentId: new FormControl(repaymentRawValue.repaymentId),
+      repaymentUlidId: new FormControl(repaymentRawValue.repaymentUlidId),
       repaymentRefNo: new FormControl(repaymentRawValue.repaymentRefNo),
-      acceptedOfferId: new FormControl(repaymentRawValue.acceptedOfferId, {
+      acceptedOfferUlidId: new FormControl(repaymentRawValue.acceptedOfferUlidId, {
         validators: [Validators.required],
       }),
-      offerId: new FormControl(repaymentRawValue.offerId, {
+      placedOfferUlidId: new FormControl(repaymentRawValue.placedOfferUlidId, {
+        validators: [Validators.required],
+      }),
+      reqOffUlidId: new FormControl(repaymentRawValue.reqOffUlidId, {
         validators: [Validators.required],
       }),
       offerAcceptedDate: new FormControl(repaymentRawValue.offerAcceptedDate, {
@@ -79,7 +82,7 @@ export class RepaymentFormService {
       dbmtRequestId: new FormControl(repaymentRawValue.dbmtRequestId, {
         validators: [Validators.required],
       }),
-      dbmtstatus: new FormControl(repaymentRawValue.dbmtstatus, {
+      dbmtStatus: new FormControl(repaymentRawValue.dbmtStatus, {
         validators: [Validators.required],
       }),
       dbmtDateTime: new FormControl(repaymentRawValue.dbmtDateTime, {
@@ -99,9 +102,6 @@ export class RepaymentFormService {
       }),
       repaymentDate: new FormControl(repaymentRawValue.repaymentDate),
       repaymentAmount: new FormControl(repaymentRawValue.repaymentAmount),
-      ftTrnxDetailsId: new FormControl(repaymentRawValue.ftTrnxDetailsId),
-      collectionTrnxDetailsId: new FormControl(repaymentRawValue.collectionTrnxDetailsId),
-      docId: new FormControl(repaymentRawValue.docId),
       financeRequestId: new FormControl(repaymentRawValue.financeRequestId),
       repaymentDueDate: new FormControl(repaymentRawValue.repaymentDueDate),
       totalRepaymentAmount: new FormControl(repaymentRawValue.totalRepaymentAmount),

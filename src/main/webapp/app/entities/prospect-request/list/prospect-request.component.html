@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="prospectRequestUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.prospectRequest.prospectRequestUlidId">Prospect Request Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="anchorTraderId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.prospectRequest.anchorTraderId">Anchor Trader Id</span>
@@ -77,12 +84,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.prospectRequest.financerequest">Financerequest</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -93,19 +94,11 @@
                 <a [routerLink]="['/prospect-request', prospectRequest.id, 'view']">{{ prospectRequest.id }}</a>
               </td>
               <td>{{ prospectRequest.prospectRequestId }}</td>
+              <td>{{ prospectRequest.prospectRequestUlidId }}</td>
               <td>{{ prospectRequest.anchorTraderId }}</td>
               <td>{{ prospectRequest.requestAmount }}</td>
               <td>{{ prospectRequest.prospectRequestDate | formatMediumDate }}</td>
               <td>{{ prospectRequest.currency }}</td>
-              <td>
-                @if (prospectRequest.financerequest) {
-                  <div>
-                    <a [routerLink]="['/finance-request', prospectRequest.financerequest.id, 'view']">{{
-                      prospectRequest.financerequest.requestId
-                    }}</a>
-                  </div>
-                }
-              </td>
               <td class="text-end">
                 <div class="btn-group">
                   <a

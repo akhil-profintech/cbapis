@@ -54,10 +54,10 @@ describe('PlacedOffer Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const placedOffer: IPlacedOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 7440 };
+      const financerequest: IFinanceRequest = { id: 17801 };
       placedOffer.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 2247 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 7234 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -76,10 +76,10 @@ describe('PlacedOffer Management Update Component', () => {
 
     it('Should call FinancePartner query and add missing value', () => {
       const placedOffer: IPlacedOffer = { id: 456 };
-      const financepartner: IFinancePartner = { id: 8437 };
+      const financepartner: IFinancePartner = { id: 23801 };
       placedOffer.financepartner = financepartner;
 
-      const financePartnerCollection: IFinancePartner[] = [{ id: 24106 }];
+      const financePartnerCollection: IFinancePartner[] = [{ id: 16910 }];
       jest.spyOn(financePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: financePartnerCollection })));
       const additionalFinancePartners = [financepartner];
       const expectedCollection: IFinancePartner[] = [...additionalFinancePartners, ...financePartnerCollection];
@@ -98,9 +98,9 @@ describe('PlacedOffer Management Update Component', () => {
 
     it('Should update editForm', () => {
       const placedOffer: IPlacedOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 25531 };
+      const financerequest: IFinanceRequest = { id: 21449 };
       placedOffer.financerequest = financerequest;
-      const financepartner: IFinancePartner = { id: 30738 };
+      const financepartner: IFinancePartner = { id: 31128 };
       placedOffer.financepartner = financepartner;
 
       activatedRoute.data = of({ placedOffer });

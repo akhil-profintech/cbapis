@@ -1,12 +1,14 @@
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
+import { IAnchorTraderPartner } from 'app/entities/anchor-trader-partner/anchor-trader-partner.model';
 import { IAcceptedOffer } from 'app/entities/accepted-offer/accepted-offer.model';
 import { ITrade } from 'app/entities/trade/trade.model';
 
 export interface IAnchorTrader {
   id: number;
-  tenantId?: string | null;
-  atId?: string | null;
+  atId?: number | null;
+  atUlidId?: string | null;
   orgId?: string | null;
+  tenantId?: string | null;
   customerName?: string | null;
   orgName?: string | null;
   gstId?: string | null;
@@ -18,7 +20,24 @@ export interface IAnchorTrader {
   anchorTraderPAN?: string | null;
   kycCompleted?: string | null;
   bankDetails?: string | null;
+  emailId?: string | null;
+  accountNumber?: string | null;
+  ifscCode?: string | null;
+  bankName?: string | null;
+  branchName?: string | null;
+  erpAccess?: boolean | null;
+  typeOfFirm?: string | null;
+  panStatus?: string | null;
+  tosDocument?: string | null;
+  acceptTerms?: boolean | null;
+  acceptDeclaration?: boolean | null;
+  gstRegistrationCertificateUploadStatus?: boolean | null;
+  gstRegistrationCertificateVerificationStatus?: boolean | null;
+  udhyamRegistrationcertificateUploadStatus?: boolean | null;
+  udhyamRegistrationcertificateVerificationStatus?: boolean | null;
+  kycDeclaration?: boolean | null;
   financeRequests?: Pick<IFinanceRequest, 'id'>[] | null;
+  anchorTraderPartners?: Pick<IAnchorTraderPartner, 'id'>[] | null;
   acceptedOffers?: Pick<IAcceptedOffer, 'id'>[] | null;
   trades?: Pick<ITrade, 'id'>[] | null;
 }

@@ -9,10 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
-import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
-import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { IAnchorTrader } from 'app/entities/anchor-trader/anchor-trader.model';
 import { AnchorTraderService } from 'app/entities/anchor-trader/service/anchor-trader.service';
+import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
+import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { AcceptedOfferService } from '../service/accepted-offer.service';
 import { IAcceptedOffer } from '../accepted-offer.model';
 import { AcceptedOfferFormService, AcceptedOfferFormGroup } from './accepted-offer-form.service';
@@ -28,8 +28,8 @@ export class AcceptedOfferUpdateComponent implements OnInit {
   acceptedOffer: IAcceptedOffer | null = null;
 
   financeRequestsSharedCollection: IFinanceRequest[] = [];
-  financePartnersSharedCollection: IFinancePartner[] = [];
   anchorTradersSharedCollection: IAnchorTrader[] = [];
+  financePartnersSharedCollection: IFinancePartner[] = [];
 
   editForm: AcceptedOfferFormGroup = this.acceptedOfferFormService.createAcceptedOfferFormGroup();
 
@@ -37,19 +37,19 @@ export class AcceptedOfferUpdateComponent implements OnInit {
     protected acceptedOfferService: AcceptedOfferService,
     protected acceptedOfferFormService: AcceptedOfferFormService,
     protected financeRequestService: FinanceRequestService,
-    protected financePartnerService: FinancePartnerService,
     protected anchorTraderService: AnchorTraderService,
+    protected financePartnerService: FinancePartnerService,
     protected activatedRoute: ActivatedRoute,
   ) {}
 
   compareFinanceRequest = (o1: IFinanceRequest | null, o2: IFinanceRequest | null): boolean =>
     this.financeRequestService.compareFinanceRequest(o1, o2);
 
-  compareFinancePartner = (o1: IFinancePartner | null, o2: IFinancePartner | null): boolean =>
-    this.financePartnerService.compareFinancePartner(o1, o2);
-
   compareAnchorTrader = (o1: IAnchorTrader | null, o2: IAnchorTrader | null): boolean =>
     this.anchorTraderService.compareAnchorTrader(o1, o2);
+
+  compareFinancePartner = (o1: IFinancePartner | null, o2: IFinancePartner | null): boolean =>
+    this.financePartnerService.compareFinancePartner(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ acceptedOffer }) => {
@@ -103,13 +103,13 @@ export class AcceptedOfferUpdateComponent implements OnInit {
       this.financeRequestsSharedCollection,
       acceptedOffer.financerequest,
     );
-    this.financePartnersSharedCollection = this.financePartnerService.addFinancePartnerToCollectionIfMissing<IFinancePartner>(
-      this.financePartnersSharedCollection,
-      acceptedOffer.financepartner,
-    );
     this.anchorTradersSharedCollection = this.anchorTraderService.addAnchorTraderToCollectionIfMissing<IAnchorTrader>(
       this.anchorTradersSharedCollection,
       acceptedOffer.anchortrader,
+    );
+    this.financePartnersSharedCollection = this.financePartnerService.addFinancePartnerToCollectionIfMissing<IFinancePartner>(
+      this.financePartnersSharedCollection,
+      acceptedOffer.financepartner,
     );
   }
 
@@ -127,6 +127,16 @@ export class AcceptedOfferUpdateComponent implements OnInit {
       )
       .subscribe((financeRequests: IFinanceRequest[]) => (this.financeRequestsSharedCollection = financeRequests));
 
+    this.anchorTraderService
+      .query()
+      .pipe(map((res: HttpResponse<IAnchorTrader[]>) => res.body ?? []))
+      .pipe(
+        map((anchorTraders: IAnchorTrader[]) =>
+          this.anchorTraderService.addAnchorTraderToCollectionIfMissing<IAnchorTrader>(anchorTraders, this.acceptedOffer?.anchortrader),
+        ),
+      )
+      .subscribe((anchorTraders: IAnchorTrader[]) => (this.anchorTradersSharedCollection = anchorTraders));
+
     this.financePartnerService
       .query()
       .pipe(map((res: HttpResponse<IFinancePartner[]>) => res.body ?? []))
@@ -139,15 +149,5 @@ export class AcceptedOfferUpdateComponent implements OnInit {
         ),
       )
       .subscribe((financePartners: IFinancePartner[]) => (this.financePartnersSharedCollection = financePartners));
-
-    this.anchorTraderService
-      .query()
-      .pipe(map((res: HttpResponse<IAnchorTrader[]>) => res.body ?? []))
-      .pipe(
-        map((anchorTraders: IAnchorTrader[]) =>
-          this.anchorTraderService.addAnchorTraderToCollectionIfMissing<IAnchorTrader>(anchorTraders, this.acceptedOffer?.anchortrader),
-        ),
-      )
-      .subscribe((anchorTraders: IAnchorTrader[]) => (this.anchorTradersSharedCollection = anchorTraders));
   }
 }

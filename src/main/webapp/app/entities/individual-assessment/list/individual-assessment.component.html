@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="assessmentUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.assessmentUlidId">Assessment Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="creditScore">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.individualAssessment.creditScore">Credit Score</span>
@@ -56,9 +63,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="finalverdict">
+            <th scope="col" jhiSortBy="finalVerdict">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.individualAssessment.finalverdict">Finalverdict</span>
+                <span jhiTranslate="cbapisApp.individualAssessment.finalVerdict">Final Verdict</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -77,16 +84,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tradepartnerGST">
+            <th scope="col" jhiSortBy="tradePartnerGST">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.individualAssessment.tradepartnerGST">Tradepartner GST</span>
+                <span jhiTranslate="cbapisApp.individualAssessment.tradePartnerGST">Trade Partner GST</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tradepartnerId">
+            <th scope="col" jhiSortBy="tradePartnerId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.individualAssessment.tradepartnerId">Tradepartner Id</span>
+                <span jhiTranslate="cbapisApp.individualAssessment.tradePartnerId">Trade Partner Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -121,12 +128,13 @@
                 <a [routerLink]="['/individual-assessment', individualAssessment.id, 'view']">{{ individualAssessment.id }}</a>
               </td>
               <td>{{ individualAssessment.assessmentId }}</td>
+              <td>{{ individualAssessment.assessmentUlidId }}</td>
               <td>{{ individualAssessment.creditScore }}</td>
-              <td>{{ individualAssessment.finalverdict }}</td>
+              <td>{{ individualAssessment.finalVerdict }}</td>
               <td>{{ individualAssessment.creRequestId }}</td>
               <td>{{ individualAssessment.timestamp }}</td>
-              <td>{{ individualAssessment.tradepartnerGST }}</td>
-              <td>{{ individualAssessment.tradepartnerId }}</td>
+              <td>{{ individualAssessment.tradePartnerGST }}</td>
+              <td>{{ individualAssessment.tradePartnerId }}</td>
               <td>{{ individualAssessment.invoiceAmount }}</td>
               <td>{{ individualAssessment.invoiceId }}</td>
               <td>

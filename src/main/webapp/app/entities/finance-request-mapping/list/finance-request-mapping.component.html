@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="financeRequestMappingUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequestMapping.financeRequestMappingUlidId">Finance Request Mapping Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="anchorTraderId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.financeRequestMapping.anchorTraderId">Anchor Trader Id</span>
@@ -87,6 +94,7 @@
                 <a [routerLink]="['/finance-request-mapping', financeRequestMapping.id, 'view']">{{ financeRequestMapping.id }}</a>
               </td>
               <td>{{ financeRequestMapping.financeRequestId }}</td>
+              <td>{{ financeRequestMapping.financeRequestMappingUlidId }}</td>
               <td>{{ financeRequestMapping.anchorTraderId }}</td>
               <td>{{ financeRequestMapping.financePartnerId }}</td>
               <td>{{ financeRequestMapping.anchorTraderTenantId }}</td>

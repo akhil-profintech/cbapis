@@ -50,10 +50,10 @@ describe('Repayment Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const repayment: IRepayment = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 16383 };
+      const financerequest: IFinanceRequest = { id: 11311 };
       repayment.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 4085 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 15730 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -72,7 +72,7 @@ describe('Repayment Management Update Component', () => {
 
     it('Should update editForm', () => {
       const repayment: IRepayment = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 20917 };
+      const financerequest: IFinanceRequest = { id: 19989 };
       repayment.financerequest = financerequest;
 
       activatedRoute.data = of({ repayment });

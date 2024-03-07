@@ -1,0 +1,260 @@
+<div>
+  <h2 id="page-heading" data-cy="EscrowTransactionDetailsHeading">
+    <span jhiTranslate="cbapisApp.escrowTransactionDetails.home.title">Escrow Transaction Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="cbapisApp.escrowTransactionDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-escrow-transaction-details"
+        [routerLink]="['/escrow-transaction-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="cbapisApp.escrowTransactionDetails.home.createLabel">Create a new Escrow Transaction Details</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (escrowTransactionDetails?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="cbapisApp.escrowTransactionDetails.home.notFound">No Escrow Transaction Details found</span>
+    </div>
+  }
+
+  @if (escrowTransactionDetails && escrowTransactionDetails.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="escrowTrnxDetailsId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsId">Escrow Trnx Details Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="escrowTrnxDetailsUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsUlidId">Escrow Trnx Details Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.customerCode">Customer Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customerName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.customerName">Customer Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="productCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.productCode">Product Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.transactionType">Transaction Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmt">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmt">Batch Amt</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="batchAmtCcd">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmtCcd">Batch Amt Ccd</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.creditDate">Credit Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="vaNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.vaNumber">Va Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="utrNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.utrNo">Utr No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditGenerationTime">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.creditGenerationTime">Credit Generation Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterName">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.remitterName">Remitter Name</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="remitterAccountNumber">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.remitterAccountNumber">Remitter Account Number</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ifscCode">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.ifscCode">Ifsc Code</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.dbmtId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.disbursement">Disbursement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="repayment.repaymentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.escrowTransactionDetails.repayment">Repayment</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (escrowTransactionDetails of escrowTransactionDetails; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/escrow-transaction-details', escrowTransactionDetails.id, 'view']">{{ escrowTransactionDetails.id }}</a>
+              </td>
+              <td>{{ escrowTransactionDetails.escrowTrnxDetailsId }}</td>
+              <td>{{ escrowTransactionDetails.escrowTrnxDetailsUlidId }}</td>
+              <td>{{ escrowTransactionDetails.customerCode }}</td>
+              <td>{{ escrowTransactionDetails.customerName }}</td>
+              <td>{{ escrowTransactionDetails.productCode }}</td>
+              <td>{{ escrowTransactionDetails.transactionType }}</td>
+              <td>{{ escrowTransactionDetails.batchAmt }}</td>
+              <td>{{ escrowTransactionDetails.batchAmtCcd }}</td>
+              <td>{{ escrowTransactionDetails.creditDate }}</td>
+              <td>{{ escrowTransactionDetails.vaNumber }}</td>
+              <td>{{ escrowTransactionDetails.utrNo }}</td>
+              <td>{{ escrowTransactionDetails.creditGenerationTime }}</td>
+              <td>{{ escrowTransactionDetails.remitterName }}</td>
+              <td>{{ escrowTransactionDetails.remitterAccountNumber }}</td>
+              <td>{{ escrowTransactionDetails.ifscCode }}</td>
+              <td>
+                @if (escrowTransactionDetails.disbursement) {
+                  <div>
+                    <a [routerLink]="['/disbursement', escrowTransactionDetails.disbursement.id, 'view']">{{
+                      escrowTransactionDetails.disbursement.dbmtId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (escrowTransactionDetails.repayment) {
+                  <div>
+                    <a [routerLink]="['/repayment', escrowTransactionDetails.repayment.id, 'view']">{{
+                      escrowTransactionDetails.repayment.repaymentId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/escrow-transaction-details', escrowTransactionDetails.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/escrow-transaction-details', escrowTransactionDetails.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(escrowTransactionDetails)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (escrowTransactionDetails && escrowTransactionDetails.length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems"
+          [page]="page"
+          [pageSize]="itemsPerPage"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        ></ngb-pagination>
+      </div>
+    </div>
+  }
+</div>

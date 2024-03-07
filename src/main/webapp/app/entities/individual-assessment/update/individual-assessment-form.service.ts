@@ -19,12 +19,13 @@ type IndividualAssessmentFormDefaults = Pick<NewIndividualAssessment, 'id'>;
 type IndividualAssessmentFormGroupContent = {
   id: FormControl<IIndividualAssessment['id'] | NewIndividualAssessment['id']>;
   assessmentId: FormControl<IIndividualAssessment['assessmentId']>;
+  assessmentUlidId: FormControl<IIndividualAssessment['assessmentUlidId']>;
   creditScore: FormControl<IIndividualAssessment['creditScore']>;
-  finalverdict: FormControl<IIndividualAssessment['finalverdict']>;
+  finalVerdict: FormControl<IIndividualAssessment['finalVerdict']>;
   creRequestId: FormControl<IIndividualAssessment['creRequestId']>;
   timestamp: FormControl<IIndividualAssessment['timestamp']>;
-  tradepartnerGST: FormControl<IIndividualAssessment['tradepartnerGST']>;
-  tradepartnerId: FormControl<IIndividualAssessment['tradepartnerId']>;
+  tradePartnerGST: FormControl<IIndividualAssessment['tradePartnerGST']>;
+  tradePartnerId: FormControl<IIndividualAssessment['tradePartnerId']>;
   invoiceAmount: FormControl<IIndividualAssessment['invoiceAmount']>;
   invoiceId: FormControl<IIndividualAssessment['invoiceId']>;
   cbcreprocess: FormControl<IIndividualAssessment['cbcreprocess']>;
@@ -50,12 +51,13 @@ export class IndividualAssessmentFormService {
         },
       ),
       assessmentId: new FormControl(individualAssessmentRawValue.assessmentId),
+      assessmentUlidId: new FormControl(individualAssessmentRawValue.assessmentUlidId),
       creditScore: new FormControl(individualAssessmentRawValue.creditScore),
-      finalverdict: new FormControl(individualAssessmentRawValue.finalverdict),
+      finalVerdict: new FormControl(individualAssessmentRawValue.finalVerdict),
       creRequestId: new FormControl(individualAssessmentRawValue.creRequestId),
       timestamp: new FormControl(individualAssessmentRawValue.timestamp),
-      tradepartnerGST: new FormControl(individualAssessmentRawValue.tradepartnerGST),
-      tradepartnerId: new FormControl(individualAssessmentRawValue.tradepartnerId),
+      tradePartnerGST: new FormControl(individualAssessmentRawValue.tradePartnerGST),
+      tradePartnerId: new FormControl(individualAssessmentRawValue.tradePartnerId),
       invoiceAmount: new FormControl(individualAssessmentRawValue.invoiceAmount),
       invoiceId: new FormControl(individualAssessmentRawValue.invoiceId),
       cbcreprocess: new FormControl(individualAssessmentRawValue.cbcreprocess),

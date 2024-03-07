@@ -18,9 +18,9 @@
         "title": "Placed Offer"
       },
       "id": "ID",
-      "reqOffId": "Req Off Id",
-      "placedOfferId": "Placed Offer Id",
+      "placedOfferUlidId": "Placed Offer Ulid Id",
       "placedOfferRefNo": "Placed Offer Ref No",
+      "reqOffUlidId": "Req Off Ulid Id",
       "requestOfferRefNo": "Request Offer Ref No",
       "value": "Value",
       "reqAmount": "Req Amount",
@@ -31,13 +31,12 @@
       "term": "Term",
       "interestValue": "Interest Value",
       "netAmount": "Net Amount",
+      "status": "Status",
       "offerDate": "Offer Date",
-      "requestId": "Request Id",
       "placedOfferDate": "Placed Offer Date",
       "anchorTrader": "Anchor Trader",
       "tradePartner": "Trade Partner",
       "disbursalAmount": "Disbursal Amount",
-      "status": "Status",
       "financerequest": "Financerequest",
       "financepartner": "Financepartner"
     }

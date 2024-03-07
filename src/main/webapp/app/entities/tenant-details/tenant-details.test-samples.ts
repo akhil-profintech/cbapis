@@ -6,12 +6,12 @@ export const sampleWithRequiredData: ITenantDetails = {
 
 export const sampleWithPartialData: ITenantDetails = {
   id: 15379,
-  tenantId: 'objection',
+  tenantUlidId: 'objection',
 };
 
 export const sampleWithFullData: ITenantDetails = {
   id: 10300,
-  tenantId: 'miserably',
+  tenantUlidId: 'miserably',
   tenantSchema: 'thorough officiate even',
 };
 

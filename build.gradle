@@ -17,8 +17,8 @@ plugins {
     // jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
-group = "in.pft.apis.creditbazaar"
-version = "0.0.1-SNAPSHOT"
+group = "in.pft.apis.creditbazaar.gateway"
+version = "1.1"
 
 description = ""
 
@@ -96,7 +96,7 @@ eclipse {
 defaultTasks "bootRun"
 
 springBoot {
-    mainClass = "in.pft.apis.creditbazaar.CbapisApp"
+    mainClass = "in.pft.apis.creditbazaar.gateway.CbapisApp"
 }
 
 test {
@@ -168,6 +168,14 @@ repositories {
 }
 
 dependencies {
+
+    implementation 'de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    testCompileOnly 'org.projectlombok:lombok:1.18.24'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
+
     // import JHipster dependencies BOM
     if (!project.hasProperty("gae")) {
         implementation platform("tech.jhipster:jhipster-dependencies:${jhipsterDependenciesVersion}")
@@ -220,7 +228,6 @@ dependencies {
         exclude group: "org.slf4j", module: "slf4j-api"
     }
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server"
-    implementation "de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0"
     implementation "org.springframework.cloud:spring-cloud-starter-gateway"
     implementation "org.springframework.cloud:spring-cloud-starter"
     implementation "org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j"

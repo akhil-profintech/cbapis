@@ -42,9 +42,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="requestId">
+            <th scope="col" jhiSortBy="financeRequestId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.financeRequest.requestId">Request Id</span>
+                <span jhiTranslate="cbapisApp.financeRequest.financeRequestId">Finance Request Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financeRequestUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequest.financeRequestUlidId">Finance Request Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -52,6 +59,13 @@
             <th scope="col" jhiSortBy="financeRequestRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.financeRequest.financeRequestRefNo">Finance Request Ref No</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradeChannelId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequest.tradeChannelId">Trade Channel Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -91,6 +105,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="gstConsent">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financeRequest.gstConsent">Gst Consent</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="anchortrader.atId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.financeRequest.anchortrader">Anchortrader</span>
@@ -106,13 +127,16 @@
               <td>
                 <a [routerLink]="['/finance-request', financeRequest.id, 'view']">{{ financeRequest.id }}</a>
               </td>
-              <td>{{ financeRequest.requestId }}</td>
+              <td>{{ financeRequest.financeRequestId }}</td>
+              <td>{{ financeRequest.financeRequestUlidId }}</td>
               <td>{{ financeRequest.financeRequestRefNo }}</td>
+              <td>{{ financeRequest.tradeChannelId }}</td>
               <td>{{ financeRequest.requestAmount }}</td>
               <td>{{ financeRequest.requestDate | formatMediumDate }}</td>
               <td>{{ financeRequest.currency }}</td>
               <td>{{ financeRequest.requestStatus }}</td>
               <td>{{ financeRequest.dueDate | formatMediumDate }}</td>
+              <td>{{ financeRequest.gstConsent }}</td>
               <td>
                 @if (financeRequest.anchortrader) {
                   <div>

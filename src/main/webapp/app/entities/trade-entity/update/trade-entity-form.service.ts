@@ -19,6 +19,7 @@ type TradeEntityFormDefaults = Pick<NewTradeEntity, 'id'>;
 type TradeEntityFormGroupContent = {
   id: FormControl<ITradeEntity['id'] | NewTradeEntity['id']>;
   entityId: FormControl<ITradeEntity['entityId']>;
+  entityUlidId: FormControl<ITradeEntity['entityUlidId']>;
   entityName: FormControl<ITradeEntity['entityName']>;
   entityDesc: FormControl<ITradeEntity['entityDesc']>;
   entityGST: FormControl<ITradeEntity['entityGST']>;
@@ -42,6 +43,7 @@ export class TradeEntityFormService {
         },
       ),
       entityId: new FormControl(tradeEntityRawValue.entityId),
+      entityUlidId: new FormControl(tradeEntityRawValue.entityUlidId),
       entityName: new FormControl(tradeEntityRawValue.entityName),
       entityDesc: new FormControl(tradeEntityRawValue.entityDesc),
       entityGST: new FormControl(tradeEntityRawValue.entityGST),

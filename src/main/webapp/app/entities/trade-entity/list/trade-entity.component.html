@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="entityUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradeEntity.entityUlidId">Entity Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="entityName">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.tradeEntity.entityName">Entity Name</span>
@@ -80,6 +87,7 @@
                 <a [routerLink]="['/trade-entity', tradeEntity.id, 'view']">{{ tradeEntity.id }}</a>
               </td>
               <td>{{ tradeEntity.entityId }}</td>
+              <td>{{ tradeEntity.entityUlidId }}</td>
               <td>{{ tradeEntity.entityName }}</td>
               <td>{{ tradeEntity.entityDesc }}</td>
               <td>{{ tradeEntity.entityGST }}</td>

@@ -1,12 +1,12 @@
 import dayjs from 'dayjs/esm';
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
-import { ITradePartner } from 'app/entities/trade-partner/trade-partner.model';
 import { IAnchorTrader } from 'app/entities/anchor-trader/anchor-trader.model';
+import { ITradePartner } from 'app/entities/trade-partner/trade-partner.model';
 
 export interface ITrade {
   id: number;
-  tradeId?: number | null;
-  tradeRefNumber?: string | null;
+  tradeUlidId?: string | null;
+  tradeRefNo?: string | null;
   sellerGstId?: string | null;
   buyerGstId?: string | null;
   tradeAmount?: string | null;
@@ -25,9 +25,9 @@ export interface ITrade {
   tradePartnerSector?: string | null;
   tradePartnerLocation?: string | null;
   tradePartnerGstComplianceScore?: string | null;
-  financerequest?: Pick<IFinanceRequest, 'id' | 'requestId'> | null;
-  tradepartner?: Pick<ITradePartner, 'id' | 'tpId'> | null;
+  financerequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
   anchortrader?: Pick<IAnchorTrader, 'id' | 'atId'> | null;
+  tradepartner?: Pick<ITradePartner, 'id' | 'tpId'> | null;
 }
 
 export type NewTrade = Omit<ITrade, 'id'> & { id: null };

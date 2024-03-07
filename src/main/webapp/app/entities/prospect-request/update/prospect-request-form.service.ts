@@ -19,11 +19,11 @@ type ProspectRequestFormDefaults = Pick<NewProspectRequest, 'id'>;
 type ProspectRequestFormGroupContent = {
   id: FormControl<IProspectRequest['id'] | NewProspectRequest['id']>;
   prospectRequestId: FormControl<IProspectRequest['prospectRequestId']>;
+  prospectRequestUlidId: FormControl<IProspectRequest['prospectRequestUlidId']>;
   anchorTraderId: FormControl<IProspectRequest['anchorTraderId']>;
   requestAmount: FormControl<IProspectRequest['requestAmount']>;
   prospectRequestDate: FormControl<IProspectRequest['prospectRequestDate']>;
   currency: FormControl<IProspectRequest['currency']>;
-  financerequest: FormControl<IProspectRequest['financerequest']>;
 };
 
 export type ProspectRequestFormGroup = FormGroup<ProspectRequestFormGroupContent>;
@@ -43,9 +43,8 @@ export class ProspectRequestFormService {
           validators: [Validators.required],
         },
       ),
-      prospectRequestId: new FormControl(prospectRequestRawValue.prospectRequestId, {
-        validators: [Validators.required],
-      }),
+      prospectRequestId: new FormControl(prospectRequestRawValue.prospectRequestId),
+      prospectRequestUlidId: new FormControl(prospectRequestRawValue.prospectRequestUlidId),
       anchorTraderId: new FormControl(prospectRequestRawValue.anchorTraderId, {
         validators: [Validators.required],
       }),
@@ -58,7 +57,6 @@ export class ProspectRequestFormService {
       currency: new FormControl(prospectRequestRawValue.currency, {
         validators: [Validators.required],
       }),
-      financerequest: new FormControl(prospectRequestRawValue.financerequest),
     });
   }
 

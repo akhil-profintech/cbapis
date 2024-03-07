@@ -20,52 +20,53 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.trnxDetailsId" for="field_trnxDetailsId"
-            >Trnx Details Id</label
+          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsId" for="field_ftTrnxDetailsId"
+            >Ft Trnx Details Id</label
           >
           <input
             type="number"
             class="form-control"
-            name="trnxDetailsId"
-            id="field_trnxDetailsId"
-            data-cy="trnxDetailsId"
-            formControlName="trnxDetailsId"
+            name="ftTrnxDetailsId"
+            id="field_ftTrnxDetailsId"
+            data-cy="ftTrnxDetailsId"
+            formControlName="ftTrnxDetailsId"
           />
-          @if (editForm.get('trnxDetailsId')!.invalid && (editForm.get('trnxDetailsId')!.dirty || editForm.get('trnxDetailsId')!.touched)) {
-            <div>
-              @if (editForm.get('trnxDetailsId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('trnxDetailsId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.transactionID" for="field_transactionID"
-            >Transaction ID</label
+          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsUlid" for="field_ftTrnxDetailsUlid"
+            >Ft Trnx Details Ulid</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="ftTrnxDetailsUlid"
+            id="field_ftTrnxDetailsUlid"
+            data-cy="ftTrnxDetailsUlid"
+            formControlName="ftTrnxDetailsUlid"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.transactionId" for="field_transactionId"
+            >Transaction Id</label
           >
           <input
             type="number"
             class="form-control"
-            name="transactionID"
-            id="field_transactionID"
-            data-cy="transactionID"
-            formControlName="transactionID"
+            name="transactionId"
+            id="field_transactionId"
+            data-cy="transactionId"
+            formControlName="transactionId"
           />
-          @if (editForm.get('transactionID')!.invalid && (editForm.get('transactionID')!.dirty || editForm.get('transactionID')!.touched)) {
+          @if (editForm.get('transactionId')!.invalid && (editForm.get('transactionId')!.dirty || editForm.get('transactionId')!.touched)) {
             <div>
-              @if (editForm.get('transactionID')?.errors?.required) {
+              @if (editForm.get('transactionId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
               <small
                 class="form-text text-danger"
-                [hidden]="!editForm.get('transactionID')?.errors?.number"
+                [hidden]="!editForm.get('transactionId')?.errors?.number"
                 jhiTranslate="entity.validation.number"
                 >This field should be a number.</small
               >
@@ -416,6 +417,25 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement" for="field_participantsettlement"
+            >Participantsettlement</label
+          >
+          <select
+            class="form-control"
+            id="field_participantsettlement"
+            data-cy="participantsettlement"
+            name="participantsettlement"
+            formControlName="participantsettlement"
+            [compareWith]="compareParticipantSettlement"
+          >
+            <option [ngValue]="null"></option>
+            @for (participantSettlementOption of participantSettlementsSharedCollection; track $index) {
+              <option [ngValue]="participantSettlementOption">{{ participantSettlementOption.participantSettlementId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.disbursement" for="field_disbursement">Disbursement</label>
           <select
             class="form-control"
@@ -427,7 +447,7 @@
           >
             <option [ngValue]="null"></option>
             @for (disbursementOption of disbursementsSharedCollection; track $index) {
-              <option [ngValue]="disbursementOption">{{ disbursementOption.ftTrnxDetailsId }}</option>
+              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtId }}</option>
             }
           </select>
         </div>
@@ -444,26 +464,7 @@
           >
             <option [ngValue]="null"></option>
             @for (repaymentOption of repaymentsSharedCollection; track $index) {
-              <option [ngValue]="repaymentOption">{{ repaymentOption.ftTrnxDetailsId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement" for="field_participantsettlement"
-            >Participantsettlement</label
-          >
-          <select
-            class="form-control"
-            id="field_participantsettlement"
-            data-cy="participantsettlement"
-            name="participantsettlement"
-            formControlName="participantsettlement"
-            [compareWith]="compareParticipantSettlement"
-          >
-            <option [ngValue]="null"></option>
-            @for (participantSettlementOption of participantSettlementsSharedCollection; track $index) {
-              <option [ngValue]="participantSettlementOption">{{ participantSettlementOption.participantSettlementId }}</option>
+              <option [ngValue]="repaymentOption">{{ repaymentOption.repaymentId }}</option>
             }
           </select>
         </div>

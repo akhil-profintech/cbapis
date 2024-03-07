@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="settlementUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.settlement.settlementUlidId">Settlement Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="settlementRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.settlement.settlementRefNo">Settlement Ref No</span>
@@ -56,9 +63,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="offerId">
+            <th scope="col" jhiSortBy="acceptedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.settlement.offerId">Offer Id</span>
+                <span jhiTranslate="cbapisApp.settlement.acceptedOfferUlidId">Accepted Offer Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="placedOfferUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.settlement.placedOfferUlidId">Placed Offer Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.settlement.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -105,7 +126,7 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.settlement.financerequest">Financerequest</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
@@ -121,8 +142,11 @@
                 <a [routerLink]="['/settlement', settlement.id, 'view']">{{ settlement.id }}</a>
               </td>
               <td>{{ settlement.settlementId }}</td>
+              <td>{{ settlement.settlementUlidId }}</td>
               <td>{{ settlement.settlementRefNo }}</td>
-              <td>{{ settlement.offerId }}</td>
+              <td>{{ settlement.acceptedOfferUlidId }}</td>
+              <td>{{ settlement.placedOfferUlidId }}</td>
+              <td>{{ settlement.reqOffUlidId }}</td>
               <td>{{ settlement.dbmtRequestId }}</td>
               <td>{{ settlement.dbmtId }}</td>
               <td>{{ settlement.dbmtDate }}</td>
@@ -133,7 +157,7 @@
                 @if (settlement.financerequest) {
                   <div>
                     <a [routerLink]="['/finance-request', settlement.financerequest.id, 'view']">{{
-                      settlement.financerequest.requestId
+                      settlement.financerequest.financeRequestId
                     }}</a>
                   </div>
                 }

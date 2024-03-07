@@ -21,6 +21,7 @@ describe('FinanceRequestMapping Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             financeRequestId: expect.any(Object),
+            financeRequestMappingUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             financePartnerId: expect.any(Object),
             anchorTraderTenantId: expect.any(Object),
@@ -36,6 +37,7 @@ describe('FinanceRequestMapping Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             financeRequestId: expect.any(Object),
+            financeRequestMappingUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             financePartnerId: expect.any(Object),
             anchorTraderTenantId: expect.any(Object),

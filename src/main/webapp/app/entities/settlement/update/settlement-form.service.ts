@@ -19,8 +19,11 @@ type SettlementFormDefaults = Pick<NewSettlement, 'id'>;
 type SettlementFormGroupContent = {
   id: FormControl<ISettlement['id'] | NewSettlement['id']>;
   settlementId: FormControl<ISettlement['settlementId']>;
+  settlementUlidId: FormControl<ISettlement['settlementUlidId']>;
   settlementRefNo: FormControl<ISettlement['settlementRefNo']>;
-  offerId: FormControl<ISettlement['offerId']>;
+  acceptedOfferUlidId: FormControl<ISettlement['acceptedOfferUlidId']>;
+  placedOfferUlidId: FormControl<ISettlement['placedOfferUlidId']>;
+  reqOffUlidId: FormControl<ISettlement['reqOffUlidId']>;
   dbmtRequestId: FormControl<ISettlement['dbmtRequestId']>;
   dbmtId: FormControl<ISettlement['dbmtId']>;
   dbmtDate: FormControl<ISettlement['dbmtDate']>;
@@ -48,8 +51,13 @@ export class SettlementFormService {
         },
       ),
       settlementId: new FormControl(settlementRawValue.settlementId),
+      settlementUlidId: new FormControl(settlementRawValue.settlementUlidId),
       settlementRefNo: new FormControl(settlementRawValue.settlementRefNo),
-      offerId: new FormControl(settlementRawValue.offerId, {
+      acceptedOfferUlidId: new FormControl(settlementRawValue.acceptedOfferUlidId),
+      placedOfferUlidId: new FormControl(settlementRawValue.placedOfferUlidId, {
+        validators: [Validators.required],
+      }),
+      reqOffUlidId: new FormControl(settlementRawValue.reqOffUlidId, {
         validators: [Validators.required],
       }),
       dbmtRequestId: new FormControl(settlementRawValue.dbmtRequestId, {

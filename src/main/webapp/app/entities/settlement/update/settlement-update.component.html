@@ -18,12 +18,26 @@
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.settlement.settlementId" for="field_settlementId">Settlement Id</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             name="settlementId"
             id="field_settlementId"
             data-cy="settlementId"
             formControlName="settlementId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.settlementUlidId" for="field_settlementUlidId"
+            >Settlement Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="settlementUlidId"
+            id="field_settlementUlidId"
+            data-cy="settlementUlidId"
+            formControlName="settlementUlidId"
           />
         </div>
 
@@ -42,19 +56,58 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.settlement.offerId" for="field_offerId">Offer Id</label>
-          <input type="number" class="form-control" name="offerId" id="field_offerId" data-cy="offerId" formControlName="offerId" />
-          @if (editForm.get('offerId')!.invalid && (editForm.get('offerId')!.dirty || editForm.get('offerId')!.touched)) {
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.acceptedOfferUlidId" for="field_acceptedOfferUlidId"
+            >Accepted Offer Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acceptedOfferUlidId"
+            id="field_acceptedOfferUlidId"
+            data-cy="acceptedOfferUlidId"
+            formControlName="acceptedOfferUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.placedOfferUlidId" for="field_placedOfferUlidId"
+            >Placed Offer Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="placedOfferUlidId"
+            id="field_placedOfferUlidId"
+            data-cy="placedOfferUlidId"
+            formControlName="placedOfferUlidId"
+          />
+          @if (
+            editForm.get('placedOfferUlidId')!.invalid &&
+            (editForm.get('placedOfferUlidId')!.dirty || editForm.get('placedOfferUlidId')!.touched)
+          ) {
             <div>
-              @if (editForm.get('offerId')?.errors?.required) {
+              @if (editForm.get('placedOfferUlidId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('offerId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.settlement.reqOffUlidId" for="field_reqOffUlidId">Req Off Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reqOffUlidId"
+            id="field_reqOffUlidId"
+            data-cy="reqOffUlidId"
+            formControlName="reqOffUlidId"
+          />
+          @if (editForm.get('reqOffUlidId')!.invalid && (editForm.get('reqOffUlidId')!.dirty || editForm.get('reqOffUlidId')!.touched)) {
+            <div>
+              @if (editForm.get('reqOffUlidId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
             </div>
           }
         </div>
@@ -182,7 +235,7 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>

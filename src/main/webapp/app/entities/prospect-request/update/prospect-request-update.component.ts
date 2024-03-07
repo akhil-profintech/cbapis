@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { finalize, map } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators';
 
 import SharedModule from 'app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
-import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
 import { IProspectRequest } from '../prospect-request.model';
 import { ProspectRequestService } from '../service/prospect-request.service';
 import { ProspectRequestFormService, ProspectRequestFormGroup } from './prospect-request-form.service';
@@ -23,19 +21,13 @@ export class ProspectRequestUpdateComponent implements OnInit {
   isSaving = false;
   prospectRequest: IProspectRequest | null = null;
 
-  financeRequestsSharedCollection: IFinanceRequest[] = [];
-
   editForm: ProspectRequestFormGroup = this.prospectRequestFormService.createProspectRequestFormGroup();
 
   constructor(
     protected prospectRequestService: ProspectRequestService,
     protected prospectRequestFormService: ProspectRequestFormService,
-    protected financeRequestService: FinanceRequestService,
     protected activatedRoute: ActivatedRoute,
   ) {}
-
-  compareFinanceRequest = (o1: IFinanceRequest | null, o2: IFinanceRequest | null): boolean =>
-    this.financeRequestService.compareFinanceRequest(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ prospectRequest }) => {
@@ -43,8 +35,6 @@ export class ProspectRequestUpdateComponent implements OnInit {
       if (prospectRequest) {
         this.updateForm(prospectRequest);
       }
-
-      this.loadRelationshipsOptions();
     });
   }
 
@@ -84,25 +74,5 @@ export class ProspectRequestUpdateComponent implements OnInit {
   protected updateForm(prospectRequest: IProspectRequest): void {
     this.prospectRequest = prospectRequest;
     this.prospectRequestFormService.resetForm(this.editForm, prospectRequest);
-
-    this.financeRequestsSharedCollection = this.financeRequestService.addFinanceRequestToCollectionIfMissing<IFinanceRequest>(
-      this.financeRequestsSharedCollection,
-      prospectRequest.financerequest,
-    );
-  }
-
-  protected loadRelationshipsOptions(): void {
-    this.financeRequestService
-      .query()
-      .pipe(map((res: HttpResponse<IFinanceRequest[]>) => res.body ?? []))
-      .pipe(
-        map((financeRequests: IFinanceRequest[]) =>
-          this.financeRequestService.addFinanceRequestToCollectionIfMissing<IFinanceRequest>(
-            financeRequests,
-            this.prospectRequest?.financerequest,
-          ),
-        ),
-      )
-      .subscribe((financeRequests: IFinanceRequest[]) => (this.financeRequestsSharedCollection = financeRequests));
   }
 }

@@ -18,8 +18,8 @@
         "title": "Credit Bazaar Integrator"
       },
       "id": "ID",
+      "integratorUlidId": "Integrator Ulid Id",
       "tenantId": "Tenant Id",
-      "integratorId": "Integrator Id",
       "orgId": "Org Id",
       "customerName": "Customer Name",
       "orgName": "Org Name",

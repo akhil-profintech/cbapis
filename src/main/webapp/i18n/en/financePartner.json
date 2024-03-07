@@ -18,16 +18,19 @@
         "title": "Finance Partner"
       },
       "id": "ID",
-      "tenantId": "Tenant Id",
       "fpId": "Fp Id",
+      "fpUlidId": "Fp Ulid Id",
+      "tenantId": "Tenant Id",
       "orgId": "Org Id",
       "customerName": "Customer Name",
       "orgName": "Org Name",
       "gstId": "Gst Id",
       "phoneNumber": "Phone Number",
-      "disbursement": "Disbursement",
+      "tosDocument": "Tos Document",
+      "requestOffer": "Request Offer",
       "placedOffer": "Placed Offer",
-      "acceptedOffer": "Accepted Offer"
+      "acceptedOffer": "Accepted Offer",
+      "disbursement": "Disbursement"
     }
   }
 }

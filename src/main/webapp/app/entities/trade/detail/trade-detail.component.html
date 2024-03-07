@@ -15,13 +15,13 @@
           <dd>
             <span>{{ trade.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.trade.tradeId">Trade Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeUlidId">Trade Ulid Id</span></dt>
           <dd>
-            <span>{{ trade.tradeId }}</span>
+            <span>{{ trade.tradeUlidId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.trade.tradeRefNumber">Trade Ref Number</span></dt>
+          <dt><span jhiTranslate="cbapisApp.trade.tradeRefNo">Trade Ref No</span></dt>
           <dd>
-            <span>{{ trade.tradeRefNumber }}</span>
+            <span>{{ trade.tradeRefNo }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.trade.sellerGstId">Seller Gst Id</span></dt>
           <dd>
@@ -99,15 +99,7 @@
           <dd>
             @if (trade.financerequest) {
               <div>
-                <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.requestId }}</a>
-              </div>
-            }
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span></dt>
-          <dd>
-            @if (trade.tradepartner) {
-              <div>
-                <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
+                <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.financeRequestId }}</a>
               </div>
             }
           </dd>
@@ -116,6 +108,14 @@
             @if (trade.anchortrader) {
               <div>
                 <a [routerLink]="['/anchor-trader', trade.anchortrader.id, 'view']">{{ trade.anchortrader.atId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span></dt>
+          <dd>
+            @if (trade.tradepartner) {
+              <div>
+                <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
               </div>
             }
           </dd>

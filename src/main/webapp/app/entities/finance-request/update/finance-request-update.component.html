@@ -20,8 +20,31 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.requestId" for="field_requestId">Request Id</label>
-          <input type="text" class="form-control" name="requestId" id="field_requestId" data-cy="requestId" formControlName="requestId" />
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.financeRequestId" for="field_financeRequestId"
+            >Finance Request Id</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="financeRequestId"
+            id="field_financeRequestId"
+            data-cy="financeRequestId"
+            formControlName="financeRequestId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.financeRequestUlidId" for="field_financeRequestUlidId"
+            >Finance Request Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="financeRequestUlidId"
+            id="field_financeRequestUlidId"
+            data-cy="financeRequestUlidId"
+            formControlName="financeRequestUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -35,6 +58,20 @@
             id="field_financeRequestRefNo"
             data-cy="financeRequestRefNo"
             formControlName="financeRequestRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.tradeChannelId" for="field_tradeChannelId"
+            >Trade Channel Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tradeChannelId"
+            id="field_tradeChannelId"
+            data-cy="tradeChannelId"
+            formControlName="tradeChannelId"
           />
         </div>
 
@@ -136,6 +173,18 @@
               }
             </div>
           }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.financeRequest.gstConsent" for="field_gstConsent">Gst Consent</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="gstConsent"
+            id="field_gstConsent"
+            data-cy="gstConsent"
+            formControlName="gstConsent"
+          />
         </div>
 
         <div class="mb-3">

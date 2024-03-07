@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="creObservationsUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.creObservationsUlidId">Cre Observations Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="creRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.cREObservations.creRequestId">Cre Request Id</span>
@@ -60,12 +67,6 @@
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.cREObservations.observations">Observations</span>
 
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.cREObservations.cbcreprocess">Cbcreprocess</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -85,17 +86,9 @@
                 <a [routerLink]="['/cre-observations', cREObservations.id, 'view']">{{ cREObservations.id }}</a>
               </td>
               <td>{{ cREObservations.creObservationsId }}</td>
+              <td>{{ cREObservations.creObservationsUlidId }}</td>
               <td>{{ cREObservations.creRequestId }}</td>
               <td>{{ cREObservations.observations }}</td>
-              <td>
-                @if (cREObservations.cbcreprocess) {
-                  <div>
-                    <a [routerLink]="['/cbcre-process', cREObservations.cbcreprocess.id, 'view']">{{
-                      cREObservations.cbcreprocess.cbProcessId
-                    }}</a>
-                  </div>
-                }
-              </td>
               <td>
                 @if (cREObservations.individualassessment) {
                   <div>

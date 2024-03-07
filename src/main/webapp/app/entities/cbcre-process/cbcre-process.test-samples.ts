@@ -1,36 +1,39 @@
 import { ICBCREProcess, NewCBCREProcess } from './cbcre-process.model';
 
 export const sampleWithRequiredData: ICBCREProcess = {
-  id: 13419,
+  id: 83,
 };
 
 export const sampleWithPartialData: ICBCREProcess = {
-  id: 9493,
-  financeRequestId: 'however often fortunately',
-  anchortTraderGst: 'immediately noxious',
+  id: 29297,
+  cbProcessId: 9493,
+  cbProcessUlidId: 'however often fortunately',
+  anchorTraderId: 'immediately noxious',
   financeAmount: 'vice yowza',
-  creProcessStatus: 'under',
+  processDateTime: 'under',
   responseDateTime: 'muse into',
   creRequestId: 'indeed competent',
-  timestamp: 'unfolded',
-  totalAmountRequested: 18300,
+  cumilativeTradeScore: 10222.85,
+  totalAmountRequested: 24529,
+  totalInvoiceAmount: 12141,
 };
 
 export const sampleWithFullData: ICBCREProcess = {
-  id: 16896,
-  cbProcessId: 'battleship till',
-  financeRequestId: 'lamb how while',
-  anchorTraderId: 'sausage',
-  anchortTraderGst: 'why overcome aside',
-  financeAmount: 'however digress cursor',
-  processDateTime: 'pfft',
-  creProcessStatus: 'unfolded so',
-  responseDateTime: 'giving chassis gadzooks',
-  creRequestId: 'dehumanize',
-  cumilativetradescore: 24208.46,
-  timestamp: 'on cruelly',
-  totalAmountRequested: 15630,
-  totalInvoiceAmount: 14809,
+  id: 25544,
+  cbProcessId: 25211,
+  cbProcessUlidId: 'untrue aside',
+  cbProcessRefNo: 'builder amongst',
+  anchorTraderId: 'criminal',
+  anchorTraderGst: 'greatly upside-down incomparable',
+  financeAmount: 'owlishly uh-huh',
+  processDateTime: 'during blissfully the',
+  creProcessStatus: 'eek excellent',
+  responseDateTime: 'quickly spleen hmph',
+  creRequestId: 'above than',
+  cumilativeTradeScore: 17485.23,
+  timestamp: 'micturate inhere',
+  totalAmountRequested: 12937,
+  totalInvoiceAmount: 13248,
 };
 
 export const sampleWithNewData: NewCBCREProcess = {

@@ -18,18 +18,20 @@
         "title": "Trade Partner"
       },
       "id": "ID",
-      "tenantId": "Tenant Id",
       "tpId": "Tp Id",
+      "tpUlidId": "Tp Ulid Id",
       "orgId": "Org Id",
+      "tenantId": "Tenant Id",
       "customerName": "Customer Name",
       "orgName": "Org Name",
       "gstId": "Gst Id",
       "phoneNumber": "Phone Number",
       "tradePartnerName": "Trade Partner Name",
       "location": "Location",
-      "tradepartnerGST": "Tradepartner GST",
+      "tradePartnerGST": "Trade Partner GST",
       "tradePartnerSector": "Trade Partner Sector",
       "acceptanceFromTradePartner": "Acceptance From Trade Partner",
+      "tosDocument": "Tos Document",
       "trade": "Trade"
     }
   }

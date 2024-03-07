@@ -18,8 +18,8 @@ type CreditBazaarIntegratorFormDefaults = Pick<NewCreditBazaarIntegrator, 'id'>;
 
 type CreditBazaarIntegratorFormGroupContent = {
   id: FormControl<ICreditBazaarIntegrator['id'] | NewCreditBazaarIntegrator['id']>;
+  integratorUlidId: FormControl<ICreditBazaarIntegrator['integratorUlidId']>;
   tenantId: FormControl<ICreditBazaarIntegrator['tenantId']>;
-  integratorId: FormControl<ICreditBazaarIntegrator['integratorId']>;
   orgId: FormControl<ICreditBazaarIntegrator['orgId']>;
   customerName: FormControl<ICreditBazaarIntegrator['customerName']>;
   orgName: FormControl<ICreditBazaarIntegrator['orgName']>;
@@ -46,10 +46,8 @@ export class CreditBazaarIntegratorFormService {
           validators: [Validators.required],
         },
       ),
+      integratorUlidId: new FormControl(creditBazaarIntegratorRawValue.integratorUlidId),
       tenantId: new FormControl(creditBazaarIntegratorRawValue.tenantId, {
-        validators: [Validators.required],
-      }),
-      integratorId: new FormControl(creditBazaarIntegratorRawValue.integratorId, {
         validators: [Validators.required],
       }),
       orgId: new FormControl(creditBazaarIntegratorRawValue.orgId, {

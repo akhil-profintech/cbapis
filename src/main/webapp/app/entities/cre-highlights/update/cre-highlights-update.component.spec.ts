@@ -6,12 +6,10 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, Subject, from } from 'rxjs';
 
-import { ICBCREProcess } from 'app/entities/cbcre-process/cbcre-process.model';
-import { CBCREProcessService } from 'app/entities/cbcre-process/service/cbcre-process.service';
 import { IIndividualAssessment } from 'app/entities/individual-assessment/individual-assessment.model';
 import { IndividualAssessmentService } from 'app/entities/individual-assessment/service/individual-assessment.service';
-import { ICREHighlights } from '../cre-highlights.model';
 import { CREHighlightsService } from '../service/cre-highlights.service';
+import { ICREHighlights } from '../cre-highlights.model';
 import { CREHighlightsFormService } from './cre-highlights-form.service';
 
 import { CREHighlightsUpdateComponent } from './cre-highlights-update.component';
@@ -22,7 +20,6 @@ describe('CREHighlights Management Update Component', () => {
   let activatedRoute: ActivatedRoute;
   let cREHighlightsFormService: CREHighlightsFormService;
   let cREHighlightsService: CREHighlightsService;
-  let cBCREProcessService: CBCREProcessService;
   let individualAssessmentService: IndividualAssessmentService;
 
   beforeEach(() => {
@@ -45,41 +42,18 @@ describe('CREHighlights Management Update Component', () => {
     activatedRoute = TestBed.inject(ActivatedRoute);
     cREHighlightsFormService = TestBed.inject(CREHighlightsFormService);
     cREHighlightsService = TestBed.inject(CREHighlightsService);
-    cBCREProcessService = TestBed.inject(CBCREProcessService);
     individualAssessmentService = TestBed.inject(IndividualAssessmentService);
 
     comp = fixture.componentInstance;
   });
 
   describe('ngOnInit', () => {
-    it('Should call CBCREProcess query and add missing value', () => {
-      const cREHighlights: ICREHighlights = { id: 456 };
-      const cbcreprocess: ICBCREProcess = { id: 12306 };
-      cREHighlights.cbcreprocess = cbcreprocess;
-
-      const cBCREProcessCollection: ICBCREProcess[] = [{ id: 3933 }];
-      jest.spyOn(cBCREProcessService, 'query').mockReturnValue(of(new HttpResponse({ body: cBCREProcessCollection })));
-      const additionalCBCREProcesses = [cbcreprocess];
-      const expectedCollection: ICBCREProcess[] = [...additionalCBCREProcesses, ...cBCREProcessCollection];
-      jest.spyOn(cBCREProcessService, 'addCBCREProcessToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ cREHighlights });
-      comp.ngOnInit();
-
-      expect(cBCREProcessService.query).toHaveBeenCalled();
-      expect(cBCREProcessService.addCBCREProcessToCollectionIfMissing).toHaveBeenCalledWith(
-        cBCREProcessCollection,
-        ...additionalCBCREProcesses.map(expect.objectContaining),
-      );
-      expect(comp.cBCREProcessesSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should call IndividualAssessment query and add missing value', () => {
       const cREHighlights: ICREHighlights = { id: 456 };
-      const individualassessment: IIndividualAssessment = { id: 19398 };
+      const individualassessment: IIndividualAssessment = { id: 7414 };
       cREHighlights.individualassessment = individualassessment;
 
-      const individualAssessmentCollection: IIndividualAssessment[] = [{ id: 11142 }];
+      const individualAssessmentCollection: IIndividualAssessment[] = [{ id: 22772 }];
       jest.spyOn(individualAssessmentService, 'query').mockReturnValue(of(new HttpResponse({ body: individualAssessmentCollection })));
       const additionalIndividualAssessments = [individualassessment];
       const expectedCollection: IIndividualAssessment[] = [...additionalIndividualAssessments, ...individualAssessmentCollection];
@@ -98,15 +72,12 @@ describe('CREHighlights Management Update Component', () => {
 
     it('Should update editForm', () => {
       const cREHighlights: ICREHighlights = { id: 456 };
-      const cbcreprocess: ICBCREProcess = { id: 7183 };
-      cREHighlights.cbcreprocess = cbcreprocess;
-      const individualassessment: IIndividualAssessment = { id: 30245 };
+      const individualassessment: IIndividualAssessment = { id: 2687 };
       cREHighlights.individualassessment = individualassessment;
 
       activatedRoute.data = of({ cREHighlights });
       comp.ngOnInit();
 
-      expect(comp.cBCREProcessesSharedCollection).toContain(cbcreprocess);
       expect(comp.individualAssessmentsSharedCollection).toContain(individualassessment);
       expect(comp.cREHighlights).toEqual(cREHighlights);
     });
@@ -181,16 +152,6 @@ describe('CREHighlights Management Update Component', () => {
   });
 
   describe('Compare relationships', () => {
-    describe('compareCBCREProcess', () => {
-      it('Should forward to cBCREProcessService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(cBCREProcessService, 'compareCBCREProcess');
-        comp.compareCBCREProcess(entity, entity2);
-        expect(cBCREProcessService.compareCBCREProcess).toHaveBeenCalledWith(entity, entity2);
-      });
-    });
-
     describe('compareIndividualAssessment', () => {
       it('Should forward to individualAssessmentService', () => {
         const entity = { id: 123 };

@@ -20,13 +20,16 @@ describe('FinanceRequest Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            requestId: expect.any(Object),
+            financeRequestId: expect.any(Object),
+            financeRequestUlidId: expect.any(Object),
             financeRequestRefNo: expect.any(Object),
+            tradeChannelId: expect.any(Object),
             requestAmount: expect.any(Object),
             requestDate: expect.any(Object),
             currency: expect.any(Object),
             requestStatus: expect.any(Object),
             dueDate: expect.any(Object),
+            gstConsent: expect.any(Object),
             anchortrader: expect.any(Object),
           }),
         );
@@ -38,13 +41,16 @@ describe('FinanceRequest Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            requestId: expect.any(Object),
+            financeRequestId: expect.any(Object),
+            financeRequestUlidId: expect.any(Object),
             financeRequestRefNo: expect.any(Object),
+            tradeChannelId: expect.any(Object),
             requestAmount: expect.any(Object),
             requestDate: expect.any(Object),
             currency: expect.any(Object),
             requestStatus: expect.any(Object),
             dueDate: expect.any(Object),
+            gstConsent: expect.any(Object),
             anchortrader: expect.any(Object),
           }),
         );

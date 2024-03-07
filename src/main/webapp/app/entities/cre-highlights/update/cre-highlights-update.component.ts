@@ -7,12 +7,10 @@ import { finalize, map } from 'rxjs/operators';
 import SharedModule from 'app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ICBCREProcess } from 'app/entities/cbcre-process/cbcre-process.model';
-import { CBCREProcessService } from 'app/entities/cbcre-process/service/cbcre-process.service';
 import { IIndividualAssessment } from 'app/entities/individual-assessment/individual-assessment.model';
 import { IndividualAssessmentService } from 'app/entities/individual-assessment/service/individual-assessment.service';
-import { CREHighlightsService } from '../service/cre-highlights.service';
 import { ICREHighlights } from '../cre-highlights.model';
+import { CREHighlightsService } from '../service/cre-highlights.service';
 import { CREHighlightsFormService, CREHighlightsFormGroup } from './cre-highlights-form.service';
 
 @Component({
@@ -25,7 +23,6 @@ export class CREHighlightsUpdateComponent implements OnInit {
   isSaving = false;
   cREHighlights: ICREHighlights | null = null;
 
-  cBCREProcessesSharedCollection: ICBCREProcess[] = [];
   individualAssessmentsSharedCollection: IIndividualAssessment[] = [];
 
   editForm: CREHighlightsFormGroup = this.cREHighlightsFormService.createCREHighlightsFormGroup();
@@ -33,13 +30,9 @@ export class CREHighlightsUpdateComponent implements OnInit {
   constructor(
     protected cREHighlightsService: CREHighlightsService,
     protected cREHighlightsFormService: CREHighlightsFormService,
-    protected cBCREProcessService: CBCREProcessService,
     protected individualAssessmentService: IndividualAssessmentService,
     protected activatedRoute: ActivatedRoute,
   ) {}
-
-  compareCBCREProcess = (o1: ICBCREProcess | null, o2: ICBCREProcess | null): boolean =>
-    this.cBCREProcessService.compareCBCREProcess(o1, o2);
 
   compareIndividualAssessment = (o1: IIndividualAssessment | null, o2: IIndividualAssessment | null): boolean =>
     this.individualAssessmentService.compareIndividualAssessment(o1, o2);
@@ -92,10 +85,6 @@ export class CREHighlightsUpdateComponent implements OnInit {
     this.cREHighlights = cREHighlights;
     this.cREHighlightsFormService.resetForm(this.editForm, cREHighlights);
 
-    this.cBCREProcessesSharedCollection = this.cBCREProcessService.addCBCREProcessToCollectionIfMissing<ICBCREProcess>(
-      this.cBCREProcessesSharedCollection,
-      cREHighlights.cbcreprocess,
-    );
     this.individualAssessmentsSharedCollection =
       this.individualAssessmentService.addIndividualAssessmentToCollectionIfMissing<IIndividualAssessment>(
         this.individualAssessmentsSharedCollection,
@@ -104,16 +93,6 @@ export class CREHighlightsUpdateComponent implements OnInit {
   }
 
   protected loadRelationshipsOptions(): void {
-    this.cBCREProcessService
-      .query()
-      .pipe(map((res: HttpResponse<ICBCREProcess[]>) => res.body ?? []))
-      .pipe(
-        map((cBCREProcesses: ICBCREProcess[]) =>
-          this.cBCREProcessService.addCBCREProcessToCollectionIfMissing<ICBCREProcess>(cBCREProcesses, this.cREHighlights?.cbcreprocess),
-        ),
-      )
-      .subscribe((cBCREProcesses: ICBCREProcess[]) => (this.cBCREProcessesSharedCollection = cBCREProcesses));
-
     this.individualAssessmentService
       .query()
       .pipe(map((res: HttpResponse<IIndividualAssessment[]>) => res.body ?? []))

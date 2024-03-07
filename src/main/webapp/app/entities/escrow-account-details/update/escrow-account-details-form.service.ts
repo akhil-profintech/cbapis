@@ -19,14 +19,13 @@ type EscrowAccountDetailsFormDefaults = Pick<NewEscrowAccountDetails, 'id'>;
 type EscrowAccountDetailsFormGroupContent = {
   id: FormControl<IEscrowAccountDetails['id'] | NewEscrowAccountDetails['id']>;
   escrowDetailsId: FormControl<IEscrowAccountDetails['escrowDetailsId']>;
+  escrowDetailsUlidId: FormControl<IEscrowAccountDetails['escrowDetailsUlidId']>;
   tenantId: FormControl<IEscrowAccountDetails['tenantId']>;
   customerId: FormControl<IEscrowAccountDetails['customerId']>;
   accName: FormControl<IEscrowAccountDetails['accName']>;
   ifscCode: FormControl<IEscrowAccountDetails['ifscCode']>;
   virtualAccNumber: FormControl<IEscrowAccountDetails['virtualAccNumber']>;
   poolingAccNumber: FormControl<IEscrowAccountDetails['poolingAccNumber']>;
-  disbursement: FormControl<IEscrowAccountDetails['disbursement']>;
-  repayment: FormControl<IEscrowAccountDetails['repayment']>;
 };
 
 export type EscrowAccountDetailsFormGroup = FormGroup<EscrowAccountDetailsFormGroupContent>;
@@ -48,9 +47,8 @@ export class EscrowAccountDetailsFormService {
           validators: [Validators.required],
         },
       ),
-      escrowDetailsId: new FormControl(escrowAccountDetailsRawValue.escrowDetailsId, {
-        validators: [Validators.required],
-      }),
+      escrowDetailsId: new FormControl(escrowAccountDetailsRawValue.escrowDetailsId),
+      escrowDetailsUlidId: new FormControl(escrowAccountDetailsRawValue.escrowDetailsUlidId),
       tenantId: new FormControl(escrowAccountDetailsRawValue.tenantId, {
         validators: [Validators.required],
       }),
@@ -69,8 +67,6 @@ export class EscrowAccountDetailsFormService {
       poolingAccNumber: new FormControl(escrowAccountDetailsRawValue.poolingAccNumber, {
         validators: [Validators.required],
       }),
-      disbursement: new FormControl(escrowAccountDetailsRawValue.disbursement),
-      repayment: new FormControl(escrowAccountDetailsRawValue.repayment),
     });
   }
 

@@ -19,14 +19,13 @@ type DocDetailsFormDefaults = Pick<NewDocDetails, 'id'>;
 type DocDetailsFormGroupContent = {
   id: FormControl<IDocDetails['id'] | NewDocDetails['id']>;
   docDetailsId: FormControl<IDocDetails['docDetailsId']>;
+  docDetailsUlidId: FormControl<IDocDetails['docDetailsUlidId']>;
   docRecordId: FormControl<IDocDetails['docRecordId']>;
   link: FormControl<IDocDetails['link']>;
   description: FormControl<IDocDetails['description']>;
   docType: FormControl<IDocDetails['docType']>;
   status: FormControl<IDocDetails['status']>;
-  disbursement: FormControl<IDocDetails['disbursement']>;
-  repayment: FormControl<IDocDetails['repayment']>;
-  participantsettlement: FormControl<IDocDetails['participantsettlement']>;
+  financeRequest: FormControl<IDocDetails['financeRequest']>;
 };
 
 export type DocDetailsFormGroup = FormGroup<DocDetailsFormGroupContent>;
@@ -46,9 +45,8 @@ export class DocDetailsFormService {
           validators: [Validators.required],
         },
       ),
-      docDetailsId: new FormControl(docDetailsRawValue.docDetailsId, {
-        validators: [Validators.required],
-      }),
+      docDetailsId: new FormControl(docDetailsRawValue.docDetailsId),
+      docDetailsUlidId: new FormControl(docDetailsRawValue.docDetailsUlidId),
       docRecordId: new FormControl(docDetailsRawValue.docRecordId, {
         validators: [Validators.required],
       }),
@@ -64,9 +62,7 @@ export class DocDetailsFormService {
       status: new FormControl(docDetailsRawValue.status, {
         validators: [Validators.required],
       }),
-      disbursement: new FormControl(docDetailsRawValue.disbursement),
-      repayment: new FormControl(docDetailsRawValue.repayment),
-      participantsettlement: new FormControl(docDetailsRawValue.participantsettlement),
+      financeRequest: new FormControl(docDetailsRawValue.financeRequest),
     });
   }
 

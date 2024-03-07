@@ -22,7 +22,7 @@
         <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.cbProcessId" for="field_cbProcessId">Cb Process Id</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             name="cbProcessId"
             id="field_cbProcessId"
@@ -32,16 +32,30 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.financeRequestId" for="field_financeRequestId"
-            >Finance Request Id</label
+          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.cbProcessUlidId" for="field_cbProcessUlidId"
+            >Cb Process Ulid Id</label
           >
           <input
             type="text"
             class="form-control"
-            name="financeRequestId"
-            id="field_financeRequestId"
-            data-cy="financeRequestId"
-            formControlName="financeRequestId"
+            name="cbProcessUlidId"
+            id="field_cbProcessUlidId"
+            data-cy="cbProcessUlidId"
+            formControlName="cbProcessUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.cbProcessRefNo" for="field_cbProcessRefNo"
+            >Cb Process Ref No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cbProcessRefNo"
+            id="field_cbProcessRefNo"
+            data-cy="cbProcessRefNo"
+            formControlName="cbProcessRefNo"
           />
         </div>
 
@@ -58,16 +72,16 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.anchortTraderGst" for="field_anchortTraderGst"
-            >Anchort Trader Gst</label
+          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.anchorTraderGst" for="field_anchorTraderGst"
+            >Anchor Trader Gst</label
           >
           <input
             type="text"
             class="form-control"
-            name="anchortTraderGst"
-            id="field_anchortTraderGst"
-            data-cy="anchortTraderGst"
-            formControlName="anchortTraderGst"
+            name="anchorTraderGst"
+            id="field_anchorTraderGst"
+            data-cy="anchorTraderGst"
+            formControlName="anchorTraderGst"
           />
         </div>
 
@@ -138,16 +152,16 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.cumilativetradescore" for="field_cumilativetradescore"
-            >Cumilativetradescore</label
+          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.cumilativeTradeScore" for="field_cumilativeTradeScore"
+            >Cumilative Trade Score</label
           >
           <input
             type="number"
             class="form-control"
-            name="cumilativetradescore"
-            id="field_cumilativetradescore"
-            data-cy="cumilativetradescore"
-            formControlName="cumilativetradescore"
+            name="cumilativeTradeScore"
+            id="field_cumilativeTradeScore"
+            data-cy="cumilativeTradeScore"
+            formControlName="cumilativeTradeScore"
           />
         </div>
 
@@ -182,6 +196,23 @@
             data-cy="totalInvoiceAmount"
             formControlName="totalInvoiceAmount"
           />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cBCREProcess.financeRequest" for="field_financeRequest">Finance Request</label>
+          <select
+            class="form-control"
+            id="field_financeRequest"
+            data-cy="financeRequest"
+            name="financeRequest"
+            formControlName="financeRequest"
+            [compareWith]="compareFinanceRequest"
+          >
+            <option [ngValue]="null"></option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
+            }
+          </select>
         </div>
       </div>
 

@@ -1,0 +1,146 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-anchor-trader-partner-heading"
+        data-cy="AnchorTraderPartnerCreateUpdateHeading"
+        jhiTranslate="cbapisApp.anchorTraderPartner.home.createOrEditLabel"
+      >
+        Create or edit a Anchor Trader Partner
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.atpartnerId" for="field_atpartnerId">Atpartner Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="atpartnerId"
+            id="field_atpartnerId"
+            data-cy="atpartnerId"
+            formControlName="atpartnerId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.atpartnerUlidId" for="field_atpartnerUlidId"
+            >Atpartner Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="atpartnerUlidId"
+            id="field_atpartnerUlidId"
+            data-cy="atpartnerUlidId"
+            formControlName="atpartnerUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.pan" for="field_pan">Pan</label>
+          <input type="text" class="form-control" name="pan" id="field_pan" data-cy="pan" formControlName="pan" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.panStatus" for="field_panStatus">Pan Status</label>
+          <input type="text" class="form-control" name="panStatus" id="field_panStatus" data-cy="panStatus" formControlName="panStatus" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.aadhar" for="field_aadhar">Aadhar</label>
+          <input type="text" class="form-control" name="aadhar" id="field_aadhar" data-cy="aadhar" formControlName="aadhar" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.aadharOtp" for="field_aadharOtp">Aadhar Otp</label>
+          <input type="text" class="form-control" name="aadharOtp" id="field_aadharOtp" data-cy="aadharOtp" formControlName="aadharOtp" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.aadharStatus" for="field_aadharStatus">Aadhar Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="aadharStatus"
+            id="field_aadharStatus"
+            data-cy="aadharStatus"
+            formControlName="aadharStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.aadharName" for="field_aadharName">Aadhar Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="aadharName"
+            id="field_aadharName"
+            data-cy="aadharName"
+            formControlName="aadharName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.aadharAddress" for="field_aadharAddress"
+            >Aadhar Address</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="aadharAddress"
+            id="field_aadharAddress"
+            data-cy="aadharAddress"
+            formControlName="aadharAddress"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTraderPartner.anchortrader" for="field_anchortrader">Anchortrader</label>
+          <select
+            class="form-control"
+            id="field_anchortrader"
+            data-cy="anchortrader"
+            name="anchortrader"
+            formControlName="anchortrader"
+            [compareWith]="compareAnchorTrader"
+          >
+            <option [ngValue]="null"></option>
+            @for (anchorTraderOption of anchorTradersSharedCollection; track $index) {
+              <option [ngValue]="anchorTraderOption">{{ anchorTraderOption.atId }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

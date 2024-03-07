@@ -49,9 +49,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financeRequestId">
+            <th scope="col" jhiSortBy="cbProcessUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.cBCREProcess.financeRequestId">Finance Request Id</span>
+                <span jhiTranslate="cbapisApp.cBCREProcess.cbProcessUlidId">Cb Process Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbProcessRefNo">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.cbProcessRefNo">Cb Process Ref No</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -63,9 +70,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="anchortTraderGst">
+            <th scope="col" jhiSortBy="anchorTraderGst">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.cBCREProcess.anchortTraderGst">Anchort Trader Gst</span>
+                <span jhiTranslate="cbapisApp.cBCREProcess.anchorTraderGst">Anchor Trader Gst</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -105,9 +112,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="cumilativetradescore">
+            <th scope="col" jhiSortBy="cumilativeTradeScore">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.cBCREProcess.cumilativetradescore">Cumilativetradescore</span>
+                <span jhiTranslate="cbapisApp.cBCREProcess.cumilativeTradeScore">Cumilative Trade Score</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -133,6 +140,12 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="financeRequest.financeRequestId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cBCREProcess.financeRequest">Finance Request</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -143,18 +156,28 @@
                 <a [routerLink]="['/cbcre-process', cBCREProcess.id, 'view']">{{ cBCREProcess.id }}</a>
               </td>
               <td>{{ cBCREProcess.cbProcessId }}</td>
-              <td>{{ cBCREProcess.financeRequestId }}</td>
+              <td>{{ cBCREProcess.cbProcessUlidId }}</td>
+              <td>{{ cBCREProcess.cbProcessRefNo }}</td>
               <td>{{ cBCREProcess.anchorTraderId }}</td>
-              <td>{{ cBCREProcess.anchortTraderGst }}</td>
+              <td>{{ cBCREProcess.anchorTraderGst }}</td>
               <td>{{ cBCREProcess.financeAmount }}</td>
               <td>{{ cBCREProcess.processDateTime }}</td>
               <td>{{ cBCREProcess.creProcessStatus }}</td>
               <td>{{ cBCREProcess.responseDateTime }}</td>
               <td>{{ cBCREProcess.creRequestId }}</td>
-              <td>{{ cBCREProcess.cumilativetradescore }}</td>
+              <td>{{ cBCREProcess.cumilativeTradeScore }}</td>
               <td>{{ cBCREProcess.timestamp }}</td>
               <td>{{ cBCREProcess.totalAmountRequested }}</td>
               <td>{{ cBCREProcess.totalInvoiceAmount }}</td>
+              <td>
+                @if (cBCREProcess.financeRequest) {
+                  <div>
+                    <a [routerLink]="['/finance-request', cBCREProcess.financeRequest.id, 'view']">{{
+                      cBCREProcess.financeRequest.financeRequestId
+                    }}</a>
+                  </div>
+                }
+              </td>
               <td class="text-end">
                 <div class="btn-group">
                   <a [routerLink]="['/cbcre-process', cBCREProcess.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

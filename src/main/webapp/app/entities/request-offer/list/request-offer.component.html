@@ -42,16 +42,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="reqOffId">
+            <th scope="col" jhiSortBy="reqOffUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.reqOffId">Req Off Id</span>
+                <span jhiTranslate="cbapisApp.requestOffer.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="requestOfferRefNo">
+            <th scope="col" jhiSortBy="reqOfferRefNo">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo">Request Offer Ref No</span>
+                <span jhiTranslate="cbapisApp.requestOffer.reqOfferRefNo">Req Offer Ref No</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -168,43 +168,36 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="sellerName">
+            <th scope="col" jhiSortBy="anchorTraderGSTComplianceScore">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.sellerName">Seller Name</span>
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTComplianceScore">Anchor Trader GST Compliance Score</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="buyerName">
+            <th scope="col" jhiSortBy="anchorTraderGSTERPPeerScore">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.buyerName">Buyer Name</span>
+                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTERPPeerScore">Anchor Trader GSTERP Peer Score</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="anchorTraderGstComplianceScore">
+            <th scope="col" jhiSortBy="sellerTradePerformanceIndex">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore">Anchor Trader Gst Compliance Score</span>
+                <span jhiTranslate="cbapisApp.requestOffer.sellerTradePerformanceIndex">Seller Trade Performance Index</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="anchorTraderErpPeerScore">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore">Anchor Trader Erp Peer Score</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.requestOffer.financerequest">Financerequest</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
+            <th scope="col" jhiSortBy="financepartner.fpId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.requestOffer.cbcreprocess">Cbcreprocess</span>
+                <span jhiTranslate="cbapisApp.requestOffer.financepartner">Financepartner</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -217,8 +210,8 @@
               <td>
                 <a [routerLink]="['/request-offer', requestOffer.id, 'view']">{{ requestOffer.id }}</a>
               </td>
-              <td>{{ requestOffer.reqOffId }}</td>
-              <td>{{ requestOffer.requestOfferRefNo }}</td>
+              <td>{{ requestOffer.reqOffUlidId }}</td>
+              <td>{{ requestOffer.reqOfferRefNo }}</td>
               <td>{{ requestOffer.offerValue }}</td>
               <td>{{ requestOffer.requestAmt }}</td>
               <td>{{ requestOffer.tradeValue }}</td>
@@ -235,24 +228,23 @@
               <td>{{ requestOffer.tradePartnerName }}</td>
               <td>{{ requestOffer.anchorTraderGst }}</td>
               <td>{{ requestOffer.tradePartnerGst }}</td>
-              <td>{{ requestOffer.sellerName }}</td>
-              <td>{{ requestOffer.buyerName }}</td>
-              <td>{{ requestOffer.anchorTraderGstComplianceScore }}</td>
-              <td>{{ requestOffer.anchorTraderErpPeerScore }}</td>
+              <td>{{ requestOffer.anchorTraderGSTComplianceScore }}</td>
+              <td>{{ requestOffer.anchorTraderGSTERPPeerScore }}</td>
+              <td>{{ requestOffer.sellerTradePerformanceIndex }}</td>
               <td>
                 @if (requestOffer.financerequest) {
                   <div>
                     <a [routerLink]="['/finance-request', requestOffer.financerequest.id, 'view']">{{
-                      requestOffer.financerequest.requestId
+                      requestOffer.financerequest.financeRequestId
                     }}</a>
                   </div>
                 }
               </td>
               <td>
-                @if (requestOffer.cbcreprocess) {
+                @if (requestOffer.financepartner) {
                   <div>
-                    <a [routerLink]="['/cbcre-process', requestOffer.cbcreprocess.id, 'view']">{{
-                      requestOffer.cbcreprocess.cbProcessId
+                    <a [routerLink]="['/finance-partner', requestOffer.financepartner.id, 'view']">{{
+                      requestOffer.financepartner.fpId
                     }}</a>
                   </div>
                 }

@@ -1,31 +1,28 @@
 import dayjs from 'dayjs/esm';
 import { ICreditAccountDetails } from 'app/entities/credit-account-details/credit-account-details.model';
-import { IEscrowAccountDetails } from 'app/entities/escrow-account-details/escrow-account-details.model';
-import { IDocDetails } from 'app/entities/doc-details/doc-details.model';
 import { IFTTransactionDetails } from 'app/entities/ft-transaction-details/ft-transaction-details.model';
-import { ICollectionTransactionDetails } from 'app/entities/collection-transaction-details/collection-transaction-details.model';
+import { IEscrowTransactionDetails } from 'app/entities/escrow-transaction-details/escrow-transaction-details.model';
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 
 export interface IRepayment {
   id: number;
-  repaymentId?: string | null;
+  repaymentId?: number | null;
+  repaymentUlidId?: string | null;
   repaymentRefNo?: string | null;
-  acceptedOfferId?: number | null;
-  offerId?: number | null;
+  acceptedOfferUlidId?: string | null;
+  placedOfferUlidId?: string | null;
+  reqOffUlidId?: string | null;
   offerAcceptedDate?: dayjs.Dayjs | null;
   dbmtRequestId?: string | null;
-  dbmtstatus?: string | null;
+  dbmtStatus?: string | null;
   dbmtDateTime?: string | null;
-  dbmtId?: string | null;
+  dbmtId?: number | null;
   dbmtAmount?: number | null;
   currency?: string | null;
   repaymentStatus?: string | null;
   repaymentDate?: dayjs.Dayjs | null;
   repaymentAmount?: number | null;
-  ftTrnxDetailsId?: string | null;
-  collectionTrnxDetailsId?: string | null;
-  docId?: number | null;
-  financeRequestId?: string | null;
+  financeRequestId?: number | null;
   repaymentDueDate?: dayjs.Dayjs | null;
   totalRepaymentAmount?: string | null;
   amountRepayed?: string | null;
@@ -36,11 +33,9 @@ export interface IRepayment {
   status?: string | null;
   referenceNumber?: string | null;
   creditAccountDetails?: Pick<ICreditAccountDetails, 'id'>[] | null;
-  escrowAccountDetails?: Pick<IEscrowAccountDetails, 'id'>[] | null;
-  docDetails?: Pick<IDocDetails, 'id'>[] | null;
   fTTransactionDetails?: Pick<IFTTransactionDetails, 'id'>[] | null;
-  collectionTransactionDetails?: Pick<ICollectionTransactionDetails, 'id'>[] | null;
-  financerequest?: Pick<IFinanceRequest, 'id' | 'requestId'> | null;
+  escrowTransactionDetails?: Pick<IEscrowTransactionDetails, 'id'>[] | null;
+  financerequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
 }
 
 export type NewRepayment = Omit<IRepayment, 'id'> & { id: null };

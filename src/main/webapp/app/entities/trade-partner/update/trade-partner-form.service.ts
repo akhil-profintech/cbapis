@@ -18,18 +18,20 @@ type TradePartnerFormDefaults = Pick<NewTradePartner, 'id'>;
 
 type TradePartnerFormGroupContent = {
   id: FormControl<ITradePartner['id'] | NewTradePartner['id']>;
-  tenantId: FormControl<ITradePartner['tenantId']>;
   tpId: FormControl<ITradePartner['tpId']>;
+  tpUlidId: FormControl<ITradePartner['tpUlidId']>;
   orgId: FormControl<ITradePartner['orgId']>;
+  tenantId: FormControl<ITradePartner['tenantId']>;
   customerName: FormControl<ITradePartner['customerName']>;
   orgName: FormControl<ITradePartner['orgName']>;
   gstId: FormControl<ITradePartner['gstId']>;
   phoneNumber: FormControl<ITradePartner['phoneNumber']>;
   tradePartnerName: FormControl<ITradePartner['tradePartnerName']>;
   location: FormControl<ITradePartner['location']>;
-  tradepartnerGST: FormControl<ITradePartner['tradepartnerGST']>;
+  tradePartnerGST: FormControl<ITradePartner['tradePartnerGST']>;
   tradePartnerSector: FormControl<ITradePartner['tradePartnerSector']>;
   acceptanceFromTradePartner: FormControl<ITradePartner['acceptanceFromTradePartner']>;
+  tosDocument: FormControl<ITradePartner['tosDocument']>;
 };
 
 export type TradePartnerFormGroup = FormGroup<TradePartnerFormGroupContent>;
@@ -49,13 +51,12 @@ export class TradePartnerFormService {
           validators: [Validators.required],
         },
       ),
-      tenantId: new FormControl(tradePartnerRawValue.tenantId, {
-        validators: [Validators.required],
-      }),
-      tpId: new FormControl(tradePartnerRawValue.tpId, {
-        validators: [Validators.required],
-      }),
+      tpId: new FormControl(tradePartnerRawValue.tpId),
+      tpUlidId: new FormControl(tradePartnerRawValue.tpUlidId),
       orgId: new FormControl(tradePartnerRawValue.orgId, {
+        validators: [Validators.required],
+      }),
+      tenantId: new FormControl(tradePartnerRawValue.tenantId, {
         validators: [Validators.required],
       }),
       customerName: new FormControl(tradePartnerRawValue.customerName, {
@@ -72,9 +73,10 @@ export class TradePartnerFormService {
       }),
       tradePartnerName: new FormControl(tradePartnerRawValue.tradePartnerName),
       location: new FormControl(tradePartnerRawValue.location),
-      tradepartnerGST: new FormControl(tradePartnerRawValue.tradepartnerGST),
+      tradePartnerGST: new FormControl(tradePartnerRawValue.tradePartnerGST),
       tradePartnerSector: new FormControl(tradePartnerRawValue.tradePartnerSector),
       acceptanceFromTradePartner: new FormControl(tradePartnerRawValue.acceptanceFromTradePartner),
+      tosDocument: new FormControl(tradePartnerRawValue.tosDocument),
     });
   }
 

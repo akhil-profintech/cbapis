@@ -20,8 +20,9 @@ describe('FTTransactionDetails Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            trnxDetailsId: expect.any(Object),
-            transactionID: expect.any(Object),
+            ftTrnxDetailsId: expect.any(Object),
+            ftTrnxDetailsUlid: expect.any(Object),
+            transactionId: expect.any(Object),
             debitAccountNumber: expect.any(Object),
             creditAccountNumber: expect.any(Object),
             remitterName: expect.any(Object),
@@ -38,9 +39,9 @@ describe('FTTransactionDetails Form Service', () => {
             trnxResourceDataStatus: expect.any(Object),
             trnxMetaDataStatus: expect.any(Object),
             transactionDateTime: expect.any(Object),
+            participantsettlement: expect.any(Object),
             disbursement: expect.any(Object),
             repayment: expect.any(Object),
-            participantsettlement: expect.any(Object),
           }),
         );
       });
@@ -51,8 +52,9 @@ describe('FTTransactionDetails Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            trnxDetailsId: expect.any(Object),
-            transactionID: expect.any(Object),
+            ftTrnxDetailsId: expect.any(Object),
+            ftTrnxDetailsUlid: expect.any(Object),
+            transactionId: expect.any(Object),
             debitAccountNumber: expect.any(Object),
             creditAccountNumber: expect.any(Object),
             remitterName: expect.any(Object),
@@ -69,9 +71,9 @@ describe('FTTransactionDetails Form Service', () => {
             trnxResourceDataStatus: expect.any(Object),
             trnxMetaDataStatus: expect.any(Object),
             transactionDateTime: expect.any(Object),
+            participantsettlement: expect.any(Object),
             disbursement: expect.any(Object),
             repayment: expect.any(Object),
-            participantsettlement: expect.any(Object),
           }),
         );
       });

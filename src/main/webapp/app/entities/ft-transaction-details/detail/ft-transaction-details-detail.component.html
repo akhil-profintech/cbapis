@@ -17,13 +17,17 @@
           <dd>
             <span>{{ fTTransactionDetails.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.trnxDetailsId">Trnx Details Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsId">Ft Trnx Details Id</span></dt>
           <dd>
-            <span>{{ fTTransactionDetails.trnxDetailsId }}</span>
+            <span>{{ fTTransactionDetails.ftTrnxDetailsId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionID">Transaction ID</span></dt>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsUlid">Ft Trnx Details Ulid</span></dt>
           <dd>
-            <span>{{ fTTransactionDetails.transactionID }}</span>
+            <span>{{ fTTransactionDetails.ftTrnxDetailsUlid }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.transactionId">Transaction Id</span></dt>
+          <dd>
+            <span>{{ fTTransactionDetails.transactionId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.debitAccountNumber">Debit Account Number</span></dt>
           <dd>
@@ -89,12 +93,22 @@
           <dd>
             <span>{{ fTTransactionDetails.transactionDateTime }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span></dt>
+          <dd>
+            @if (fTTransactionDetails.participantsettlement) {
+              <div>
+                <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
+                  fTTransactionDetails.participantsettlement.participantSettlementId
+                }}</a>
+              </div>
+            }
+          </dd>
           <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.disbursement">Disbursement</span></dt>
           <dd>
             @if (fTTransactionDetails.disbursement) {
               <div>
                 <a [routerLink]="['/disbursement', fTTransactionDetails.disbursement.id, 'view']">{{
-                  fTTransactionDetails.disbursement.ftTrnxDetailsId
+                  fTTransactionDetails.disbursement.dbmtId
                 }}</a>
               </div>
             }
@@ -104,17 +118,7 @@
             @if (fTTransactionDetails.repayment) {
               <div>
                 <a [routerLink]="['/repayment', fTTransactionDetails.repayment.id, 'view']">{{
-                  fTTransactionDetails.repayment.ftTrnxDetailsId
-                }}</a>
-              </div>
-            }
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span></dt>
-          <dd>
-            @if (fTTransactionDetails.participantsettlement) {
-              <div>
-                <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
-                  fTTransactionDetails.participantsettlement.participantSettlementId
+                  fTTransactionDetails.repayment.repaymentId
                 }}</a>
               </div>
             }

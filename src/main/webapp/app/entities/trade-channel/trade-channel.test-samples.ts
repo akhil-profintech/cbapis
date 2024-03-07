@@ -11,7 +11,7 @@ export const sampleWithPartialData: ITradeChannel = {
 
 export const sampleWithFullData: ITradeChannel = {
   id: 18866,
-  tradeChannelId: 'meteor whereas authorized',
+  tradeChannelUlidId: 'meteor whereas authorized',
   anchorTraderId: 'around nitrify so',
   tradePartnerId: 'until questioningly jade',
   financePartnerId: 'ick electric aha',

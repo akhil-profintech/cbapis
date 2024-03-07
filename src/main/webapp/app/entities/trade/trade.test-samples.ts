@@ -8,7 +8,7 @@ export const sampleWithRequiredData: ITrade = {
 
 export const sampleWithPartialData: ITrade = {
   id: 21407,
-  tradeRefNumber: 'position sympathetic',
+  tradeRefNo: 'position sympathetic',
   tradeAmount: 'as whoa',
   invoiceNumber: 'extra-small forenenst boo',
   tradeDocType: 'mosh accurate',
@@ -21,14 +21,14 @@ export const sampleWithPartialData: ITrade = {
 
 export const sampleWithFullData: ITrade = {
   id: 29430,
-  tradeId: 14112,
-  tradeRefNumber: 'for',
-  sellerGstId: 'gracious phew',
-  buyerGstId: 'before brightly across',
-  tradeAmount: 'oh',
-  invoiceDate: dayjs('2023-12-27'),
-  invoiceNumber: 'onto out',
-  tradeDocType: 'debrief hence',
+  tradeUlidId: 'knottily forenenst',
+  tradeRefNo: 'divest oh phooey',
+  sellerGstId: 'ugh',
+  buyerGstId: 'once',
+  tradeAmount: 'obedient',
+  invoiceDate: dayjs('2024-03-06'),
+  invoiceNumber: 'out anchored',
+  tradeDocType: 'hence',
   tradeDocSource: 'towards',
   tradeDocCredibility: 'honestly wretched er',
   tradeMilestoneStatus: 'fortunately zowie garment',

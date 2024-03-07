@@ -20,9 +20,11 @@
       "id": "ID",
       "transactionId": "Transaction Id",
       "transactionDate": "Transaction Date",
-      "clientId": "Client Id",
+      "action": "Action",
+      "userId": "User Id",
+      "tenantId": "Tenant Id",
       "cpCode": "Cp Code",
-      "action": "Action"
+      "msgpayload": "Msgpayload"
     }
   }
 }

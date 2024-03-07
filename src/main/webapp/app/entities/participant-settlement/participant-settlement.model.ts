@@ -1,10 +1,10 @@
 import { IFTTransactionDetails } from 'app/entities/ft-transaction-details/ft-transaction-details.model';
-import { IDocDetails } from 'app/entities/doc-details/doc-details.model';
 import { ISettlement } from 'app/entities/settlement/settlement.model';
 
 export interface IParticipantSettlement {
   id: number;
   participantSettlementId?: number | null;
+  participantSettlementUlidId?: string | null;
   participantId?: number | null;
   participantName?: string | null;
   gstId?: string | null;
@@ -22,7 +22,6 @@ export interface IParticipantSettlement {
   accNumber?: number | null;
   docId?: string | null;
   fTTransactionDetails?: Pick<IFTTransactionDetails, 'id'>[] | null;
-  docDetails?: Pick<IDocDetails, 'id'>[] | null;
   settlement?: Pick<ISettlement, 'id' | 'settlementId'> | null;
 }
 

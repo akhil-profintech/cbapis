@@ -21,6 +21,7 @@ describe('ParticipantSettlement Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             participantSettlementId: expect.any(Object),
+            participantSettlementUlidId: expect.any(Object),
             participantId: expect.any(Object),
             participantName: expect.any(Object),
             gstId: expect.any(Object),
@@ -49,6 +50,7 @@ describe('ParticipantSettlement Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             participantSettlementId: expect.any(Object),
+            participantSettlementUlidId: expect.any(Object),
             participantId: expect.any(Object),
             participantName: expect.any(Object),
             gstId: expect.any(Object),

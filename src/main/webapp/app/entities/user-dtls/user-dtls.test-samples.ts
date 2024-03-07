@@ -16,7 +16,7 @@ export const sampleWithPartialData: IUserDtls = {
 
 export const sampleWithFullData: IUserDtls = {
   id: 15718,
-  userId: 'successfully aside duh',
+  userUlidId: 'successfully aside duh',
   userName: 'huzzah',
   tenantId: 'folder when',
   isAnchorTraderEnabled: true,

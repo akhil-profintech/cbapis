@@ -18,7 +18,7 @@
         "title": "User Dtls"
       },
       "id": "ID",
-      "userId": "User Id",
+      "userUlidId": "User Ulid Id",
       "userName": "User Name",
       "tenantId": "Tenant Id",
       "isAnchorTraderEnabled": "Is Anchor Trader Enabled",
@@ -27,8 +27,7 @@
       "tradePartnerId": "Trade Partner Id",
       "isFinancePartnerEnabled": "Is Finance Partner Enabled",
       "financePartnerId": "Finance Partner Id",
-      "defaultPersona": "Default Persona",
-      "organization": "Organization"
+      "defaultPersona": "Default Persona"
     }
   }
 }

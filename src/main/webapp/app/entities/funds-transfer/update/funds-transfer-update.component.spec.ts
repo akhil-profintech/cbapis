@@ -50,10 +50,10 @@ describe('FundsTransfer Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call TradeEntity query and add missing value', () => {
       const fundsTransfer: IFundsTransfer = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 4235 };
+      const tradeEntity: ITradeEntity = { id: 10710 };
       fundsTransfer.tradeEntity = tradeEntity;
 
-      const tradeEntityCollection: ITradeEntity[] = [{ id: 10710 }];
+      const tradeEntityCollection: ITradeEntity[] = [{ id: 26158 }];
       jest.spyOn(tradeEntityService, 'query').mockReturnValue(of(new HttpResponse({ body: tradeEntityCollection })));
       const additionalTradeEntities = [tradeEntity];
       const expectedCollection: ITradeEntity[] = [...additionalTradeEntities, ...tradeEntityCollection];
@@ -72,7 +72,7 @@ describe('FundsTransfer Management Update Component', () => {
 
     it('Should update editForm', () => {
       const fundsTransfer: IFundsTransfer = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 26158 };
+      const tradeEntity: ITradeEntity = { id: 2999 };
       fundsTransfer.tradeEntity = tradeEntity;
 
       activatedRoute.data = of({ fundsTransfer });

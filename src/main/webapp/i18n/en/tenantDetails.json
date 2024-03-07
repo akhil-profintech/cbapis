@@ -18,7 +18,7 @@
         "title": "Tenant Details"
       },
       "id": "ID",
-      "tenantId": "Tenant Id",
+      "tenantUlidId": "Tenant Ulid Id",
       "tenantSchema": "Tenant Schema"
     }
   }

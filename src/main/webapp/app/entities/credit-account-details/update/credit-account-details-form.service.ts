@@ -19,11 +19,14 @@ type CreditAccountDetailsFormDefaults = Pick<NewCreditAccountDetails, 'id'>;
 type CreditAccountDetailsFormGroupContent = {
   id: FormControl<ICreditAccountDetails['id'] | NewCreditAccountDetails['id']>;
   creditAccDetailsId: FormControl<ICreditAccountDetails['creditAccDetailsId']>;
+  creditAccountDetailsUlidId: FormControl<ICreditAccountDetails['creditAccountDetailsUlidId']>;
   tenantId: FormControl<ICreditAccountDetails['tenantId']>;
   customerId: FormControl<ICreditAccountDetails['customerId']>;
   accName: FormControl<ICreditAccountDetails['accName']>;
   ifscCode: FormControl<ICreditAccountDetails['ifscCode']>;
   accNumber: FormControl<ICreditAccountDetails['accNumber']>;
+  destinationAccountName: FormControl<ICreditAccountDetails['destinationAccountName']>;
+  destinationAccountNumber: FormControl<ICreditAccountDetails['destinationAccountNumber']>;
   disbursement: FormControl<ICreditAccountDetails['disbursement']>;
   repayment: FormControl<ICreditAccountDetails['repayment']>;
 };
@@ -47,9 +50,8 @@ export class CreditAccountDetailsFormService {
           validators: [Validators.required],
         },
       ),
-      creditAccDetailsId: new FormControl(creditAccountDetailsRawValue.creditAccDetailsId, {
-        validators: [Validators.required],
-      }),
+      creditAccDetailsId: new FormControl(creditAccountDetailsRawValue.creditAccDetailsId),
+      creditAccountDetailsUlidId: new FormControl(creditAccountDetailsRawValue.creditAccountDetailsUlidId),
       tenantId: new FormControl(creditAccountDetailsRawValue.tenantId, {
         validators: [Validators.required],
       }),
@@ -65,6 +67,8 @@ export class CreditAccountDetailsFormService {
       accNumber: new FormControl(creditAccountDetailsRawValue.accNumber, {
         validators: [Validators.required],
       }),
+      destinationAccountName: new FormControl(creditAccountDetailsRawValue.destinationAccountName),
+      destinationAccountNumber: new FormControl(creditAccountDetailsRawValue.destinationAccountNumber),
       disbursement: new FormControl(creditAccountDetailsRawValue.disbursement),
       repayment: new FormControl(creditAccountDetailsRawValue.repayment),
     });

@@ -8,8 +8,8 @@
       "entities": {
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "context": "Context",
         "anchorTrader": "Anchor Trader",
+        "anchorTraderPartner": "Anchor Trader Partner",
         "financePartner": "Finance Partner",
         "tradePartner": "Trade Partner",
         "creditBazaarIntegrator": "Credit Bazaar Integrator",
@@ -21,7 +21,7 @@
         "creditAccountDetails": "Credit Account Details",
         "escrowAccountDetails": "Escrow Account Details",
         "ftTransactionDetails": "FT Transaction Details",
-        "collectionTransactionDetails": "Collection Transaction Details",
+        "escrowTransactionDetails": "Escrow Transaction Details",
         "docDetails": "Doc Details",
         "prospectRequest": "Prospect Request",
         "requestOffer": "Request Offer",
@@ -38,8 +38,15 @@
         "individualAssessment": "Individual Assessment",
         "creHighlights": "CRE Highlights",
         "creObservations": "CRE Observations",
+        "context": "Context",
         "action": "Action",
-        "clientCodes": "Client Codes"
+        "clientCodes": "Client Codes",
+        "organization": "Organization",
+        "gstin": "Gstin",
+        "tradeChannel": "Trade Channel",
+        "financeRequestMapping": "Finance Request Mapping",
+        "tenantDetails": "Tenant Details",
+        "userDtls": "User Dtls"
       },
       "account": {
         "main": "Account",

@@ -19,6 +19,10 @@
           <dd>
             <span>{{ cREObservations.creObservationsId }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.cREObservations.creObservationsUlidId">Cre Observations Ulid Id</span></dt>
+          <dd>
+            <span>{{ cREObservations.creObservationsUlidId }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.cREObservations.creRequestId">Cre Request Id</span></dt>
           <dd>
             <span>{{ cREObservations.creRequestId }}</span>
@@ -26,16 +30,6 @@
           <dt><span jhiTranslate="cbapisApp.cREObservations.observations">Observations</span></dt>
           <dd>
             <span>{{ cREObservations.observations }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.cREObservations.cbcreprocess">Cbcreprocess</span></dt>
-          <dd>
-            @if (cREObservations.cbcreprocess) {
-              <div>
-                <a [routerLink]="['/cbcre-process', cREObservations.cbcreprocess.id, 'view']">{{
-                  cREObservations.cbcreprocess.cbProcessId
-                }}</a>
-              </div>
-            }
           </dd>
           <dt><span jhiTranslate="cbapisApp.cREObservations.individualassessment">Individualassessment</span></dt>
           <dd>

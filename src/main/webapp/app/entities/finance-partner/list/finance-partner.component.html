@@ -42,16 +42,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tenantId">
+            <th scope="col" jhiSortBy="fpId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.financePartner.tenantId">Tenant Id</span>
+                <span jhiTranslate="cbapisApp.financePartner.fpId">Fp Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="fpId">
+            <th scope="col" jhiSortBy="fpUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.financePartner.fpId">Fp Id</span>
+                <span jhiTranslate="cbapisApp.financePartner.fpUlidId">Fp Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financePartner.tenantId">Tenant Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -91,6 +98,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="tosDocument">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.financePartner.tosDocument">Tos Document</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -100,13 +114,15 @@
               <td>
                 <a [routerLink]="['/finance-partner', financePartner.id, 'view']">{{ financePartner.id }}</a>
               </td>
-              <td>{{ financePartner.tenantId }}</td>
               <td>{{ financePartner.fpId }}</td>
+              <td>{{ financePartner.fpUlidId }}</td>
+              <td>{{ financePartner.tenantId }}</td>
               <td>{{ financePartner.orgId }}</td>
               <td>{{ financePartner.customerName }}</td>
               <td>{{ financePartner.orgName }}</td>
               <td>{{ financePartner.gstId }}</td>
               <td>{{ financePartner.phoneNumber }}</td>
+              <td>{{ financePartner.tosDocument }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a

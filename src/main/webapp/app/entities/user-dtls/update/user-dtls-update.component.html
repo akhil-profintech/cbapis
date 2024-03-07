@@ -16,8 +16,15 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.userDtls.userId" for="field_userId">User Id</label>
-          <input type="text" class="form-control" name="userId" id="field_userId" data-cy="userId" formControlName="userId" />
+          <label class="form-label" jhiTranslate="cbapisApp.userDtls.userUlidId" for="field_userUlidId">User Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="userUlidId"
+            id="field_userUlidId"
+            data-cy="userUlidId"
+            formControlName="userUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -122,23 +129,6 @@
             <option [ngValue]="null">{{ 'cbapisApp.Persona.null' | translate }}</option>
             @for (persona of personaValues; track $index) {
               <option [value]="persona">{{ 'cbapisApp.Persona.' + persona | translate }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.userDtls.organization" for="field_organization">Organization</label>
-          <select
-            class="form-control"
-            id="field_organization"
-            data-cy="organization"
-            name="organization"
-            formControlName="organization"
-            [compareWith]="compareOrganization"
-          >
-            <option [ngValue]="null"></option>
-            @for (organizationOption of organizationsSharedCollection; track $index) {
-              <option [ngValue]="organizationOption">{{ organizationOption.orgId }}</option>
             }
           </select>
         </div>

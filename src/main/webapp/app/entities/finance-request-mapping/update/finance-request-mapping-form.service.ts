@@ -19,6 +19,7 @@ type FinanceRequestMappingFormDefaults = Pick<NewFinanceRequestMapping, 'id'>;
 type FinanceRequestMappingFormGroupContent = {
   id: FormControl<IFinanceRequestMapping['id'] | NewFinanceRequestMapping['id']>;
   financeRequestId: FormControl<IFinanceRequestMapping['financeRequestId']>;
+  financeRequestMappingUlidId: FormControl<IFinanceRequestMapping['financeRequestMappingUlidId']>;
   anchorTraderId: FormControl<IFinanceRequestMapping['anchorTraderId']>;
   financePartnerId: FormControl<IFinanceRequestMapping['financePartnerId']>;
   anchorTraderTenantId: FormControl<IFinanceRequestMapping['anchorTraderTenantId']>;
@@ -45,6 +46,7 @@ export class FinanceRequestMappingFormService {
         },
       ),
       financeRequestId: new FormControl(financeRequestMappingRawValue.financeRequestId),
+      financeRequestMappingUlidId: new FormControl(financeRequestMappingRawValue.financeRequestMappingUlidId),
       anchorTraderId: new FormControl(financeRequestMappingRawValue.anchorTraderId),
       financePartnerId: new FormControl(financeRequestMappingRawValue.financePartnerId),
       anchorTraderTenantId: new FormControl(financeRequestMappingRawValue.anchorTraderTenantId),

@@ -1,24 +1,23 @@
 import { ICREObservations, NewCREObservations } from './cre-observations.model';
 
 export const sampleWithRequiredData: ICREObservations = {
-  id: 24265,
-  creObservationsId: 1218,
+  id: 1218,
 };
 
 export const sampleWithPartialData: ICREObservations = {
-  id: 1366,
-  creObservationsId: 28738,
+  id: 28639,
+  creRequestId: 'violet unto dear',
 };
 
 export const sampleWithFullData: ICREObservations = {
-  id: 28639,
-  creObservationsId: 23800,
-  creRequestId: 'remote cocktail telegraph',
-  observations: 'or',
+  id: 29470,
+  creObservationsId: 3312,
+  creObservationsUlidId: 'yahoo huzzah',
+  creRequestId: 'earnings murky embed',
+  observations: 'miserably',
 };
 
 export const sampleWithNewData: NewCREObservations = {
-  creObservationsId: 12476,
   id: null,
 };
 

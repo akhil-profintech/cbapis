@@ -14,17 +14,20 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type FinanceRequestFormGroupInput = IFinanceRequest | PartialWithRequiredKeyOf<NewFinanceRequest>;
 
-type FinanceRequestFormDefaults = Pick<NewFinanceRequest, 'id'>;
+type FinanceRequestFormDefaults = Pick<NewFinanceRequest, 'id' | 'gstConsent'>;
 
 type FinanceRequestFormGroupContent = {
   id: FormControl<IFinanceRequest['id'] | NewFinanceRequest['id']>;
-  requestId: FormControl<IFinanceRequest['requestId']>;
+  financeRequestId: FormControl<IFinanceRequest['financeRequestId']>;
+  financeRequestUlidId: FormControl<IFinanceRequest['financeRequestUlidId']>;
   financeRequestRefNo: FormControl<IFinanceRequest['financeRequestRefNo']>;
+  tradeChannelId: FormControl<IFinanceRequest['tradeChannelId']>;
   requestAmount: FormControl<IFinanceRequest['requestAmount']>;
   requestDate: FormControl<IFinanceRequest['requestDate']>;
   currency: FormControl<IFinanceRequest['currency']>;
   requestStatus: FormControl<IFinanceRequest['requestStatus']>;
   dueDate: FormControl<IFinanceRequest['dueDate']>;
+  gstConsent: FormControl<IFinanceRequest['gstConsent']>;
   anchortrader: FormControl<IFinanceRequest['anchortrader']>;
 };
 
@@ -45,8 +48,10 @@ export class FinanceRequestFormService {
           validators: [Validators.required],
         },
       ),
-      requestId: new FormControl(financeRequestRawValue.requestId),
+      financeRequestId: new FormControl(financeRequestRawValue.financeRequestId),
+      financeRequestUlidId: new FormControl(financeRequestRawValue.financeRequestUlidId),
       financeRequestRefNo: new FormControl(financeRequestRawValue.financeRequestRefNo),
+      tradeChannelId: new FormControl(financeRequestRawValue.tradeChannelId),
       requestAmount: new FormControl(financeRequestRawValue.requestAmount, {
         validators: [Validators.required],
       }),
@@ -62,6 +67,7 @@ export class FinanceRequestFormService {
       dueDate: new FormControl(financeRequestRawValue.dueDate, {
         validators: [Validators.required],
       }),
+      gstConsent: new FormControl(financeRequestRawValue.gstConsent),
       anchortrader: new FormControl(financeRequestRawValue.anchortrader),
     });
   }
@@ -83,6 +89,7 @@ export class FinanceRequestFormService {
   private getFormDefaults(): FinanceRequestFormDefaults {
     return {
       id: null,
+      gstConsent: false,
     };
   }
 }

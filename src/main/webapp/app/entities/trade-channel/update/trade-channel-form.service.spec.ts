@@ -20,7 +20,7 @@ describe('TradeChannel Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tradeChannelId: expect.any(Object),
+            tradeChannelUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             tradePartnerId: expect.any(Object),
             financePartnerId: expect.any(Object),
@@ -37,7 +37,7 @@ describe('TradeChannel Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tradeChannelId: expect.any(Object),
+            tradeChannelUlidId: expect.any(Object),
             anchorTraderId: expect.any(Object),
             tradePartnerId: expect.any(Object),
             financePartnerId: expect.any(Object),

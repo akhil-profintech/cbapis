@@ -19,6 +19,7 @@
       },
       "id": "ID",
       "entityId": "Entity Id",
+      "entityUlidId": "Entity Ulid Id",
       "entityName": "Entity Name",
       "entityDesc": "Entity Desc",
       "entityGST": "Entity GST",

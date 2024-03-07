@@ -15,13 +15,21 @@
           <dd>
             <span>{{ financeRequest.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.financeRequest.requestId">Request Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.financeRequestId">Finance Request Id</span></dt>
           <dd>
-            <span>{{ financeRequest.requestId }}</span>
+            <span>{{ financeRequest.financeRequestId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.financeRequestUlidId">Finance Request Ulid Id</span></dt>
+          <dd>
+            <span>{{ financeRequest.financeRequestUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.financeRequest.financeRequestRefNo">Finance Request Ref No</span></dt>
           <dd>
             <span>{{ financeRequest.financeRequestRefNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.tradeChannelId">Trade Channel Id</span></dt>
+          <dd>
+            <span>{{ financeRequest.tradeChannelId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.financeRequest.requestAmount">Request Amount</span></dt>
           <dd>
@@ -42,6 +50,10 @@
           <dt><span jhiTranslate="cbapisApp.financeRequest.dueDate">Due Date</span></dt>
           <dd>
             <span>{{ financeRequest.dueDate | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.financeRequest.gstConsent">Gst Consent</span></dt>
+          <dd>
+            <span>{{ financeRequest.gstConsent }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.financeRequest.anchortrader">Anchortrader</span></dt>
           <dd>

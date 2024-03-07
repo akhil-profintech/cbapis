@@ -25,19 +25,20 @@
             data-cy="docDetailsId"
             formControlName="docDetailsId"
           />
-          @if (editForm.get('docDetailsId')!.invalid && (editForm.get('docDetailsId')!.dirty || editForm.get('docDetailsId')!.touched)) {
-            <div>
-              @if (editForm.get('docDetailsId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('docDetailsId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.docDetails.docDetailsUlidId" for="field_docDetailsUlidId"
+            >Doc Details Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="docDetailsUlidId"
+            id="field_docDetailsUlidId"
+            data-cy="docDetailsUlidId"
+            formControlName="docDetailsUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -121,54 +122,18 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.docDetails.disbursement" for="field_disbursement">Disbursement</label>
+          <label class="form-label" jhiTranslate="cbapisApp.docDetails.financeRequest" for="field_financeRequest">Finance Request</label>
           <select
             class="form-control"
-            id="field_disbursement"
-            data-cy="disbursement"
-            name="disbursement"
-            formControlName="disbursement"
-            [compareWith]="compareDisbursement"
+            id="field_financeRequest"
+            data-cy="financeRequest"
+            name="financeRequest"
+            formControlName="financeRequest"
+            [compareWith]="compareFinanceRequest"
           >
             <option [ngValue]="null"></option>
-            @for (disbursementOption of disbursementsSharedCollection; track $index) {
-              <option [ngValue]="disbursementOption">{{ disbursementOption.dbmtRequestId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.docDetails.repayment" for="field_repayment">Repayment</label>
-          <select
-            class="form-control"
-            id="field_repayment"
-            data-cy="repayment"
-            name="repayment"
-            formControlName="repayment"
-            [compareWith]="compareRepayment"
-          >
-            <option [ngValue]="null"></option>
-            @for (repaymentOption of repaymentsSharedCollection; track $index) {
-              <option [ngValue]="repaymentOption">{{ repaymentOption.repaymentId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.docDetails.participantsettlement" for="field_participantsettlement"
-            >Participantsettlement</label
-          >
-          <select
-            class="form-control"
-            id="field_participantsettlement"
-            data-cy="participantsettlement"
-            name="participantsettlement"
-            formControlName="participantsettlement"
-            [compareWith]="compareParticipantSettlement"
-          >
-            <option [ngValue]="null"></option>
-            @for (participantSettlementOption of participantSettlementsSharedCollection; track $index) {
-              <option [ngValue]="participantSettlementOption">{{ participantSettlementOption.participantSettlementId }}</option>
+            @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>

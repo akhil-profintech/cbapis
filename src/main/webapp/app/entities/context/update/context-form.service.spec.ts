@@ -22,9 +22,11 @@ describe('Context Form Service', () => {
             id: expect.any(Object),
             transactionId: expect.any(Object),
             transactionDate: expect.any(Object),
-            clientId: expect.any(Object),
-            cpCode: expect.any(Object),
             action: expect.any(Object),
+            userId: expect.any(Object),
+            tenantId: expect.any(Object),
+            cpCode: expect.any(Object),
+            msgpayload: expect.any(Object),
           }),
         );
       });
@@ -37,9 +39,11 @@ describe('Context Form Service', () => {
             id: expect.any(Object),
             transactionId: expect.any(Object),
             transactionDate: expect.any(Object),
-            clientId: expect.any(Object),
-            cpCode: expect.any(Object),
             action: expect.any(Object),
+            userId: expect.any(Object),
+            tenantId: expect.any(Object),
+            cpCode: expect.any(Object),
+            msgpayload: expect.any(Object),
           }),
         );
       });

@@ -42,9 +42,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="userId">
+            <th scope="col" jhiSortBy="userUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.userDtls.userId">User Id</span>
+                <span jhiTranslate="cbapisApp.userDtls.userUlidId">User Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -112,12 +112,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="organization.orgId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.userDtls.organization">Organization</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -127,7 +121,7 @@
               <td>
                 <a [routerLink]="['/user-dtls', userDtls.id, 'view']">{{ userDtls.id }}</a>
               </td>
-              <td>{{ userDtls.userId }}</td>
+              <td>{{ userDtls.userUlidId }}</td>
               <td>{{ userDtls.userName }}</td>
               <td>{{ userDtls.tenantId }}</td>
               <td>{{ userDtls.isAnchorTraderEnabled }}</td>
@@ -137,13 +131,6 @@
               <td>{{ userDtls.isFinancePartnerEnabled }}</td>
               <td>{{ userDtls.financePartnerId }}</td>
               <td jhiTranslate="{{ 'cbapisApp.Persona.' + userDtls.defaultPersona }}">{{ userDtls.defaultPersona }}</td>
-              <td>
-                @if (userDtls.organization) {
-                  <div>
-                    <a [routerLink]="['/organization', userDtls.organization.id, 'view']">{{ userDtls.organization.orgId }}</a>
-                  </div>
-                }
-              </td>
               <td class="text-end">
                 <div class="btn-group">
                   <a [routerLink]="['/user-dtls', userDtls.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

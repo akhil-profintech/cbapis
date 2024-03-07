@@ -9,8 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
-import { ICBCREProcess } from 'app/entities/cbcre-process/cbcre-process.model';
-import { CBCREProcessService } from 'app/entities/cbcre-process/service/cbcre-process.service';
+import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
+import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { RequestOfferService } from '../service/request-offer.service';
 import { IRequestOffer } from '../request-offer.model';
 import { RequestOfferFormService, RequestOfferFormGroup } from './request-offer-form.service';
@@ -26,7 +26,7 @@ export class RequestOfferUpdateComponent implements OnInit {
   requestOffer: IRequestOffer | null = null;
 
   financeRequestsSharedCollection: IFinanceRequest[] = [];
-  cBCREProcessesSharedCollection: ICBCREProcess[] = [];
+  financePartnersSharedCollection: IFinancePartner[] = [];
 
   editForm: RequestOfferFormGroup = this.requestOfferFormService.createRequestOfferFormGroup();
 
@@ -34,15 +34,15 @@ export class RequestOfferUpdateComponent implements OnInit {
     protected requestOfferService: RequestOfferService,
     protected requestOfferFormService: RequestOfferFormService,
     protected financeRequestService: FinanceRequestService,
-    protected cBCREProcessService: CBCREProcessService,
+    protected financePartnerService: FinancePartnerService,
     protected activatedRoute: ActivatedRoute,
   ) {}
 
   compareFinanceRequest = (o1: IFinanceRequest | null, o2: IFinanceRequest | null): boolean =>
     this.financeRequestService.compareFinanceRequest(o1, o2);
 
-  compareCBCREProcess = (o1: ICBCREProcess | null, o2: ICBCREProcess | null): boolean =>
-    this.cBCREProcessService.compareCBCREProcess(o1, o2);
+  compareFinancePartner = (o1: IFinancePartner | null, o2: IFinancePartner | null): boolean =>
+    this.financePartnerService.compareFinancePartner(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ requestOffer }) => {
@@ -96,9 +96,9 @@ export class RequestOfferUpdateComponent implements OnInit {
       this.financeRequestsSharedCollection,
       requestOffer.financerequest,
     );
-    this.cBCREProcessesSharedCollection = this.cBCREProcessService.addCBCREProcessToCollectionIfMissing<ICBCREProcess>(
-      this.cBCREProcessesSharedCollection,
-      requestOffer.cbcreprocess,
+    this.financePartnersSharedCollection = this.financePartnerService.addFinancePartnerToCollectionIfMissing<IFinancePartner>(
+      this.financePartnersSharedCollection,
+      requestOffer.financepartner,
     );
   }
 
@@ -116,14 +116,17 @@ export class RequestOfferUpdateComponent implements OnInit {
       )
       .subscribe((financeRequests: IFinanceRequest[]) => (this.financeRequestsSharedCollection = financeRequests));
 
-    this.cBCREProcessService
+    this.financePartnerService
       .query()
-      .pipe(map((res: HttpResponse<ICBCREProcess[]>) => res.body ?? []))
+      .pipe(map((res: HttpResponse<IFinancePartner[]>) => res.body ?? []))
       .pipe(
-        map((cBCREProcesses: ICBCREProcess[]) =>
-          this.cBCREProcessService.addCBCREProcessToCollectionIfMissing<ICBCREProcess>(cBCREProcesses, this.requestOffer?.cbcreprocess),
+        map((financePartners: IFinancePartner[]) =>
+          this.financePartnerService.addFinancePartnerToCollectionIfMissing<IFinancePartner>(
+            financePartners,
+            this.requestOffer?.financepartner,
+          ),
         ),
       )
-      .subscribe((cBCREProcesses: ICBCREProcess[]) => (this.cBCREProcessesSharedCollection = cBCREProcesses));
+      .subscribe((financePartners: IFinancePartner[]) => (this.financePartnersSharedCollection = financePartners));
   }
 }

@@ -20,7 +20,7 @@ describe('TenantDetails Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
+            tenantUlidId: expect.any(Object),
             tenantSchema: expect.any(Object),
           }),
         );
@@ -32,7 +32,7 @@ describe('TenantDetails Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
+            tenantUlidId: expect.any(Object),
             tenantSchema: expect.any(Object),
           }),
         );

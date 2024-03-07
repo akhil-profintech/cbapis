@@ -20,8 +20,17 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.offerId" for="field_offerId">Offer Id</label>
-          <input type="text" class="form-control" name="offerId" id="field_offerId" data-cy="offerId" formControlName="offerId" />
+          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferUlidId" for="field_acceptedOfferUlidId"
+            >Accepted Offer Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="acceptedOfferUlidId"
+            id="field_acceptedOfferUlidId"
+            data-cy="acceptedOfferUlidId"
+            formControlName="acceptedOfferUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -39,19 +48,20 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.reqOffId" for="field_reqOffId">Req Off Id</label>
-          <input type="number" class="form-control" name="reqOffId" id="field_reqOffId" data-cy="reqOffId" formControlName="reqOffId" />
-          @if (editForm.get('reqOffId')!.invalid && (editForm.get('reqOffId')!.dirty || editForm.get('reqOffId')!.touched)) {
+          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.reqOffUlidId" for="field_reqOffUlidId">Req Off Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reqOffUlidId"
+            id="field_reqOffUlidId"
+            data-cy="reqOffUlidId"
+            formControlName="reqOffUlidId"
+          />
+          @if (editForm.get('reqOffUlidId')!.invalid && (editForm.get('reqOffUlidId')!.dirty || editForm.get('reqOffUlidId')!.touched)) {
             <div>
-              @if (editForm.get('reqOffId')?.errors?.required) {
+              @if (editForm.get('reqOffUlidId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('reqOffId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
             </div>
           }
         </div>
@@ -323,24 +333,7 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.financepartner" for="field_financepartner">Financepartner</label>
-          <select
-            class="form-control"
-            id="field_financepartner"
-            data-cy="financepartner"
-            name="financepartner"
-            formControlName="financepartner"
-            [compareWith]="compareFinancePartner"
-          >
-            <option [ngValue]="null"></option>
-            @for (financePartnerOption of financePartnersSharedCollection; track $index) {
-              <option [ngValue]="financePartnerOption">{{ financePartnerOption.fpId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>
@@ -358,6 +351,23 @@
             <option [ngValue]="null"></option>
             @for (anchorTraderOption of anchorTradersSharedCollection; track $index) {
               <option [ngValue]="anchorTraderOption">{{ anchorTraderOption.atId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.acceptedOffer.financepartner" for="field_financepartner">Financepartner</label>
+          <select
+            class="form-control"
+            id="field_financepartner"
+            data-cy="financepartner"
+            name="financepartner"
+            formControlName="financepartner"
+            [compareWith]="compareFinancePartner"
+          >
+            <option [ngValue]="null"></option>
+            @for (financePartnerOption of financePartnersSharedCollection; track $index) {
+              <option [ngValue]="financePartnerOption">{{ financePartnerOption.fpId }}</option>
             }
           </select>
         </div>

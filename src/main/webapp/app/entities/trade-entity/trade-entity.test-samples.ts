@@ -1,22 +1,24 @@
 import { ITradeEntity, NewTradeEntity } from './trade-entity.model';
 
 export const sampleWithRequiredData: ITradeEntity = {
-  id: 9506,
+  id: 30244,
 };
 
 export const sampleWithPartialData: ITradeEntity = {
-  id: 25287,
-  entityName: 'as',
-  entityDesc: 'officially exhibition',
-  entityGST: 'embed dice adept',
+  id: 978,
+  entityId: 24077,
+  entityUlidId: 'trove bleak',
+  entityName: 'coop scorch',
+  entityGST: 'woot',
 };
 
 export const sampleWithFullData: ITradeEntity = {
-  id: 21361,
-  entityId: 5320,
-  entityName: 'impala verbally',
-  entityDesc: 'cheerfully favorable',
-  entityGST: 'cream tenement yearly',
+  id: 19211,
+  entityId: 11680,
+  entityUlidId: 'criminal razor that',
+  entityName: 'how prestigious',
+  entityDesc: 'exactly',
+  entityGST: 'gosh chunder rundown',
 };
 
 export const sampleWithNewData: NewTradeEntity = {

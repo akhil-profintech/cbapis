@@ -42,9 +42,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="offerId">
+            <th scope="col" jhiSortBy="acceptedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.acceptedOffer.offerId">Offer Id</span>
+                <span jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferUlidId">Accepted Offer Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -56,9 +56,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="reqOffId">
+            <th scope="col" jhiSortBy="reqOffUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.acceptedOffer.reqOffId">Req Off Id</span>
+                <span jhiTranslate="cbapisApp.acceptedOffer.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -147,21 +147,21 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.acceptedOffer.financerequest">Financerequest</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="financepartner.fpId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="anchortrader.atId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.acceptedOffer.anchortrader">Anchortrader</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="financepartner.fpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -174,9 +174,9 @@
               <td>
                 <a [routerLink]="['/accepted-offer', acceptedOffer.id, 'view']">{{ acceptedOffer.id }}</a>
               </td>
-              <td>{{ acceptedOffer.offerId }}</td>
+              <td>{{ acceptedOffer.acceptedOfferUlidId }}</td>
               <td>{{ acceptedOffer.acceptedOfferRefNo }}</td>
-              <td>{{ acceptedOffer.reqOffId }}</td>
+              <td>{{ acceptedOffer.reqOffUlidId }}</td>
               <td>{{ acceptedOffer.value }}</td>
               <td>{{ acceptedOffer.reqAmount }}</td>
               <td>{{ acceptedOffer.marginPtg }}</td>
@@ -193,8 +193,15 @@
                 @if (acceptedOffer.financerequest) {
                   <div>
                     <a [routerLink]="['/finance-request', acceptedOffer.financerequest.id, 'view']">{{
-                      acceptedOffer.financerequest.requestId
+                      acceptedOffer.financerequest.financeRequestId
                     }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (acceptedOffer.anchortrader) {
+                  <div>
+                    <a [routerLink]="['/anchor-trader', acceptedOffer.anchortrader.id, 'view']">{{ acceptedOffer.anchortrader.atId }}</a>
                   </div>
                 }
               </td>
@@ -204,13 +211,6 @@
                     <a [routerLink]="['/finance-partner', acceptedOffer.financepartner.id, 'view']">{{
                       acceptedOffer.financepartner.fpId
                     }}</a>
-                  </div>
-                }
-              </td>
-              <td>
-                @if (acceptedOffer.anchortrader) {
-                  <div>
-                    <a [routerLink]="['/anchor-trader', acceptedOffer.anchortrader.id, 'view']">{{ acceptedOffer.anchortrader.atId }}</a>
                   </div>
                 }
               </td>

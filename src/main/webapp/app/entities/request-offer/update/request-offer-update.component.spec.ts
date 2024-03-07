@@ -8,8 +8,8 @@ import { of, Subject, from } from 'rxjs';
 
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
-import { ICBCREProcess } from 'app/entities/cbcre-process/cbcre-process.model';
-import { CBCREProcessService } from 'app/entities/cbcre-process/service/cbcre-process.service';
+import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.model';
+import { FinancePartnerService } from 'app/entities/finance-partner/service/finance-partner.service';
 import { IRequestOffer } from '../request-offer.model';
 import { RequestOfferService } from '../service/request-offer.service';
 import { RequestOfferFormService } from './request-offer-form.service';
@@ -23,7 +23,7 @@ describe('RequestOffer Management Update Component', () => {
   let requestOfferFormService: RequestOfferFormService;
   let requestOfferService: RequestOfferService;
   let financeRequestService: FinanceRequestService;
-  let cBCREProcessService: CBCREProcessService;
+  let financePartnerService: FinancePartnerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -46,7 +46,7 @@ describe('RequestOffer Management Update Component', () => {
     requestOfferFormService = TestBed.inject(RequestOfferFormService);
     requestOfferService = TestBed.inject(RequestOfferService);
     financeRequestService = TestBed.inject(FinanceRequestService);
-    cBCREProcessService = TestBed.inject(CBCREProcessService);
+    financePartnerService = TestBed.inject(FinancePartnerService);
 
     comp = fixture.componentInstance;
   });
@@ -54,10 +54,10 @@ describe('RequestOffer Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const requestOffer: IRequestOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 6108 };
+      const financerequest: IFinanceRequest = { id: 9167 };
       requestOffer.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 21530 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 452 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -74,40 +74,40 @@ describe('RequestOffer Management Update Component', () => {
       expect(comp.financeRequestsSharedCollection).toEqual(expectedCollection);
     });
 
-    it('Should call CBCREProcess query and add missing value', () => {
+    it('Should call FinancePartner query and add missing value', () => {
       const requestOffer: IRequestOffer = { id: 456 };
-      const cbcreprocess: ICBCREProcess = { id: 6242 };
-      requestOffer.cbcreprocess = cbcreprocess;
+      const financepartner: IFinancePartner = { id: 30861 };
+      requestOffer.financepartner = financepartner;
 
-      const cBCREProcessCollection: ICBCREProcess[] = [{ id: 83 }];
-      jest.spyOn(cBCREProcessService, 'query').mockReturnValue(of(new HttpResponse({ body: cBCREProcessCollection })));
-      const additionalCBCREProcesses = [cbcreprocess];
-      const expectedCollection: ICBCREProcess[] = [...additionalCBCREProcesses, ...cBCREProcessCollection];
-      jest.spyOn(cBCREProcessService, 'addCBCREProcessToCollectionIfMissing').mockReturnValue(expectedCollection);
+      const financePartnerCollection: IFinancePartner[] = [{ id: 6276 }];
+      jest.spyOn(financePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: financePartnerCollection })));
+      const additionalFinancePartners = [financepartner];
+      const expectedCollection: IFinancePartner[] = [...additionalFinancePartners, ...financePartnerCollection];
+      jest.spyOn(financePartnerService, 'addFinancePartnerToCollectionIfMissing').mockReturnValue(expectedCollection);
 
       activatedRoute.data = of({ requestOffer });
       comp.ngOnInit();
 
-      expect(cBCREProcessService.query).toHaveBeenCalled();
-      expect(cBCREProcessService.addCBCREProcessToCollectionIfMissing).toHaveBeenCalledWith(
-        cBCREProcessCollection,
-        ...additionalCBCREProcesses.map(expect.objectContaining),
+      expect(financePartnerService.query).toHaveBeenCalled();
+      expect(financePartnerService.addFinancePartnerToCollectionIfMissing).toHaveBeenCalledWith(
+        financePartnerCollection,
+        ...additionalFinancePartners.map(expect.objectContaining),
       );
-      expect(comp.cBCREProcessesSharedCollection).toEqual(expectedCollection);
+      expect(comp.financePartnersSharedCollection).toEqual(expectedCollection);
     });
 
     it('Should update editForm', () => {
       const requestOffer: IRequestOffer = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 26632 };
+      const financerequest: IFinanceRequest = { id: 13745 };
       requestOffer.financerequest = financerequest;
-      const cbcreprocess: ICBCREProcess = { id: 16180 };
-      requestOffer.cbcreprocess = cbcreprocess;
+      const financepartner: IFinancePartner = { id: 26757 };
+      requestOffer.financepartner = financepartner;
 
       activatedRoute.data = of({ requestOffer });
       comp.ngOnInit();
 
       expect(comp.financeRequestsSharedCollection).toContain(financerequest);
-      expect(comp.cBCREProcessesSharedCollection).toContain(cbcreprocess);
+      expect(comp.financePartnersSharedCollection).toContain(financepartner);
       expect(comp.requestOffer).toEqual(requestOffer);
     });
   });
@@ -191,13 +191,13 @@ describe('RequestOffer Management Update Component', () => {
       });
     });
 
-    describe('compareCBCREProcess', () => {
-      it('Should forward to cBCREProcessService', () => {
+    describe('compareFinancePartner', () => {
+      it('Should forward to financePartnerService', () => {
         const entity = { id: 123 };
         const entity2 = { id: 456 };
-        jest.spyOn(cBCREProcessService, 'compareCBCREProcess');
-        comp.compareCBCREProcess(entity, entity2);
-        expect(cBCREProcessService.compareCBCREProcess).toHaveBeenCalledWith(entity, entity2);
+        jest.spyOn(financePartnerService, 'compareFinancePartner');
+        comp.compareFinancePartner(entity, entity2);
+        expect(financePartnerService.compareFinancePartner).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

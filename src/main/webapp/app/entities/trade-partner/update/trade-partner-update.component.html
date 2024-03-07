@@ -20,27 +20,13 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tenantId" for="field_tenantId">Tenant Id</label>
-          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
-          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
-            <div>
-              @if (editForm.get('tenantId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tpId" for="field_tpId">Tp Id</label>
+          <input type="number" class="form-control" name="tpId" id="field_tpId" data-cy="tpId" formControlName="tpId" />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tpId" for="field_tpId">Tp Id</label>
-          <input type="text" class="form-control" name="tpId" id="field_tpId" data-cy="tpId" formControlName="tpId" />
-          @if (editForm.get('tpId')!.invalid && (editForm.get('tpId')!.dirty || editForm.get('tpId')!.touched)) {
-            <div>
-              @if (editForm.get('tpId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tpUlidId" for="field_tpUlidId">Tp Ulid Id</label>
+          <input type="text" class="form-control" name="tpUlidId" id="field_tpUlidId" data-cy="tpUlidId" formControlName="tpUlidId" />
         </div>
 
         <div class="mb-3">
@@ -49,6 +35,18 @@
           @if (editForm.get('orgId')!.invalid && (editForm.get('orgId')!.dirty || editForm.get('orgId')!.touched)) {
             <div>
               @if (editForm.get('orgId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
             </div>
@@ -143,16 +141,16 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tradepartnerGST" for="field_tradepartnerGST"
-            >Tradepartner GST</label
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tradePartnerGST" for="field_tradePartnerGST"
+            >Trade Partner GST</label
           >
           <input
             type="text"
             class="form-control"
-            name="tradepartnerGST"
-            id="field_tradepartnerGST"
-            data-cy="tradepartnerGST"
-            formControlName="tradepartnerGST"
+            name="tradePartnerGST"
+            id="field_tradePartnerGST"
+            data-cy="tradePartnerGST"
+            formControlName="tradePartnerGST"
           />
         </div>
 
@@ -181,6 +179,18 @@
             id="field_acceptanceFromTradePartner"
             data-cy="acceptanceFromTradePartner"
             formControlName="acceptanceFromTradePartner"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.tradePartner.tosDocument" for="field_tosDocument">Tos Document</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tosDocument"
+            id="field_tosDocument"
+            data-cy="tosDocument"
+            formControlName="tosDocument"
           />
         </div>
       </div>

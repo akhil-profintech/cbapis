@@ -2,14 +2,14 @@ import NavbarItem from 'app/layouts/navbar/navbar-item.model';
 
 export const EntityNavbarItems: NavbarItem[] = [
   {
-    name: 'Context',
-    route: '/context',
-    translationKey: 'global.menu.entities.context',
-  },
-  {
     name: 'AnchorTrader',
     route: '/anchor-trader',
     translationKey: 'global.menu.entities.anchorTrader',
+  },
+  {
+    name: 'AnchorTraderPartner',
+    route: '/anchor-trader-partner',
+    translationKey: 'global.menu.entities.anchorTraderPartner',
   },
   {
     name: 'FinancePartner',
@@ -67,9 +67,9 @@ export const EntityNavbarItems: NavbarItem[] = [
     translationKey: 'global.menu.entities.fTTransactionDetails',
   },
   {
-    name: 'CollectionTransactionDetails',
-    route: '/collection-transaction-details',
-    translationKey: 'global.menu.entities.collectionTransactionDetails',
+    name: 'EscrowTransactionDetails',
+    route: '/escrow-transaction-details',
+    translationKey: 'global.menu.entities.escrowTransactionDetails',
   },
   {
     name: 'DocDetails',
@@ -152,6 +152,11 @@ export const EntityNavbarItems: NavbarItem[] = [
     translationKey: 'global.menu.entities.cREObservations',
   },
   {
+    name: 'Context',
+    route: '/context',
+    translationKey: 'global.menu.entities.context',
+  },
+  {
     name: 'Action',
     route: '/action',
     translationKey: 'global.menu.entities.action',
@@ -160,5 +165,35 @@ export const EntityNavbarItems: NavbarItem[] = [
     name: 'ClientCodes',
     route: '/client-codes',
     translationKey: 'global.menu.entities.clientCodes',
+  },
+  {
+    name: 'Organization',
+    route: '/organization',
+    translationKey: 'global.menu.entities.organization',
+  },
+  {
+    name: 'Gstin',
+    route: '/gstin',
+    translationKey: 'global.menu.entities.gstin',
+  },
+  {
+    name: 'TradeChannel',
+    route: '/trade-channel',
+    translationKey: 'global.menu.entities.tradeChannel',
+  },
+  {
+    name: 'FinanceRequestMapping',
+    route: '/finance-request-mapping',
+    translationKey: 'global.menu.entities.financeRequestMapping',
+  },
+  {
+    name: 'TenantDetails',
+    route: '/tenant-details',
+    translationKey: 'global.menu.entities.tenantDetails',
+  },
+  {
+    name: 'UserDtls',
+    route: '/user-dtls',
+    translationKey: 'global.menu.entities.userDtls',
   },
 ];

@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="participantSettlementUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.participantSettlementUlidId">Participant Settlement Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="participantId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.participantSettlement.participantId">Participant Id</span>
@@ -177,6 +184,7 @@
                 <a [routerLink]="['/participant-settlement', participantSettlement.id, 'view']">{{ participantSettlement.id }}</a>
               </td>
               <td>{{ participantSettlement.participantSettlementId }}</td>
+              <td>{{ participantSettlement.participantSettlementUlidId }}</td>
               <td>{{ participantSettlement.participantId }}</td>
               <td>{{ participantSettlement.participantName }}</td>
               <td>{{ participantSettlement.gstId }}</td>

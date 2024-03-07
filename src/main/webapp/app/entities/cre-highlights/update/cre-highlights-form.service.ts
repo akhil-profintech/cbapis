@@ -19,9 +19,9 @@ type CREHighlightsFormDefaults = Pick<NewCREHighlights, 'id'>;
 type CREHighlightsFormGroupContent = {
   id: FormControl<ICREHighlights['id'] | NewCREHighlights['id']>;
   creHighlightsId: FormControl<ICREHighlights['creHighlightsId']>;
+  creHighlightsUlidId: FormControl<ICREHighlights['creHighlightsUlidId']>;
   creRequestId: FormControl<ICREHighlights['creRequestId']>;
   highlights: FormControl<ICREHighlights['highlights']>;
-  cbcreprocess: FormControl<ICREHighlights['cbcreprocess']>;
   individualassessment: FormControl<ICREHighlights['individualassessment']>;
 };
 
@@ -42,12 +42,10 @@ export class CREHighlightsFormService {
           validators: [Validators.required],
         },
       ),
-      creHighlightsId: new FormControl(cREHighlightsRawValue.creHighlightsId, {
-        validators: [Validators.required],
-      }),
+      creHighlightsId: new FormControl(cREHighlightsRawValue.creHighlightsId),
+      creHighlightsUlidId: new FormControl(cREHighlightsRawValue.creHighlightsUlidId),
       creRequestId: new FormControl(cREHighlightsRawValue.creRequestId),
       highlights: new FormControl(cREHighlightsRawValue.highlights),
-      cbcreprocess: new FormControl(cREHighlightsRawValue.cbcreprocess),
       individualassessment: new FormControl(cREHighlightsRawValue.individualassessment),
     });
   }

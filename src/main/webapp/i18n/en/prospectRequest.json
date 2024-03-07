@@ -19,11 +19,11 @@
       },
       "id": "ID",
       "prospectRequestId": "Prospect Request Id",
+      "prospectRequestUlidId": "Prospect Request Ulid Id",
       "anchorTraderId": "Anchor Trader Id",
       "requestAmount": "Request Amount",
       "prospectRequestDate": "Prospect Request Date",
-      "currency": "Currency",
-      "financerequest": "Financerequest"
+      "currency": "Currency"
     }
   }
 }

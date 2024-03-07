@@ -20,18 +20,20 @@ describe('TradePartner Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
             tpId: expect.any(Object),
+            tpUlidId: expect.any(Object),
             orgId: expect.any(Object),
+            tenantId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),
             gstId: expect.any(Object),
             phoneNumber: expect.any(Object),
             tradePartnerName: expect.any(Object),
             location: expect.any(Object),
-            tradepartnerGST: expect.any(Object),
+            tradePartnerGST: expect.any(Object),
             tradePartnerSector: expect.any(Object),
             acceptanceFromTradePartner: expect.any(Object),
+            tosDocument: expect.any(Object),
           }),
         );
       });
@@ -42,18 +44,20 @@ describe('TradePartner Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
             tpId: expect.any(Object),
+            tpUlidId: expect.any(Object),
             orgId: expect.any(Object),
+            tenantId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),
             gstId: expect.any(Object),
             phoneNumber: expect.any(Object),
             tradePartnerName: expect.any(Object),
             location: expect.any(Object),
-            tradepartnerGST: expect.any(Object),
+            tradePartnerGST: expect.any(Object),
             tradePartnerSector: expect.any(Object),
             acceptanceFromTradePartner: expect.any(Object),
+            tosDocument: expect.any(Object),
           }),
         );
       });

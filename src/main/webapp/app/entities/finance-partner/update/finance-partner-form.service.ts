@@ -18,13 +18,15 @@ type FinancePartnerFormDefaults = Pick<NewFinancePartner, 'id'>;
 
 type FinancePartnerFormGroupContent = {
   id: FormControl<IFinancePartner['id'] | NewFinancePartner['id']>;
-  tenantId: FormControl<IFinancePartner['tenantId']>;
   fpId: FormControl<IFinancePartner['fpId']>;
+  fpUlidId: FormControl<IFinancePartner['fpUlidId']>;
+  tenantId: FormControl<IFinancePartner['tenantId']>;
   orgId: FormControl<IFinancePartner['orgId']>;
   customerName: FormControl<IFinancePartner['customerName']>;
   orgName: FormControl<IFinancePartner['orgName']>;
   gstId: FormControl<IFinancePartner['gstId']>;
   phoneNumber: FormControl<IFinancePartner['phoneNumber']>;
+  tosDocument: FormControl<IFinancePartner['tosDocument']>;
 };
 
 export type FinancePartnerFormGroup = FormGroup<FinancePartnerFormGroupContent>;
@@ -44,10 +46,9 @@ export class FinancePartnerFormService {
           validators: [Validators.required],
         },
       ),
+      fpId: new FormControl(financePartnerRawValue.fpId),
+      fpUlidId: new FormControl(financePartnerRawValue.fpUlidId),
       tenantId: new FormControl(financePartnerRawValue.tenantId, {
-        validators: [Validators.required],
-      }),
-      fpId: new FormControl(financePartnerRawValue.fpId, {
         validators: [Validators.required],
       }),
       orgId: new FormControl(financePartnerRawValue.orgId, {
@@ -65,6 +66,7 @@ export class FinancePartnerFormService {
       phoneNumber: new FormControl(financePartnerRawValue.phoneNumber, {
         validators: [Validators.required],
       }),
+      tosDocument: new FormControl(financePartnerRawValue.tosDocument),
     });
   }
 

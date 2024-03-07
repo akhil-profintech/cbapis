@@ -18,8 +18,8 @@
         "title": "Request Offer"
       },
       "id": "ID",
-      "reqOffId": "Req Off Id",
-      "requestOfferRefNo": "Request Offer Ref No",
+      "reqOffUlidId": "Req Off Ulid Id",
+      "reqOfferRefNo": "Req Offer Ref No",
       "offerValue": "Offer Value",
       "requestAmt": "Request Amt",
       "tradeValue": "Trade Value",
@@ -36,12 +36,11 @@
       "tradePartnerName": "Trade Partner Name",
       "anchorTraderGst": "Anchor Trader Gst",
       "tradePartnerGst": "Trade Partner Gst",
-      "sellerName": "Seller Name",
-      "buyerName": "Buyer Name",
-      "anchorTraderGstComplianceScore": "Anchor Trader Gst Compliance Score",
-      "anchorTraderErpPeerScore": "Anchor Trader Erp Peer Score",
+      "anchorTraderGSTComplianceScore": "Anchor Trader GST Compliance Score",
+      "anchorTraderGSTERPPeerScore": "Anchor Trader GSTERP Peer Score",
+      "sellerTradePerformanceIndex": "Seller Trade Performance Index",
       "financerequest": "Financerequest",
-      "cbcreprocess": "Cbcreprocess"
+      "financepartner": "Financepartner"
     }
   }
 }

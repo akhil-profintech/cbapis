@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="disbursementUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.disbursementUlidId">Disbursement Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="disbursementRefNo">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.disbursement.disbursementRefNo">Disbursement Ref No</span>
@@ -56,16 +63,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="acceptedOfferId">
+            <th scope="col" jhiSortBy="acceptedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.acceptedOfferId">Accepted Offer Id</span>
+                <span jhiTranslate="cbapisApp.disbursement.acceptedOfferUlidId">Accepted Offer Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="offerId">
+            <th scope="col" jhiSortBy="placedOfferUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.offerId">Offer Id</span>
+                <span jhiTranslate="cbapisApp.disbursement.placedOfferUlidId">Placed Offer Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="reqOffUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.disbursement.reqOffUlidId">Req Off Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -105,9 +119,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="dbmtstatus">
+            <th scope="col" jhiSortBy="dbmtStatus">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.dbmtstatus">Dbmtstatus</span>
+                <span jhiTranslate="cbapisApp.disbursement.dbmtStatus">Dbmt Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -115,20 +129,6 @@
             <th scope="col" jhiSortBy="offerStatus">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.disbursement.offerStatus">Offer Status</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="ftTrnxDetailsId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.ftTrnxDetailsId">Ft Trnx Details Id</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="collectionTrnxDetailsId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.collectionTrnxDetailsId">Collection Trnx Details Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -182,13 +182,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="ifscCode">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.disbursement.ifscCode">Ifsc Code</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="status">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.disbursement.status">Status</span>
@@ -203,7 +196,7 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.disbursement.financerequest">Financerequest</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
@@ -225,18 +218,18 @@
                 <a [routerLink]="['/disbursement', disbursement.id, 'view']">{{ disbursement.id }}</a>
               </td>
               <td>{{ disbursement.dbmtId }}</td>
+              <td>{{ disbursement.disbursementUlidId }}</td>
               <td>{{ disbursement.disbursementRefNo }}</td>
-              <td>{{ disbursement.acceptedOfferId }}</td>
-              <td>{{ disbursement.offerId }}</td>
+              <td>{{ disbursement.acceptedOfferUlidId }}</td>
+              <td>{{ disbursement.placedOfferUlidId }}</td>
+              <td>{{ disbursement.reqOffUlidId }}</td>
               <td>{{ disbursement.offerAcceptedDate | formatMediumDate }}</td>
               <td>{{ disbursement.dbmtRequestId }}</td>
               <td>{{ disbursement.dbmtReqAmount }}</td>
               <td>{{ disbursement.currency }}</td>
               <td>{{ disbursement.dbmtRequestDate | formatMediumDate }}</td>
-              <td>{{ disbursement.dbmtstatus }}</td>
+              <td>{{ disbursement.dbmtStatus }}</td>
               <td>{{ disbursement.offerStatus }}</td>
-              <td>{{ disbursement.ftTrnxDetailsId }}</td>
-              <td>{{ disbursement.collectionTrnxDetailsId }}</td>
               <td>{{ disbursement.docId }}</td>
               <td>{{ disbursement.dbmtDateTime }}</td>
               <td>{{ disbursement.dbmtAmount }}</td>
@@ -244,14 +237,13 @@
               <td>{{ disbursement.amountToBeDisbursed }}</td>
               <td>{{ disbursement.destinationAccountName }}</td>
               <td>{{ disbursement.destinationAccountNumber }}</td>
-              <td>{{ disbursement.ifscCode }}</td>
               <td>{{ disbursement.status }}</td>
               <td>{{ disbursement.actionByDate }}</td>
               <td>
                 @if (disbursement.financerequest) {
                   <div>
                     <a [routerLink]="['/finance-request', disbursement.financerequest.id, 'view']">{{
-                      disbursement.financerequest.requestId
+                      disbursement.financerequest.financeRequestId
                     }}</a>
                   </div>
                 }

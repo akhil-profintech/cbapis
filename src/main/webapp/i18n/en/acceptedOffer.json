@@ -18,9 +18,9 @@
         "title": "Accepted Offer"
       },
       "id": "ID",
-      "offerId": "Offer Id",
+      "acceptedOfferUlidId": "Accepted Offer Ulid Id",
       "acceptedOfferRefNo": "Accepted Offer Ref No",
-      "reqOffId": "Req Off Id",
+      "reqOffUlidId": "Req Off Ulid Id",
       "value": "Value",
       "reqAmount": "Req Amount",
       "marginPtg": "Margin Ptg",
@@ -34,8 +34,8 @@
       "offerDate": "Offer Date",
       "offerAcceptedDate": "Offer Accepted Date",
       "financerequest": "Financerequest",
-      "financepartner": "Financepartner",
-      "anchortrader": "Anchortrader"
+      "anchortrader": "Anchortrader",
+      "financepartner": "Financepartner"
     }
   }
 }

@@ -18,8 +18,8 @@ type TradeFormDefaults = Pick<NewTrade, 'id'>;
 
 type TradeFormGroupContent = {
   id: FormControl<ITrade['id'] | NewTrade['id']>;
-  tradeId: FormControl<ITrade['tradeId']>;
-  tradeRefNumber: FormControl<ITrade['tradeRefNumber']>;
+  tradeUlidId: FormControl<ITrade['tradeUlidId']>;
+  tradeRefNo: FormControl<ITrade['tradeRefNo']>;
   sellerGstId: FormControl<ITrade['sellerGstId']>;
   buyerGstId: FormControl<ITrade['buyerGstId']>;
   tradeAmount: FormControl<ITrade['tradeAmount']>;
@@ -39,8 +39,8 @@ type TradeFormGroupContent = {
   tradePartnerLocation: FormControl<ITrade['tradePartnerLocation']>;
   tradePartnerGstComplianceScore: FormControl<ITrade['tradePartnerGstComplianceScore']>;
   financerequest: FormControl<ITrade['financerequest']>;
-  tradepartner: FormControl<ITrade['tradepartner']>;
   anchortrader: FormControl<ITrade['anchortrader']>;
+  tradepartner: FormControl<ITrade['tradepartner']>;
 };
 
 export type TradeFormGroup = FormGroup<TradeFormGroupContent>;
@@ -60,8 +60,8 @@ export class TradeFormService {
           validators: [Validators.required],
         },
       ),
-      tradeId: new FormControl(tradeRawValue.tradeId),
-      tradeRefNumber: new FormControl(tradeRawValue.tradeRefNumber),
+      tradeUlidId: new FormControl(tradeRawValue.tradeUlidId),
+      tradeRefNo: new FormControl(tradeRawValue.tradeRefNo),
       sellerGstId: new FormControl(tradeRawValue.sellerGstId),
       buyerGstId: new FormControl(tradeRawValue.buyerGstId),
       tradeAmount: new FormControl(tradeRawValue.tradeAmount),
@@ -81,8 +81,8 @@ export class TradeFormService {
       tradePartnerLocation: new FormControl(tradeRawValue.tradePartnerLocation),
       tradePartnerGstComplianceScore: new FormControl(tradeRawValue.tradePartnerGstComplianceScore),
       financerequest: new FormControl(tradeRawValue.financerequest),
-      tradepartner: new FormControl(tradeRawValue.tradepartner),
       anchortrader: new FormControl(tradeRawValue.anchortrader),
+      tradepartner: new FormControl(tradeRawValue.tradepartner),
     });
   }
 

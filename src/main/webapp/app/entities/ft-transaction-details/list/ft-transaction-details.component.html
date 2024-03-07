@@ -42,16 +42,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="trnxDetailsId">
+            <th scope="col" jhiSortBy="ftTrnxDetailsId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.fTTransactionDetails.trnxDetailsId">Trnx Details Id</span>
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsId">Ft Trnx Details Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="transactionID">
+            <th scope="col" jhiSortBy="ftTrnxDetailsUlid">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionID">Transaction ID</span>
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.ftTrnxDetailsUlid">Ft Trnx Details Ulid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.transactionId">Transaction Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -168,21 +175,21 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="disbursement.ftTrnxDetailsId">
+            <th scope="col" jhiSortBy="participantsettlement.participantSettlementId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="disbursement.dbmtId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.fTTransactionDetails.disbursement">Disbursement</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="repayment.ftTrnxDetailsId">
+            <th scope="col" jhiSortBy="repayment.repaymentId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.fTTransactionDetails.repayment">Repayment</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="participantsettlement.participantSettlementId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.fTTransactionDetails.participantsettlement">Participantsettlement</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -195,8 +202,9 @@
               <td>
                 <a [routerLink]="['/ft-transaction-details', fTTransactionDetails.id, 'view']">{{ fTTransactionDetails.id }}</a>
               </td>
-              <td>{{ fTTransactionDetails.trnxDetailsId }}</td>
-              <td>{{ fTTransactionDetails.transactionID }}</td>
+              <td>{{ fTTransactionDetails.ftTrnxDetailsId }}</td>
+              <td>{{ fTTransactionDetails.ftTrnxDetailsUlid }}</td>
+              <td>{{ fTTransactionDetails.transactionId }}</td>
               <td>{{ fTTransactionDetails.debitAccountNumber }}</td>
               <td>{{ fTTransactionDetails.creditAccountNumber }}</td>
               <td>{{ fTTransactionDetails.remitterName }}</td>
@@ -214,10 +222,19 @@
               <td>{{ fTTransactionDetails.trnxMetaDataStatus }}</td>
               <td>{{ fTTransactionDetails.transactionDateTime }}</td>
               <td>
+                @if (fTTransactionDetails.participantsettlement) {
+                  <div>
+                    <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
+                      fTTransactionDetails.participantsettlement.participantSettlementId
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td>
                 @if (fTTransactionDetails.disbursement) {
                   <div>
                     <a [routerLink]="['/disbursement', fTTransactionDetails.disbursement.id, 'view']">{{
-                      fTTransactionDetails.disbursement.ftTrnxDetailsId
+                      fTTransactionDetails.disbursement.dbmtId
                     }}</a>
                   </div>
                 }
@@ -226,16 +243,7 @@
                 @if (fTTransactionDetails.repayment) {
                   <div>
                     <a [routerLink]="['/repayment', fTTransactionDetails.repayment.id, 'view']">{{
-                      fTTransactionDetails.repayment.ftTrnxDetailsId
-                    }}</a>
-                  </div>
-                }
-              </td>
-              <td>
-                @if (fTTransactionDetails.participantsettlement) {
-                  <div>
-                    <a [routerLink]="['/participant-settlement', fTTransactionDetails.participantsettlement.id, 'view']">{{
-                      fTTransactionDetails.participantsettlement.participantSettlementId
+                      fTTransactionDetails.repayment.repaymentId
                     }}</a>
                   </div>
                 }

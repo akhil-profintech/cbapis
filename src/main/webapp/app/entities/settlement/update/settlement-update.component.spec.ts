@@ -50,10 +50,10 @@ describe('Settlement Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const settlement: ISettlement = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 12633 };
+      const financerequest: IFinanceRequest = { id: 11645 };
       settlement.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 13706 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 9848 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -72,7 +72,7 @@ describe('Settlement Management Update Component', () => {
 
     it('Should update editForm', () => {
       const settlement: ISettlement = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 11303 };
+      const financerequest: IFinanceRequest = { id: 17413 };
       settlement.financerequest = financerequest;
 
       activatedRoute.data = of({ settlement });

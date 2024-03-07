@@ -1,11 +1,11 @@
-id;offer_id;accepted_offer_ref_no;req_off_id;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;status;offer_date;offer_accepted_date
-1;weary youthfully;lest needy against;30478;14442;1641;19364.79;23177;28474;13293.31;31024;12529;13627;ultimately huzzah yowza;2023-12-28;2023-12-28
-2;beautifully pfft moisturize;stucco garden;9939;18745;14301;10465.88;8384;7482;9473.64;11185;5980;25651;tenderly forecast;2023-12-27;2023-12-28
-3;jovially herb wild;who;12111;25997;4925;1980.89;18837;3784;20552.09;8258;17044;18940;hungry altitude;2023-12-27;2023-12-27
-4;eliminate;stealthily baggage patiently;12875;9627;32321;12467.08;17731;25854;378.3;23544;9948;22323;arrogantly unlike;2023-12-28;2023-12-28
-5;relapse abound;stem infantile;5978;9759;7090;22881.69;6113;20245;2503.3;30870;24319;27360;bah;2023-12-28;2023-12-28
-6;once;longingly;7582;16772;26096;29144.44;339;25587;14449.62;10857;14267;11313;bathrobe forenenst;2023-12-28;2023-12-28
-7;toga suit phew;putrid when angrily;214;15092;3715;14356.01;31406;17845;28924.82;13530;3288;23571;when;2023-12-27;2023-12-27
-8;digit;dawdle gadzooks;26961;12062;23589;13261.5;12841;15717;4251.09;20989;24208;8980;tan expiate tall;2023-12-28;2023-12-28
-9;hm intentional tag;including change;15891;23230;7907;21365.41;21259;3953;16123.22;16524;1344;25003;coleslaw gee yippee;2023-12-28;2023-12-28
-10;whose;since insubstantial billow;28567;28153;25148;11992.08;9167;21558;5372.75;19884;23217;13185;amid lest;2023-12-27;2023-12-28
+id;accepted_offer_ulid_id;accepted_offer_ref_no;req_off_ulid_id;value;req_amount;margin_ptg;margin_value;amount_aft_margin;interest_ptg;term;interest_value;net_amount;status;offer_date;offer_accepted_date
+1;weary youthfully;lest needy against;weakly after huzzah;12014;31906;5068.98;8757;28942;29877.43;18656;110;21473;trail;2024-03-06;2024-03-06
+2;pfft;midst;glug;10692;20914;2719.08;27776;26865;12306.08;9939;18745;14301;supposing;2024-03-06;2024-03-06
+3;instead;swat among really;per;1725;28528;2316.53;18388;5770;30172.64;12111;25997;4925;including;2024-03-05;2024-03-05
+4;ew fooey eliminate;stealthily baggage patiently;rain oh;9374;6548;1298.32;15735;7143;4073.24;5048;7182;15967;gosh grey ack;2024-03-06;2024-03-05
+5;periodic otter;now;apud;25591;27470;12265.61;12491;11254;16638.29;127;26126;29676;where fine ugh;2024-03-06;2024-03-05
+6;furthermore;toga suit phew;putrid when angrily;214;15092;3715.3;14356;31406;17844.57;28925;13530;3288;modulo externalize anenst;2024-03-06;2024-03-05
+7;over despite;connect duh;yahoo;31781;28668;24350.07;27287;16366;17721.38;27582;29132;26631;shell dismal;2024-03-05;2024-03-05
+8;spiffy ham;cake cause;failing cabinet fooey;7943;20409;13095.8;5674;17128;8097.55;30878;28190;4888;where;2024-03-06;2024-03-06
+9;ornate fully;indeed bonsai;millstone culminate;12012;12318;9395.23;25908;16214;24949.07;27465;16003;15355;quaint role;2024-03-05;2024-03-06
+10;alongside only;cleat deafening;once reword on;20090;9313;15931.74;28957;28592;14743.16;18840;14933;27057;subscribe;2024-03-06;2024-03-05

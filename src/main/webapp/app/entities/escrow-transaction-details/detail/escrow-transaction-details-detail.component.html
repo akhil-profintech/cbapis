@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (escrowTransactionDetails) {
+      <div>
+        <h2 data-cy="escrowTransactionDetailsDetailsHeading">
+          <span jhiTranslate="cbapisApp.escrowTransactionDetails.detail.title">Escrow Transaction Details</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsId">Escrow Trnx Details Id</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.escrowTrnxDetailsId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.escrowTrnxDetailsUlidId">Escrow Trnx Details Ulid Id</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.escrowTrnxDetailsUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.customerCode">Customer Code</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.customerCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.customerName">Customer Name</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.customerName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.productCode">Product Code</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.productCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.transactionType">Transaction Type</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.transactionType }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmt">Batch Amt</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.batchAmt }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.batchAmtCcd">Batch Amt Ccd</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.batchAmtCcd }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.creditDate">Credit Date</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.creditDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.vaNumber">Va Number</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.vaNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.utrNo">Utr No</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.utrNo }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.creditGenerationTime">Credit Generation Time</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.creditGenerationTime }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.remitterName">Remitter Name</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.remitterName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.remitterAccountNumber">Remitter Account Number</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.remitterAccountNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.ifscCode">Ifsc Code</span></dt>
+          <dd>
+            <span>{{ escrowTransactionDetails.ifscCode }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.disbursement">Disbursement</span></dt>
+          <dd>
+            @if (escrowTransactionDetails.disbursement) {
+              <div>
+                <a [routerLink]="['/disbursement', escrowTransactionDetails.disbursement.id, 'view']">{{
+                  escrowTransactionDetails.disbursement.dbmtId
+                }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.escrowTransactionDetails.repayment">Repayment</span></dt>
+          <dd>
+            @if (escrowTransactionDetails.repayment) {
+              <div>
+                <a [routerLink]="['/repayment', escrowTransactionDetails.repayment.id, 'view']">{{
+                  escrowTransactionDetails.repayment.repaymentId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/escrow-transaction-details', escrowTransactionDetails.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

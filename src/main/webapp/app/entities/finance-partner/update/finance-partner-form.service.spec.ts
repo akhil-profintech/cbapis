@@ -20,13 +20,15 @@ describe('FinancePartner Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
             fpId: expect.any(Object),
+            fpUlidId: expect.any(Object),
+            tenantId: expect.any(Object),
             orgId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),
             gstId: expect.any(Object),
             phoneNumber: expect.any(Object),
+            tosDocument: expect.any(Object),
           }),
         );
       });
@@ -37,13 +39,15 @@ describe('FinancePartner Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tenantId: expect.any(Object),
             fpId: expect.any(Object),
+            fpUlidId: expect.any(Object),
+            tenantId: expect.any(Object),
             orgId: expect.any(Object),
             customerName: expect.any(Object),
             orgName: expect.any(Object),
             gstId: expect.any(Object),
             phoneNumber: expect.any(Object),
+            tosDocument: expect.any(Object),
           }),
         );
       });

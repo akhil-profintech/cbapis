@@ -19,6 +19,7 @@
       },
       "id": "ID",
       "financeRequestId": "Finance Request Id",
+      "financeRequestMappingUlidId": "Finance Request Mapping Ulid Id",
       "anchorTraderId": "Anchor Trader Id",
       "financePartnerId": "Finance Partner Id",
       "anchorTraderTenantId": "Anchor Trader Tenant Id",

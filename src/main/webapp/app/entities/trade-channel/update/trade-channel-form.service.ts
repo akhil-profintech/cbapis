@@ -18,7 +18,7 @@ type TradeChannelFormDefaults = Pick<NewTradeChannel, 'id'>;
 
 type TradeChannelFormGroupContent = {
   id: FormControl<ITradeChannel['id'] | NewTradeChannel['id']>;
-  tradeChannelId: FormControl<ITradeChannel['tradeChannelId']>;
+  tradeChannelUlidId: FormControl<ITradeChannel['tradeChannelUlidId']>;
   anchorTraderId: FormControl<ITradeChannel['anchorTraderId']>;
   tradePartnerId: FormControl<ITradeChannel['tradePartnerId']>;
   financePartnerId: FormControl<ITradeChannel['financePartnerId']>;
@@ -44,7 +44,7 @@ export class TradeChannelFormService {
           validators: [Validators.required],
         },
       ),
-      tradeChannelId: new FormControl(tradeChannelRawValue.tradeChannelId),
+      tradeChannelUlidId: new FormControl(tradeChannelRawValue.tradeChannelUlidId),
       anchorTraderId: new FormControl(tradeChannelRawValue.anchorTraderId),
       tradePartnerId: new FormControl(tradeChannelRawValue.tradePartnerId),
       financePartnerId: new FormControl(tradeChannelRawValue.financePartnerId),

@@ -1,7 +1,7 @@
 export interface ICreditBazaarIntegrator {
   id: number;
+  integratorUlidId?: string | null;
   tenantId?: string | null;
-  integratorId?: string | null;
   orgId?: string | null;
   customerName?: string | null;
   orgName?: string | null;

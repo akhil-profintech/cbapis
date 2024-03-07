@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (anchorTraderPartner) {
+      <div>
+        <h2 data-cy="anchorTraderPartnerDetailsHeading">
+          <span jhiTranslate="cbapisApp.anchorTraderPartner.detail.title">Anchor Trader Partner</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.atpartnerId">Atpartner Id</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.atpartnerId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.atpartnerUlidId">Atpartner Ulid Id</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.atpartnerUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.pan">Pan</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.pan }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.panStatus">Pan Status</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.panStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.name">Name</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.aadhar">Aadhar</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.aadhar }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.aadharOtp">Aadhar Otp</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.aadharOtp }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.aadharStatus">Aadhar Status</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.aadharStatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.aadharName">Aadhar Name</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.aadharName }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.aadharAddress">Aadhar Address</span></dt>
+          <dd>
+            <span>{{ anchorTraderPartner.aadharAddress }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.anchorTraderPartner.anchortrader">Anchortrader</span></dt>
+          <dd>
+            @if (anchorTraderPartner.anchortrader) {
+              <div>
+                <a [routerLink]="['/anchor-trader', anchorTraderPartner.anchortrader.id, 'view']">{{
+                  anchorTraderPartner.anchortrader.atId
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/anchor-trader-partner', anchorTraderPartner.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

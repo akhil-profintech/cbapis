@@ -19,17 +19,21 @@
           <dd>
             <span>{{ cBCREProcess.cbProcessId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.cBCREProcess.financeRequestId">Finance Request Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cbProcessUlidId">Cb Process Ulid Id</span></dt>
           <dd>
-            <span>{{ cBCREProcess.financeRequestId }}</span>
+            <span>{{ cBCREProcess.cbProcessUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cbProcessRefNo">Cb Process Ref No</span></dt>
+          <dd>
+            <span>{{ cBCREProcess.cbProcessRefNo }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.cBCREProcess.anchorTraderId">Anchor Trader Id</span></dt>
           <dd>
             <span>{{ cBCREProcess.anchorTraderId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.cBCREProcess.anchortTraderGst">Anchort Trader Gst</span></dt>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.anchorTraderGst">Anchor Trader Gst</span></dt>
           <dd>
-            <span>{{ cBCREProcess.anchortTraderGst }}</span>
+            <span>{{ cBCREProcess.anchorTraderGst }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.cBCREProcess.financeAmount">Finance Amount</span></dt>
           <dd>
@@ -51,9 +55,9 @@
           <dd>
             <span>{{ cBCREProcess.creRequestId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cumilativetradescore">Cumilativetradescore</span></dt>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.cumilativeTradeScore">Cumilative Trade Score</span></dt>
           <dd>
-            <span>{{ cBCREProcess.cumilativetradescore }}</span>
+            <span>{{ cBCREProcess.cumilativeTradeScore }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.cBCREProcess.timestamp">Timestamp</span></dt>
           <dd>
@@ -66,6 +70,16 @@
           <dt><span jhiTranslate="cbapisApp.cBCREProcess.totalInvoiceAmount">Total Invoice Amount</span></dt>
           <dd>
             <span>{{ cBCREProcess.totalInvoiceAmount }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.cBCREProcess.financeRequest">Finance Request</span></dt>
+          <dd>
+            @if (cBCREProcess.financeRequest) {
+              <div>
+                <a [routerLink]="['/finance-request', cBCREProcess.financeRequest.id, 'view']">{{
+                  cBCREProcess.financeRequest.financeRequestId
+                }}</a>
+              </div>
+            }
           </dd>
         </dl>
 

@@ -19,14 +19,13 @@
       },
       "id": "ID",
       "escrowDetailsId": "Escrow Details Id",
+      "escrowDetailsUlidId": "Escrow Details Ulid Id",
       "tenantId": "Tenant Id",
       "customerId": "Customer Id",
       "accName": "Acc Name",
       "ifscCode": "Ifsc Code",
       "virtualAccNumber": "Virtual Acc Number",
-      "poolingAccNumber": "Pooling Acc Number",
-      "disbursement": "Disbursement",
-      "repayment": "Repayment"
+      "poolingAccNumber": "Pooling Acc Number"
     }
   }
 }

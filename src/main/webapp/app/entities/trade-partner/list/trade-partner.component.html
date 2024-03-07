@@ -42,13 +42,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tenantId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.tradePartner.tenantId">Tenant Id</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="tpId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.tradePartner.tpId">Tp Id</span>
@@ -56,9 +49,23 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="tpUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tpUlidId">Tp Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="orgId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.tradePartner.orgId">Org Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tenantId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tenantId">Tenant Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -105,9 +112,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tradepartnerGST">
+            <th scope="col" jhiSortBy="tradePartnerGST">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.tradePartner.tradepartnerGST">Tradepartner GST</span>
+                <span jhiTranslate="cbapisApp.tradePartner.tradePartnerGST">Trade Partner GST</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -126,6 +133,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="tosDocument">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.tradePartner.tosDocument">Tos Document</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -135,18 +149,20 @@
               <td>
                 <a [routerLink]="['/trade-partner', tradePartner.id, 'view']">{{ tradePartner.id }}</a>
               </td>
-              <td>{{ tradePartner.tenantId }}</td>
               <td>{{ tradePartner.tpId }}</td>
+              <td>{{ tradePartner.tpUlidId }}</td>
               <td>{{ tradePartner.orgId }}</td>
+              <td>{{ tradePartner.tenantId }}</td>
               <td>{{ tradePartner.customerName }}</td>
               <td>{{ tradePartner.orgName }}</td>
               <td>{{ tradePartner.gstId }}</td>
               <td>{{ tradePartner.phoneNumber }}</td>
               <td>{{ tradePartner.tradePartnerName }}</td>
               <td>{{ tradePartner.location }}</td>
-              <td>{{ tradePartner.tradepartnerGST }}</td>
+              <td>{{ tradePartner.tradePartnerGST }}</td>
               <td>{{ tradePartner.tradePartnerSector }}</td>
               <td>{{ tradePartner.acceptanceFromTradePartner }}</td>
+              <td>{{ tradePartner.tosDocument }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a [routerLink]="['/trade-partner', tradePartner.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

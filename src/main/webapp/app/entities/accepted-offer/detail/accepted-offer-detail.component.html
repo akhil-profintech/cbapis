@@ -15,17 +15,17 @@
           <dd>
             <span>{{ acceptedOffer.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.acceptedOffer.offerId">Offer Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferUlidId">Accepted Offer Ulid Id</span></dt>
           <dd>
-            <span>{{ acceptedOffer.offerId }}</span>
+            <span>{{ acceptedOffer.acceptedOfferUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.acceptedOffer.acceptedOfferRefNo">Accepted Offer Ref No</span></dt>
           <dd>
             <span>{{ acceptedOffer.acceptedOfferRefNo }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.acceptedOffer.reqOffId">Req Off Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.reqOffUlidId">Req Off Ulid Id</span></dt>
           <dd>
-            <span>{{ acceptedOffer.reqOffId }}</span>
+            <span>{{ acceptedOffer.reqOffUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.acceptedOffer.value">Value</span></dt>
           <dd>
@@ -80,16 +80,8 @@
             @if (acceptedOffer.financerequest) {
               <div>
                 <a [routerLink]="['/finance-request', acceptedOffer.financerequest.id, 'view']">{{
-                  acceptedOffer.financerequest.requestId
+                  acceptedOffer.financerequest.financeRequestId
                 }}</a>
-              </div>
-            }
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span></dt>
-          <dd>
-            @if (acceptedOffer.financepartner) {
-              <div>
-                <a [routerLink]="['/finance-partner', acceptedOffer.financepartner.id, 'view']">{{ acceptedOffer.financepartner.fpId }}</a>
               </div>
             }
           </dd>
@@ -98,6 +90,14 @@
             @if (acceptedOffer.anchortrader) {
               <div>
                 <a [routerLink]="['/anchor-trader', acceptedOffer.anchortrader.id, 'view']">{{ acceptedOffer.anchortrader.atId }}</a>
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.acceptedOffer.financepartner">Financepartner</span></dt>
+          <dd>
+            @if (acceptedOffer.financepartner) {
+              <div>
+                <a [routerLink]="['/finance-partner', acceptedOffer.financepartner.id, 'view']">{{ acceptedOffer.financepartner.fpId }}</a>
               </div>
             }
           </dd>

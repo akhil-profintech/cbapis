@@ -1,6 +1,6 @@
 export interface ITenantDetails {
   id: number;
-  tenantId?: string | null;
+  tenantUlidId?: string | null;
   tenantSchema?: string | null;
 }
 

@@ -50,10 +50,10 @@ describe('InstaAlert Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call TradeEntity query and add missing value', () => {
       const instaAlert: IInstaAlert = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 2999 };
+      const tradeEntity: ITradeEntity = { id: 25813 };
       instaAlert.tradeEntity = tradeEntity;
 
-      const tradeEntityCollection: ITradeEntity[] = [{ id: 25813 }];
+      const tradeEntityCollection: ITradeEntity[] = [{ id: 11173 }];
       jest.spyOn(tradeEntityService, 'query').mockReturnValue(of(new HttpResponse({ body: tradeEntityCollection })));
       const additionalTradeEntities = [tradeEntity];
       const expectedCollection: ITradeEntity[] = [...additionalTradeEntities, ...tradeEntityCollection];
@@ -72,7 +72,7 @@ describe('InstaAlert Management Update Component', () => {
 
     it('Should update editForm', () => {
       const instaAlert: IInstaAlert = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 11173 };
+      const tradeEntity: ITradeEntity = { id: 1596 };
       instaAlert.tradeEntity = tradeEntity;
 
       activatedRoute.data = of({ instaAlert });

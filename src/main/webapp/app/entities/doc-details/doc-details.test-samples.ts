@@ -1,8 +1,7 @@
 import { IDocDetails, NewDocDetails } from './doc-details.model';
 
 export const sampleWithRequiredData: IDocDetails = {
-  id: 7401,
-  docDetailsId: 7742,
+  id: 7742,
   docRecordId: 16752,
   link: 'eyelash tremendously sunlamp',
   description: 'hm exhilarate',
@@ -11,32 +10,31 @@ export const sampleWithRequiredData: IDocDetails = {
 };
 
 export const sampleWithPartialData: IDocDetails = {
-  id: 28838,
-  docDetailsId: 25039,
-  docRecordId: 2379,
-  link: 'after',
-  description: 'besides',
-  docType: 'boldly despite ick',
-  status: 'lost certainly optimistically',
+  id: 2379,
+  docRecordId: 10845,
+  link: 'yum besides elastic',
+  description: 'despite',
+  docType: 'over',
+  status: 'monumental if',
 };
 
 export const sampleWithFullData: IDocDetails = {
-  id: 29419,
-  docDetailsId: 27951,
-  docRecordId: 32068,
-  link: 'kooky',
-  description: 'odd ha incidentally',
-  docType: 'mockingly',
-  status: 'viciously very',
+  id: 27025,
+  docDetailsId: 30305,
+  docDetailsUlidId: 'back kooky',
+  docRecordId: 31566,
+  link: 'alarming',
+  description: 'of duh',
+  docType: 'mandate the',
+  status: 'impartial',
 };
 
 export const sampleWithNewData: NewDocDetails = {
-  docDetailsId: 29849,
-  docRecordId: 13627,
-  link: 'but blue',
-  description: 'stab',
-  docType: 'really crossly subroutine',
-  status: 'but bah batting',
+  docRecordId: 19452,
+  link: 'meh certainly stab',
+  description: 'really crossly subroutine',
+  docType: 'but bah batting',
+  status: 'ack psst stomach',
   id: null,
 };
 

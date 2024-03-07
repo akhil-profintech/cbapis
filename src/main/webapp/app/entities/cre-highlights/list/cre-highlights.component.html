@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="creHighlightsUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREHighlights.creHighlightsUlidId">Cre Highlights Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="creRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.cREHighlights.creRequestId">Cre Request Id</span>
@@ -60,12 +67,6 @@
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.cREHighlights.highlights">Highlights</span>
 
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.cREHighlights.cbcreprocess">Cbcreprocess</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -85,17 +86,9 @@
                 <a [routerLink]="['/cre-highlights', cREHighlights.id, 'view']">{{ cREHighlights.id }}</a>
               </td>
               <td>{{ cREHighlights.creHighlightsId }}</td>
+              <td>{{ cREHighlights.creHighlightsUlidId }}</td>
               <td>{{ cREHighlights.creRequestId }}</td>
               <td>{{ cREHighlights.highlights }}</td>
-              <td>
-                @if (cREHighlights.cbcreprocess) {
-                  <div>
-                    <a [routerLink]="['/cbcre-process', cREHighlights.cbcreprocess.id, 'view']">{{
-                      cREHighlights.cbcreprocess.cbProcessId
-                    }}</a>
-                  </div>
-                }
-              </td>
               <td>
                 @if (cREHighlights.individualassessment) {
                   <div>

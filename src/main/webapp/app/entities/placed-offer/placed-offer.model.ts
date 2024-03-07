@@ -4,9 +4,9 @@ import { IFinancePartner } from 'app/entities/finance-partner/finance-partner.mo
 
 export interface IPlacedOffer {
   id: number;
-  reqOffId?: string | null;
-  placedOfferId?: string | null;
+  placedOfferUlidId?: string | null;
   placedOfferRefNo?: string | null;
+  reqOffUlidId?: string | null;
   requestOfferRefNo?: string | null;
   value?: number | null;
   reqAmount?: number | null;
@@ -17,14 +17,13 @@ export interface IPlacedOffer {
   term?: number | null;
   interestValue?: number | null;
   netAmount?: number | null;
+  status?: string | null;
   offerDate?: dayjs.Dayjs | null;
-  requestId?: string | null;
   placedOfferDate?: dayjs.Dayjs | null;
   anchorTrader?: string | null;
   tradePartner?: string | null;
   disbursalAmount?: string | null;
-  status?: string | null;
-  financerequest?: Pick<IFinanceRequest, 'id' | 'requestId'> | null;
+  financerequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
   financepartner?: Pick<IFinancePartner, 'id' | 'fpId'> | null;
 }
 

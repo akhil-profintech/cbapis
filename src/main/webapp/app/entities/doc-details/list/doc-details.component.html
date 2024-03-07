@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="docDetailsUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.docDetails.docDetailsUlidId">Doc Details Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="docRecordId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.docDetails.docRecordId">Doc Record Id</span>
@@ -84,21 +91,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="disbursement.dbmtRequestId">
+            <th scope="col" jhiSortBy="financeRequest.financeRequestId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.docDetails.disbursement">Disbursement</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="repayment.repaymentId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.docDetails.repayment">Repayment</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="participantsettlement.participantSettlementId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.docDetails.participantsettlement">Participantsettlement</span>
+                <span jhiTranslate="cbapisApp.docDetails.financeRequest">Finance Request</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -112,30 +107,17 @@
                 <a [routerLink]="['/doc-details', docDetails.id, 'view']">{{ docDetails.id }}</a>
               </td>
               <td>{{ docDetails.docDetailsId }}</td>
+              <td>{{ docDetails.docDetailsUlidId }}</td>
               <td>{{ docDetails.docRecordId }}</td>
               <td>{{ docDetails.link }}</td>
               <td>{{ docDetails.description }}</td>
               <td>{{ docDetails.docType }}</td>
               <td>{{ docDetails.status }}</td>
               <td>
-                @if (docDetails.disbursement) {
+                @if (docDetails.financeRequest) {
                   <div>
-                    <a [routerLink]="['/disbursement', docDetails.disbursement.id, 'view']">{{ docDetails.disbursement.dbmtRequestId }}</a>
-                  </div>
-                }
-              </td>
-              <td>
-                @if (docDetails.repayment) {
-                  <div>
-                    <a [routerLink]="['/repayment', docDetails.repayment.id, 'view']">{{ docDetails.repayment.repaymentId }}</a>
-                  </div>
-                }
-              </td>
-              <td>
-                @if (docDetails.participantsettlement) {
-                  <div>
-                    <a [routerLink]="['/participant-settlement', docDetails.participantsettlement.id, 'view']">{{
-                      docDetails.participantsettlement.participantSettlementId
+                    <a [routerLink]="['/finance-request', docDetails.financeRequest.id, 'view']">{{
+                      docDetails.financeRequest.financeRequestId
                     }}</a>
                   </div>
                 }

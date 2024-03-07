@@ -21,9 +21,9 @@ describe('CREHighlights Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             creHighlightsId: expect.any(Object),
+            creHighlightsUlidId: expect.any(Object),
             creRequestId: expect.any(Object),
             highlights: expect.any(Object),
-            cbcreprocess: expect.any(Object),
             individualassessment: expect.any(Object),
           }),
         );
@@ -36,9 +36,9 @@ describe('CREHighlights Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             creHighlightsId: expect.any(Object),
+            creHighlightsUlidId: expect.any(Object),
             creRequestId: expect.any(Object),
             highlights: expect.any(Object),
-            cbcreprocess: expect.any(Object),
             individualassessment: expect.any(Object),
           }),
         );

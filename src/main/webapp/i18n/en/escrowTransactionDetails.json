@@ -1,0 +1,40 @@
+{
+  "cbapisApp": {
+    "escrowTransactionDetails": {
+      "home": {
+        "title": "Escrow Transaction Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Escrow Transaction Details",
+        "createOrEditLabel": "Create or edit a Escrow Transaction Details",
+        "notFound": "No Escrow Transaction Details found"
+      },
+      "created": "A new Escrow Transaction Details is created with identifier {{ param }}",
+      "updated": "A Escrow Transaction Details is updated with identifier {{ param }}",
+      "deleted": "A Escrow Transaction Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Escrow Transaction Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Escrow Transaction Details"
+      },
+      "id": "ID",
+      "escrowTrnxDetailsId": "Escrow Trnx Details Id",
+      "escrowTrnxDetailsUlidId": "Escrow Trnx Details Ulid Id",
+      "customerCode": "Customer Code",
+      "customerName": "Customer Name",
+      "productCode": "Product Code",
+      "transactionType": "Transaction Type",
+      "batchAmt": "Batch Amt",
+      "batchAmtCcd": "Batch Amt Ccd",
+      "creditDate": "Credit Date",
+      "vaNumber": "Va Number",
+      "utrNo": "Utr No",
+      "creditGenerationTime": "Credit Generation Time",
+      "remitterName": "Remitter Name",
+      "remitterAccountNumber": "Remitter Account Number",
+      "ifscCode": "Ifsc Code",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment"
+    }
+  }
+}

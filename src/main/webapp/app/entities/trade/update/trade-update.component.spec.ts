@@ -8,10 +8,10 @@ import { of, Subject, from } from 'rxjs';
 
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 import { FinanceRequestService } from 'app/entities/finance-request/service/finance-request.service';
-import { ITradePartner } from 'app/entities/trade-partner/trade-partner.model';
-import { TradePartnerService } from 'app/entities/trade-partner/service/trade-partner.service';
 import { IAnchorTrader } from 'app/entities/anchor-trader/anchor-trader.model';
 import { AnchorTraderService } from 'app/entities/anchor-trader/service/anchor-trader.service';
+import { ITradePartner } from 'app/entities/trade-partner/trade-partner.model';
+import { TradePartnerService } from 'app/entities/trade-partner/service/trade-partner.service';
 import { ITrade } from '../trade.model';
 import { TradeService } from '../service/trade.service';
 import { TradeFormService } from './trade-form.service';
@@ -25,8 +25,8 @@ describe('Trade Management Update Component', () => {
   let tradeFormService: TradeFormService;
   let tradeService: TradeService;
   let financeRequestService: FinanceRequestService;
-  let tradePartnerService: TradePartnerService;
   let anchorTraderService: AnchorTraderService;
+  let tradePartnerService: TradePartnerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -49,8 +49,8 @@ describe('Trade Management Update Component', () => {
     tradeFormService = TestBed.inject(TradeFormService);
     tradeService = TestBed.inject(TradeService);
     financeRequestService = TestBed.inject(FinanceRequestService);
-    tradePartnerService = TestBed.inject(TradePartnerService);
     anchorTraderService = TestBed.inject(AnchorTraderService);
+    tradePartnerService = TestBed.inject(TradePartnerService);
 
     comp = fixture.componentInstance;
   });
@@ -58,10 +58,10 @@ describe('Trade Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call FinanceRequest query and add missing value', () => {
       const trade: ITrade = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 4892 };
+      const financerequest: IFinanceRequest = { id: 12577 };
       trade.financerequest = financerequest;
 
-      const financeRequestCollection: IFinanceRequest[] = [{ id: 16167 }];
+      const financeRequestCollection: IFinanceRequest[] = [{ id: 11708 }];
       jest.spyOn(financeRequestService, 'query').mockReturnValue(of(new HttpResponse({ body: financeRequestCollection })));
       const additionalFinanceRequests = [financerequest];
       const expectedCollection: IFinanceRequest[] = [...additionalFinanceRequests, ...financeRequestCollection];
@@ -78,34 +78,12 @@ describe('Trade Management Update Component', () => {
       expect(comp.financeRequestsSharedCollection).toEqual(expectedCollection);
     });
 
-    it('Should call TradePartner query and add missing value', () => {
-      const trade: ITrade = { id: 456 };
-      const tradepartner: ITradePartner = { id: 2751 };
-      trade.tradepartner = tradepartner;
-
-      const tradePartnerCollection: ITradePartner[] = [{ id: 20425 }];
-      jest.spyOn(tradePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: tradePartnerCollection })));
-      const additionalTradePartners = [tradepartner];
-      const expectedCollection: ITradePartner[] = [...additionalTradePartners, ...tradePartnerCollection];
-      jest.spyOn(tradePartnerService, 'addTradePartnerToCollectionIfMissing').mockReturnValue(expectedCollection);
-
-      activatedRoute.data = of({ trade });
-      comp.ngOnInit();
-
-      expect(tradePartnerService.query).toHaveBeenCalled();
-      expect(tradePartnerService.addTradePartnerToCollectionIfMissing).toHaveBeenCalledWith(
-        tradePartnerCollection,
-        ...additionalTradePartners.map(expect.objectContaining),
-      );
-      expect(comp.tradePartnersSharedCollection).toEqual(expectedCollection);
-    });
-
     it('Should call AnchorTrader query and add missing value', () => {
       const trade: ITrade = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 32582 };
+      const anchortrader: IAnchorTrader = { id: 19648 };
       trade.anchortrader = anchortrader;
 
-      const anchorTraderCollection: IAnchorTrader[] = [{ id: 28907 }];
+      const anchorTraderCollection: IAnchorTrader[] = [{ id: 21113 }];
       jest.spyOn(anchorTraderService, 'query').mockReturnValue(of(new HttpResponse({ body: anchorTraderCollection })));
       const additionalAnchorTraders = [anchortrader];
       const expectedCollection: IAnchorTrader[] = [...additionalAnchorTraders, ...anchorTraderCollection];
@@ -122,21 +100,43 @@ describe('Trade Management Update Component', () => {
       expect(comp.anchorTradersSharedCollection).toEqual(expectedCollection);
     });
 
+    it('Should call TradePartner query and add missing value', () => {
+      const trade: ITrade = { id: 456 };
+      const tradepartner: ITradePartner = { id: 11660 };
+      trade.tradepartner = tradepartner;
+
+      const tradePartnerCollection: ITradePartner[] = [{ id: 20970 }];
+      jest.spyOn(tradePartnerService, 'query').mockReturnValue(of(new HttpResponse({ body: tradePartnerCollection })));
+      const additionalTradePartners = [tradepartner];
+      const expectedCollection: ITradePartner[] = [...additionalTradePartners, ...tradePartnerCollection];
+      jest.spyOn(tradePartnerService, 'addTradePartnerToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ trade });
+      comp.ngOnInit();
+
+      expect(tradePartnerService.query).toHaveBeenCalled();
+      expect(tradePartnerService.addTradePartnerToCollectionIfMissing).toHaveBeenCalledWith(
+        tradePartnerCollection,
+        ...additionalTradePartners.map(expect.objectContaining),
+      );
+      expect(comp.tradePartnersSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
       const trade: ITrade = { id: 456 };
-      const financerequest: IFinanceRequest = { id: 14479 };
+      const financerequest: IFinanceRequest = { id: 8337 };
       trade.financerequest = financerequest;
-      const tradepartner: ITradePartner = { id: 15691 };
-      trade.tradepartner = tradepartner;
-      const anchortrader: IAnchorTrader = { id: 6175 };
+      const anchortrader: IAnchorTrader = { id: 21901 };
       trade.anchortrader = anchortrader;
+      const tradepartner: ITradePartner = { id: 15298 };
+      trade.tradepartner = tradepartner;
 
       activatedRoute.data = of({ trade });
       comp.ngOnInit();
 
       expect(comp.financeRequestsSharedCollection).toContain(financerequest);
-      expect(comp.tradePartnersSharedCollection).toContain(tradepartner);
       expect(comp.anchorTradersSharedCollection).toContain(anchortrader);
+      expect(comp.tradePartnersSharedCollection).toContain(tradepartner);
       expect(comp.trade).toEqual(trade);
     });
   });
@@ -220,16 +220,6 @@ describe('Trade Management Update Component', () => {
       });
     });
 
-    describe('compareTradePartner', () => {
-      it('Should forward to tradePartnerService', () => {
-        const entity = { id: 123 };
-        const entity2 = { id: 456 };
-        jest.spyOn(tradePartnerService, 'compareTradePartner');
-        comp.compareTradePartner(entity, entity2);
-        expect(tradePartnerService.compareTradePartner).toHaveBeenCalledWith(entity, entity2);
-      });
-    });
-
     describe('compareAnchorTrader', () => {
       it('Should forward to anchorTraderService', () => {
         const entity = { id: 123 };
@@ -237,6 +227,16 @@ describe('Trade Management Update Component', () => {
         jest.spyOn(anchorTraderService, 'compareAnchorTrader');
         comp.compareAnchorTrader(entity, entity2);
         expect(anchorTraderService.compareAnchorTrader).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareTradePartner', () => {
+      it('Should forward to tradePartnerService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(tradePartnerService, 'compareTradePartner');
+        comp.compareTradePartner(entity, entity2);
+        expect(tradePartnerService.compareTradePartner).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

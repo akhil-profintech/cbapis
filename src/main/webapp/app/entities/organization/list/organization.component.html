@@ -49,6 +49,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="orgUlidId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.organization.orgUlidId">Org Ulid Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="orgName">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.organization.orgName">Org Name</span>
@@ -87,6 +94,7 @@
                 <a [routerLink]="['/organization', organization.id, 'view']">{{ organization.id }}</a>
               </td>
               <td>{{ organization.orgId }}</td>
+              <td>{{ organization.orgUlidId }}</td>
               <td>{{ organization.orgName }}</td>
               <td>{{ organization.orgAddress }}</td>
               <td>{{ organization.industryType }}</td>

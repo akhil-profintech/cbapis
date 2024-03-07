@@ -20,27 +20,13 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.tenantId" for="field_tenantId">Tenant Id</label>
-          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
-          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
-            <div>
-              @if (editForm.get('tenantId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.atId" for="field_atId">At Id</label>
+          <input type="number" class="form-control" name="atId" id="field_atId" data-cy="atId" formControlName="atId" />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.atId" for="field_atId">At Id</label>
-          <input type="text" class="form-control" name="atId" id="field_atId" data-cy="atId" formControlName="atId" />
-          @if (editForm.get('atId')!.invalid && (editForm.get('atId')!.dirty || editForm.get('atId')!.touched)) {
-            <div>
-              @if (editForm.get('atId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-            </div>
-          }
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.atUlidId" for="field_atUlidId">At Ulid Id</label>
+          <input type="text" class="form-control" name="atUlidId" id="field_atUlidId" data-cy="atUlidId" formControlName="atUlidId" />
         </div>
 
         <div class="mb-3">
@@ -49,6 +35,18 @@
           @if (editForm.get('orgId')!.invalid && (editForm.get('orgId')!.dirty || editForm.get('orgId')!.touched)) {
             <div>
               @if (editForm.get('orgId')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.tenantId" for="field_tenantId">Tenant Id</label>
+          <input type="text" class="form-control" name="tenantId" id="field_tenantId" data-cy="tenantId" formControlName="tenantId" />
+          @if (editForm.get('tenantId')!.invalid && (editForm.get('tenantId')!.dirty || editForm.get('tenantId')!.touched)) {
+            <div>
+              @if (editForm.get('tenantId')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
             </div>
@@ -205,6 +203,185 @@
             id="field_bankDetails"
             data-cy="bankDetails"
             formControlName="bankDetails"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.emailId" for="field_emailId">Email Id</label>
+          <input type="text" class="form-control" name="emailId" id="field_emailId" data-cy="emailId" formControlName="emailId" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.accountNumber" for="field_accountNumber">Account Number</label>
+          <input
+            type="text"
+            class="form-control"
+            name="accountNumber"
+            id="field_accountNumber"
+            data-cy="accountNumber"
+            formControlName="accountNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.ifscCode" for="field_ifscCode">Ifsc Code</label>
+          <input type="text" class="form-control" name="ifscCode" id="field_ifscCode" data-cy="ifscCode" formControlName="ifscCode" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.bankName" for="field_bankName">Bank Name</label>
+          <input type="text" class="form-control" name="bankName" id="field_bankName" data-cy="bankName" formControlName="bankName" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.branchName" for="field_branchName">Branch Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="branchName"
+            id="field_branchName"
+            data-cy="branchName"
+            formControlName="branchName"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.erpAccess" for="field_erpAccess">Erp Access</label>
+          <input type="checkbox" class="form-check" name="erpAccess" id="field_erpAccess" data-cy="erpAccess" formControlName="erpAccess" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.typeOfFirm" for="field_typeOfFirm">Type Of Firm</label>
+          <input
+            type="text"
+            class="form-control"
+            name="typeOfFirm"
+            id="field_typeOfFirm"
+            data-cy="typeOfFirm"
+            formControlName="typeOfFirm"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.panStatus" for="field_panStatus">Pan Status</label>
+          <input type="text" class="form-control" name="panStatus" id="field_panStatus" data-cy="panStatus" formControlName="panStatus" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.tosDocument" for="field_tosDocument">Tos Document</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tosDocument"
+            id="field_tosDocument"
+            data-cy="tosDocument"
+            formControlName="tosDocument"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.acceptTerms" for="field_acceptTerms">Accept Terms</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="acceptTerms"
+            id="field_acceptTerms"
+            data-cy="acceptTerms"
+            formControlName="acceptTerms"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.acceptDeclaration" for="field_acceptDeclaration"
+            >Accept Declaration</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="acceptDeclaration"
+            id="field_acceptDeclaration"
+            data-cy="acceptDeclaration"
+            formControlName="acceptDeclaration"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.anchorTrader.gstRegistrationCertificateUploadStatus"
+            for="field_gstRegistrationCertificateUploadStatus"
+            >Gst Registration Certificate Upload Status</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="gstRegistrationCertificateUploadStatus"
+            id="field_gstRegistrationCertificateUploadStatus"
+            data-cy="gstRegistrationCertificateUploadStatus"
+            formControlName="gstRegistrationCertificateUploadStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.anchorTrader.gstRegistrationCertificateVerificationStatus"
+            for="field_gstRegistrationCertificateVerificationStatus"
+            >Gst Registration Certificate Verification Status</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="gstRegistrationCertificateVerificationStatus"
+            id="field_gstRegistrationCertificateVerificationStatus"
+            data-cy="gstRegistrationCertificateVerificationStatus"
+            formControlName="gstRegistrationCertificateVerificationStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.anchorTrader.udhyamRegistrationcertificateUploadStatus"
+            for="field_udhyamRegistrationcertificateUploadStatus"
+            >Udhyam Registrationcertificate Upload Status</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="udhyamRegistrationcertificateUploadStatus"
+            id="field_udhyamRegistrationcertificateUploadStatus"
+            data-cy="udhyamRegistrationcertificateUploadStatus"
+            formControlName="udhyamRegistrationcertificateUploadStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.anchorTrader.udhyamRegistrationcertificateVerificationStatus"
+            for="field_udhyamRegistrationcertificateVerificationStatus"
+            >Udhyam Registrationcertificate Verification Status</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="udhyamRegistrationcertificateVerificationStatus"
+            id="field_udhyamRegistrationcertificateVerificationStatus"
+            data-cy="udhyamRegistrationcertificateVerificationStatus"
+            formControlName="udhyamRegistrationcertificateVerificationStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.anchorTrader.kycDeclaration" for="field_kycDeclaration">Kyc Declaration</label>
+          <input
+            type="checkbox"
+            class="form-check"
+            name="kycDeclaration"
+            id="field_kycDeclaration"
+            data-cy="kycDeclaration"
+            formControlName="kycDeclaration"
           />
         </div>
       </div>

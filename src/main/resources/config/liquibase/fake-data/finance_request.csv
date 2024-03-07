@@ -1,11 +1,11 @@
-id;request_id;finance_request_ref_no;request_amount;request_date;currency;request_status;due_date
-1;upbeat clone;dimly hear;abnormally positively;2023-12-28;midst pace;than meanwhile oblong;2023-12-27
-2;cultured writhing;frequent hijack erupt;about;2023-12-28;mull;recommence hypothesize;2023-12-28
-3;gosh;still wisely perturb;zowie oof honestly;2023-12-28;via;underline;2023-12-27
-4;boohoo;scarf pong huzzah;cosset ack;2023-12-28;proffer gee wraparound;bewitched;2023-12-27
-5;offbeat;pish yearly;provided every well-lit;2023-12-27;properly incidentally dreamily;kindly;2023-12-27
-6;swiftly dreamily;gee assay;till blah file;2023-12-27;cheek;coop gladiolus pfft;2023-12-28
-7;furthermore possible narrative;uh-huh than rural;glass along;2023-12-27;eschew however obtrude;overcooked whenever bouncy;2023-12-28
-8;tree SUV jug;quick;authentication closely ah;2023-12-28;bounce er;licensing sugar qua;2023-12-27
-9;inside;probable gang acidly;psst abolishment;2023-12-28;institution speedy;bankbook;2023-12-27
-10;phew upbeat;until furthermore yet;finally;2023-12-27;jibe successfully;golden compartmentalise;2023-12-28
+id;finance_request_id;finance_request_ulid_id;finance_request_ref_no;trade_channel_id;request_amount;request_date;currency;request_status;due_date;gst_consent
+1;13108;yet aha dimly;from abnormally positively;nor separately;fancy instantly mindless;2024-03-05;truthful sewer numb;neighbourhood coolly amid;2024-03-06;true
+2;2295;mull;recommence hypothesize;amidst;yahoo impostor bay;2024-03-05;zowie oof honestly;professional;2024-03-05;true
+3;5488;accomplished boohoo;scarf pong huzzah;cosset ack;trumpet chief;2024-03-05;afore;stealthily whether fuzzy;2024-03-05;false
+4;10316;outrigger;uh-huh even quintessential;apt oof frantically;so below fortunately;2024-03-06;gee assay;till blah file;2024-03-05;true
+5;16802;duh nor sheepishly;ack furthermore;afore mmm;thyme opine;2024-03-06;concerning the why;blah special;2024-03-06;false
+6;28957;wholly colorfully;pristine bumper;upright incidentally embitter;joyously amidst gallery;2024-03-06;aw distribute mangle;fulminate pole;2024-03-06;false
+7;3646;ack quickly when;watchmaker against;bikini clogs;haunting never gadzooks;2024-03-06;honesty splendid patriarch;squish which aha;2024-03-06;false
+8;30951;very whereas;wherever fully sculpt;always from sally;like fooey fanny-pack;2024-03-05;arrogantly restroom bah;oof abnormally;2024-03-06;false
+9;2144;student huzzah gosh;righteously dolphin;envelope um deride;uh-huh;2024-03-06;before sit what;whoa fondly curve;2024-03-06;false
+10;4814;spinach towards when;throughout;selfish ill-fated efface;concerning;2024-03-06;consequently annual against;banyan aha;2024-03-05;true

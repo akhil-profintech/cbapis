@@ -1,42 +1,45 @@
 import { ICreditAccountDetails, NewCreditAccountDetails } from './credit-account-details.model';
 
 export const sampleWithRequiredData: ICreditAccountDetails = {
-  id: 32681,
-  creditAccDetailsId: 4170,
-  tenantId: 2977,
-  customerId: 19793,
-  accName: 'polite round',
-  ifscCode: 'alternative sniveling toreador',
-  accNumber: 3979,
+  id: 19793,
+  tenantId: 16384,
+  customerId: 31420,
+  accName: 'flawless composed even',
+  ifscCode: 'honestly sternly psst',
+  accNumber: 28329,
 };
 
 export const sampleWithPartialData: ICreditAccountDetails = {
-  id: 25362,
-  creditAccDetailsId: 24874,
-  tenantId: 30175,
-  customerId: 27288,
-  accName: 'hopelessly',
-  ifscCode: 'walker closet since',
-  accNumber: 15513,
-};
-
-export const sampleWithFullData: ICreditAccountDetails = {
-  id: 22716,
-  creditAccDetailsId: 12024,
+  id: 13744,
+  creditAccDetailsId: 1298,
+  creditAccountDetailsUlidId: 'fascinate whoever fresco',
   tenantId: 12088,
   customerId: 19324,
   accName: 'stravaig pantologist cement',
   ifscCode: 'inside shyly persist',
   accNumber: 32429,
+  destinationAccountName: 'but or',
+};
+
+export const sampleWithFullData: ICreditAccountDetails = {
+  id: 15554,
+  creditAccDetailsId: 26630,
+  creditAccountDetailsUlidId: 'pfft velvety notwithstanding',
+  tenantId: 17917,
+  customerId: 17344,
+  accName: 'which until',
+  ifscCode: 'schuss provided',
+  accNumber: 24686,
+  destinationAccountName: 'ample bah improbable',
+  destinationAccountNumber: 'incidentally atop',
 };
 
 export const sampleWithNewData: NewCreditAccountDetails = {
-  creditAccDetailsId: 14292,
-  tenantId: 2406,
-  customerId: 25622,
-  accName: 'concerning socialism pfft',
-  ifscCode: 'private moonwalk noisily',
-  accNumber: 2756,
+  tenantId: 21403,
+  customerId: 8214,
+  accName: 'halve after',
+  ifscCode: 'ack',
+  accNumber: 18922,
   id: null,
 };
 

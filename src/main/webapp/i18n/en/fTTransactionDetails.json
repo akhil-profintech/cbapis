@@ -18,8 +18,9 @@
         "title": "FT Transaction Details"
       },
       "id": "ID",
-      "trnxDetailsId": "Trnx Details Id",
-      "transactionID": "Transaction ID",
+      "ftTrnxDetailsId": "Ft Trnx Details Id",
+      "ftTrnxDetailsUlid": "Ft Trnx Details Ulid",
+      "transactionId": "Transaction Id",
       "debitAccountNumber": "Debit Account Number",
       "creditAccountNumber": "Credit Account Number",
       "remitterName": "Remitter Name",
@@ -36,9 +37,9 @@
       "trnxResourceDataStatus": "Trnx Resource Data Status",
       "trnxMetaDataStatus": "Trnx Meta Data Status",
       "transactionDateTime": "Transaction Date Time",
+      "participantsettlement": "Participantsettlement",
       "disbursement": "Disbursement",
-      "repayment": "Repayment",
-      "participantsettlement": "Participantsettlement"
+      "repayment": "Repayment"
     }
   }
 }

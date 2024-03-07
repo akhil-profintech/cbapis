@@ -1,30 +1,31 @@
 import { IIndividualAssessment, NewIndividualAssessment } from './individual-assessment.model';
 
 export const sampleWithRequiredData: IIndividualAssessment = {
-  id: 21483,
+  id: 9257,
 };
 
 export const sampleWithPartialData: IIndividualAssessment = {
-  id: 7645,
-  assessmentId: 'inspire righteously lest',
-  creditScore: 2484.12,
-  finalverdict: 'normal',
-  timestamp: 'caulk',
-  tradepartnerId: 'stimulating barring bitterly',
-  invoiceId: 'viciously pfft',
+  id: 22392,
+  assessmentId: 8797,
+  assessmentUlidId: 'given',
+  finalVerdict: 'amid interconnect',
+  timestamp: 'slowly mushroom messy',
+  tradePartnerId: 'unexpectedly',
+  invoiceAmount: 29485,
 };
 
 export const sampleWithFullData: IIndividualAssessment = {
-  id: 7509,
-  assessmentId: 'prepone stealthily',
-  creditScore: 25152.53,
-  finalverdict: 'millennium innocently',
-  creRequestId: 'till where ew',
-  timestamp: 'extra-small yuck plain',
-  tradepartnerGST: 'tragic astride whenever',
-  tradepartnerId: 'victimize remove',
-  invoiceAmount: 11698,
-  invoiceId: 'hmph earnest',
+  id: 6692,
+  assessmentId: 23026,
+  assessmentUlidId: 'banking',
+  creditScore: 11649.71,
+  finalVerdict: 'pfft actress useless',
+  creRequestId: 'after',
+  timestamp: 'disembowel triumphantly acrobatic',
+  tradePartnerGST: 'jealously',
+  tradePartnerId: 'brr under bottom',
+  invoiceAmount: 11535,
+  invoiceId: 'spotted diligently',
 };
 
 export const sampleWithNewData: NewIndividualAssessment = {

@@ -19,17 +19,25 @@
           <dd>
             <span>{{ disbursement.dbmtId }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.disbursementUlidId">Disbursement Ulid Id</span></dt>
+          <dd>
+            <span>{{ disbursement.disbursementUlidId }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.disbursement.disbursementRefNo">Disbursement Ref No</span></dt>
           <dd>
             <span>{{ disbursement.disbursementRefNo }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.acceptedOfferId">Accepted Offer Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.disbursement.acceptedOfferUlidId">Accepted Offer Ulid Id</span></dt>
           <dd>
-            <span>{{ disbursement.acceptedOfferId }}</span>
+            <span>{{ disbursement.acceptedOfferUlidId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.offerId">Offer Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.disbursement.placedOfferUlidId">Placed Offer Ulid Id</span></dt>
           <dd>
-            <span>{{ disbursement.offerId }}</span>
+            <span>{{ disbursement.placedOfferUlidId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.disbursement.reqOffUlidId">Req Off Ulid Id</span></dt>
+          <dd>
+            <span>{{ disbursement.reqOffUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.disbursement.offerAcceptedDate">Offer Accepted Date</span></dt>
           <dd>
@@ -51,21 +59,13 @@
           <dd>
             <span>{{ disbursement.dbmtRequestDate | formatMediumDate }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtstatus">Dbmtstatus</span></dt>
+          <dt><span jhiTranslate="cbapisApp.disbursement.dbmtStatus">Dbmt Status</span></dt>
           <dd>
-            <span>{{ disbursement.dbmtstatus }}</span>
+            <span>{{ disbursement.dbmtStatus }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.disbursement.offerStatus">Offer Status</span></dt>
           <dd>
             <span>{{ disbursement.offerStatus }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.ftTrnxDetailsId">Ft Trnx Details Id</span></dt>
-          <dd>
-            <span>{{ disbursement.ftTrnxDetailsId }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.collectionTrnxDetailsId">Collection Trnx Details Id</span></dt>
-          <dd>
-            <span>{{ disbursement.collectionTrnxDetailsId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.disbursement.docId">Doc Id</span></dt>
           <dd>
@@ -95,10 +95,6 @@
           <dd>
             <span>{{ disbursement.destinationAccountNumber }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.disbursement.ifscCode">Ifsc Code</span></dt>
-          <dd>
-            <span>{{ disbursement.ifscCode }}</span>
-          </dd>
           <dt><span jhiTranslate="cbapisApp.disbursement.status">Status</span></dt>
           <dd>
             <span>{{ disbursement.status }}</span>
@@ -112,7 +108,7 @@
             @if (disbursement.financerequest) {
               <div>
                 <a [routerLink]="['/finance-request', disbursement.financerequest.id, 'view']">{{
-                  disbursement.financerequest.requestId
+                  disbursement.financerequest.financeRequestId
                 }}</a>
               </div>
             }

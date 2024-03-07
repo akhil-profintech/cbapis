@@ -16,19 +16,26 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeId" for="field_tradeId">Trade Id</label>
-          <input type="number" class="form-control" name="tradeId" id="field_tradeId" data-cy="tradeId" formControlName="tradeId" />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeRefNumber" for="field_tradeRefNumber">Trade Ref Number</label>
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeUlidId" for="field_tradeUlidId">Trade Ulid Id</label>
           <input
             type="text"
             class="form-control"
-            name="tradeRefNumber"
-            id="field_tradeRefNumber"
-            data-cy="tradeRefNumber"
-            formControlName="tradeRefNumber"
+            name="tradeUlidId"
+            id="field_tradeUlidId"
+            data-cy="tradeUlidId"
+            formControlName="tradeUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradeRefNo" for="field_tradeRefNo">Trade Ref No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="tradeRefNo"
+            id="field_tradeRefNo"
+            data-cy="tradeRefNo"
+            formControlName="tradeRefNo"
           />
         </div>
 
@@ -281,24 +288,7 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.trade.tradepartner" for="field_tradepartner">Tradepartner</label>
-          <select
-            class="form-control"
-            id="field_tradepartner"
-            data-cy="tradepartner"
-            name="tradepartner"
-            formControlName="tradepartner"
-            [compareWith]="compareTradePartner"
-          >
-            <option [ngValue]="null"></option>
-            @for (tradePartnerOption of tradePartnersSharedCollection; track $index) {
-              <option [ngValue]="tradePartnerOption">{{ tradePartnerOption.tpId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>
@@ -316,6 +306,23 @@
             <option [ngValue]="null"></option>
             @for (anchorTraderOption of anchorTradersSharedCollection; track $index) {
               <option [ngValue]="anchorTraderOption">{{ anchorTraderOption.atId }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.trade.tradepartner" for="field_tradepartner">Tradepartner</label>
+          <select
+            class="form-control"
+            id="field_tradepartner"
+            data-cy="tradepartner"
+            name="tradepartner"
+            formControlName="tradepartner"
+            [compareWith]="compareTradePartner"
+          >
+            <option [ngValue]="null"></option>
+            @for (tradePartnerOption of tradePartnersSharedCollection; track $index) {
+              <option [ngValue]="tradePartnerOption">{{ tradePartnerOption.tpId }}</option>
             }
           </select>
         </div>

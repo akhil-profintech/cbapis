@@ -42,16 +42,16 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tradeId">
+            <th scope="col" jhiSortBy="tradeUlidId">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.trade.tradeId">Trade Id</span>
+                <span jhiTranslate="cbapisApp.trade.tradeUlidId">Trade Ulid Id</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="tradeRefNumber">
+            <th scope="col" jhiSortBy="tradeRefNo">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.trade.tradeRefNumber">Trade Ref Number</span>
+                <span jhiTranslate="cbapisApp.trade.tradeRefNo">Trade Ref No</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -182,21 +182,21 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="financerequest.requestId">
+            <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.trade.financerequest">Financerequest</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
-            <th scope="col" jhiSortBy="tradepartner.tpId">
-              <div class="d-flex">
-                <span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
             <th scope="col" jhiSortBy="anchortrader.atId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.trade.anchortrader">Anchortrader</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradepartner.tpId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.trade.tradepartner">Tradepartner</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -209,8 +209,8 @@
               <td>
                 <a [routerLink]="['/trade', trade.id, 'view']">{{ trade.id }}</a>
               </td>
-              <td>{{ trade.tradeId }}</td>
-              <td>{{ trade.tradeRefNumber }}</td>
+              <td>{{ trade.tradeUlidId }}</td>
+              <td>{{ trade.tradeRefNo }}</td>
               <td>{{ trade.sellerGstId }}</td>
               <td>{{ trade.buyerGstId }}</td>
               <td>{{ trade.tradeAmount }}</td>
@@ -232,14 +232,7 @@
               <td>
                 @if (trade.financerequest) {
                   <div>
-                    <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.requestId }}</a>
-                  </div>
-                }
-              </td>
-              <td>
-                @if (trade.tradepartner) {
-                  <div>
-                    <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
+                    <a [routerLink]="['/finance-request', trade.financerequest.id, 'view']">{{ trade.financerequest.financeRequestId }}</a>
                   </div>
                 }
               </td>
@@ -247,6 +240,13 @@
                 @if (trade.anchortrader) {
                   <div>
                     <a [routerLink]="['/anchor-trader', trade.anchortrader.id, 'view']">{{ trade.anchortrader.atId }}</a>
+                  </div>
+                }
+              </td>
+              <td>
+                @if (trade.tradepartner) {
+                  <div>
+                    <a [routerLink]="['/trade-partner', trade.tradepartner.id, 'view']">{{ trade.tradepartner.tpId }}</a>
                   </div>
                 }
               </td>

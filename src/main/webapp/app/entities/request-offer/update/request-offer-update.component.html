@@ -20,21 +20,26 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.reqOffId" for="field_reqOffId">Req Off Id</label>
-          <input type="text" class="form-control" name="reqOffId" id="field_reqOffId" data-cy="reqOffId" formControlName="reqOffId" />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo" for="field_requestOfferRefNo"
-            >Request Offer Ref No</label
-          >
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.reqOffUlidId" for="field_reqOffUlidId">Req Off Ulid Id</label>
           <input
             type="text"
             class="form-control"
-            name="requestOfferRefNo"
-            id="field_requestOfferRefNo"
-            data-cy="requestOfferRefNo"
-            formControlName="requestOfferRefNo"
+            name="reqOffUlidId"
+            id="field_reqOffUlidId"
+            data-cy="reqOffUlidId"
+            formControlName="reqOffUlidId"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.reqOfferRefNo" for="field_reqOfferRefNo">Req Offer Ref No</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reqOfferRefNo"
+            id="field_reqOfferRefNo"
+            data-cy="reqOfferRefNo"
+            formControlName="reqOfferRefNo"
           />
         </div>
 
@@ -388,50 +393,53 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.sellerName" for="field_sellerName">Seller Name</label>
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTComplianceScore"
+            for="field_anchorTraderGSTComplianceScore"
+            >Anchor Trader GST Compliance Score</label
+          >
           <input
             type="text"
             class="form-control"
-            name="sellerName"
-            id="field_sellerName"
-            data-cy="sellerName"
-            formControlName="sellerName"
+            name="anchorTraderGSTComplianceScore"
+            id="field_anchorTraderGSTComplianceScore"
+            data-cy="anchorTraderGSTComplianceScore"
+            formControlName="anchorTraderGSTComplianceScore"
           />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.buyerName" for="field_buyerName">Buyer Name</label>
-          <input type="text" class="form-control" name="buyerName" id="field_buyerName" data-cy="buyerName" formControlName="buyerName" />
         </div>
 
         <div class="mb-3">
           <label
             class="form-label"
-            jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore"
-            for="field_anchorTraderGstComplianceScore"
-            >Anchor Trader Gst Compliance Score</label
+            jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTERPPeerScore"
+            for="field_anchorTraderGSTERPPeerScore"
+            >Anchor Trader GSTERP Peer Score</label
           >
           <input
             type="text"
             class="form-control"
-            name="anchorTraderGstComplianceScore"
-            id="field_anchorTraderGstComplianceScore"
-            data-cy="anchorTraderGstComplianceScore"
-            formControlName="anchorTraderGstComplianceScore"
+            name="anchorTraderGSTERPPeerScore"
+            id="field_anchorTraderGSTERPPeerScore"
+            data-cy="anchorTraderGSTERPPeerScore"
+            formControlName="anchorTraderGSTERPPeerScore"
           />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore" for="field_anchorTraderErpPeerScore"
-            >Anchor Trader Erp Peer Score</label
+          <label
+            class="form-label"
+            jhiTranslate="cbapisApp.requestOffer.sellerTradePerformanceIndex"
+            for="field_sellerTradePerformanceIndex"
+            >Seller Trade Performance Index</label
           >
           <input
             type="text"
             class="form-control"
-            name="anchorTraderErpPeerScore"
-            id="field_anchorTraderErpPeerScore"
-            data-cy="anchorTraderErpPeerScore"
-            formControlName="anchorTraderErpPeerScore"
+            name="sellerTradePerformanceIndex"
+            id="field_sellerTradePerformanceIndex"
+            data-cy="sellerTradePerformanceIndex"
+            formControlName="sellerTradePerformanceIndex"
           />
         </div>
 
@@ -447,24 +455,24 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.cbcreprocess" for="field_cbcreprocess">Cbcreprocess</label>
+          <label class="form-label" jhiTranslate="cbapisApp.requestOffer.financepartner" for="field_financepartner">Financepartner</label>
           <select
             class="form-control"
-            id="field_cbcreprocess"
-            data-cy="cbcreprocess"
-            name="cbcreprocess"
-            formControlName="cbcreprocess"
-            [compareWith]="compareCBCREProcess"
+            id="field_financepartner"
+            data-cy="financepartner"
+            name="financepartner"
+            formControlName="financepartner"
+            [compareWith]="compareFinancePartner"
           >
             <option [ngValue]="null"></option>
-            @for (cBCREProcessOption of cBCREProcessesSharedCollection; track $index) {
-              <option [ngValue]="cBCREProcessOption">{{ cBCREProcessOption.cbProcessId }}</option>
+            @for (financePartnerOption of financePartnersSharedCollection; track $index) {
+              <option [ngValue]="financePartnerOption">{{ financePartnerOption.fpId }}</option>
             }
           </select>
         </div>

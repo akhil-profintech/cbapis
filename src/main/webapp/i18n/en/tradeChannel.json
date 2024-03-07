@@ -18,7 +18,7 @@
         "title": "Trade Channel"
       },
       "id": "ID",
-      "tradeChannelId": "Trade Channel Id",
+      "tradeChannelUlidId": "Trade Channel Ulid Id",
       "anchorTraderId": "Anchor Trader Id",
       "tradePartnerId": "Trade Partner Id",
       "financePartnerId": "Finance Partner Id",

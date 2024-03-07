@@ -20,8 +20,8 @@ describe('Trade Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tradeId: expect.any(Object),
-            tradeRefNumber: expect.any(Object),
+            tradeUlidId: expect.any(Object),
+            tradeRefNo: expect.any(Object),
             sellerGstId: expect.any(Object),
             buyerGstId: expect.any(Object),
             tradeAmount: expect.any(Object),
@@ -41,8 +41,8 @@ describe('Trade Form Service', () => {
             tradePartnerLocation: expect.any(Object),
             tradePartnerGstComplianceScore: expect.any(Object),
             financerequest: expect.any(Object),
-            tradepartner: expect.any(Object),
             anchortrader: expect.any(Object),
+            tradepartner: expect.any(Object),
           }),
         );
       });
@@ -53,8 +53,8 @@ describe('Trade Form Service', () => {
         expect(formGroup.controls).toEqual(
           expect.objectContaining({
             id: expect.any(Object),
-            tradeId: expect.any(Object),
-            tradeRefNumber: expect.any(Object),
+            tradeUlidId: expect.any(Object),
+            tradeRefNo: expect.any(Object),
             sellerGstId: expect.any(Object),
             buyerGstId: expect.any(Object),
             tradeAmount: expect.any(Object),
@@ -74,8 +74,8 @@ describe('Trade Form Service', () => {
             tradePartnerLocation: expect.any(Object),
             tradePartnerGstComplianceScore: expect.any(Object),
             financerequest: expect.any(Object),
-            tradepartner: expect.any(Object),
             anchortrader: expect.any(Object),
+            tradepartner: expect.any(Object),
           }),
         );
       });

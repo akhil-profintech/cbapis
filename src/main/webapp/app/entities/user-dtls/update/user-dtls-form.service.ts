@@ -18,7 +18,7 @@ type UserDtlsFormDefaults = Pick<NewUserDtls, 'id' | 'isAnchorTraderEnabled' | '
 
 type UserDtlsFormGroupContent = {
   id: FormControl<IUserDtls['id'] | NewUserDtls['id']>;
-  userId: FormControl<IUserDtls['userId']>;
+  userUlidId: FormControl<IUserDtls['userUlidId']>;
   userName: FormControl<IUserDtls['userName']>;
   tenantId: FormControl<IUserDtls['tenantId']>;
   isAnchorTraderEnabled: FormControl<IUserDtls['isAnchorTraderEnabled']>;
@@ -28,7 +28,6 @@ type UserDtlsFormGroupContent = {
   isFinancePartnerEnabled: FormControl<IUserDtls['isFinancePartnerEnabled']>;
   financePartnerId: FormControl<IUserDtls['financePartnerId']>;
   defaultPersona: FormControl<IUserDtls['defaultPersona']>;
-  organization: FormControl<IUserDtls['organization']>;
 };
 
 export type UserDtlsFormGroup = FormGroup<UserDtlsFormGroupContent>;
@@ -48,7 +47,7 @@ export class UserDtlsFormService {
           validators: [Validators.required],
         },
       ),
-      userId: new FormControl(userDtlsRawValue.userId),
+      userUlidId: new FormControl(userDtlsRawValue.userUlidId),
       userName: new FormControl(userDtlsRawValue.userName),
       tenantId: new FormControl(userDtlsRawValue.tenantId),
       isAnchorTraderEnabled: new FormControl(userDtlsRawValue.isAnchorTraderEnabled),
@@ -58,7 +57,6 @@ export class UserDtlsFormService {
       isFinancePartnerEnabled: new FormControl(userDtlsRawValue.isFinancePartnerEnabled),
       financePartnerId: new FormControl(userDtlsRawValue.financePartnerId),
       defaultPersona: new FormControl(userDtlsRawValue.defaultPersona),
-      organization: new FormControl(userDtlsRawValue.organization),
     });
   }
 

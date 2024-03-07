@@ -31,21 +31,20 @@
             data-cy="creHighlightsId"
             formControlName="creHighlightsId"
           />
-          @if (
-            editForm.get('creHighlightsId')!.invalid && (editForm.get('creHighlightsId')!.dirty || editForm.get('creHighlightsId')!.touched)
-          ) {
-            <div>
-              @if (editForm.get('creHighlightsId')?.errors?.required) {
-                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-              }
-              <small
-                class="form-text text-danger"
-                [hidden]="!editForm.get('creHighlightsId')?.errors?.number"
-                jhiTranslate="entity.validation.number"
-                >This field should be a number.</small
-              >
-            </div>
-          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.creHighlightsUlidId" for="field_creHighlightsUlidId"
+            >Cre Highlights Ulid Id</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creHighlightsUlidId"
+            id="field_creHighlightsUlidId"
+            data-cy="creHighlightsUlidId"
+            formControlName="creHighlightsUlidId"
+          />
         </div>
 
         <div class="mb-3">
@@ -70,23 +69,6 @@
             data-cy="highlights"
             formControlName="highlights"
           />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.cREHighlights.cbcreprocess" for="field_cbcreprocess">Cbcreprocess</label>
-          <select
-            class="form-control"
-            id="field_cbcreprocess"
-            data-cy="cbcreprocess"
-            name="cbcreprocess"
-            formControlName="cbcreprocess"
-            [compareWith]="compareCBCREProcess"
-          >
-            <option [ngValue]="null"></option>
-            @for (cBCREProcessOption of cBCREProcessesSharedCollection; track $index) {
-              <option [ngValue]="cBCREProcessOption">{{ cBCREProcessOption.cbProcessId }}</option>
-            }
-          </select>
         </div>
 
         <div class="mb-3">

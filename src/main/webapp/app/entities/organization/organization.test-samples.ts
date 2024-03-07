@@ -1,22 +1,23 @@
 import { IOrganization, NewOrganization } from './organization.model';
 
 export const sampleWithRequiredData: IOrganization = {
-  id: 19724,
+  id: 10326,
 };
 
 export const sampleWithPartialData: IOrganization = {
-  id: 2052,
-  orgId: 'trail likewise yet',
-  orgName: 'following outrageous that',
+  id: 22106,
+  orgAddress: 'submarine trail',
+  industryType: 'whoever while following',
 };
 
 export const sampleWithFullData: IOrganization = {
-  id: 3012,
-  orgId: 'reward owlishly',
-  orgName: 'judgementally',
-  orgAddress: 'adventurously climb before',
-  industryType: 'yowza recap',
-  tenantId: 'as pince-nez acclaimed',
+  id: 16244,
+  orgId: 13127,
+  orgUlidId: 'conscious tripod',
+  orgName: 'woefully',
+  orgAddress: 'oof tricky',
+  industryType: 'who gee',
+  tenantId: 'barley',
 };
 
 export const sampleWithNewData: NewOrganization = {

@@ -15,13 +15,13 @@
           <dd>
             <span>{{ requestOffer.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.reqOffId">Req Off Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.reqOffUlidId">Req Off Ulid Id</span></dt>
           <dd>
-            <span>{{ requestOffer.reqOffId }}</span>
+            <span>{{ requestOffer.reqOffUlidId }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.requestOfferRefNo">Request Offer Ref No</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.reqOfferRefNo">Req Offer Ref No</span></dt>
           <dd>
-            <span>{{ requestOffer.requestOfferRefNo }}</span>
+            <span>{{ requestOffer.reqOfferRefNo }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.requestOffer.offerValue">Offer Value</span></dt>
           <dd>
@@ -87,37 +87,33 @@
           <dd>
             <span>{{ requestOffer.tradePartnerGst }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.sellerName">Seller Name</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTComplianceScore">Anchor Trader GST Compliance Score</span></dt>
           <dd>
-            <span>{{ requestOffer.sellerName }}</span>
+            <span>{{ requestOffer.anchorTraderGSTComplianceScore }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.buyerName">Buyer Name</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderGSTERPPeerScore">Anchor Trader GSTERP Peer Score</span></dt>
           <dd>
-            <span>{{ requestOffer.buyerName }}</span>
+            <span>{{ requestOffer.anchorTraderGSTERPPeerScore }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderGstComplianceScore">Anchor Trader Gst Compliance Score</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.sellerTradePerformanceIndex">Seller Trade Performance Index</span></dt>
           <dd>
-            <span>{{ requestOffer.anchorTraderGstComplianceScore }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.anchorTraderErpPeerScore">Anchor Trader Erp Peer Score</span></dt>
-          <dd>
-            <span>{{ requestOffer.anchorTraderErpPeerScore }}</span>
+            <span>{{ requestOffer.sellerTradePerformanceIndex }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.requestOffer.financerequest">Financerequest</span></dt>
           <dd>
             @if (requestOffer.financerequest) {
               <div>
                 <a [routerLink]="['/finance-request', requestOffer.financerequest.id, 'view']">{{
-                  requestOffer.financerequest.requestId
+                  requestOffer.financerequest.financeRequestId
                 }}</a>
               </div>
             }
           </dd>
-          <dt><span jhiTranslate="cbapisApp.requestOffer.cbcreprocess">Cbcreprocess</span></dt>
+          <dt><span jhiTranslate="cbapisApp.requestOffer.financepartner">Financepartner</span></dt>
           <dd>
-            @if (requestOffer.cbcreprocess) {
+            @if (requestOffer.financepartner) {
               <div>
-                <a [routerLink]="['/cbcre-process', requestOffer.cbcreprocess.id, 'view']">{{ requestOffer.cbcreprocess.cbProcessId }}</a>
+                <a [routerLink]="['/finance-partner', requestOffer.financepartner.id, 'view']">{{ requestOffer.financepartner.fpId }}</a>
               </div>
             }
           </dd>

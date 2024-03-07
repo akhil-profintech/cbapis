@@ -1,0 +1,34 @@
+{
+  "cbapisApp": {
+    "anchorTraderPartner": {
+      "home": {
+        "title": "Anchor Trader Partners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Anchor Trader Partner",
+        "createOrEditLabel": "Create or edit a Anchor Trader Partner",
+        "notFound": "No Anchor Trader Partners found"
+      },
+      "created": "A new Anchor Trader Partner is created with identifier {{ param }}",
+      "updated": "A Anchor Trader Partner is updated with identifier {{ param }}",
+      "deleted": "A Anchor Trader Partner is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Anchor Trader Partner {{ id }}?"
+      },
+      "detail": {
+        "title": "Anchor Trader Partner"
+      },
+      "id": "ID",
+      "atpartnerId": "Atpartner Id",
+      "atpartnerUlidId": "Atpartner Ulid Id",
+      "pan": "Pan",
+      "panStatus": "Pan Status",
+      "name": "Name",
+      "aadhar": "Aadhar",
+      "aadharOtp": "Aadhar Otp",
+      "aadharStatus": "Aadhar Status",
+      "aadharName": "Aadhar Name",
+      "aadharAddress": "Aadhar Address",
+      "anchortrader": "Anchortrader"
+    }
+  }
+}

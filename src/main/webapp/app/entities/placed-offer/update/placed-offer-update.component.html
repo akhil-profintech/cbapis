@@ -20,19 +20,16 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.reqOffId" for="field_reqOffId">Req Off Id</label>
-          <input type="text" class="form-control" name="reqOffId" id="field_reqOffId" data-cy="reqOffId" formControlName="reqOffId" />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.placedOfferId" for="field_placedOfferId">Placed Offer Id</label>
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.placedOfferUlidId" for="field_placedOfferUlidId"
+            >Placed Offer Ulid Id</label
+          >
           <input
             type="text"
             class="form-control"
-            name="placedOfferId"
-            id="field_placedOfferId"
-            data-cy="placedOfferId"
-            formControlName="placedOfferId"
+            name="placedOfferUlidId"
+            id="field_placedOfferUlidId"
+            data-cy="placedOfferUlidId"
+            formControlName="placedOfferUlidId"
           />
         </div>
 
@@ -47,6 +44,18 @@
             id="field_placedOfferRefNo"
             data-cy="placedOfferRefNo"
             formControlName="placedOfferRefNo"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.reqOffUlidId" for="field_reqOffUlidId">Req Off Ulid Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="reqOffUlidId"
+            id="field_reqOffUlidId"
+            data-cy="reqOffUlidId"
+            formControlName="reqOffUlidId"
           />
         </div>
 
@@ -253,6 +262,18 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+          @if (editForm.get('status')!.invalid && (editForm.get('status')!.dirty || editForm.get('status')!.touched)) {
+            <div>
+              @if (editForm.get('status')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.placedOffer.offerDate" for="field_offerDate">Offer Date</label>
           <div class="input-group">
             <input
@@ -274,11 +295,6 @@
               }
             </div>
           }
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.requestId" for="field_requestId">Request Id</label>
-          <input type="text" class="form-control" name="requestId" id="field_requestId" data-cy="requestId" formControlName="requestId" />
         </div>
 
         <div class="mb-3">
@@ -338,11 +354,15 @@
             data-cy="disbursalAmount"
             formControlName="disbursalAmount"
           />
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label" jhiTranslate="cbapisApp.placedOffer.status" for="field_status">Status</label>
-          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+          @if (
+            editForm.get('disbursalAmount')!.invalid && (editForm.get('disbursalAmount')!.dirty || editForm.get('disbursalAmount')!.touched)
+          ) {
+            <div>
+              @if (editForm.get('disbursalAmount')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
         </div>
 
         <div class="mb-3">
@@ -357,7 +377,7 @@
           >
             <option [ngValue]="null"></option>
             @for (financeRequestOption of financeRequestsSharedCollection; track $index) {
-              <option [ngValue]="financeRequestOption">{{ financeRequestOption.requestId }}</option>
+              <option [ngValue]="financeRequestOption">{{ financeRequestOption.financeRequestId }}</option>
             }
           </select>
         </div>

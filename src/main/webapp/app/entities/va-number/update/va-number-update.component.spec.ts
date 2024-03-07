@@ -50,10 +50,10 @@ describe('VANumber Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call TradeEntity query and add missing value', () => {
       const vANumber: IVANumber = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 10241 };
+      const tradeEntity: ITradeEntity = { id: 14794 };
       vANumber.tradeEntity = tradeEntity;
 
-      const tradeEntityCollection: ITradeEntity[] = [{ id: 14794 }];
+      const tradeEntityCollection: ITradeEntity[] = [{ id: 21526 }];
       jest.spyOn(tradeEntityService, 'query').mockReturnValue(of(new HttpResponse({ body: tradeEntityCollection })));
       const additionalTradeEntities = [tradeEntity];
       const expectedCollection: ITradeEntity[] = [...additionalTradeEntities, ...tradeEntityCollection];
@@ -72,7 +72,7 @@ describe('VANumber Management Update Component', () => {
 
     it('Should update editForm', () => {
       const vANumber: IVANumber = { id: 456 };
-      const tradeEntity: ITradeEntity = { id: 21526 };
+      const tradeEntity: ITradeEntity = { id: 9506 };
       vANumber.tradeEntity = tradeEntity;
 
       activatedRoute.data = of({ vANumber });

@@ -15,9 +15,9 @@
           <dd>
             <span>{{ userDtls.id }}</span>
           </dd>
-          <dt><span jhiTranslate="cbapisApp.userDtls.userId">User Id</span></dt>
+          <dt><span jhiTranslate="cbapisApp.userDtls.userUlidId">User Ulid Id</span></dt>
           <dd>
-            <span>{{ userDtls.userId }}</span>
+            <span>{{ userDtls.userUlidId }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.userDtls.userName">User Name</span></dt>
           <dd>
@@ -54,14 +54,6 @@
           <dt><span jhiTranslate="cbapisApp.userDtls.defaultPersona">Default Persona</span></dt>
           <dd>
             <span jhiTranslate="{{ 'cbapisApp.Persona.' + userDtls.defaultPersona }}">{{ userDtls.defaultPersona }}</span>
-          </dd>
-          <dt><span jhiTranslate="cbapisApp.userDtls.organization">Organization</span></dt>
-          <dd>
-            @if (userDtls.organization) {
-              <div>
-                <a [routerLink]="['/organization', userDtls.organization.id, 'view']">{{ userDtls.organization.orgId }}</a>
-              </div>
-            }
           </dd>
         </dl>
 
