@@ -168,14 +168,12 @@ repositories {
 }
 
 dependencies {
-
     implementation 'de.huxhorn.sulky:de.huxhorn.sulky.ulid:8.3.0'
 
     compileOnly 'org.projectlombok:lombok:1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
     testCompileOnly 'org.projectlombok:lombok:1.18.24'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.24'
-
     // import JHipster dependencies BOM
     if (!project.hasProperty("gae")) {
         implementation platform("tech.jhipster:jhipster-dependencies:${jhipsterDependenciesVersion}")
