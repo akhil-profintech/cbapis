@@ -55,6 +55,16 @@ public class FinancePartnerService {
         return financePartnerRepository.save(financePartnerMapper.toEntity(financePartnerDTO)).map(financePartnerMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<FinancePartnerDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return financePartnerRepository.findAllByFilter(filter, pageable).map(financePartnerMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return financePartnerRepository.countByFilter(filter);
+    }
+
     /**
      * Partially update a financePartner.
      *

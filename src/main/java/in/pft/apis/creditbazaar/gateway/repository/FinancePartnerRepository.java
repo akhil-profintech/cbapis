@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface FinancePartnerRepository extends ReactiveCrudRepository<FinancePartner, Long>, FinancePartnerRepositoryInternal {
+public interface FinancePartnerRepository extends ReactiveCrudRepository<FinancePartner, Long>, FinancePartnerRepositoryInternal,FinancePartnerCustomRepository {
     Flux<FinancePartner> findAllBy(Pageable pageable);
 
     @Override
