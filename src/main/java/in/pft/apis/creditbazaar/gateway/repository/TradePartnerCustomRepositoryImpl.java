@@ -1,6 +1,5 @@
 package in.pft.apis.creditbazaar.gateway.repository;
 
-import in.pft.apis.creditbazaar.gateway.domain.Settlement;
 import in.pft.apis.creditbazaar.gateway.domain.TradePartner;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -45,7 +44,7 @@ public class TradePartnerCustomRepositoryImpl implements TradePartnerCustomRepos
             }
         }
         return r2dbcEntityTemplate
-            .select(Settlement.class)
+            .select(TradePartner.class)
             .matching(query(criteria))
             .count();
     }
