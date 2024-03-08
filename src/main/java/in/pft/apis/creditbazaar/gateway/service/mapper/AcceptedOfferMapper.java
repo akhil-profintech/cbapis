@@ -8,7 +8,10 @@ import in.pft.apis.creditbazaar.gateway.service.dto.AcceptedOfferDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.AnchorTraderDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FinancePartnerDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FinanceRequestDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link AcceptedOffer} and its DTO {@link AcceptedOfferDTO}.

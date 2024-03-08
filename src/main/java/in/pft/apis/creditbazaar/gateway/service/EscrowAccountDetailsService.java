@@ -4,7 +4,6 @@ import in.pft.apis.creditbazaar.gateway.repository.EscrowAccountDetailsRepositor
 import in.pft.apis.creditbazaar.gateway.service.dto.EscrowAccountDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.mapper.EscrowAccountDetailsMapper;
 import in.pft.apis.creditbazaar.gateway.utils.IdAndUlidGeneration;
-import jakarta.persistence.Id;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;

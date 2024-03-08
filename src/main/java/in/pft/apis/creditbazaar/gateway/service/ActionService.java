@@ -1,6 +1,5 @@
 package in.pft.apis.creditbazaar.gateway.service;
 
-import de.huxhorn.sulky.ulid.ULID;
 import in.pft.apis.creditbazaar.gateway.repository.ActionRepository;
 import in.pft.apis.creditbazaar.gateway.service.dto.ActionDTO;
 import in.pft.apis.creditbazaar.gateway.service.mapper.ActionMapper;

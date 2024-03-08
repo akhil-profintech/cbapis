@@ -8,7 +8,10 @@ import in.pft.apis.creditbazaar.gateway.service.dto.DisbursementDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FTTransactionDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.ParticipantSettlementDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.RepaymentDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link FTTransactionDetails} and its DTO {@link FTTransactionDetailsDTO}.

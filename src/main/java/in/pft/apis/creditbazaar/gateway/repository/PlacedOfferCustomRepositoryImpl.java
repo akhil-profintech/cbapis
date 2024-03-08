@@ -1,7 +1,5 @@
 package in.pft.apis.creditbazaar.gateway.repository;
 
-import in.pft.apis.creditbazaar.gateway.domain.FinancePartner;
-import in.pft.apis.creditbazaar.gateway.domain.FinanceRequest;
 import in.pft.apis.creditbazaar.gateway.domain.PlacedOffer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

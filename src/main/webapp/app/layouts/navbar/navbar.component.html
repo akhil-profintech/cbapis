@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
-      <span jhiTranslate="global.title" class="navbar-title">CreditBazaar-Backend</span>
-<!--      <span class="navbar-version">{{ version }}</span>-->
+      <span jhiTranslate="global.title" class="navbar-title">Cbapis</span>
+      <span class="navbar-version">{{ version }}</span>
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -46,18 +46,6 @@
               <li>
                 <a
                   class="dropdown-item"
-                  routerLink="/context"
-                  routerLinkActive="active"
-                  [routerLinkActiveOptions]="{ exact: true }"
-                  (click)="collapseNavbar()"
-                >
-                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.entities.context">Context</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="dropdown-item"
                   routerLink="/anchor-trader"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
@@ -65,6 +53,18 @@
                 >
                   <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.anchorTrader">Anchor Trader</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="/anchor-trader-partner"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.anchorTraderPartner">Anchor Trader Partner</span>
                 </a>
               </li>
               <li>
@@ -202,13 +202,13 @@
               <li>
                 <a
                   class="dropdown-item"
-                  routerLink="/collection-transaction-details"
+                  routerLink="/escrow-transaction-details"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
                   (click)="collapseNavbar()"
                 >
                   <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
-                  <span jhiTranslate="global.menu.entities.collectionTransactionDetails">Collection Transaction Details</span>
+                  <span jhiTranslate="global.menu.entities.escrowTransactionDetails">Escrow Transaction Details</span>
                 </a>
               </li>
               <li>
@@ -406,6 +406,18 @@
               <li>
                 <a
                   class="dropdown-item"
+                  routerLink="/context"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.context">Context</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
                   routerLink="/action"
                   routerLinkActive="active"
                   [routerLinkActiveOptions]="{ exact: true }"
@@ -437,6 +449,18 @@
                 >
                   <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                   <span jhiTranslate="global.menu.entities.organization">Organization</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="/gstin"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="collapseNavbar()"
+                >
+                  <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.entities.gstin">Gstin</span>
                 </a>
               </li>
               <li>
@@ -634,18 +658,18 @@
                   <span jhiTranslate="global.menu.account.login">Sign in</span>
                 </a>
               </li>
-<!--              <li>-->
-<!--                <a-->
-<!--                  class="dropdown-item"-->
-<!--                  routerLink="/account/register"-->
-<!--                  routerLinkActive="active"-->
-<!--                  (click)="collapseNavbar()"-->
-<!--                  data-cy="register"-->
-<!--                >-->
-<!--                  <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>-->
-<!--                  <span jhiTranslate="global.menu.account.register">Register</span>-->
-<!--                </a>-->
-<!--              </li>-->
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="/account/register"
+                  routerLinkActive="active"
+                  (click)="collapseNavbar()"
+                  data-cy="register"
+                >
+                  <fa-icon icon="user-plus" [fixedWidth]="true"></fa-icon>
+                  <span jhiTranslate="global.menu.account.register">Register</span>
+                </a>
+              </li>
             }
           </ul>
         </li>

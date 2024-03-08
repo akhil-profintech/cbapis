@@ -4,7 +4,10 @@ import in.pft.apis.creditbazaar.gateway.domain.Gstin;
 import in.pft.apis.creditbazaar.gateway.domain.Organization;
 import in.pft.apis.creditbazaar.gateway.service.dto.GstinDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.OrganizationDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link Gstin} and its DTO {@link GstinDTO}.

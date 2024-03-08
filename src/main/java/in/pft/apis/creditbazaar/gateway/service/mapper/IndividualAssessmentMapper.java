@@ -4,7 +4,10 @@ import in.pft.apis.creditbazaar.gateway.domain.CBCREProcess;
 import in.pft.apis.creditbazaar.gateway.domain.IndividualAssessment;
 import in.pft.apis.creditbazaar.gateway.service.dto.CBCREProcessDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.IndividualAssessmentDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link IndividualAssessment} and its DTO {@link IndividualAssessmentDTO}.

@@ -15,8 +15,8 @@ export const sampleWithRequiredData: IAcceptedOffer = {
   interestValue: 11613,
   netAmount: 6796,
   status: 'aw',
-  offerDate: dayjs('2024-03-05'),
-  offerAcceptedDate: dayjs('2024-03-05'),
+  offerDate: dayjs('2024-03-07'),
+  offerAcceptedDate: dayjs('2024-03-07'),
 };
 
 export const sampleWithPartialData: IAcceptedOffer = {
@@ -33,8 +33,8 @@ export const sampleWithPartialData: IAcceptedOffer = {
   interestValue: 17830,
   netAmount: 26882,
   status: 'including format towards',
-  offerDate: dayjs('2024-03-06'),
-  offerAcceptedDate: dayjs('2024-03-05'),
+  offerDate: dayjs('2024-03-07'),
+  offerAcceptedDate: dayjs('2024-03-07'),
 };
 
 export const sampleWithFullData: IAcceptedOffer = {
@@ -52,8 +52,8 @@ export const sampleWithFullData: IAcceptedOffer = {
   interestValue: 3847,
   netAmount: 11176,
   status: 'hence',
-  offerDate: dayjs('2024-03-05'),
-  offerAcceptedDate: dayjs('2024-03-05'),
+  offerDate: dayjs('2024-03-07'),
+  offerAcceptedDate: dayjs('2024-03-07'),
 };
 
 export const sampleWithNewData: NewAcceptedOffer = {
@@ -68,8 +68,8 @@ export const sampleWithNewData: NewAcceptedOffer = {
   interestValue: 23768,
   netAmount: 18065,
   status: 'than to hearty',
-  offerDate: dayjs('2024-03-05'),
-  offerAcceptedDate: dayjs('2024-03-06'),
+  offerDate: dayjs('2024-03-07'),
+  offerAcceptedDate: dayjs('2024-03-07'),
   id: null,
 };
 

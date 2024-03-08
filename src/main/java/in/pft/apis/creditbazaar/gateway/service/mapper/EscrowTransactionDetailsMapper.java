@@ -6,7 +6,10 @@ import in.pft.apis.creditbazaar.gateway.domain.Repayment;
 import in.pft.apis.creditbazaar.gateway.service.dto.DisbursementDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.EscrowTransactionDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.RepaymentDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link EscrowTransactionDetails} and its DTO {@link EscrowTransactionDetailsDTO}.

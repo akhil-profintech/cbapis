@@ -1,7 +1,6 @@
 package in.pft.apis.creditbazaar.gateway.repository;
 
 import in.pft.apis.creditbazaar.gateway.domain.AnchorTrader;
-import in.pft.apis.creditbazaar.gateway.domain.FinanceRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;

@@ -4,7 +4,10 @@ import in.pft.apis.creditbazaar.gateway.domain.TradeEntity;
 import in.pft.apis.creditbazaar.gateway.domain.VANumber;
 import in.pft.apis.creditbazaar.gateway.service.dto.TradeEntityDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.VANumberDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link VANumber} and its DTO {@link VANumberDTO}.

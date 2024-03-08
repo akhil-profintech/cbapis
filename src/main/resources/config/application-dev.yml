@@ -1,3 +1,18 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
 logging:
   level:
     ROOT: DEBUG
@@ -13,7 +28,7 @@ eureka:
       defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
 
 management:
-  zipkin:
+  zipkin: # Use the "zipkin" Maven profile to have the Spring Cloud Zipkin dependencies
     tracing:
       endpoint: http://localhost:9411/api/v2/spans
   tracing:
@@ -37,11 +52,11 @@ spring:
       name: cbapis
       profile: dev
       label: main # toggle to switch to a different version of the configuration as stored in git
-
+      # it can be set to any label, branch or commit of the configuration source Git repository
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
-    url: jdbc:postgresql://database-1.c2lukoxpjjb9.ap-south-1.rds.amazonaws.com:5432/postgres?currentSchema=cbapis&ssl=true&sslmode=require
+    url: jdbc:postgresql://database-1.c2lukoxpjjb9.ap-south-1.rds.amazonaws.com:5432/postgres?currentSchema=cbapis_test_1&ssl=true&sslmode=require
   mail:
     host: localhost
     port: 25
@@ -50,7 +65,7 @@ spring:
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   r2dbc:
-    url: r2dbc:postgresql://database-1.c2lukoxpjjb9.ap-south-1.rds.amazonaws.com:5432/postgres?currentSchema=cbapis&ssl=true&sslmode=require
+    url: r2dbc:postgresql://database-1.c2lukoxpjjb9.ap-south-1.rds.amazonaws.com:5432/postgres?currentSchema=cbapis_test_1&ssl=true&sslmode=require
     username: postgres
     password: E4rw24Q9xFBP9qnlVRu4
   thymeleaf:
@@ -58,6 +73,12 @@ spring:
 
 server:
   port: 8080
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
 
 jhipster:
   gateway:
@@ -82,7 +103,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-        base64-secret: OGQ4YmMyMzk1MjQ4MWM3NGJjNzAyOTM1YjY0YTZhYWQyNWI1NzEzMWNiZmM3NjAzYjYxZDNhMjgzNjExNjMyZjRjZGEyYmRiNjkwNGEzNWFmZjdlMTM3YzY5MjViNDBmZDYwYzQ3YjI2NjU3Mzc4MTE2NjM2MDIzMWM0MzQ4ZDg=
+        base64-secret: OTdlMmNlNmI4M2ViYTgyNDFhNmMzZjIxNzE5YTQzODIxODc0NWFhMDUzMGI2NTJjYmVkYmJkY2VkOTQ0MmZmMTMwNGQzOTFiMjU5MThhYWNkZjgxZmNjMTFjMjg0YmMxYTI1ZTE3YzU4YmM4ZDg0MDYyZDI5OTY2ZmExNGZmYzQ=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
@@ -95,7 +116,13 @@ jhipster:
       host: localhost
       port: 5000
       ring-buffer-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
 
-validation:
-  integration:
-    url: http://a1451a7b05fb647429af8be799c1b83f-1633560672.ap-south-1.elb.amazonaws.com:8080/validate/place-offer
+# application:

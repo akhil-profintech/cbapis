@@ -4,7 +4,10 @@ import in.pft.apis.creditbazaar.gateway.domain.CREObservations;
 import in.pft.apis.creditbazaar.gateway.domain.IndividualAssessment;
 import in.pft.apis.creditbazaar.gateway.service.dto.CREObservationsDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.IndividualAssessmentDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link CREObservations} and its DTO {@link CREObservationsDTO}.

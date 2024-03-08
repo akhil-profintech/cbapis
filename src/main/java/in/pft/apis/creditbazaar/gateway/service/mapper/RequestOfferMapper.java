@@ -6,7 +6,10 @@ import in.pft.apis.creditbazaar.gateway.domain.RequestOffer;
 import in.pft.apis.creditbazaar.gateway.service.dto.FinancePartnerDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FinanceRequestDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.RequestOfferDTO;
-import org.mapstruct.*;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
 /**
  * Mapper for the entity {@link RequestOffer} and its DTO {@link RequestOfferDTO}.

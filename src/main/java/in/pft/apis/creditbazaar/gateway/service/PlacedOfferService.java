@@ -1,34 +1,22 @@
 package in.pft.apis.creditbazaar.gateway.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import in.pft.apis.creditbazaar.gateway.exception.InvalidInputException;
 import in.pft.apis.creditbazaar.gateway.repository.PlacedOfferRepository;
 import in.pft.apis.creditbazaar.gateway.service.dto.PlacedOfferDTO;
-import in.pft.apis.creditbazaar.gateway.service.dto.PlacedOfferValidationResponse;
 import in.pft.apis.creditbazaar.gateway.service.mapper.PlacedOfferMapper;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import static in.pft.apis.creditbazaar.gateway.utils.IdAndUlidGeneration.generateUlid;
-import static org.springframework.http.HttpHeaders.CONTENT_TYPE;
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * Service Implementation for managing {@link in.pft.apis.creditbazaar.gateway.domain.PlacedOffer}.
  */
 @Service
-@RequiredArgsConstructor
 @Transactional
 public class PlacedOfferService {
 
@@ -38,12 +26,10 @@ public class PlacedOfferService {
 
     private final PlacedOfferMapper placedOfferMapper;
 
-    private final ObjectMapper objectMapper;
-
-    @Value("${validation.integration.url}")
-    private String validationIntegrationURL;
-
-    private final WebClient webClient;
+    public PlacedOfferService(PlacedOfferRepository placedOfferRepository, PlacedOfferMapper placedOfferMapper) {
+        this.placedOfferRepository = placedOfferRepository;
+        this.placedOfferMapper = placedOfferMapper;
+    }
 
     /**
      * Save a placedOffer.
@@ -55,44 +41,18 @@ public class PlacedOfferService {
         log.debug("Request to save PlacedOffer : {}", placedOfferDTO);
         placedOfferDTO.setPlacedOfferUlidId(generateUlid());
         placedOfferDTO.setReqOffUlidId(generateUlid());
-        try {
-            return webClient.post()
-                .uri(validationIntegrationURL)
-                .header(CONTENT_TYPE,APPLICATION_JSON_VALUE)
-                .bodyValue(objectMapper.writeValueAsString(placedOfferDTO))
-                .retrieve()
-                .bodyToMono(String.class)
-                .flatMap(validationAPIResponse->{
-                    log.info(validationAPIResponse);
-                    try {
-                        PlacedOfferValidationResponse placedOfferValidationResponse=
-                            objectMapper.readValue(validationAPIResponse,PlacedOfferValidationResponse.class);
-                        if(!placedOfferValidationResponse.getData().isValid())
-                        {
-                            throw new InvalidInputException("PlacedOffer validation failed, please recheck and enter correct values before placing offer","");
-                        }
-                        return placedOfferRepository.save(placedOfferMapper.toEntity(placedOfferDTO))
-                            .flatMap(savedEntity -> {
-                                placedOfferDTO.setPlacedOfferRefNo("OFPD-PBY-FRCR-PTS-" + savedEntity.getId());
-                                placedOfferDTO.setRequestOfferRefNo("ROCR-PBY-FRCR-PTS-" + savedEntity.getId());
-                                return placedOfferRepository.findById(savedEntity.getId())
-                                    .flatMap(existingEntity -> {
-                                        existingEntity.setPlacedOfferRefNo(placedOfferDTO.getPlacedOfferRefNo());
-                                        existingEntity.setRequestOfferRefNo(placedOfferDTO.getRequestOfferRefNo());
-                                        return placedOfferRepository.save(existingEntity)
-                                            .map(placedOfferMapper::toDto);
-                                    });
-                            });
-                    }
-                    catch (JsonProcessingException e) {
-                        return Mono.error(e);
-                    }
-                })
-                .onErrorResume(InvalidInputException.class, ex -> Mono.error(new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage(), ex)))
-                .onErrorResume(JsonProcessingException.class, ex -> Mono.error(new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error processing JSON response", ex)));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return placedOfferRepository.save(placedOfferMapper.toEntity(placedOfferDTO))
+            .flatMap(savedEntity -> {
+                placedOfferDTO.setPlacedOfferRefNo("OFPD-PBY-FRCR-PTS-" + savedEntity.getId());
+                placedOfferDTO.setRequestOfferRefNo("ROCR-PBY-FRCR-PTS-" + savedEntity.getId());
+                return placedOfferRepository.findById(savedEntity.getId())
+                    .flatMap(existingEntity -> {
+                        existingEntity.setPlacedOfferRefNo(placedOfferDTO.getPlacedOfferRefNo());
+                        existingEntity.setRequestOfferRefNo(placedOfferDTO.getRequestOfferRefNo());
+                        return placedOfferRepository.save(existingEntity)
+                            .map(placedOfferMapper::toDto);
+                    });
+            });
     }
 
     /**
@@ -103,40 +63,7 @@ public class PlacedOfferService {
      */
     public Mono<PlacedOfferDTO> update(PlacedOfferDTO placedOfferDTO) {
         log.debug("Request to update PlacedOffer : {}", placedOfferDTO);
-        try {
-            // Use WebClient to send the request asynchronously
-            return webClient.post()
-                .uri(validationIntegrationURL)
-                .header(CONTENT_TYPE, APPLICATION_JSON_VALUE)
-                .bodyValue(objectMapper.writeValueAsString(placedOfferDTO))
-                .retrieve()
-                .bodyToMono(String.class)
-                .flatMap(validationAPIResponse -> {
-                    log.info(validationAPIResponse);
-                    try {
-                        // Deserialize the response
-                        PlacedOfferValidationResponse placedOfferValidationResponse =
-                            objectMapper.readValue(validationAPIResponse, PlacedOfferValidationResponse.class);
-
-                        // Check if the validation is successful
-                        if (!placedOfferValidationResponse.getData().isValid()) {
-                            return Mono.error(new InvalidInputException("PlacedOffer validation failed, please recheck and enter correct values before placing offer",""));
-                        }
-
-                        // If validation is successful, save the PlacedOffer
-                        return placedOfferRepository.save(placedOfferMapper.toEntity(placedOfferDTO))
-                            .map(placedOfferMapper::toDto);
-                    } catch (JsonProcessingException e) {
-                        return Mono.error(e);
-                    }
-                })
-                .onErrorResume(InvalidInputException.class, ex ->
-                    Mono.error(new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage(), ex)))
-                .onErrorResume(JsonProcessingException.class, ex ->
-                    Mono.error(new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error processing JSON response", ex)));
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
+        return placedOfferRepository.save(placedOfferMapper.toEntity(placedOfferDTO)).map(placedOfferMapper::toDto);
     }
 
     /**
