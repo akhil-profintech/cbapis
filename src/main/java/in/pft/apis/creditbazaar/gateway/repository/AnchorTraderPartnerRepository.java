@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface AnchorTraderPartnerRepository
-    extends ReactiveCrudRepository<AnchorTraderPartner, Long>, AnchorTraderPartnerRepositoryInternal {
+    extends ReactiveCrudRepository<AnchorTraderPartner, Long>, AnchorTraderPartnerRepositoryInternal,AnchorTraderPartnerCustomRepo {
     Flux<AnchorTraderPartner> findAllBy(Pageable pageable);
 
     @Override

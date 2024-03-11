@@ -94,6 +94,18 @@ public class AnchorTraderPartnerService {
         return anchorTraderPartnerRepository.findAllBy(pageable).map(anchorTraderPartnerMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<AnchorTraderPartnerDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return anchorTraderPartnerRepository.findAllByFilter(filter, pageable).map(anchorTraderPartnerMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return anchorTraderPartnerRepository.countByFilter(filter);
+    }
+
+
+
     /**
      * Get all the anchorTraderPartners with eager load of many-to-many relationships.
      *
