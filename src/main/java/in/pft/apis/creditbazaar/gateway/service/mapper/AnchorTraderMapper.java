@@ -2,7 +2,7 @@ package in.pft.apis.creditbazaar.gateway.service.mapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.AnchorTrader;
 import in.pft.apis.creditbazaar.gateway.service.dto.AnchorTraderDTO;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 /**
  * Mapper for the entity {@link AnchorTrader} and its DTO {@link AnchorTraderDTO}.

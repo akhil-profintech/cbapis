@@ -2,7 +2,7 @@ package in.pft.apis.creditbazaar.gateway.service.mapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.EscrowAccountDetails;
 import in.pft.apis.creditbazaar.gateway.service.dto.EscrowAccountDetailsDTO;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 /**
  * Mapper for the entity {@link EscrowAccountDetails} and its DTO {@link EscrowAccountDetailsDTO}.

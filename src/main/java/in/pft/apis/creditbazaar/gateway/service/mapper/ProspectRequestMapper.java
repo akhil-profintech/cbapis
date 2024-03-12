@@ -2,7 +2,7 @@ package in.pft.apis.creditbazaar.gateway.service.mapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.ProspectRequest;
 import in.pft.apis.creditbazaar.gateway.service.dto.ProspectRequestDTO;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
 
 /**
  * Mapper for the entity {@link ProspectRequest} and its DTO {@link ProspectRequestDTO}.

@@ -4,12 +4,13 @@ import in.pft.apis.creditbazaar.gateway.domain.Authority;
 import in.pft.apis.creditbazaar.gateway.domain.User;
 import in.pft.apis.creditbazaar.gateway.service.dto.AdminUserDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.UserDTO;
-import java.util.*;
-import java.util.stream.Collectors;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 import org.springframework.stereotype.Service;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Mapper for the entity {@link User} and its DTO called {@link UserDTO}.
