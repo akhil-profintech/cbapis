@@ -1,6 +1,5 @@
 package in.pft.apis.creditbazaar.gateway.repository;
 
-import in.pft.apis.creditbazaar.gateway.domain.Repayment;
 import in.pft.apis.creditbazaar.gateway.domain.RequestOffer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +11,7 @@ import reactor.core.publisher.Mono;
 
 import static org.springframework.data.relational.core.query.Criteria.where;
 import static org.springframework.data.relational.core.query.Query.query;
+
 @Repository
 @RequiredArgsConstructor
 public class RequestOfferCustomRepositoryImpl implements RequestOfferCustomRepository
@@ -44,7 +44,7 @@ public class RequestOfferCustomRepositoryImpl implements RequestOfferCustomRepos
             }
         }
         return r2dbcEntityTemplate
-            .select(Repayment.class)
+            .select(RequestOffer.class)
             .matching(query(criteria))
             .count();
     }
