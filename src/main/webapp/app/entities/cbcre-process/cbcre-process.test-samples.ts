@@ -1,39 +1,40 @@
 import { ICBCREProcess, NewCBCREProcess } from './cbcre-process.model';
 
 export const sampleWithRequiredData: ICBCREProcess = {
-  id: 83,
+  id: 16180,
 };
 
 export const sampleWithPartialData: ICBCREProcess = {
-  id: 29297,
-  cbProcessId: 9493,
-  cbProcessUlidId: 'however often fortunately',
-  anchorTraderId: 'immediately noxious',
-  financeAmount: 'vice yowza',
-  processDateTime: 'under',
-  responseDateTime: 'muse into',
-  creRequestId: 'indeed competent',
-  cumilativeTradeScore: 10222.85,
-  totalAmountRequested: 24529,
-  totalInvoiceAmount: 12141,
+  id: 24939,
+  cbProcessId: 15333,
+  cbProcessRefNo: 'termite but likely',
+  anchorTraderGst: 'dip easy',
+  financeAmount: 'data furiously',
+  creProcessStatus: 'ally acrobatic',
+  responseDateTime: 'swill',
+  creRequestId: 'paginate reversal near',
+  timestamp: 'recede furthermore',
+  totalAmountRequested: 21968,
+  status: 'lamb how while',
 };
 
 export const sampleWithFullData: ICBCREProcess = {
-  id: 25544,
-  cbProcessId: 25211,
-  cbProcessUlidId: 'untrue aside',
-  cbProcessRefNo: 'builder amongst',
-  anchorTraderId: 'criminal',
-  anchorTraderGst: 'greatly upside-down incomparable',
-  financeAmount: 'owlishly uh-huh',
-  processDateTime: 'during blissfully the',
-  creProcessStatus: 'eek excellent',
-  responseDateTime: 'quickly spleen hmph',
-  creRequestId: 'above than',
-  cumilativeTradeScore: 17485.23,
-  timestamp: 'micturate inhere',
-  totalAmountRequested: 12937,
-  totalInvoiceAmount: 13248,
+  id: 6286,
+  cbProcessId: 7605,
+  cbProcessUlidId: 'ah',
+  cbProcessRefNo: 'incomparable flat provided',
+  anchorTraderId: 'ha except truly',
+  anchorTraderGst: 'questioningly mindless duh',
+  financeAmount: 'till',
+  processDateTime: 'hmph behind silently',
+  creProcessStatus: 'on cruelly',
+  responseDateTime: 'deglaze psst',
+  creRequestId: 'brr',
+  cumilativeTradeScore: 15789.16,
+  timestamp: 'gah furthermore',
+  totalAmountRequested: 21873,
+  totalInvoiceAmount: 14564,
+  status: 'where fiberglass ugh',
 };
 
 export const sampleWithNewData: NewCBCREProcess = {

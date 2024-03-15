@@ -29,6 +29,7 @@ public class CREObservationsRowMapper implements BiFunction<Row, String, CREObse
         entity.setCreObservationsUlidId(converter.fromRow(row, prefix + "_cre_observations_ulid_id", String.class));
         entity.setCreRequestId(converter.fromRow(row, prefix + "_cre_request_id", String.class));
         entity.setObservations(converter.fromRow(row, prefix + "_observations", String.class));
+        entity.setAssessmentId(converter.fromRow(row, prefix + "_assessment_id", Long.class));
         entity.setIndividualassessmentId(converter.fromRow(row, prefix + "_individualassessment_id", Long.class));
         return entity;
     }

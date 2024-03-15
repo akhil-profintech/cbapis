@@ -24,6 +24,7 @@ describe('CREHighlights Form Service', () => {
             creHighlightsUlidId: expect.any(Object),
             creRequestId: expect.any(Object),
             highlights: expect.any(Object),
+            assessmentId: expect.any(Object),
             individualassessment: expect.any(Object),
           }),
         );
@@ -39,6 +40,7 @@ describe('CREHighlights Form Service', () => {
             creHighlightsUlidId: expect.any(Object),
             creRequestId: expect.any(Object),
             highlights: expect.any(Object),
+            assessmentId: expect.any(Object),
             individualassessment: expect.any(Object),
           }),
         );

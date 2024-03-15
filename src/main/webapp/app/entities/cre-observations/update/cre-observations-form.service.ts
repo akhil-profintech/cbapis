@@ -22,6 +22,7 @@ type CREObservationsFormGroupContent = {
   creObservationsUlidId: FormControl<ICREObservations['creObservationsUlidId']>;
   creRequestId: FormControl<ICREObservations['creRequestId']>;
   observations: FormControl<ICREObservations['observations']>;
+  assessmentId: FormControl<ICREObservations['assessmentId']>;
   individualassessment: FormControl<ICREObservations['individualassessment']>;
 };
 
@@ -46,6 +47,7 @@ export class CREObservationsFormService {
       creObservationsUlidId: new FormControl(cREObservationsRawValue.creObservationsUlidId),
       creRequestId: new FormControl(cREObservationsRawValue.creRequestId),
       observations: new FormControl(cREObservationsRawValue.observations),
+      assessmentId: new FormControl(cREObservationsRawValue.assessmentId),
       individualassessment: new FormControl(cREObservationsRawValue.individualassessment),
     });
   }

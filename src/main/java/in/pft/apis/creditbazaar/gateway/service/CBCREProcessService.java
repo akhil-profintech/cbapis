@@ -103,6 +103,17 @@ public class CBCREProcessService {
         return cBCREProcessRepository.findAllWithEagerRelationships(pageable).map(cBCREProcessMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<CBCREProcessDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return cBCREProcessRepository.findAllByFilter(filter, pageable).map(cBCREProcessMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return cBCREProcessRepository.countByFilter(filter);
+    }
+
+
     /**
      * Returns the number of cBCREProcesses available.
      * @return the number of entities in the database.

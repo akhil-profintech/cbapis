@@ -31,6 +31,22 @@ public class IndividualAssessmentDTO implements Serializable {
 
     private String invoiceId;
 
+    private String baseScore;
+
+    private String ctin;
+
+    private String invDate;
+
+    private Long cbProcessId;
+
+    private Boolean grnPresent;
+
+    private Boolean einvoicePresent;
+
+    private Boolean ewayBillPresent;
+
+    private Boolean tradePartnerConfirmation;
+
     private CBCREProcessDTO cbcreprocess;
 
     public Long getId() {
@@ -121,6 +137,70 @@ public class IndividualAssessmentDTO implements Serializable {
         this.invoiceId = invoiceId;
     }
 
+    public String getBaseScore() {
+        return baseScore;
+    }
+
+    public void setBaseScore(String baseScore) {
+        this.baseScore = baseScore;
+    }
+
+    public String getCtin() {
+        return ctin;
+    }
+
+    public void setCtin(String ctin) {
+        this.ctin = ctin;
+    }
+
+    public String getInvDate() {
+        return invDate;
+    }
+
+    public void setInvDate(String invDate) {
+        this.invDate = invDate;
+    }
+
+    public Long getCbProcessId() {
+        return cbProcessId;
+    }
+
+    public void setCbProcessId(Long cbProcessId) {
+        this.cbProcessId = cbProcessId;
+    }
+
+    public Boolean getGrnPresent() {
+        return grnPresent;
+    }
+
+    public void setGrnPresent(Boolean grnPresent) {
+        this.grnPresent = grnPresent;
+    }
+
+    public Boolean getEinvoicePresent() {
+        return einvoicePresent;
+    }
+
+    public void setEinvoicePresent(Boolean einvoicePresent) {
+        this.einvoicePresent = einvoicePresent;
+    }
+
+    public Boolean getEwayBillPresent() {
+        return ewayBillPresent;
+    }
+
+    public void setEwayBillPresent(Boolean ewayBillPresent) {
+        this.ewayBillPresent = ewayBillPresent;
+    }
+
+    public Boolean getTradePartnerConfirmation() {
+        return tradePartnerConfirmation;
+    }
+
+    public void setTradePartnerConfirmation(Boolean tradePartnerConfirmation) {
+        this.tradePartnerConfirmation = tradePartnerConfirmation;
+    }
+
     public CBCREProcessDTO getCbcreprocess() {
         return cbcreprocess;
     }
@@ -165,6 +245,14 @@ public class IndividualAssessmentDTO implements Serializable {
             ", tradePartnerId='" + getTradePartnerId() + "'" +
             ", invoiceAmount=" + getInvoiceAmount() +
             ", invoiceId='" + getInvoiceId() + "'" +
+            ", baseScore='" + getBaseScore() + "'" +
+            ", ctin='" + getCtin() + "'" +
+            ", invDate='" + getInvDate() + "'" +
+            ", cbProcessId=" + getCbProcessId() +
+            ", grnPresent='" + getGrnPresent() + "'" +
+            ", einvoicePresent='" + getEinvoicePresent() + "'" +
+            ", ewayBillPresent='" + getEwayBillPresent() + "'" +
+            ", tradePartnerConfirmation='" + getTradePartnerConfirmation() + "'" +
             ", cbcreprocess=" + getCbcreprocess() +
             "}";
     }

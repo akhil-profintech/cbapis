@@ -15,6 +15,7 @@ public class CREObservationsSqlHelper {
         columns.add(Column.aliased("cre_observations_ulid_id", table, columnPrefix + "_cre_observations_ulid_id"));
         columns.add(Column.aliased("cre_request_id", table, columnPrefix + "_cre_request_id"));
         columns.add(Column.aliased("observations", table, columnPrefix + "_observations"));
+        columns.add(Column.aliased("assessment_id", table, columnPrefix + "_assessment_id"));
 
         columns.add(Column.aliased("individualassessment_id", table, columnPrefix + "_individualassessment_id"));
         return columns;

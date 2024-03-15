@@ -32,6 +32,7 @@
       "timestamp": "Timestamp",
       "totalAmountRequested": "Total Amount Requested",
       "totalInvoiceAmount": "Total Invoice Amount",
+      "status": "Status",
       "individualAssessment": "Individual Assessment",
       "financeRequest": "Finance Request"
     }

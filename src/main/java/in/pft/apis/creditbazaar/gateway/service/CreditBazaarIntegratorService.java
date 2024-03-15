@@ -92,6 +92,16 @@ public class CreditBazaarIntegratorService {
         return creditBazaarIntegratorRepository.findAllBy(pageable).map(creditBazaarIntegratorMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<CreditBazaarIntegratorDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return creditBazaarIntegratorRepository.findAllByFilter(filter, pageable).map(creditBazaarIntegratorMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return creditBazaarIntegratorRepository.countByFilter(filter);
+    }
+
     /**
      * Returns the number of creditBazaarIntegrators available.
      * @return the number of entities in the database.

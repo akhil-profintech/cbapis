@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface CREHighlightsRepository extends ReactiveCrudRepository<CREHighlights, Long>, CREHighlightsRepositoryInternal {
+public interface CREHighlightsRepository extends ReactiveCrudRepository<CREHighlights, Long>, CREHighlightsRepositoryInternal,CREHighlightsCustomRepo {
     Flux<CREHighlights> findAllBy(Pageable pageable);
 
     @Override

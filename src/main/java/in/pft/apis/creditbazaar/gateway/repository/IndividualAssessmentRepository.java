@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface IndividualAssessmentRepository
-    extends ReactiveCrudRepository<IndividualAssessment, Long>, IndividualAssessmentRepositoryInternal {
+    extends ReactiveCrudRepository<IndividualAssessment, Long>, IndividualAssessmentRepositoryInternal,IndividualAssessmentCustomRepo {
     Flux<IndividualAssessment> findAllBy(Pageable pageable);
 
     @Override

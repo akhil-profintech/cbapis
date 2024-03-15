@@ -6,6 +6,7 @@ export interface ICREObservations {
   creObservationsUlidId?: string | null;
   creRequestId?: string | null;
   observations?: string | null;
+  assessmentId?: number | null;
   individualassessment?: Pick<IIndividualAssessment, 'id' | 'assessmentId'> | null;
 }
 

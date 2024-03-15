@@ -94,6 +94,16 @@ public class AcceptedOfferService {
         return acceptedOfferRepository.findAllBy(pageable).map(acceptedOfferMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<AcceptedOfferDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AcceptedOffers");
+        return acceptedOfferRepository.findAllByFilter(filter, pageable).map(acceptedOfferMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return acceptedOfferRepository.countByFilter(filter);
+    }
+
     /**
      * Get all the acceptedOffers with eager load of many-to-many relationships.
      *

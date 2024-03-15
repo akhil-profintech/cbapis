@@ -11,7 +11,6 @@ import reactor.core.publisher.Mono;
 
 import static org.springframework.data.relational.core.query.Criteria.where;
 import static org.springframework.data.relational.core.query.Query.query;
-
 @Repository
 @RequiredArgsConstructor
 public class RequestOfferCustomRepositoryImpl implements RequestOfferCustomRepository

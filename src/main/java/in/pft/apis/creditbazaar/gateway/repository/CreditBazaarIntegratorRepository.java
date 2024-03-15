@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface CreditBazaarIntegratorRepository
-    extends ReactiveCrudRepository<CreditBazaarIntegrator, Long>, CreditBazaarIntegratorRepositoryInternal {
+    extends ReactiveCrudRepository<CreditBazaarIntegrator, Long>, CreditBazaarIntegratorRepositoryInternal ,CreditBazaarIntegrationCustomRepo{
     Flux<CreditBazaarIntegrator> findAllBy(Pageable pageable);
 
     @Override

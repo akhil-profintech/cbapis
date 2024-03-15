@@ -112,6 +112,62 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="baseScore">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.baseScore">Base Score</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ctin">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.ctin">Ctin</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="invDate">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.invDate">Inv Date</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbProcessId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.cbProcessId">Cb Process Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="grnPresent">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.grnPresent">Grn Present</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="einvoicePresent">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.einvoicePresent">Einvoice Present</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ewayBillPresent">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.ewayBillPresent">Eway Bill Present</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="tradePartnerConfirmation">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.individualAssessment.tradePartnerConfirmation">Trade Partner Confirmation</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="cbcreprocess.cbProcessId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.individualAssessment.cbcreprocess">Cbcreprocess</span>
@@ -137,6 +193,14 @@
               <td>{{ individualAssessment.tradePartnerId }}</td>
               <td>{{ individualAssessment.invoiceAmount }}</td>
               <td>{{ individualAssessment.invoiceId }}</td>
+              <td>{{ individualAssessment.baseScore }}</td>
+              <td>{{ individualAssessment.ctin }}</td>
+              <td>{{ individualAssessment.invDate }}</td>
+              <td>{{ individualAssessment.cbProcessId }}</td>
+              <td>{{ individualAssessment.grnPresent }}</td>
+              <td>{{ individualAssessment.einvoicePresent }}</td>
+              <td>{{ individualAssessment.ewayBillPresent }}</td>
+              <td>{{ individualAssessment.tradePartnerConfirmation }}</td>
               <td>
                 @if (individualAssessment.cbcreprocess) {
                   <div>

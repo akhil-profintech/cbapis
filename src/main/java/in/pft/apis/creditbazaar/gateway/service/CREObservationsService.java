@@ -86,6 +86,17 @@ public class CREObservationsService {
         return cREObservationsRepository.findAllBy(pageable).map(cREObservationsMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<CREObservationsDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return cREObservationsRepository.findAllByFilter(filter, pageable).map(cREObservationsMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return cREObservationsRepository.countByFilter(filter);
+    }
+
+
     /**
      * Get all the cREObservations with eager load of many-to-many relationships.
      *

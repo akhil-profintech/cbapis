@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface ParticipantSettlementRepository
-    extends ReactiveCrudRepository<ParticipantSettlement, Long>, ParticipantSettlementRepositoryInternal {
+    extends ReactiveCrudRepository<ParticipantSettlement, Long>, ParticipantSettlementRepositoryInternal,ParticipantSettlementCustomRepo {
     Flux<ParticipantSettlement> findAllBy(Pageable pageable);
 
     @Override

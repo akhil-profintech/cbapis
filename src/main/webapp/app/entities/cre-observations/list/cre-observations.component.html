@@ -70,6 +70,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="assessmentId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.cREObservations.assessmentId">Assessment Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="individualassessment.assessmentId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.cREObservations.individualassessment">Individualassessment</span>
@@ -89,6 +96,7 @@
               <td>{{ cREObservations.creObservationsUlidId }}</td>
               <td>{{ cREObservations.creRequestId }}</td>
               <td>{{ cREObservations.observations }}</td>
+              <td>{{ cREObservations.assessmentId }}</td>
               <td>
                 @if (cREObservations.individualassessment) {
                   <div>

@@ -34,6 +34,7 @@ describe('CBCREProcess Form Service', () => {
             timestamp: expect.any(Object),
             totalAmountRequested: expect.any(Object),
             totalInvoiceAmount: expect.any(Object),
+            status: expect.any(Object),
             financeRequest: expect.any(Object),
           }),
         );
@@ -59,6 +60,7 @@ describe('CBCREProcess Form Service', () => {
             timestamp: expect.any(Object),
             totalAmountRequested: expect.any(Object),
             totalInvoiceAmount: expect.any(Object),
+            status: expect.any(Object),
             financeRequest: expect.any(Object),
           }),
         );

@@ -6,6 +6,7 @@ export interface ICREHighlights {
   creHighlightsUlidId?: string | null;
   creRequestId?: string | null;
   highlights?: string | null;
+  assessmentId?: number | null;
   individualassessment?: Pick<IIndividualAssessment, 'id' | 'assessmentId'> | null;
 }
 

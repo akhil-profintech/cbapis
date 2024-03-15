@@ -1,11 +1,11 @@
-id;cb_process_id;cb_process_ulid_id;cb_process_ref_no;anchor_trader_id;anchor_trader_gst;finance_amount;process_date_time;cre_process_status;response_date_time;cre_request_id;cumilative_trade_score;timestamp;total_amount_requested;total_invoice_amount
-1;26512;energise;beyond all nicely;duh wetly;afore;whoa;since solidly dioxide;hurl annotate pricing;aha;soup;31527.13;hole woot consequence;1161;19875
-2;10476;busily;um ideal that;wherever;although woot;crunch barring meh;peanut;bratwurst;er about;lending yowza;14838.12;studious;2273;13184
-3;12187;overshadow permeate;unethically searchingly kowtow;save;likable farrow handmade;ah;defenseless freon;courage gosh;meh overview;through;13941.81;klutzy famously modeling;13117;28873
-4;3323;yang physically;book until resist;parched cultured actual;as;in inborn needily;after spangle;supplement unnaturally tassel;for;adventurously capitalize downsize;1832.59;tyrannise faithfully;11710;26960
-5;21407;nor;furthermore warmly so;off qua;duh excited dull;woozy brave;like save;once;circa;the as bray;32690.41;by;21714;20
-6;21307;relieve er orderly;hypothermia safely;vary spiteful;outbid melatonin;takeover lest satiate;isolation;rotten brightly;quilt;yuck consult anenst;11348.03;the;23910;32522
-7;31932;ouch;lovingly productive ouch;narrow helplessly veteran;the since cozy;excepting;that solidly;silent woot underpin;striking what;though after;22799.69;high-level jubilantly;20618;30049
-8;107;what;towards powerless;um rigidly after;ugh periodic whether;anenst what;yowza instead;circular guitar viability;upliftingly;astride solidly;14723.82;duh litter diminish;29124;18480
-9;12464;infant whoever excoriate;accurate;tire;sedately;within euthanise but;phew late beautifully;ha;deeply ouch;blah forelimb obnoxiously;24024.97;heavily;23507;1520
-10;20207;between;pouch pace fooey;caucus;usefully;irk oof xylophone;but;whoever pish;experienced failing;since author fairly;30765.36;plaintive whose;25302;3816
+id;cb_process_id;cb_process_ulid_id;cb_process_ref_no;anchor_trader_id;anchor_trader_gst;finance_amount;process_date_time;cre_process_status;response_date_time;cre_request_id;cumilative_trade_score;timestamp;total_amount_requested;total_invoice_amount;status
+1;26512;energise;beyond all nicely;duh wetly;afore;whoa;since solidly dioxide;hurl annotate pricing;aha;soup;31527.13;hole woot consequence;1161;19875;after
+2;2873;um ideal that;wherever;although woot;crunch barring meh;peanut;bratwurst;er about;lending yowza;viciously march;11377.87;aha whose unlike;7296;6011;incidentally
+3;15896;save;likable farrow handmade;ah;defenseless freon;courage gosh;meh overview;through;open blaze;modeling;13116.71;for brown perfectly;32394;802;until
+4;24557;including rare uh-huh;restart unless;fooey;or although;shofar uh-huh;menace;furthermore waiting;into;focalise oldie instead;32084.21;chopsticks gadzooks owlishly;14932;31099;coaxingly
+5;11539;exhaust airdrop;thankfully alphabet gadzooks;handy mmm quicker;alongside minus saving;yahoo valiantly the;flick;and;out;caricature;14850.96;er orderly because;14581;27283;yahoo gosh noted
+6;27468;as;unaccountably drat;yippee even;township underneath;rapidly unrealistic descend;consequently bravely the;consequently whimsical how;near excited;certainly failing;7665.93;gentle bah;12999;17998;helplessly
+7;14651;pave whereas;er usable;pole mysterious;fairly ack hero;or;quizzically;useless epauliere;diligently rumor into;seldom;6581.03;after until memorable;20160;14807;wording
+8;2465;after best;yowza;poetry;clearly coalition sneaky;offend;after endeavour;blockade blow yahoo;infant whoever excoriate;accurate;6249.35;alongside sedately boo;32163;5743;now woot off
+9;24929;mad however;phew beneath;vastly needily;likable;successfully;gee;between;pouch pace fooey;caucus;800.7;whenever;4058;15209;goodwill bowling solidly
+10;25654;sneaky lightly;harmless ha;reproachfully;given;worth gee frantically;before;likewise;automatic inside amidst;calculating if;3950.41;likewise joyfully propitiate;5870;3404;brr mmm

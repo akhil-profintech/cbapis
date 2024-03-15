@@ -93,6 +93,16 @@ public class IndividualAssessmentService {
         return individualAssessmentRepository.findAllBy(pageable).map(individualAssessmentMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<IndividualAssessmentDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all IndividualAssessments");
+        return individualAssessmentRepository.findAllByFilter(filter, pageable).map(individualAssessmentMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return individualAssessmentRepository.countByFilter(filter);
+    }
+
     /**
      * Get all the individualAssessments with eager load of many-to-many relationships.
      *

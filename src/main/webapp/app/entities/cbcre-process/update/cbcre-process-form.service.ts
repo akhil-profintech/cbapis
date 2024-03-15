@@ -32,6 +32,7 @@ type CBCREProcessFormGroupContent = {
   timestamp: FormControl<ICBCREProcess['timestamp']>;
   totalAmountRequested: FormControl<ICBCREProcess['totalAmountRequested']>;
   totalInvoiceAmount: FormControl<ICBCREProcess['totalInvoiceAmount']>;
+  status: FormControl<ICBCREProcess['status']>;
   financeRequest: FormControl<ICBCREProcess['financeRequest']>;
 };
 
@@ -66,6 +67,7 @@ export class CBCREProcessFormService {
       timestamp: new FormControl(cBCREProcessRawValue.timestamp),
       totalAmountRequested: new FormControl(cBCREProcessRawValue.totalAmountRequested),
       totalInvoiceAmount: new FormControl(cBCREProcessRawValue.totalInvoiceAmount),
+      status: new FormControl(cBCREProcessRawValue.status),
       financeRequest: new FormControl(cBCREProcessRawValue.financeRequest),
     });
   }

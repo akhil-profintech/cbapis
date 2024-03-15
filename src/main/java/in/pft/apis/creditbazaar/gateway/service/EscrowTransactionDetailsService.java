@@ -93,6 +93,17 @@ public class EscrowTransactionDetailsService {
         return escrowTransactionDetailsRepository.findAllBy(pageable).map(escrowTransactionDetailsMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<EscrowTransactionDetailsDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all EscrowTransactionDetails");
+        return escrowTransactionDetailsRepository.findAllByFilter(filter, pageable).map(escrowTransactionDetailsMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return escrowTransactionDetailsRepository.countByFilter(filter);
+    }
+
+
     /**
      * Get all the escrowTransactionDetails with eager load of many-to-many relationships.
      *

@@ -1,31 +1,43 @@
 import { IIndividualAssessment, NewIndividualAssessment } from './individual-assessment.model';
 
 export const sampleWithRequiredData: IIndividualAssessment = {
-  id: 9257,
+  id: 11263,
 };
 
 export const sampleWithPartialData: IIndividualAssessment = {
-  id: 22392,
-  assessmentId: 8797,
-  assessmentUlidId: 'given',
-  finalVerdict: 'amid interconnect',
-  timestamp: 'slowly mushroom messy',
-  tradePartnerId: 'unexpectedly',
-  invoiceAmount: 29485,
+  id: 8842,
+  assessmentId: 3666,
+  finalVerdict: 'worth slowly',
+  creRequestId: 'zowie acrobatic unexpectedly',
+  tradePartnerId: 'yuck ack excluding',
+  invoiceAmount: 9787,
+  invoiceId: 'reload',
+  ctin: 'flat phew',
+  cbProcessId: 26522,
+  grnPresent: false,
+  tradePartnerConfirmation: false,
 };
 
 export const sampleWithFullData: IIndividualAssessment = {
-  id: 6692,
-  assessmentId: 23026,
-  assessmentUlidId: 'banking',
-  creditScore: 11649.71,
-  finalVerdict: 'pfft actress useless',
-  creRequestId: 'after',
-  timestamp: 'disembowel triumphantly acrobatic',
-  tradePartnerGST: 'jealously',
-  tradePartnerId: 'brr under bottom',
-  invoiceAmount: 11535,
-  invoiceId: 'spotted diligently',
+  id: 8341,
+  assessmentId: 1049,
+  assessmentUlidId: 'shyly potentially',
+  creditScore: 26325,
+  finalVerdict: 'oof extra-small yuck',
+  creRequestId: 'vignette tragic',
+  timestamp: 'pace glance',
+  tradePartnerGST: 'fiery grounded',
+  tradePartnerId: 'hmph earnest',
+  invoiceAmount: 19398,
+  invoiceId: 'revolving coil',
+  baseScore: 'breach venti',
+  ctin: 'communicate indeed',
+  invDate: 'expertise',
+  cbProcessId: 28712,
+  grnPresent: false,
+  einvoicePresent: false,
+  ewayBillPresent: true,
+  tradePartnerConfirmation: true,
 };
 
 export const sampleWithNewData: NewIndividualAssessment = {

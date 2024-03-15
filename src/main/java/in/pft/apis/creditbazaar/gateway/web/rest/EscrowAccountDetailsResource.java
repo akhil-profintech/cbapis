@@ -6,10 +6,7 @@ import in.pft.apis.creditbazaar.gateway.service.dto.EscrowAccountDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.web.rest.errors.BadRequestAlertException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.Objects;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,6 +23,11 @@ import reactor.core.publisher.Mono;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.reactive.ResponseUtil;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * REST controller for managing {@link in.pft.apis.creditbazaar.gateway.domain.EscrowAccountDetails}.
@@ -178,9 +180,11 @@ public class EscrowAccountDetailsResource {
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<List<EscrowAccountDetailsDTO>>> getAllEscrowAccountDetails(
         @org.springdoc.core.annotations.ParameterObject Pageable pageable,
+        @RequestParam(value = "filter",required = false) String filter,
         ServerHttpRequest request
     ) {
         log.debug("REST request to get a page of EscrowAccountDetails");
+        if (StringUtils.isEmpty(filter)) {
         return escrowAccountDetailsService
             .countAll()
             .zipWith(escrowAccountDetailsService.findAll(pageable).collectList())
@@ -194,7 +198,23 @@ public class EscrowAccountDetailsResource {
                         )
                     )
                     .body(countWithEntities.getT2())
-            );
+            );}
+        else{
+            return escrowAccountDetailsService
+                .countAllByFilter(filter)
+                .zipWith(escrowAccountDetailsService.findAllByFilter(filter, pageable).collectList())
+                .map(countWithEntities ->
+                    ResponseEntity
+                        .ok()
+                        .headers(
+                            PaginationUtil.generatePaginationHttpHeaders(
+                                ForwardedHeaderUtils.adaptFromForwardedHeaders(request.getURI(), request.getHeaders()),
+                                new PageImpl<>(countWithEntities.getT2(), pageable, countWithEntities.getT1())
+                            )
+                        )
+                        .body(countWithEntities.getT2())
+                );
+        }
     }
 
     /**

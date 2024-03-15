@@ -39,6 +39,8 @@ public class CBCREProcessDTO implements Serializable {
 
     private Long totalInvoiceAmount;
 
+    private String status;
+
     private FinanceRequestDTO financeRequest;
 
     public Long getId() {
@@ -161,6 +163,14 @@ public class CBCREProcessDTO implements Serializable {
         this.totalInvoiceAmount = totalInvoiceAmount;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public FinanceRequestDTO getFinanceRequest() {
         return financeRequest;
     }
@@ -209,6 +219,7 @@ public class CBCREProcessDTO implements Serializable {
             ", timestamp='" + getTimestamp() + "'" +
             ", totalAmountRequested=" + getTotalAmountRequested() +
             ", totalInvoiceAmount=" + getTotalInvoiceAmount() +
+            ", status='" + getStatus() + "'" +
             ", financeRequest=" + getFinanceRequest() +
             "}";
     }

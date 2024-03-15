@@ -52,6 +52,30 @@ public class IndividualAssessment implements Serializable {
     @Column("invoice_id")
     private String invoiceId;
 
+    @Column("base_score")
+    private String baseScore;
+
+    @Column("ctin")
+    private String ctin;
+
+    @Column("inv_date")
+    private String invDate;
+
+    @Column("cb_process_id")
+    private Long cbProcessId;
+
+    @Column("grn_present")
+    private Boolean grnPresent;
+
+    @Column("einvoice_present")
+    private Boolean einvoicePresent;
+
+    @Column("eway_bill_present")
+    private Boolean ewayBillPresent;
+
+    @Column("trade_partner_confirmation")
+    private Boolean tradePartnerConfirmation;
+
     @Transient
     @JsonIgnoreProperties(value = { "individualassessment" }, allowSetters = true)
     private Set<CREHighlights> cREHighlights = new HashSet<>();
@@ -212,6 +236,110 @@ public class IndividualAssessment implements Serializable {
         this.invoiceId = invoiceId;
     }
 
+    public String getBaseScore() {
+        return this.baseScore;
+    }
+
+    public IndividualAssessment baseScore(String baseScore) {
+        this.setBaseScore(baseScore);
+        return this;
+    }
+
+    public void setBaseScore(String baseScore) {
+        this.baseScore = baseScore;
+    }
+
+    public String getCtin() {
+        return this.ctin;
+    }
+
+    public IndividualAssessment ctin(String ctin) {
+        this.setCtin(ctin);
+        return this;
+    }
+
+    public void setCtin(String ctin) {
+        this.ctin = ctin;
+    }
+
+    public String getInvDate() {
+        return this.invDate;
+    }
+
+    public IndividualAssessment invDate(String invDate) {
+        this.setInvDate(invDate);
+        return this;
+    }
+
+    public void setInvDate(String invDate) {
+        this.invDate = invDate;
+    }
+
+    public Long getCbProcessId() {
+        return this.cbProcessId;
+    }
+
+    public IndividualAssessment cbProcessId(Long cbProcessId) {
+        this.setCbProcessId(cbProcessId);
+        return this;
+    }
+
+    public void setCbProcessId(Long cbProcessId) {
+        this.cbProcessId = cbProcessId;
+    }
+
+    public Boolean getGrnPresent() {
+        return this.grnPresent;
+    }
+
+    public IndividualAssessment grnPresent(Boolean grnPresent) {
+        this.setGrnPresent(grnPresent);
+        return this;
+    }
+
+    public void setGrnPresent(Boolean grnPresent) {
+        this.grnPresent = grnPresent;
+    }
+
+    public Boolean getEinvoicePresent() {
+        return this.einvoicePresent;
+    }
+
+    public IndividualAssessment einvoicePresent(Boolean einvoicePresent) {
+        this.setEinvoicePresent(einvoicePresent);
+        return this;
+    }
+
+    public void setEinvoicePresent(Boolean einvoicePresent) {
+        this.einvoicePresent = einvoicePresent;
+    }
+
+    public Boolean getEwayBillPresent() {
+        return this.ewayBillPresent;
+    }
+
+    public IndividualAssessment ewayBillPresent(Boolean ewayBillPresent) {
+        this.setEwayBillPresent(ewayBillPresent);
+        return this;
+    }
+
+    public void setEwayBillPresent(Boolean ewayBillPresent) {
+        this.ewayBillPresent = ewayBillPresent;
+    }
+
+    public Boolean getTradePartnerConfirmation() {
+        return this.tradePartnerConfirmation;
+    }
+
+    public IndividualAssessment tradePartnerConfirmation(Boolean tradePartnerConfirmation) {
+        this.setTradePartnerConfirmation(tradePartnerConfirmation);
+        return this;
+    }
+
+    public void setTradePartnerConfirmation(Boolean tradePartnerConfirmation) {
+        this.tradePartnerConfirmation = tradePartnerConfirmation;
+    }
+
     public Set<CREHighlights> getCREHighlights() {
         return this.cREHighlights;
     }
@@ -330,6 +458,14 @@ public class IndividualAssessment implements Serializable {
             ", tradePartnerId='" + getTradePartnerId() + "'" +
             ", invoiceAmount=" + getInvoiceAmount() +
             ", invoiceId='" + getInvoiceId() + "'" +
+            ", baseScore='" + getBaseScore() + "'" +
+            ", ctin='" + getCtin() + "'" +
+            ", invDate='" + getInvDate() + "'" +
+            ", cbProcessId=" + getCbProcessId() +
+            ", grnPresent='" + getGrnPresent() + "'" +
+            ", einvoicePresent='" + getEinvoicePresent() + "'" +
+            ", ewayBillPresent='" + getEwayBillPresent() + "'" +
+            ", tradePartnerConfirmation='" + getTradePartnerConfirmation() + "'" +
             "}";
     }
 }

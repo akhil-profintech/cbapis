@@ -64,6 +64,9 @@ public class CBCREProcess implements Serializable {
     @Column("total_invoice_amount")
     private Long totalInvoiceAmount;
 
+    @Column("status")
+    private String status;
+
     @Transient
     @JsonIgnoreProperties(value = { "cREHighlights", "cREObservations", "cbcreprocess" }, allowSetters = true)
     private Set<IndividualAssessment> individualAssessments = new HashSet<>();
@@ -286,6 +289,19 @@ public class CBCREProcess implements Serializable {
         this.totalInvoiceAmount = totalInvoiceAmount;
     }
 
+    public String getStatus() {
+        return this.status;
+    }
+
+    public CBCREProcess status(String status) {
+        this.setStatus(status);
+        return this;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public Set<IndividualAssessment> getIndividualAssessments() {
         return this.individualAssessments;
     }
@@ -377,6 +393,7 @@ public class CBCREProcess implements Serializable {
             ", timestamp='" + getTimestamp() + "'" +
             ", totalAmountRequested=" + getTotalAmountRequested() +
             ", totalInvoiceAmount=" + getTotalInvoiceAmount() +
+            ", status='" + getStatus() + "'" +
             "}";
     }
 }

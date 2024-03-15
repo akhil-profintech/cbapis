@@ -93,6 +93,16 @@ public class ParticipantSettlementService {
         return participantSettlementRepository.findAllBy(pageable).map(participantSettlementMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<ParticipantSettlementDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all ParticipantSettlements");
+        return participantSettlementRepository.findAllByFilter(filter, pageable).map(participantSettlementMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return participantSettlementRepository.countByFilter(filter);
+    }
+
     /**
      * Get all the participantSettlements with eager load of many-to-many relationships.
      *

@@ -32,6 +32,9 @@ public class CREHighlights implements Serializable {
     @Column("highlights")
     private String highlights;
 
+    @Column("assessment_id")
+    private Long assessmentId;
+
     @Transient
     @JsonIgnoreProperties(value = { "cREHighlights", "cREObservations", "cbcreprocess" }, allowSetters = true)
     private IndividualAssessment individualassessment;
@@ -106,6 +109,19 @@ public class CREHighlights implements Serializable {
         this.highlights = highlights;
     }
 
+    public Long getAssessmentId() {
+        return this.assessmentId;
+    }
+
+    public CREHighlights assessmentId(Long assessmentId) {
+        this.setAssessmentId(assessmentId);
+        return this;
+    }
+
+    public void setAssessmentId(Long assessmentId) {
+        this.assessmentId = assessmentId;
+    }
+
     public IndividualAssessment getIndividualassessment() {
         return this.individualassessment;
     }
@@ -156,6 +172,7 @@ public class CREHighlights implements Serializable {
             ", creHighlightsUlidId='" + getCreHighlightsUlidId() + "'" +
             ", creRequestId='" + getCreRequestId() + "'" +
             ", highlights='" + getHighlights() + "'" +
+            ", assessmentId=" + getAssessmentId() +
             "}";
     }
 }

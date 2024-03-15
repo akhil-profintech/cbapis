@@ -14,7 +14,10 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type IndividualAssessmentFormGroupInput = IIndividualAssessment | PartialWithRequiredKeyOf<NewIndividualAssessment>;
 
-type IndividualAssessmentFormDefaults = Pick<NewIndividualAssessment, 'id'>;
+type IndividualAssessmentFormDefaults = Pick<
+  NewIndividualAssessment,
+  'id' | 'grnPresent' | 'einvoicePresent' | 'ewayBillPresent' | 'tradePartnerConfirmation'
+>;
 
 type IndividualAssessmentFormGroupContent = {
   id: FormControl<IIndividualAssessment['id'] | NewIndividualAssessment['id']>;
@@ -28,6 +31,14 @@ type IndividualAssessmentFormGroupContent = {
   tradePartnerId: FormControl<IIndividualAssessment['tradePartnerId']>;
   invoiceAmount: FormControl<IIndividualAssessment['invoiceAmount']>;
   invoiceId: FormControl<IIndividualAssessment['invoiceId']>;
+  baseScore: FormControl<IIndividualAssessment['baseScore']>;
+  ctin: FormControl<IIndividualAssessment['ctin']>;
+  invDate: FormControl<IIndividualAssessment['invDate']>;
+  cbProcessId: FormControl<IIndividualAssessment['cbProcessId']>;
+  grnPresent: FormControl<IIndividualAssessment['grnPresent']>;
+  einvoicePresent: FormControl<IIndividualAssessment['einvoicePresent']>;
+  ewayBillPresent: FormControl<IIndividualAssessment['ewayBillPresent']>;
+  tradePartnerConfirmation: FormControl<IIndividualAssessment['tradePartnerConfirmation']>;
   cbcreprocess: FormControl<IIndividualAssessment['cbcreprocess']>;
 };
 
@@ -60,6 +71,14 @@ export class IndividualAssessmentFormService {
       tradePartnerId: new FormControl(individualAssessmentRawValue.tradePartnerId),
       invoiceAmount: new FormControl(individualAssessmentRawValue.invoiceAmount),
       invoiceId: new FormControl(individualAssessmentRawValue.invoiceId),
+      baseScore: new FormControl(individualAssessmentRawValue.baseScore),
+      ctin: new FormControl(individualAssessmentRawValue.ctin),
+      invDate: new FormControl(individualAssessmentRawValue.invDate),
+      cbProcessId: new FormControl(individualAssessmentRawValue.cbProcessId),
+      grnPresent: new FormControl(individualAssessmentRawValue.grnPresent),
+      einvoicePresent: new FormControl(individualAssessmentRawValue.einvoicePresent),
+      ewayBillPresent: new FormControl(individualAssessmentRawValue.ewayBillPresent),
+      tradePartnerConfirmation: new FormControl(individualAssessmentRawValue.tradePartnerConfirmation),
       cbcreprocess: new FormControl(individualAssessmentRawValue.cbcreprocess),
     });
   }
@@ -81,6 +100,10 @@ export class IndividualAssessmentFormService {
   private getFormDefaults(): IndividualAssessmentFormDefaults {
     return {
       id: null,
+      grnPresent: false,
+      einvoicePresent: false,
+      ewayBillPresent: false,
+      tradePartnerConfirmation: false,
     };
   }
 }

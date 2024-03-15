@@ -39,6 +39,7 @@ public class CBCREProcessRowMapper implements BiFunction<Row, String, CBCREProce
         entity.setTimestamp(converter.fromRow(row, prefix + "_timestamp", String.class));
         entity.setTotalAmountRequested(converter.fromRow(row, prefix + "_total_amount_requested", Long.class));
         entity.setTotalInvoiceAmount(converter.fromRow(row, prefix + "_total_invoice_amount", Long.class));
+        entity.setStatus(converter.fromRow(row, prefix + "_status", String.class));
         entity.setFinanceRequestId(converter.fromRow(row, prefix + "_finance_request_id", Long.class));
         return entity;
     }

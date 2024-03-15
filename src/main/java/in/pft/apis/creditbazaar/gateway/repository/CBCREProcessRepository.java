@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface CBCREProcessRepository extends ReactiveCrudRepository<CBCREProcess, Long>, CBCREProcessRepositoryInternal {
+public interface CBCREProcessRepository extends ReactiveCrudRepository<CBCREProcess, Long>, CBCREProcessRepositoryInternal,CBCREProcessCustomRepository {
     Flux<CBCREProcess> findAllBy(Pageable pageable);
 
     @Override

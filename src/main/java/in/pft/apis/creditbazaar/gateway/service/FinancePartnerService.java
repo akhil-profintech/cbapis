@@ -57,7 +57,7 @@ public class FinancePartnerService {
 
     @Transactional(readOnly = true)
     public Flux<FinancePartnerDTO> findAllByFilter(String filter, Pageable pageable) {
-        log.debug("Request to get all AnchorTraders by filter");
+        log.debug("Request to get all FinancePartners");
         return financePartnerRepository.findAllByFilter(filter, pageable).map(financePartnerMapper::toDto);
     }
 

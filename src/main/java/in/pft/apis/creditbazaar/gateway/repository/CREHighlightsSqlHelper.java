@@ -15,6 +15,7 @@ public class CREHighlightsSqlHelper {
         columns.add(Column.aliased("cre_highlights_ulid_id", table, columnPrefix + "_cre_highlights_ulid_id"));
         columns.add(Column.aliased("cre_request_id", table, columnPrefix + "_cre_request_id"));
         columns.add(Column.aliased("highlights", table, columnPrefix + "_highlights"));
+        columns.add(Column.aliased("assessment_id", table, columnPrefix + "_assessment_id"));
 
         columns.add(Column.aliased("individualassessment_id", table, columnPrefix + "_individualassessment_id"));
         return columns;

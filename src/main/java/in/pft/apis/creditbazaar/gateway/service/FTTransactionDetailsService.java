@@ -93,6 +93,17 @@ public class FTTransactionDetailsService {
         return fTTransactionDetailsRepository.findAllBy(pageable).map(fTTransactionDetailsMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<FTTransactionDetailsDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return fTTransactionDetailsRepository.findAllByFilter(filter, pageable).map(fTTransactionDetailsMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return fTTransactionDetailsRepository.countByFilter(filter);
+    }
+
+
     /**
      * Get all the fTTransactionDetails with eager load of many-to-many relationships.
      *

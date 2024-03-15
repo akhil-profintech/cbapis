@@ -93,6 +93,16 @@ public class CreditAccountDetailsService {
         return creditAccountDetailsRepository.findAllBy(pageable).map(creditAccountDetailsMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<CreditAccountDetailsDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return creditAccountDetailsRepository.findAllByFilter(filter, pageable).map(creditAccountDetailsMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return creditAccountDetailsRepository.countByFilter(filter);
+    }
+
     /**
      * Get all the creditAccountDetails with eager load of many-to-many relationships.
      *

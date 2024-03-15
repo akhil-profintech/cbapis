@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface AcceptedOfferRepository extends ReactiveCrudRepository<AcceptedOffer, Long>, AcceptedOfferRepositoryInternal {
+public interface AcceptedOfferRepository extends ReactiveCrudRepository<AcceptedOffer, Long>, AcceptedOfferRepositoryInternal,AcceptedOfferCustomRepository {
     Flux<AcceptedOffer> findAllBy(Pageable pageable);
 
     @Override

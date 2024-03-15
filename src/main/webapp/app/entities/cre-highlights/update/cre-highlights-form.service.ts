@@ -22,6 +22,7 @@ type CREHighlightsFormGroupContent = {
   creHighlightsUlidId: FormControl<ICREHighlights['creHighlightsUlidId']>;
   creRequestId: FormControl<ICREHighlights['creRequestId']>;
   highlights: FormControl<ICREHighlights['highlights']>;
+  assessmentId: FormControl<ICREHighlights['assessmentId']>;
   individualassessment: FormControl<ICREHighlights['individualassessment']>;
 };
 
@@ -46,6 +47,7 @@ export class CREHighlightsFormService {
       creHighlightsUlidId: new FormControl(cREHighlightsRawValue.creHighlightsUlidId),
       creRequestId: new FormControl(cREHighlightsRawValue.creRequestId),
       highlights: new FormControl(cREHighlightsRawValue.highlights),
+      assessmentId: new FormControl(cREHighlightsRawValue.assessmentId),
       individualassessment: new FormControl(cREHighlightsRawValue.individualassessment),
     });
   }

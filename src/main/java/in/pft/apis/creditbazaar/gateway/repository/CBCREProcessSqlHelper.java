@@ -25,6 +25,7 @@ public class CBCREProcessSqlHelper {
         columns.add(Column.aliased("timestamp", table, columnPrefix + "_timestamp"));
         columns.add(Column.aliased("total_amount_requested", table, columnPrefix + "_total_amount_requested"));
         columns.add(Column.aliased("total_invoice_amount", table, columnPrefix + "_total_invoice_amount"));
+        columns.add(Column.aliased("status", table, columnPrefix + "_status"));
 
         columns.add(Column.aliased("finance_request_id", table, columnPrefix + "_finance_request_id"));
         return columns;

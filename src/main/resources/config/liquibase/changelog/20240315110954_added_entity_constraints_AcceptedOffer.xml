@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity AcceptedOffer.
+    -->
+    <changeSet id="20240315110954-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="financerequest_id"
+                                 baseTableName="accepted_offer"
+                                 constraintName="fk_accepted_offer__financerequest_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="finance_request"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="anchortrader_id"
+                                 baseTableName="accepted_offer"
+                                 constraintName="fk_accepted_offer__anchortrader_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="anchor_trader"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="financepartner_id"
+                                 baseTableName="accepted_offer"
+                                 constraintName="fk_accepted_offer__financepartner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="finance_partner"
+                                 />
+    </changeSet>
+</databaseChangeLog>

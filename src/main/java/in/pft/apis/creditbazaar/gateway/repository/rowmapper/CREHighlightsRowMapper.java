@@ -29,6 +29,7 @@ public class CREHighlightsRowMapper implements BiFunction<Row, String, CREHighli
         entity.setCreHighlightsUlidId(converter.fromRow(row, prefix + "_cre_highlights_ulid_id", String.class));
         entity.setCreRequestId(converter.fromRow(row, prefix + "_cre_request_id", String.class));
         entity.setHighlights(converter.fromRow(row, prefix + "_highlights", String.class));
+        entity.setAssessmentId(converter.fromRow(row, prefix + "_assessment_id", Long.class));
         entity.setIndividualassessmentId(converter.fromRow(row, prefix + "_individualassessment_id", Long.class));
         return entity;
     }

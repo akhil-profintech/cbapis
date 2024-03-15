@@ -19,6 +19,8 @@ public class CREObservationsDTO implements Serializable {
 
     private String observations;
 
+    private Long assessmentId;
+
     private IndividualAssessmentDTO individualassessment;
 
     public Long getId() {
@@ -61,6 +63,14 @@ public class CREObservationsDTO implements Serializable {
         this.observations = observations;
     }
 
+    public Long getAssessmentId() {
+        return assessmentId;
+    }
+
+    public void setAssessmentId(Long assessmentId) {
+        this.assessmentId = assessmentId;
+    }
+
     public IndividualAssessmentDTO getIndividualassessment() {
         return individualassessment;
     }
@@ -99,6 +109,7 @@ public class CREObservationsDTO implements Serializable {
             ", creObservationsUlidId='" + getCreObservationsUlidId() + "'" +
             ", creRequestId='" + getCreRequestId() + "'" +
             ", observations='" + getObservations() + "'" +
+            ", assessmentId=" + getAssessmentId() +
             ", individualassessment=" + getIndividualassessment() +
             "}";
     }

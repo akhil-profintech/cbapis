@@ -1,11 +1,11 @@
-id;assessment_id;assessment_ulid_id;credit_score;final_verdict;cre_request_id;timestamp;trade_partner_gst;trade_partner_id;invoice_amount;invoice_id
-1;13303;far gynaecology;23520.56;oh;gracious;empower paint;madly;before;2365;alligator limit inspect
-2;28122;overtrain why;21940.61;greatly;till wriggle;lest pale;yahoo drat;inhibit underbid organizing;28431;notwithstanding
-3;30512;duh speedily regularly;8654.23;inasmuch sideline;whoa;polyester;misquote;phew yahoo;21153;jostle finally ugh
-4;3763;standard until after;17576.02;fatherly quaintly solution;apud wearily;plump excitedly;phooey;briefly;16956;error elite
-5;17598;barring duh yowza;9241.46;whoever;between wok;pfft;though different;once gosh now;19447;invent
-6;22719;yum organic submarine;15147.96;woot below;given ack jiggle;ambience;amongst organ circa;unlike for webbed;8064;if encapsulate
-7;5564;than;5316.86;regarding;comprise chorus positive;whose perfect;till willfully naturalize;unlike as spear;8858;including tomorrow
-8;18496;drafty;1048.84;like coin abaft;chrysalis harmless alienated;beneath context when;proof nasalize tab;softball absent ack;7656;ick
-9;16436;defiantly;28218.64;who;ah incidentally;horrible extremely;smooth;ref enthusiastically pish;17808;explanation
-10;27514;picnic distinct yet;31752.73;vacantly uh-huh extra-small;detest gee;indoctrinate gum;swiftly unfinished woefully;coop dent;3235;excluding reluctantly
+id;assessment_id;assessment_ulid_id;credit_score;final_verdict;cre_request_id;timestamp;trade_partner_gst;trade_partner_id;invoice_amount;invoice_id;base_score;ctin;inv_date;cb_process_id;grn_present;einvoice_present;eway_bill_present;trade_partner_confirmation
+1;13303;far gynaecology;23520.56;oh;gracious;empower paint;madly;before;2365;alligator limit inspect;pro institutionalize in;underwire barren punctually;eek an adorn;21336;true;true;true;false
+2;4905;psst oddly assured;6945.35;truck duh speedily;how gadzooks;sideline;whoa;polyester;8913;woot phew;that;jostle finally ugh;on;27757;true;false;true;false
+3;16323;indeed sandbag;26538.39;nor psst aggravating;livid offensive saddle;above where;blah ouch rehearse;zowie till;2310;ugh;for;since icicle after;sleep development pace;29803;false;false;true;true
+4;27489;overstretch ah;15311.89;instigate wire aromatic;after unnecessarily that;among;allude which excepting;consequently;2696;circa shyly;for webbed against;besides fooey;excluding waterfront;19233;false;false;false;true
+5;12450;ack ick;6022.96;lap;well-documented yoga;blah sledge truly;yuck ignorant woot;consignment about;29684;gosh;shackle entangle delightfully;excluding yum doubtfully;spritz blah;30616;true;true;true;false
+6;22919;given troubled;23559.81;including;worth;meanwhile;till;but who fondly;9966;nearly;remodel;gah zany ref;shatter markup;2933;true;true;true;false
+7;32388;activation offend vouch;19020.07;seriously in;judicious;roll times barring;antecedent threadbare;mid yowza ugh;4944;ah mRNA rough;adored although prize;scramble;oh tragedy loudly;10700;false;true;false;false
+8;32753;frigid;23409.38;and;pin stone;misrepresent;unethically closely;ick gosh;7730;meanwhile yowza;frugal loathsome;ick incredible write;hence until who;3159;false;true;true;false
+9;11939;vapid before sup;14481.54;limp ouch phooey;who;sans what;whistle knife-edge;via across blah;11260;yet;wobbly brr insignificant;eek apud yippee;youthfully yowza;18655;true;true;false;true
+10;13772;uh-huh while;3296.41;consequently rude;shrimp by;of clunk;um;safety ha blurt;15988;lantern;bah bitterly;chief;solidity;15313;true;false;false;false

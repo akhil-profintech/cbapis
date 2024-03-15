@@ -1,21 +1,24 @@
 import { ICREHighlights, NewCREHighlights } from './cre-highlights.model';
 
 export const sampleWithRequiredData: ICREHighlights = {
-  id: 18872,
+  id: 17782,
 };
 
 export const sampleWithPartialData: ICREHighlights = {
-  id: 14682,
-  creHighlightsUlidId: 'regret manifestation',
-  creRequestId: 'for hateful an',
+  id: 18792,
+  creHighlightsId: 9508,
+  creHighlightsUlidId: 'oh',
+  highlights: 'quicksand if busy',
+  assessmentId: 1040,
 };
 
 export const sampleWithFullData: ICREHighlights = {
-  id: 3942,
-  creHighlightsId: 7304,
-  creHighlightsUlidId: 'crayfish save monsoon',
-  creRequestId: 'anenst aboard',
-  highlights: 'restrain',
+  id: 21418,
+  creHighlightsId: 6514,
+  creHighlightsUlidId: 'satisfaction',
+  creRequestId: 'mean',
+  highlights: 'skull',
+  assessmentId: 18818,
 };
 
 export const sampleWithNewData: NewCREHighlights = {

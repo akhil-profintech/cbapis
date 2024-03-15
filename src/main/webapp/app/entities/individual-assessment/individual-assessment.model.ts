@@ -14,6 +14,14 @@ export interface IIndividualAssessment {
   tradePartnerId?: string | null;
   invoiceAmount?: number | null;
   invoiceId?: string | null;
+  baseScore?: string | null;
+  ctin?: string | null;
+  invDate?: string | null;
+  cbProcessId?: number | null;
+  grnPresent?: boolean | null;
+  einvoicePresent?: boolean | null;
+  ewayBillPresent?: boolean | null;
+  tradePartnerConfirmation?: boolean | null;
   cREHighlights?: Pick<ICREHighlights, 'id'>[] | null;
   cREObservations?: Pick<ICREObservations, 'id'>[] | null;
   cbcreprocess?: Pick<ICBCREProcess, 'id' | 'cbProcessId'> | null;

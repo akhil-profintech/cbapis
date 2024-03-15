@@ -22,6 +22,7 @@
       "creObservationsUlidId": "Cre Observations Ulid Id",
       "creRequestId": "Cre Request Id",
       "observations": "Observations",
+      "assessmentId": "Assessment Id",
       "individualassessment": "Individualassessment"
     }
   }

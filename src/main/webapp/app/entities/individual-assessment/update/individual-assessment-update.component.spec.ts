@@ -50,10 +50,10 @@ describe('IndividualAssessment Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call CBCREProcess query and add missing value', () => {
       const individualAssessment: IIndividualAssessment = { id: 456 };
-      const cbcreprocess: ICBCREProcess = { id: 23823 };
+      const cbcreprocess: ICBCREProcess = { id: 18181 };
       individualAssessment.cbcreprocess = cbcreprocess;
 
-      const cBCREProcessCollection: ICBCREProcess[] = [{ id: 12306 }];
+      const cBCREProcessCollection: ICBCREProcess[] = [{ id: 16647 }];
       jest.spyOn(cBCREProcessService, 'query').mockReturnValue(of(new HttpResponse({ body: cBCREProcessCollection })));
       const additionalCBCREProcesses = [cbcreprocess];
       const expectedCollection: ICBCREProcess[] = [...additionalCBCREProcesses, ...cBCREProcessCollection];
@@ -72,7 +72,7 @@ describe('IndividualAssessment Management Update Component', () => {
 
     it('Should update editForm', () => {
       const individualAssessment: IIndividualAssessment = { id: 456 };
-      const cbcreprocess: ICBCREProcess = { id: 3933 };
+      const cbcreprocess: ICBCREProcess = { id: 20957 };
       individualAssessment.cbcreprocess = cbcreprocess;
 
       activatedRoute.data = of({ individualAssessment });

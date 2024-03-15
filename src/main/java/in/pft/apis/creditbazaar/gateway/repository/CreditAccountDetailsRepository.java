@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface CreditAccountDetailsRepository
-    extends ReactiveCrudRepository<CreditAccountDetails, Long>, CreditAccountDetailsRepositoryInternal {
+    extends ReactiveCrudRepository<CreditAccountDetails, Long>, CreditAccountDetailsRepositoryInternal,CreditAccountDetailsCustomRepo {
     Flux<CreditAccountDetails> findAllBy(Pageable pageable);
 
     @Override

@@ -19,6 +19,8 @@ public class CREHighlightsDTO implements Serializable {
 
     private String highlights;
 
+    private Long assessmentId;
+
     private IndividualAssessmentDTO individualassessment;
 
     public Long getId() {
@@ -61,6 +63,14 @@ public class CREHighlightsDTO implements Serializable {
         this.highlights = highlights;
     }
 
+    public Long getAssessmentId() {
+        return assessmentId;
+    }
+
+    public void setAssessmentId(Long assessmentId) {
+        this.assessmentId = assessmentId;
+    }
+
     public IndividualAssessmentDTO getIndividualassessment() {
         return individualassessment;
     }
@@ -99,6 +109,7 @@ public class CREHighlightsDTO implements Serializable {
             ", creHighlightsUlidId='" + getCreHighlightsUlidId() + "'" +
             ", creRequestId='" + getCreRequestId() + "'" +
             ", highlights='" + getHighlights() + "'" +
+            ", assessmentId=" + getAssessmentId() +
             ", individualassessment=" + getIndividualassessment() +
             "}";
     }

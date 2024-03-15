@@ -22,6 +22,7 @@
       "creHighlightsUlidId": "Cre Highlights Ulid Id",
       "creRequestId": "Cre Request Id",
       "highlights": "Highlights",
+      "assessmentId": "Assessment Id",
       "individualassessment": "Individualassessment"
     }
   }

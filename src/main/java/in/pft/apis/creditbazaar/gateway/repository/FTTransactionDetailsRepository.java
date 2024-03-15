@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface FTTransactionDetailsRepository
-    extends ReactiveCrudRepository<FTTransactionDetails, Long>, FTTransactionDetailsRepositoryInternal {
+    extends ReactiveCrudRepository<FTTransactionDetails, Long>, FTTransactionDetailsRepositoryInternal,FTTransactionDetailsCustomRepo {
     Flux<FTTransactionDetails> findAllBy(Pageable pageable);
 
     @Override

@@ -21,6 +21,14 @@ public class IndividualAssessmentSqlHelper {
         columns.add(Column.aliased("trade_partner_id", table, columnPrefix + "_trade_partner_id"));
         columns.add(Column.aliased("invoice_amount", table, columnPrefix + "_invoice_amount"));
         columns.add(Column.aliased("invoice_id", table, columnPrefix + "_invoice_id"));
+        columns.add(Column.aliased("base_score", table, columnPrefix + "_base_score"));
+        columns.add(Column.aliased("ctin", table, columnPrefix + "_ctin"));
+        columns.add(Column.aliased("inv_date", table, columnPrefix + "_inv_date"));
+        columns.add(Column.aliased("cb_process_id", table, columnPrefix + "_cb_process_id"));
+        columns.add(Column.aliased("grn_present", table, columnPrefix + "_grn_present"));
+        columns.add(Column.aliased("einvoice_present", table, columnPrefix + "_einvoice_present"));
+        columns.add(Column.aliased("eway_bill_present", table, columnPrefix + "_eway_bill_present"));
+        columns.add(Column.aliased("trade_partner_confirmation", table, columnPrefix + "_trade_partner_confirmation"));
 
         columns.add(Column.aliased("cbcreprocess_id", table, columnPrefix + "_cbcreprocess_id"));
         return columns;

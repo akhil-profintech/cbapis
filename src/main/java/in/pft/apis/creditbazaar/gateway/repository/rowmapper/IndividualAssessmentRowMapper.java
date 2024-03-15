@@ -35,6 +35,14 @@ public class IndividualAssessmentRowMapper implements BiFunction<Row, String, In
         entity.setTradePartnerId(converter.fromRow(row, prefix + "_trade_partner_id", String.class));
         entity.setInvoiceAmount(converter.fromRow(row, prefix + "_invoice_amount", Long.class));
         entity.setInvoiceId(converter.fromRow(row, prefix + "_invoice_id", String.class));
+        entity.setBaseScore(converter.fromRow(row, prefix + "_base_score", String.class));
+        entity.setCtin(converter.fromRow(row, prefix + "_ctin", String.class));
+        entity.setInvDate(converter.fromRow(row, prefix + "_inv_date", String.class));
+        entity.setCbProcessId(converter.fromRow(row, prefix + "_cb_process_id", Long.class));
+        entity.setGrnPresent(converter.fromRow(row, prefix + "_grn_present", Boolean.class));
+        entity.setEinvoicePresent(converter.fromRow(row, prefix + "_einvoice_present", Boolean.class));
+        entity.setEwayBillPresent(converter.fromRow(row, prefix + "_eway_bill_present", Boolean.class));
+        entity.setTradePartnerConfirmation(converter.fromRow(row, prefix + "_trade_partner_confirmation", Boolean.class));
         entity.setCbcreprocessId(converter.fromRow(row, prefix + "_cbcreprocess_id", Long.class));
         return entity;
     }

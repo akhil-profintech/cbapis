@@ -17,6 +17,7 @@ export interface ICBCREProcess {
   timestamp?: string | null;
   totalAmountRequested?: number | null;
   totalInvoiceAmount?: number | null;
+  status?: string | null;
   individualAssessments?: Pick<IIndividualAssessment, 'id'>[] | null;
   financeRequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
 }

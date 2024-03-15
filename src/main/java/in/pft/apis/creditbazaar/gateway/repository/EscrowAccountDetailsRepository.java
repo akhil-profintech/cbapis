@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 @SuppressWarnings("unused")
 @Repository
 public interface EscrowAccountDetailsRepository
-    extends ReactiveCrudRepository<EscrowAccountDetails, Long>, EscrowAccountDetailsRepositoryInternal {
+    extends ReactiveCrudRepository<EscrowAccountDetails, Long>, EscrowAccountDetailsRepositoryInternal,EscrowAccountDetailsCustomRepo {
     Flux<EscrowAccountDetails> findAllBy(Pageable pageable);
 
     @Override

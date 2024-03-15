@@ -93,6 +93,16 @@ public class EscrowAccountDetailsService {
         return escrowAccountDetailsRepository.findAllBy(pageable).map(escrowAccountDetailsMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<EscrowAccountDetailsDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all EscrowAccountDetails");
+        return escrowAccountDetailsRepository.findAllByFilter(filter, pageable).map(escrowAccountDetailsMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return escrowAccountDetailsRepository.countByFilter(filter);
+    }
+
     /**
      * Returns the number of escrowAccountDetails available.
      * @return the number of entities in the database.

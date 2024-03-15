@@ -50,10 +50,10 @@ describe('CREHighlights Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call IndividualAssessment query and add missing value', () => {
       const cREHighlights: ICREHighlights = { id: 456 };
-      const individualassessment: IIndividualAssessment = { id: 7414 };
+      const individualassessment: IIndividualAssessment = { id: 9090 };
       cREHighlights.individualassessment = individualassessment;
 
-      const individualAssessmentCollection: IIndividualAssessment[] = [{ id: 22772 }];
+      const individualAssessmentCollection: IIndividualAssessment[] = [{ id: 25826 }];
       jest.spyOn(individualAssessmentService, 'query').mockReturnValue(of(new HttpResponse({ body: individualAssessmentCollection })));
       const additionalIndividualAssessments = [individualassessment];
       const expectedCollection: IIndividualAssessment[] = [...additionalIndividualAssessments, ...individualAssessmentCollection];
@@ -72,7 +72,7 @@ describe('CREHighlights Management Update Component', () => {
 
     it('Should update editForm', () => {
       const cREHighlights: ICREHighlights = { id: 456 };
-      const individualassessment: IIndividualAssessment = { id: 2687 };
+      const individualassessment: IIndividualAssessment = { id: 23561 };
       cREHighlights.individualassessment = individualassessment;
 
       activatedRoute.data = of({ cREHighlights });
