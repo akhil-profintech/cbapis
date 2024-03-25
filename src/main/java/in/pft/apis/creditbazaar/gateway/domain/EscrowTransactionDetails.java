@@ -81,14 +81,16 @@ public class EscrowTransactionDetails implements Serializable {
 
     @Transient
     @JsonIgnoreProperties(
-        value = { "creditAccountDetails", "fTTransactionDetails", "escrowTransactionDetails", "financerequest", "financepartner" },
+        value = {
+            "creditAccountDetails", "fundsTransferTransactionDetails", "escrowTransactionDetails", "financerequest", "financepartner",
+        },
         allowSetters = true
     )
     private Disbursement disbursement;
 
     @Transient
     @JsonIgnoreProperties(
-        value = { "creditAccountDetails", "fTTransactionDetails", "escrowTransactionDetails", "financerequest" },
+        value = { "creditAccountDetails", "fundsTransferTransactionDetails", "escrowTransactionDetails", "financerequest" },
         allowSetters = true
     )
     private Repayment repayment;

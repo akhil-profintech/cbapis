@@ -21,6 +21,7 @@ export interface IAnchorTrader {
   kycCompleted?: string | null;
   bankDetails?: string | null;
   emailId?: string | null;
+  personalEmailId?: string | null;
   accountNumber?: string | null;
   ifscCode?: string | null;
   bankName?: string | null;

@@ -1,2 +1,2 @@
 org.springframework.test.context.ContextCustomizerFactory = in.pft.apis.\
-    creditbazaar.config.SqlTestContainersSpringContextCustomizerFactory
+    creditbazaar.gateway.config.SqlTestContainersSpringContextCustomizerFactory

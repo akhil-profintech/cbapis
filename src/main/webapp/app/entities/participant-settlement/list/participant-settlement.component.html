@@ -188,7 +188,9 @@
               <td>{{ participantSettlement.participantId }}</td>
               <td>{{ participantSettlement.participantName }}</td>
               <td>{{ participantSettlement.gstId }}</td>
-              <td>{{ participantSettlement.settlementType }}</td>
+              <td jhiTranslate="{{ 'cbapisApp.SettlementType.' + participantSettlement.settlementType }}">
+                {{ participantSettlement.settlementType }}
+              </td>
               <td>{{ participantSettlement.settlementAmount }}</td>
               <td>{{ participantSettlement.settlementDate }}</td>
               <td>{{ participantSettlement.settlementDueDate }}</td>

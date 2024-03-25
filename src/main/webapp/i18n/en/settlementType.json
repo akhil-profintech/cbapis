@@ -1,0 +1,10 @@
+{
+  "cbapisApp": {
+    "SettlementType": {
+      "null": "",
+      "ATSettlement": "ATSettlement",
+      "TPSettlement": "TPSettlement",
+      "PFTSettlement": "PFTSettlement"
+    }
+  }
+}

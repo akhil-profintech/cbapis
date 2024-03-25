@@ -41,6 +41,7 @@ public class AnchorTraderRowMapper implements BiFunction<Row, String, AnchorTrad
         entity.setKycCompleted(converter.fromRow(row, prefix + "_kyc_completed", String.class));
         entity.setBankDetails(converter.fromRow(row, prefix + "_bank_details", String.class));
         entity.setEmailId(converter.fromRow(row, prefix + "_email_id", String.class));
+        entity.setPersonalEmailId(converter.fromRow(row, prefix + "_personal_email_id", String.class));
         entity.setAccountNumber(converter.fromRow(row, prefix + "_account_number", String.class));
         entity.setIfscCode(converter.fromRow(row, prefix + "_ifsc_code", String.class));
         entity.setBankName(converter.fromRow(row, prefix + "_bank_name", String.class));

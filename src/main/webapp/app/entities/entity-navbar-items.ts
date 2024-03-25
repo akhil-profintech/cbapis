@@ -62,9 +62,9 @@ export const EntityNavbarItems: NavbarItem[] = [
     translationKey: 'global.menu.entities.escrowAccountDetails',
   },
   {
-    name: 'FTTransactionDetails',
-    route: '/ft-transaction-details',
-    translationKey: 'global.menu.entities.fTTransactionDetails',
+    name: 'FundsTransferTransactionDetails',
+    route: '/funds-transfer-transaction-details',
+    translationKey: 'global.menu.entities.fundsTransferTransactionDetails',
   },
   {
     name: 'EscrowTransactionDetails',

@@ -55,7 +55,7 @@ spring:
       # it can be set to any label, branch or commit of the configuration source Git repository
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    contexts: dev
     url: jdbc:postgresql://database-1.c2lukoxpjjb9.ap-south-1.rds.amazonaws.com:5432/postgres?currentSchema=cbapis_test_1&ssl=true&sslmode=require
   mail:
     host: localhost

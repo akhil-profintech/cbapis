@@ -50,6 +50,8 @@ public class AnchorTraderDTO implements Serializable {
 
     private String emailId;
 
+    private String personalEmailId;
+
     private String accountNumber;
 
     private String ifscCode;
@@ -216,6 +218,14 @@ public class AnchorTraderDTO implements Serializable {
         this.emailId = emailId;
     }
 
+    public String getPersonalEmailId() {
+        return personalEmailId;
+    }
+
+    public void setPersonalEmailId(String personalEmailId) {
+        this.personalEmailId = personalEmailId;
+    }
+
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -378,6 +388,7 @@ public class AnchorTraderDTO implements Serializable {
             ", kycCompleted='" + getKycCompleted() + "'" +
             ", bankDetails='" + getBankDetails() + "'" +
             ", emailId='" + getEmailId() + "'" +
+            ", personalEmailId='" + getPersonalEmailId() + "'" +
             ", accountNumber='" + getAccountNumber() + "'" +
             ", ifscCode='" + getIfscCode() + "'" +
             ", bankName='" + getBankName() + "'" +

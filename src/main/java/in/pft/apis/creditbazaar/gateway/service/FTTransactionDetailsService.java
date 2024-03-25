@@ -2,7 +2,6 @@ package in.pft.apis.creditbazaar.gateway.service;
 
 import in.pft.apis.creditbazaar.gateway.repository.FTTransactionDetailsRepository;
 import in.pft.apis.creditbazaar.gateway.service.dto.FTTransactionDetailsDTO;
-import in.pft.apis.creditbazaar.gateway.service.mapper.FTTransactionDetailsMapper;
 import in.pft.apis.creditbazaar.gateway.utils.IdAndUlidGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

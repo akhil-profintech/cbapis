@@ -39,7 +39,9 @@
           </dd>
           <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementType">Settlement Type</span></dt>
           <dd>
-            <span>{{ participantSettlement.settlementType }}</span>
+            <span jhiTranslate="{{ 'cbapisApp.SettlementType.' + participantSettlement.settlementType }}">{{
+              participantSettlement.settlementType
+            }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementAmount">Settlement Amount</span></dt>
           <dd>

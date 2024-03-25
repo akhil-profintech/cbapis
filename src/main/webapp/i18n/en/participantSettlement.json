@@ -36,7 +36,7 @@
       "ifscCode": "Ifsc Code",
       "accNumber": "Acc Number",
       "docId": "Doc Id",
-      "fTTransactionDetails": "F T Transaction Details",
+      "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",
       "settlement": "Settlement"
     }
   }

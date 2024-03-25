@@ -119,7 +119,7 @@ public class Repayment implements Serializable {
 
     @Transient
     @JsonIgnoreProperties(value = { "participantsettlement", "disbursement", "repayment" }, allowSetters = true)
-    private Set<FTTransactionDetails> fTTransactionDetails = new HashSet<>();
+    private Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails = new HashSet<>();
 
     @Transient
     @JsonIgnoreProperties(value = { "disbursement", "repayment" }, allowSetters = true)
@@ -530,34 +530,34 @@ public class Repayment implements Serializable {
         return this;
     }
 
-    public Set<FTTransactionDetails> getFTTransactionDetails() {
-        return this.fTTransactionDetails;
+    public Set<FundsTransferTransactionDetails> getFundsTransferTransactionDetails() {
+        return this.fundsTransferTransactionDetails;
     }
 
-    public void setFTTransactionDetails(Set<FTTransactionDetails> fTTransactionDetails) {
-        if (this.fTTransactionDetails != null) {
-            this.fTTransactionDetails.forEach(i -> i.setRepayment(null));
+    public void setFundsTransferTransactionDetails(Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails) {
+        if (this.fundsTransferTransactionDetails != null) {
+            this.fundsTransferTransactionDetails.forEach(i -> i.setRepayment(null));
         }
-        if (fTTransactionDetails != null) {
-            fTTransactionDetails.forEach(i -> i.setRepayment(this));
+        if (fundsTransferTransactionDetails != null) {
+            fundsTransferTransactionDetails.forEach(i -> i.setRepayment(this));
         }
-        this.fTTransactionDetails = fTTransactionDetails;
+        this.fundsTransferTransactionDetails = fundsTransferTransactionDetails;
     }
 
-    public Repayment fTTransactionDetails(Set<FTTransactionDetails> fTTransactionDetails) {
-        this.setFTTransactionDetails(fTTransactionDetails);
+    public Repayment fundsTransferTransactionDetails(Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails) {
+        this.setFundsTransferTransactionDetails(fundsTransferTransactionDetails);
         return this;
     }
 
-    public Repayment addFTTransactionDetails(FTTransactionDetails fTTransactionDetails) {
-        this.fTTransactionDetails.add(fTTransactionDetails);
-        fTTransactionDetails.setRepayment(this);
+    public Repayment addFundsTransferTransactionDetails(FundsTransferTransactionDetails fundsTransferTransactionDetails) {
+        this.fundsTransferTransactionDetails.add(fundsTransferTransactionDetails);
+        fundsTransferTransactionDetails.setRepayment(this);
         return this;
     }
 
-    public Repayment removeFTTransactionDetails(FTTransactionDetails fTTransactionDetails) {
-        this.fTTransactionDetails.remove(fTTransactionDetails);
-        fTTransactionDetails.setRepayment(null);
+    public Repayment removeFundsTransferTransactionDetails(FundsTransferTransactionDetails fundsTransferTransactionDetails) {
+        this.fundsTransferTransactionDetails.remove(fundsTransferTransactionDetails);
+        fundsTransferTransactionDetails.setRepayment(null);
         return this;
     }
 

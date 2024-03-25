@@ -1,6 +1,6 @@
 import dayjs from 'dayjs/esm';
 import { ICreditAccountDetails } from 'app/entities/credit-account-details/credit-account-details.model';
-import { IFTTransactionDetails } from 'app/entities/ft-transaction-details/ft-transaction-details.model';
+import { IFundsTransferTransactionDetails } from 'app/entities/funds-transfer-transaction-details/funds-transfer-transaction-details.model';
 import { IEscrowTransactionDetails } from 'app/entities/escrow-transaction-details/escrow-transaction-details.model';
 import { IFinanceRequest } from 'app/entities/finance-request/finance-request.model';
 
@@ -33,7 +33,7 @@ export interface IRepayment {
   status?: string | null;
   referenceNumber?: string | null;
   creditAccountDetails?: Pick<ICreditAccountDetails, 'id'>[] | null;
-  fTTransactionDetails?: Pick<IFTTransactionDetails, 'id'>[] | null;
+  fundsTransferTransactionDetails?: Pick<IFundsTransferTransactionDetails, 'id'>[] | null;
   escrowTransactionDetails?: Pick<IEscrowTransactionDetails, 'id'>[] | null;
   financerequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
 }

@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -43,7 +44,7 @@ public class ParticipantSettlement implements Serializable {
 
     @NotNull(message = "must not be null")
     @Column("settlement_type")
-    private String settlementType;
+    private SettlementType settlementType;
 
     @NotNull(message = "must not be null")
     @Column("settlement_amount")
@@ -95,7 +96,7 @@ public class ParticipantSettlement implements Serializable {
 
     @Transient
     @JsonIgnoreProperties(value = { "participantsettlement", "disbursement", "repayment" }, allowSetters = true)
-    private Set<FTTransactionDetails> fTTransactionDetails = new HashSet<>();
+    private Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails = new HashSet<>();
 
     @Transient
     @JsonIgnoreProperties(value = { "participantSettlements", "financerequest" }, allowSetters = true)
@@ -184,16 +185,16 @@ public class ParticipantSettlement implements Serializable {
         this.gstId = gstId;
     }
 
-    public String getSettlementType() {
+    public SettlementType getSettlementType() {
         return this.settlementType;
     }
 
-    public ParticipantSettlement settlementType(String settlementType) {
+    public ParticipantSettlement settlementType(SettlementType settlementType) {
         this.setSettlementType(settlementType);
         return this;
     }
 
-    public void setSettlementType(String settlementType) {
+    public void setSettlementType(SettlementType settlementType) {
         this.settlementType = settlementType;
     }
 
@@ -353,34 +354,34 @@ public class ParticipantSettlement implements Serializable {
         this.docId = docId;
     }
 
-    public Set<FTTransactionDetails> getFTTransactionDetails() {
-        return this.fTTransactionDetails;
+    public Set<FundsTransferTransactionDetails> getFundsTransferTransactionDetails() {
+        return this.fundsTransferTransactionDetails;
     }
 
-    public void setFTTransactionDetails(Set<FTTransactionDetails> fTTransactionDetails) {
-        if (this.fTTransactionDetails != null) {
-            this.fTTransactionDetails.forEach(i -> i.setParticipantsettlement(null));
+    public void setFundsTransferTransactionDetails(Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails) {
+        if (this.fundsTransferTransactionDetails != null) {
+            this.fundsTransferTransactionDetails.forEach(i -> i.setParticipantsettlement(null));
         }
-        if (fTTransactionDetails != null) {
-            fTTransactionDetails.forEach(i -> i.setParticipantsettlement(this));
+        if (fundsTransferTransactionDetails != null) {
+            fundsTransferTransactionDetails.forEach(i -> i.setParticipantsettlement(this));
         }
-        this.fTTransactionDetails = fTTransactionDetails;
+        this.fundsTransferTransactionDetails = fundsTransferTransactionDetails;
     }
 
-    public ParticipantSettlement fTTransactionDetails(Set<FTTransactionDetails> fTTransactionDetails) {
-        this.setFTTransactionDetails(fTTransactionDetails);
+    public ParticipantSettlement fundsTransferTransactionDetails(Set<FundsTransferTransactionDetails> fundsTransferTransactionDetails) {
+        this.setFundsTransferTransactionDetails(fundsTransferTransactionDetails);
         return this;
     }
 
-    public ParticipantSettlement addFTTransactionDetails(FTTransactionDetails fTTransactionDetails) {
-        this.fTTransactionDetails.add(fTTransactionDetails);
-        fTTransactionDetails.setParticipantsettlement(this);
+    public ParticipantSettlement addFundsTransferTransactionDetails(FundsTransferTransactionDetails fundsTransferTransactionDetails) {
+        this.fundsTransferTransactionDetails.add(fundsTransferTransactionDetails);
+        fundsTransferTransactionDetails.setParticipantsettlement(this);
         return this;
     }
 
-    public ParticipantSettlement removeFTTransactionDetails(FTTransactionDetails fTTransactionDetails) {
-        this.fTTransactionDetails.remove(fTTransactionDetails);
-        fTTransactionDetails.setParticipantsettlement(null);
+    public ParticipantSettlement removeFundsTransferTransactionDetails(FundsTransferTransactionDetails fundsTransferTransactionDetails) {
+        this.fundsTransferTransactionDetails.remove(fundsTransferTransactionDetails);
+        fundsTransferTransactionDetails.setParticipantsettlement(null);
         return this;
     }
 

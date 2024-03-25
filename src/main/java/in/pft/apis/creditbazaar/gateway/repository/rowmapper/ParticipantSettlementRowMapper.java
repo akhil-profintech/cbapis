@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.ParticipantSettlement;
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import io.r2dbc.spi.Row;
 import java.util.function.BiFunction;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class ParticipantSettlementRowMapper implements BiFunction<Row, String, P
         entity.setParticipantId(converter.fromRow(row, prefix + "_participant_id", Long.class));
         entity.setParticipantName(converter.fromRow(row, prefix + "_participant_name", String.class));
         entity.setGstId(converter.fromRow(row, prefix + "_gst_id", String.class));
-        entity.setSettlementType(converter.fromRow(row, prefix + "_settlement_type", String.class));
+        entity.setSettlementType(converter.fromRow(row, prefix + "_settlement_type", SettlementType.class));
         entity.setSettlementAmount(converter.fromRow(row, prefix + "_settlement_amount", Long.class));
         entity.setSettlementDate(converter.fromRow(row, prefix + "_settlement_date", String.class));
         entity.setSettlementDueDate(converter.fromRow(row, prefix + "_settlement_due_date", String.class));

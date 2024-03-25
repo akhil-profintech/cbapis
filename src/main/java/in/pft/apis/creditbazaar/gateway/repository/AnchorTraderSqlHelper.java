@@ -27,6 +27,7 @@ public class AnchorTraderSqlHelper {
         columns.add(Column.aliased("kyc_completed", table, columnPrefix + "_kyc_completed"));
         columns.add(Column.aliased("bank_details", table, columnPrefix + "_bank_details"));
         columns.add(Column.aliased("email_id", table, columnPrefix + "_email_id"));
+        columns.add(Column.aliased("personal_email_id", table, columnPrefix + "_personal_email_id"));
         columns.add(Column.aliased("account_number", table, columnPrefix + "_account_number"));
         columns.add(Column.aliased("ifsc_code", table, columnPrefix + "_ifsc_code"));
         columns.add(Column.aliased("bank_name", table, columnPrefix + "_bank_name"));

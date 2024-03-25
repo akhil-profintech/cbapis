@@ -62,9 +62,9 @@ const routes: Routes = [
     loadChildren: () => import('./escrow-account-details/escrow-account-details.routes'),
   },
   {
-    path: 'ft-transaction-details',
-    data: { pageTitle: 'cbapisApp.fTTransactionDetails.home.title' },
-    loadChildren: () => import('./ft-transaction-details/ft-transaction-details.routes'),
+    path: 'funds-transfer-transaction-details',
+    data: { pageTitle: 'cbapisApp.fundsTransferTransactionDetails.home.title' },
+    loadChildren: () => import('./funds-transfer-transaction-details/funds-transfer-transaction-details.routes'),
   },
   {
     path: 'escrow-transaction-details',

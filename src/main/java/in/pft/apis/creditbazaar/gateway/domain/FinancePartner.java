@@ -70,7 +70,9 @@ public class FinancePartner implements Serializable {
 
     @Transient
     @JsonIgnoreProperties(
-        value = { "creditAccountDetails", "fTTransactionDetails", "escrowTransactionDetails", "financerequest", "financepartner" },
+        value = {
+            "creditAccountDetails", "fundsTransferTransactionDetails", "escrowTransactionDetails", "financerequest", "financepartner",
+        },
         allowSetters = true
     )
     private Set<Disbursement> disbursements = new HashSet<>();

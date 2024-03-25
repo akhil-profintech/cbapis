@@ -68,7 +68,7 @@ public class Settlement implements Serializable {
     private String currency;
 
     @Transient
-    @JsonIgnoreProperties(value = { "fTTransactionDetails", "settlement" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "fundsTransferTransactionDetails", "settlement" }, allowSetters = true)
     private Set<ParticipantSettlement> participantSettlements = new HashSet<>();
 
     @Transient

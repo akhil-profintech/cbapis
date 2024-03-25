@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface FundsTransferRepository extends ReactiveCrudRepository<FundsTransfer, Long>, FundsTransferRepositoryInternal {
+public interface FundsTransferRepository extends ReactiveCrudRepository<FundsTransfer, Long>, FundsTransferRepositoryInternal{
     Flux<FundsTransfer> findAllBy(Pageable pageable);
 
     @Override

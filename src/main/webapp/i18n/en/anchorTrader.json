@@ -34,6 +34,7 @@
       "kycCompleted": "Kyc Completed",
       "bankDetails": "Bank Details",
       "emailId": "Email Id",
+      "personalEmailId": "Personal Email Id",
       "accountNumber": "Account Number",
       "ifscCode": "Ifsc Code",
       "bankName": "Bank Name",

@@ -77,6 +77,9 @@ public class AnchorTrader implements Serializable {
     @Column("email_id")
     private String emailId;
 
+    @Column("personal_email_id")
+    private String personalEmailId;
+
     @Column("account_number")
     private String accountNumber;
 
@@ -373,6 +376,19 @@ public class AnchorTrader implements Serializable {
 
     public void setEmailId(String emailId) {
         this.emailId = emailId;
+    }
+
+    public String getPersonalEmailId() {
+        return this.personalEmailId;
+    }
+
+    public AnchorTrader personalEmailId(String personalEmailId) {
+        this.setPersonalEmailId(personalEmailId);
+        return this;
+    }
+
+    public void setPersonalEmailId(String personalEmailId) {
+        this.personalEmailId = personalEmailId;
     }
 
     public String getAccountNumber() {
@@ -734,6 +750,7 @@ public class AnchorTrader implements Serializable {
             ", kycCompleted='" + getKycCompleted() + "'" +
             ", bankDetails='" + getBankDetails() + "'" +
             ", emailId='" + getEmailId() + "'" +
+            ", personalEmailId='" + getPersonalEmailId() + "'" +
             ", accountNumber='" + getAccountNumber() + "'" +
             ", ifscCode='" + getIfscCode() + "'" +
             ", bankName='" + getBankName() + "'" +

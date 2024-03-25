@@ -1,0 +1,45 @@
+{
+  "cbapisApp": {
+    "fundsTransferTransactionDetails": {
+      "home": {
+        "title": "Funds Transfer Transaction Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Funds Transfer Transaction Details",
+        "createOrEditLabel": "Create or edit a Funds Transfer Transaction Details",
+        "notFound": "No Funds Transfer Transaction Details found"
+      },
+      "created": "A new Funds Transfer Transaction Details is created with identifier {{ param }}",
+      "updated": "A Funds Transfer Transaction Details is updated with identifier {{ param }}",
+      "deleted": "A Funds Transfer Transaction Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Funds Transfer Transaction Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Funds Transfer Transaction Details"
+      },
+      "id": "ID",
+      "ftTrnxDetailsId": "Ft Trnx Details Id",
+      "ftTrnxDetailsUlid": "Ft Trnx Details Ulid",
+      "transactionId": "Transaction Id",
+      "debitAccountNumber": "Debit Account Number",
+      "creditAccountNumber": "Credit Account Number",
+      "remitterName": "Remitter Name",
+      "amount": "Amount",
+      "currency": "Currency",
+      "transactionType": "Transaction Type",
+      "paymentDescription": "Payment Description",
+      "beneficiaryIFSC": "Beneficiary IFSC",
+      "beneficiaryName": "Beneficiary Name",
+      "beneficiaryAddress": "Beneficiary Address",
+      "emailId": "Email Id",
+      "mobileNo": "Mobile No",
+      "transactionRefNo": "Transaction Ref No",
+      "trnxResourceDataStatus": "Trnx Resource Data Status",
+      "trnxMetaDataStatus": "Trnx Meta Data Status",
+      "transactionDateTime": "Transaction Date Time",
+      "participantsettlement": "Participantsettlement",
+      "disbursement": "Disbursement",
+      "repayment": "Repayment"
+    }
+  }
+}

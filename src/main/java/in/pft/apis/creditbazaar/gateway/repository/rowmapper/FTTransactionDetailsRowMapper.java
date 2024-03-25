@@ -1,6 +1,5 @@
 package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
-import in.pft.apis.creditbazaar.gateway.domain.FTTransactionDetails;
 import io.r2dbc.spi.Row;
 import java.util.function.BiFunction;
 import org.springframework.stereotype.Service;

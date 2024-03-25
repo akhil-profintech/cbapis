@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.gateway.service.dto;
 
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -26,7 +27,7 @@ public class ParticipantSettlementDTO implements Serializable {
     private String gstId;
 
     @NotNull(message = "must not be null")
-    private String settlementType;
+    private SettlementType settlementType;
 
     @NotNull(message = "must not be null")
     private Long settlementAmount;
@@ -114,11 +115,11 @@ public class ParticipantSettlementDTO implements Serializable {
         this.gstId = gstId;
     }
 
-    public String getSettlementType() {
+    public SettlementType getSettlementType() {
         return settlementType;
     }
 
-    public void setSettlementType(String settlementType) {
+    public void setSettlementType(SettlementType settlementType) {
         this.settlementType = settlementType;
     }
 

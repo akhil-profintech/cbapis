@@ -41,7 +41,7 @@
       "status": "Status",
       "actionByDate": "Action By Date",
       "creditAccountDetails": "Credit Account Details",
-      "fTTransactionDetails": "F T Transaction Details",
+      "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",
       "escrowTransactionDetails": "Escrow Transaction Details",
       "financerequest": "Financerequest",
       "financepartner": "Financepartner"

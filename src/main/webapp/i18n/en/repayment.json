@@ -45,7 +45,7 @@
       "status": "Status",
       "referenceNumber": "Reference Number",
       "creditAccountDetails": "Credit Account Details",
-      "fTTransactionDetails": "F T Transaction Details",
+      "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",
       "escrowTransactionDetails": "Escrow Transaction Details",
       "financerequest": "Financerequest"
     }

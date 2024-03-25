@@ -45,6 +45,7 @@ type AnchorTraderFormGroupContent = {
   kycCompleted: FormControl<IAnchorTrader['kycCompleted']>;
   bankDetails: FormControl<IAnchorTrader['bankDetails']>;
   emailId: FormControl<IAnchorTrader['emailId']>;
+  personalEmailId: FormControl<IAnchorTrader['personalEmailId']>;
   accountNumber: FormControl<IAnchorTrader['accountNumber']>;
   ifscCode: FormControl<IAnchorTrader['ifscCode']>;
   bankName: FormControl<IAnchorTrader['bankName']>;
@@ -107,6 +108,7 @@ export class AnchorTraderFormService {
       kycCompleted: new FormControl(anchorTraderRawValue.kycCompleted),
       bankDetails: new FormControl(anchorTraderRawValue.bankDetails),
       emailId: new FormControl(anchorTraderRawValue.emailId),
+      personalEmailId: new FormControl(anchorTraderRawValue.personalEmailId),
       accountNumber: new FormControl(anchorTraderRawValue.accountNumber),
       ifscCode: new FormControl(anchorTraderRawValue.ifscCode),
       bankName: new FormControl(anchorTraderRawValue.bankName),

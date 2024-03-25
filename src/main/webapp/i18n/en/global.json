@@ -20,7 +20,7 @@
         "repayment": "Repayment",
         "creditAccountDetails": "Credit Account Details",
         "escrowAccountDetails": "Escrow Account Details",
-        "ftTransactionDetails": "FT Transaction Details",
+        "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",
         "escrowTransactionDetails": "Escrow Transaction Details",
         "docDetails": "Doc Details",
         "prospectRequest": "Prospect Request",

@@ -119,14 +119,18 @@
           <label class="form-label" jhiTranslate="cbapisApp.participantSettlement.settlementType" for="field_settlementType"
             >Settlement Type</label
           >
-          <input
-            type="text"
+          <select
             class="form-control"
             name="settlementType"
+            formControlName="settlementType"
             id="field_settlementType"
             data-cy="settlementType"
-            formControlName="settlementType"
-          />
+          >
+            <option [ngValue]="null">{{ 'cbapisApp.SettlementType.null' | translate }}</option>
+            @for (settlementType of settlementTypeValues; track $index) {
+              <option [value]="settlementType">{{ 'cbapisApp.SettlementType.' + settlementType | translate }}</option>
+            }
+          </select>
           @if (
             editForm.get('settlementType')!.invalid && (editForm.get('settlementType')!.dirty || editForm.get('settlementType')!.touched)
           ) {

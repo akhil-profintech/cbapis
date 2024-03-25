@@ -154,6 +154,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="personalEmailId">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.anchorTrader.personalEmailId">Personal Email Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="accountNumber">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.anchorTrader.accountNumber">Account Number</span>
@@ -292,6 +299,7 @@
               <td>{{ anchorTrader.kycCompleted }}</td>
               <td>{{ anchorTrader.bankDetails }}</td>
               <td>{{ anchorTrader.emailId }}</td>
+              <td>{{ anchorTrader.personalEmailId }}</td>
               <td>{{ anchorTrader.accountNumber }}</td>
               <td>{{ anchorTrader.ifscCode }}</td>
               <td>{{ anchorTrader.bankName }}</td>
