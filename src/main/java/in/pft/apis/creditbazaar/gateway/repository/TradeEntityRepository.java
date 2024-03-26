@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface TradeEntityRepository extends ReactiveCrudRepository<TradeEntity, Long>, TradeEntityRepositoryInternal {
+public interface TradeEntityRepository extends ReactiveCrudRepository<TradeEntity, Long>, TradeEntityRepositoryInternal,TradeEntityCustomRepo {
     Flux<TradeEntity> findAllBy(Pageable pageable);
 
     @Override

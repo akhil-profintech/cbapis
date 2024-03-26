@@ -93,6 +93,16 @@ public class FinanceRequestMappingService {
         return financeRequestMappingRepository.findAllBy(pageable).map(financeRequestMappingMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<FinanceRequestMappingDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all EscrowTransactionDetails");
+        return financeRequestMappingRepository.findAllByFilter(filter, pageable).map(financeRequestMappingMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return financeRequestMappingRepository.countByFilter(filter);
+    }
+
     /**
      * Returns the number of financeRequestMappings available.
      * @return the number of entities in the database.

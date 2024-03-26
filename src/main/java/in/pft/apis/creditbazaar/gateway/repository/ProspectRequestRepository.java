@@ -12,7 +12,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface ProspectRequestRepository extends ReactiveCrudRepository<ProspectRequest, Long>, ProspectRequestRepositoryInternal {
+public interface ProspectRequestRepository extends ReactiveCrudRepository<ProspectRequest, Long>, ProspectRequestRepositoryInternal,ProspectRequestCustomRepo {
     Flux<ProspectRequest> findAllBy(Pageable pageable);
 
     @Override

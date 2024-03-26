@@ -86,6 +86,16 @@ public class TradeEntityService {
         return tradeEntityRepository.findAllBy(pageable).map(tradeEntityMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<TradeEntityDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return tradeEntityRepository.findAllByFilter(filter, pageable).map(tradeEntityMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return tradeEntityRepository.countByFilter(filter);
+    }
+
     /**
      * Returns the number of tradeEntities available.
      * @return the number of entities in the database.

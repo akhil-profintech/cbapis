@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.service;
 
 import in.pft.apis.creditbazaar.gateway.repository.FundsTransferTransactionDetailsRepository;
+import in.pft.apis.creditbazaar.gateway.service.dto.EscrowTransactionDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FundsTransferTransactionDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.mapper.FundsTransferTransactionDetailsMapper;
 import org.slf4j.Logger;

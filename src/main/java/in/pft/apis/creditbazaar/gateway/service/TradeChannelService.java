@@ -85,6 +85,15 @@ public class TradeChannelService {
         return tradeChannelRepository.findAllBy(pageable).map(tradeChannelMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<TradeChannelDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return tradeChannelRepository.findAllByFilter(filter, pageable).map(tradeChannelMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return tradeChannelRepository.countByFilter(filter);
+    }
     /**
      * Returns the number of tradeChannels available.
      * @return the number of entities in the database.

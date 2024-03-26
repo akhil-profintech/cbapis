@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface GstinRepository extends ReactiveCrudRepository<Gstin, Long>, GstinRepositoryInternal {
+public interface GstinRepository extends ReactiveCrudRepository<Gstin, Long>, GstinRepositoryInternal,GstinCustomRepo {
     Flux<Gstin> findAllBy(Pageable pageable);
 
     @Override

@@ -86,6 +86,16 @@ public class ProspectRequestService {
         return prospectRequestRepository.findAllBy(pageable).map(prospectRequestMapper::toDto);
     }
 
+    @Transactional(readOnly = true)
+    public Flux<ProspectRequestDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return prospectRequestRepository.findAllByFilter(filter, pageable).map(prospectRequestMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return prospectRequestRepository.countByFilter(filter);
+    }
+
     /**
      * Returns the number of prospectRequests available.
      * @return the number of entities in the database.

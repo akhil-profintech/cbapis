@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.service;
 
 import in.pft.apis.creditbazaar.gateway.repository.GstinRepository;
+import in.pft.apis.creditbazaar.gateway.service.dto.EscrowTransactionDetailsDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.GstinDTO;
 import in.pft.apis.creditbazaar.gateway.service.mapper.GstinMapper;
 import org.slf4j.Logger;
@@ -81,6 +82,16 @@ public class GstinService {
     public Flux<GstinDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Gstins");
         return gstinRepository.findAllBy(pageable).map(gstinMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public Flux<GstinDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all EscrowTransactionDetails");
+        return gstinRepository.findAllByFilter(filter, pageable).map(gstinMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return gstinRepository.countByFilter(filter);
     }
 
     /**
