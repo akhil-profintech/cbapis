@@ -175,6 +175,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="dataKey">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.instaAlert.dataKey">Data Key</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="tradeEntity.entityId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.instaAlert.tradeEntity">Trade Entity</span>
@@ -209,6 +216,7 @@
               <td>{{ instaAlert.ifscCode }}</td>
               <td>{{ instaAlert.lastupdatedDateTime }}</td>
               <td>{{ instaAlert.lastUpdatedBy }}</td>
+              <td>{{ instaAlert.dataKey }}</td>
               <td>
                 @if (instaAlert.tradeEntity) {
                   <div>

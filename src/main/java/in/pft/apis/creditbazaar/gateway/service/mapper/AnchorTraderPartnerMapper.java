@@ -36,6 +36,7 @@ public interface AnchorTraderPartnerMapper extends EntityMapper<AnchorTraderPart
     @Mapping(target = "kycCompleted", source = "kycCompleted")
     @Mapping(target = "bankDetails", source = "bankDetails")
     @Mapping(target = "emailId", source = "emailId")
+    @Mapping(target = "personalEmailId", source = "personalEmailId")
     @Mapping(target = "accountNumber", source = "accountNumber")
     @Mapping(target = "ifscCode", source = "ifscCode")
     @Mapping(target = "bankName", source = "bankName")

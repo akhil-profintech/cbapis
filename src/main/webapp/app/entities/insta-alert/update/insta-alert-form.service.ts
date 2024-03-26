@@ -37,6 +37,7 @@ type InstaAlertFormGroupContent = {
   ifscCode: FormControl<IInstaAlert['ifscCode']>;
   lastupdatedDateTime: FormControl<IInstaAlert['lastupdatedDateTime']>;
   lastUpdatedBy: FormControl<IInstaAlert['lastUpdatedBy']>;
+  dataKey: FormControl<IInstaAlert['dataKey']>;
   tradeEntity: FormControl<IInstaAlert['tradeEntity']>;
 };
 
@@ -82,6 +83,7 @@ export class InstaAlertFormService {
       lastUpdatedBy: new FormControl(instaAlertRawValue.lastUpdatedBy, {
         validators: [Validators.required],
       }),
+      dataKey: new FormControl(instaAlertRawValue.dataKey),
       tradeEntity: new FormControl(instaAlertRawValue.tradeEntity),
     });
   }

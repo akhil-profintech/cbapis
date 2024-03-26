@@ -37,6 +37,7 @@
       "ifscCode": "Ifsc Code",
       "lastupdatedDateTime": "Lastupdated Date Time",
       "lastUpdatedBy": "Last Updated By",
+      "dataKey": "Data Key",
       "tradeEntity": "Trade Entity"
     }
   }

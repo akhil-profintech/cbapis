@@ -21,5 +21,9 @@ public interface BeneValidationMapper extends EntityMapper<BeneValidationDTO, Be
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
     @Mapping(target = "entityId", source = "entityId")
+    @Mapping(target = "entityUlidId", source = "entityUlidId")
+    @Mapping(target = "entityName", source = "entityName")
+    @Mapping(target = "entityDesc", source = "entityDesc")
+    @Mapping(target = "entityGST", source = "entityGST")
     TradeEntityDTO toDtoTradeEntityEntityId(TradeEntity tradeEntity);
 }

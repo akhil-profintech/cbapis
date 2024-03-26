@@ -30,7 +30,8 @@ public class InstaAlertTestSamples {
             .remitterAccountNumber("remitterAccountNumber1")
             .ifscCode("ifscCode1")
             .lastupdatedDateTime("lastupdatedDateTime1")
-            .lastUpdatedBy("lastUpdatedBy1");
+            .lastUpdatedBy("lastUpdatedBy1")
+            .dataKey("dataKey1");
     }
 
     public static InstaAlert getInstaAlertSample2() {
@@ -54,7 +55,8 @@ public class InstaAlertTestSamples {
             .remitterAccountNumber("remitterAccountNumber2")
             .ifscCode("ifscCode2")
             .lastupdatedDateTime("lastupdatedDateTime2")
-            .lastUpdatedBy("lastUpdatedBy2");
+            .lastUpdatedBy("lastUpdatedBy2")
+            .dataKey("dataKey2");
     }
 
     public static InstaAlert getInstaAlertRandomSampleGenerator() {
@@ -78,6 +80,7 @@ public class InstaAlertTestSamples {
             .remitterAccountNumber(UUID.randomUUID().toString())
             .ifscCode(UUID.randomUUID().toString())
             .lastupdatedDateTime(UUID.randomUUID().toString())
-            .lastUpdatedBy(UUID.randomUUID().toString());
+            .lastUpdatedBy(UUID.randomUUID().toString())
+            .dataKey(UUID.randomUUID().toString());
     }
 }

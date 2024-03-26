@@ -81,6 +81,9 @@ public class InstaAlert implements Serializable {
     @Column("last_updated_by")
     private String lastUpdatedBy;
 
+    @Column("data_key")
+    private String dataKey;
+
     @Transient
     @JsonIgnoreProperties(value = { "beneValidations", "instaAlerts", "fundsTransfers", "updateVAS", "vANumbers" }, allowSetters = true)
     private TradeEntity tradeEntity;
@@ -350,6 +353,19 @@ public class InstaAlert implements Serializable {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
+    public String getDataKey() {
+        return this.dataKey;
+    }
+
+    public InstaAlert dataKey(String dataKey) {
+        this.setDataKey(dataKey);
+        return this;
+    }
+
+    public void setDataKey(String dataKey) {
+        this.dataKey = dataKey;
+    }
+
     public TradeEntity getTradeEntity() {
         return this.tradeEntity;
     }
@@ -415,6 +431,7 @@ public class InstaAlert implements Serializable {
             ", ifscCode='" + getIfscCode() + "'" +
             ", lastupdatedDateTime='" + getLastupdatedDateTime() + "'" +
             ", lastUpdatedBy='" + getLastUpdatedBy() + "'" +
+            ", dataKey='" + getDataKey() + "'" +
             "}";
     }
 }

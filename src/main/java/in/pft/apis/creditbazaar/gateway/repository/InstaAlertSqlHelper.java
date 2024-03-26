@@ -30,6 +30,7 @@ public class InstaAlertSqlHelper {
         columns.add(Column.aliased("ifsc_code", table, columnPrefix + "_ifsc_code"));
         columns.add(Column.aliased("lastupdated_date_time", table, columnPrefix + "_lastupdated_date_time"));
         columns.add(Column.aliased("last_updated_by", table, columnPrefix + "_last_updated_by"));
+        columns.add(Column.aliased("data_key", table, columnPrefix + "_data_key"));
 
         columns.add(Column.aliased("trade_entity_id", table, columnPrefix + "_trade_entity_id"));
         return columns;

@@ -94,6 +94,9 @@ class InstaAlertResourceIT {
     private static final String DEFAULT_LAST_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_LAST_UPDATED_BY = "BBBBBBBBBB";
 
+    private static final String DEFAULT_DATA_KEY = "AAAAAAAAAA";
+    private static final String UPDATED_DATA_KEY = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/insta-alerts";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -146,7 +149,8 @@ class InstaAlertResourceIT {
             .remitterAccountNumber(DEFAULT_REMITTER_ACCOUNT_NUMBER)
             .ifscCode(DEFAULT_IFSC_CODE)
             .lastupdatedDateTime(DEFAULT_LASTUPDATED_DATE_TIME)
-            .lastUpdatedBy(DEFAULT_LAST_UPDATED_BY);
+            .lastUpdatedBy(DEFAULT_LAST_UPDATED_BY)
+            .dataKey(DEFAULT_DATA_KEY);
         return instaAlert;
     }
 
@@ -176,7 +180,8 @@ class InstaAlertResourceIT {
             .remitterAccountNumber(UPDATED_REMITTER_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
             .lastupdatedDateTime(UPDATED_LASTUPDATED_DATE_TIME)
-            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY);
+            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY)
+            .dataKey(UPDATED_DATA_KEY);
         return instaAlert;
     }
 
@@ -236,6 +241,7 @@ class InstaAlertResourceIT {
         assertThat(testInstaAlert.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
         assertThat(testInstaAlert.getLastupdatedDateTime()).isEqualTo(DEFAULT_LASTUPDATED_DATE_TIME);
         assertThat(testInstaAlert.getLastUpdatedBy()).isEqualTo(DEFAULT_LAST_UPDATED_BY);
+        assertThat(testInstaAlert.getDataKey()).isEqualTo(DEFAULT_DATA_KEY);
     }
 
     @Test
@@ -382,7 +388,9 @@ class InstaAlertResourceIT {
             .jsonPath("$.[*].lastupdatedDateTime")
             .value(hasItem(DEFAULT_LASTUPDATED_DATE_TIME))
             .jsonPath("$.[*].lastUpdatedBy")
-            .value(hasItem(DEFAULT_LAST_UPDATED_BY));
+            .value(hasItem(DEFAULT_LAST_UPDATED_BY))
+            .jsonPath("$.[*].dataKey")
+            .value(hasItem(DEFAULT_DATA_KEY));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -457,7 +465,9 @@ class InstaAlertResourceIT {
             .jsonPath("$.lastupdatedDateTime")
             .value(is(DEFAULT_LASTUPDATED_DATE_TIME))
             .jsonPath("$.lastUpdatedBy")
-            .value(is(DEFAULT_LAST_UPDATED_BY));
+            .value(is(DEFAULT_LAST_UPDATED_BY))
+            .jsonPath("$.dataKey")
+            .value(is(DEFAULT_DATA_KEY));
     }
 
     @Test
@@ -500,7 +510,8 @@ class InstaAlertResourceIT {
             .remitterAccountNumber(UPDATED_REMITTER_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
             .lastupdatedDateTime(UPDATED_LASTUPDATED_DATE_TIME)
-            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY);
+            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY)
+            .dataKey(UPDATED_DATA_KEY);
         InstaAlertDTO instaAlertDTO = instaAlertMapper.toDto(updatedInstaAlert);
 
         webTestClient
@@ -535,6 +546,7 @@ class InstaAlertResourceIT {
         assertThat(testInstaAlert.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
         assertThat(testInstaAlert.getLastupdatedDateTime()).isEqualTo(UPDATED_LASTUPDATED_DATE_TIME);
         assertThat(testInstaAlert.getLastUpdatedBy()).isEqualTo(UPDATED_LAST_UPDATED_BY);
+        assertThat(testInstaAlert.getDataKey()).isEqualTo(UPDATED_DATA_KEY);
     }
 
     @Test
@@ -659,6 +671,7 @@ class InstaAlertResourceIT {
         assertThat(testInstaAlert.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
         assertThat(testInstaAlert.getLastupdatedDateTime()).isEqualTo(DEFAULT_LASTUPDATED_DATE_TIME);
         assertThat(testInstaAlert.getLastUpdatedBy()).isEqualTo(UPDATED_LAST_UPDATED_BY);
+        assertThat(testInstaAlert.getDataKey()).isEqualTo(DEFAULT_DATA_KEY);
     }
 
     @Test
@@ -691,7 +704,8 @@ class InstaAlertResourceIT {
             .remitterAccountNumber(UPDATED_REMITTER_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
             .lastupdatedDateTime(UPDATED_LASTUPDATED_DATE_TIME)
-            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY);
+            .lastUpdatedBy(UPDATED_LAST_UPDATED_BY)
+            .dataKey(UPDATED_DATA_KEY);
 
         webTestClient
             .patch()
@@ -725,6 +739,7 @@ class InstaAlertResourceIT {
         assertThat(testInstaAlert.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
         assertThat(testInstaAlert.getLastupdatedDateTime()).isEqualTo(UPDATED_LASTUPDATED_DATE_TIME);
         assertThat(testInstaAlert.getLastUpdatedBy()).isEqualTo(UPDATED_LAST_UPDATED_BY);
+        assertThat(testInstaAlert.getDataKey()).isEqualTo(UPDATED_DATA_KEY);
     }
 
     @Test

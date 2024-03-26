@@ -34,6 +34,7 @@ public interface IndividualAssessmentMapper extends EntityMapper<IndividualAsses
     @Mapping(target = "timestamp", source = "timestamp")
     @Mapping(target = "totalAmountRequested", source = "totalAmountRequested")
     @Mapping(target = "totalInvoiceAmount", source = "totalInvoiceAmount")
+    @Mapping(target = "status", source = "status")
     @Mapping(target = "financeRequest", source = "financeRequest")
     CBCREProcessDTO toDtoCBCREProcessCbProcessId(CBCREProcess cBCREProcess);
 }

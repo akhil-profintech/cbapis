@@ -21,6 +21,7 @@ export interface IInstaAlert {
   ifscCode?: string | null;
   lastupdatedDateTime?: string | null;
   lastUpdatedBy?: string | null;
+  dataKey?: string | null;
   tradeEntity?: Pick<ITradeEntity, 'id' | 'entityId'> | null;
 }
 

@@ -30,6 +30,14 @@ public interface CREHighlightsMapper extends EntityMapper<CREHighlightsDTO, CREH
     @Mapping(target = "tradePartnerId", source = "tradePartnerId")
     @Mapping(target = "invoiceAmount", source = "invoiceAmount")
     @Mapping(target = "invoiceId", source = "invoiceId")
+    @Mapping(target = "baseScore", source = "baseScore")
+    @Mapping(target = "ctin", source = "ctin")
+    @Mapping(target = "invDate", source = "invDate")
+    @Mapping(target = "cbProcessId", source = "cbProcessId")
+    @Mapping(target = "grnPresent", source = "grnPresent")
+    @Mapping(target = "einvoicePresent", source = "einvoicePresent")
+    @Mapping(target = "ewayBillPresent", source = "ewayBillPresent")
+    @Mapping(target = "tradePartnerConfirmation", source = "tradePartnerConfirmation")
     @Mapping(target = "cbcreprocess", source = "cbcreprocess")
     IndividualAssessmentDTO toDtoIndividualAssessmentAssessmentId(IndividualAssessment individualAssessment);
 }

@@ -48,6 +48,7 @@ public interface TradeMapper extends EntityMapper<TradeDTO, Trade> {
     @Mapping(target = "kycCompleted", source = "kycCompleted")
     @Mapping(target = "bankDetails", source = "bankDetails")
     @Mapping(target = "emailId", source = "emailId")
+    @Mapping(target = "personalEmailId", source = "personalEmailId")
     @Mapping(target = "accountNumber", source = "accountNumber")
     @Mapping(target = "ifscCode", source = "ifscCode")
     @Mapping(target = "bankName", source = "bankName")
@@ -61,6 +62,7 @@ public interface TradeMapper extends EntityMapper<TradeDTO, Trade> {
     @Mapping(target = "gstRegistrationCertificateVerificationStatus", source = "gstRegistrationCertificateVerificationStatus")
     @Mapping(target = "udhyamRegistrationcertificateUploadStatus", source = "udhyamRegistrationcertificateUploadStatus")
     @Mapping(target = "udhyamRegistrationcertificateVerificationStatus", source = "udhyamRegistrationcertificateVerificationStatus")
+    @Mapping(target = "kycDeclaration", source = "kycDeclaration")
     AnchorTraderDTO toDtoAnchorTraderAtId(AnchorTrader anchorTrader);
 
     @Named("tradePartnerTpId")

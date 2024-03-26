@@ -53,6 +53,8 @@ public class InstaAlertDTO implements Serializable {
     @NotNull(message = "must not be null")
     private String lastUpdatedBy;
 
+    private String dataKey;
+
     private TradeEntityDTO tradeEntity;
 
     public Long getId() {
@@ -215,6 +217,14 @@ public class InstaAlertDTO implements Serializable {
         this.lastUpdatedBy = lastUpdatedBy;
     }
 
+    public String getDataKey() {
+        return dataKey;
+    }
+
+    public void setDataKey(String dataKey) {
+        this.dataKey = dataKey;
+    }
+
     public TradeEntityDTO getTradeEntity() {
         return tradeEntity;
     }
@@ -268,6 +278,7 @@ public class InstaAlertDTO implements Serializable {
             ", ifscCode='" + getIfscCode() + "'" +
             ", lastupdatedDateTime='" + getLastupdatedDateTime() + "'" +
             ", lastUpdatedBy='" + getLastUpdatedBy() + "'" +
+            ", dataKey='" + getDataKey() + "'" +
             ", tradeEntity=" + getTradeEntity() +
             "}";
     }

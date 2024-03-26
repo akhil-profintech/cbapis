@@ -44,6 +44,7 @@ public class InstaAlertRowMapper implements BiFunction<Row, String, InstaAlert> 
         entity.setIfscCode(converter.fromRow(row, prefix + "_ifsc_code", String.class));
         entity.setLastupdatedDateTime(converter.fromRow(row, prefix + "_lastupdated_date_time", String.class));
         entity.setLastUpdatedBy(converter.fromRow(row, prefix + "_last_updated_by", String.class));
+        entity.setDataKey(converter.fromRow(row, prefix + "_data_key", String.class));
         entity.setTradeEntityId(converter.fromRow(row, prefix + "_trade_entity_id", Long.class));
         return entity;
     }
