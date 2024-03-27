@@ -80,10 +80,10 @@ describe('AcceptedOffer Management Update Component', () => {
 
     it('Should call AnchorTrader query and add missing value', () => {
       const acceptedOffer: IAcceptedOffer = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 11920 };
+      const anchortrader: IAnchorTrader = { id: 30719 };
       acceptedOffer.anchortrader = anchortrader;
 
-      const anchorTraderCollection: IAnchorTrader[] = [{ id: 8905 }];
+      const anchorTraderCollection: IAnchorTrader[] = [{ id: 11046 }];
       jest.spyOn(anchorTraderService, 'query').mockReturnValue(of(new HttpResponse({ body: anchorTraderCollection })));
       const additionalAnchorTraders = [anchortrader];
       const expectedCollection: IAnchorTrader[] = [...additionalAnchorTraders, ...anchorTraderCollection];
@@ -126,7 +126,7 @@ describe('AcceptedOffer Management Update Component', () => {
       const acceptedOffer: IAcceptedOffer = { id: 456 };
       const financerequest: IFinanceRequest = { id: 10625 };
       acceptedOffer.financerequest = financerequest;
-      const anchortrader: IAnchorTrader = { id: 194 };
+      const anchortrader: IAnchorTrader = { id: 22783 };
       acceptedOffer.anchortrader = anchortrader;
       const financepartner: IFinancePartner = { id: 26221 };
       acceptedOffer.financepartner = financepartner;

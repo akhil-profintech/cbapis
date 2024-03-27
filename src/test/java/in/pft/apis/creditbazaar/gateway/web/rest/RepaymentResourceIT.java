@@ -111,8 +111,8 @@ class RepaymentResourceIT {
     private static final String DEFAULT_IFSC_CODE = "AAAAAAAAAA";
     private static final String UPDATED_IFSC_CODE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
-    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+    private static final String DEFAULT_RECORD_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_RECORD_STATUS = "BBBBBBBBBB";
 
     private static final String DEFAULT_REFERENCE_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_REFERENCE_NUMBER = "BBBBBBBBBB";
@@ -175,7 +175,7 @@ class RepaymentResourceIT {
             .sourceAccountName(DEFAULT_SOURCE_ACCOUNT_NAME)
             .sourceAccountNumber(DEFAULT_SOURCE_ACCOUNT_NUMBER)
             .ifscCode(DEFAULT_IFSC_CODE)
-            .status(DEFAULT_STATUS)
+            .recordStatus(DEFAULT_RECORD_STATUS)
             .referenceNumber(DEFAULT_REFERENCE_NUMBER);
         return repayment;
     }
@@ -212,7 +212,7 @@ class RepaymentResourceIT {
             .sourceAccountName(UPDATED_SOURCE_ACCOUNT_NAME)
             .sourceAccountNumber(UPDATED_SOURCE_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .referenceNumber(UPDATED_REFERENCE_NUMBER);
         return repayment;
     }
@@ -278,7 +278,7 @@ class RepaymentResourceIT {
         assertThat(testRepayment.getSourceAccountName()).isEqualTo(DEFAULT_SOURCE_ACCOUNT_NAME);
         assertThat(testRepayment.getSourceAccountNumber()).isEqualTo(DEFAULT_SOURCE_ACCOUNT_NUMBER);
         assertThat(testRepayment.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
-        assertThat(testRepayment.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testRepayment.getRecordStatus()).isEqualTo(DEFAULT_RECORD_STATUS);
         assertThat(testRepayment.getReferenceNumber()).isEqualTo(DEFAULT_REFERENCE_NUMBER);
     }
 
@@ -613,8 +613,8 @@ class RepaymentResourceIT {
             .value(hasItem(DEFAULT_SOURCE_ACCOUNT_NUMBER))
             .jsonPath("$.[*].ifscCode")
             .value(hasItem(DEFAULT_IFSC_CODE))
-            .jsonPath("$.[*].status")
-            .value(hasItem(DEFAULT_STATUS))
+            .jsonPath("$.[*].recordStatus")
+            .value(hasItem(DEFAULT_RECORD_STATUS))
             .jsonPath("$.[*].referenceNumber")
             .value(hasItem(DEFAULT_REFERENCE_NUMBER));
     }
@@ -702,8 +702,8 @@ class RepaymentResourceIT {
             .value(is(DEFAULT_SOURCE_ACCOUNT_NUMBER))
             .jsonPath("$.ifscCode")
             .value(is(DEFAULT_IFSC_CODE))
-            .jsonPath("$.status")
-            .value(is(DEFAULT_STATUS))
+            .jsonPath("$.recordStatus")
+            .value(is(DEFAULT_RECORD_STATUS))
             .jsonPath("$.referenceNumber")
             .value(is(DEFAULT_REFERENCE_NUMBER));
     }
@@ -754,7 +754,7 @@ class RepaymentResourceIT {
             .sourceAccountName(UPDATED_SOURCE_ACCOUNT_NAME)
             .sourceAccountNumber(UPDATED_SOURCE_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .referenceNumber(UPDATED_REFERENCE_NUMBER);
         RepaymentDTO repaymentDTO = repaymentMapper.toDto(updatedRepayment);
 
@@ -795,7 +795,7 @@ class RepaymentResourceIT {
         assertThat(testRepayment.getSourceAccountName()).isEqualTo(UPDATED_SOURCE_ACCOUNT_NAME);
         assertThat(testRepayment.getSourceAccountNumber()).isEqualTo(UPDATED_SOURCE_ACCOUNT_NUMBER);
         assertThat(testRepayment.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
-        assertThat(testRepayment.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testRepayment.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
         assertThat(testRepayment.getReferenceNumber()).isEqualTo(UPDATED_REFERENCE_NUMBER);
     }
 
@@ -929,7 +929,7 @@ class RepaymentResourceIT {
         assertThat(testRepayment.getSourceAccountName()).isEqualTo(DEFAULT_SOURCE_ACCOUNT_NAME);
         assertThat(testRepayment.getSourceAccountNumber()).isEqualTo(DEFAULT_SOURCE_ACCOUNT_NUMBER);
         assertThat(testRepayment.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
-        assertThat(testRepayment.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testRepayment.getRecordStatus()).isEqualTo(DEFAULT_RECORD_STATUS);
         assertThat(testRepayment.getReferenceNumber()).isEqualTo(DEFAULT_REFERENCE_NUMBER);
     }
 
@@ -969,7 +969,7 @@ class RepaymentResourceIT {
             .sourceAccountName(UPDATED_SOURCE_ACCOUNT_NAME)
             .sourceAccountNumber(UPDATED_SOURCE_ACCOUNT_NUMBER)
             .ifscCode(UPDATED_IFSC_CODE)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .referenceNumber(UPDATED_REFERENCE_NUMBER);
 
         webTestClient
@@ -1009,7 +1009,7 @@ class RepaymentResourceIT {
         assertThat(testRepayment.getSourceAccountName()).isEqualTo(UPDATED_SOURCE_ACCOUNT_NAME);
         assertThat(testRepayment.getSourceAccountNumber()).isEqualTo(UPDATED_SOURCE_ACCOUNT_NUMBER);
         assertThat(testRepayment.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
-        assertThat(testRepayment.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testRepayment.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
         assertThat(testRepayment.getReferenceNumber()).isEqualTo(UPDATED_REFERENCE_NUMBER);
     }
 

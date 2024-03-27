@@ -58,7 +58,9 @@ type AnchorTraderFormGroupContent = {
   acceptDeclaration: FormControl<IAnchorTrader['acceptDeclaration']>;
   gstRegistrationCertificateUploadStatus: FormControl<IAnchorTrader['gstRegistrationCertificateUploadStatus']>;
   gstRegistrationCertificateVerificationStatus: FormControl<IAnchorTrader['gstRegistrationCertificateVerificationStatus']>;
+  gstRegistrationCertificateName: FormControl<IAnchorTrader['gstRegistrationCertificateName']>;
   udhyamRegistrationcertificateUploadStatus: FormControl<IAnchorTrader['udhyamRegistrationcertificateUploadStatus']>;
+  udhyamRegistrationCertificateName: FormControl<IAnchorTrader['udhyamRegistrationCertificateName']>;
   udhyamRegistrationcertificateVerificationStatus: FormControl<IAnchorTrader['udhyamRegistrationcertificateVerificationStatus']>;
   kycDeclaration: FormControl<IAnchorTrader['kycDeclaration']>;
 };
@@ -121,7 +123,9 @@ export class AnchorTraderFormService {
       acceptDeclaration: new FormControl(anchorTraderRawValue.acceptDeclaration),
       gstRegistrationCertificateUploadStatus: new FormControl(anchorTraderRawValue.gstRegistrationCertificateUploadStatus),
       gstRegistrationCertificateVerificationStatus: new FormControl(anchorTraderRawValue.gstRegistrationCertificateVerificationStatus),
+      gstRegistrationCertificateName: new FormControl(anchorTraderRawValue.gstRegistrationCertificateName),
       udhyamRegistrationcertificateUploadStatus: new FormControl(anchorTraderRawValue.udhyamRegistrationcertificateUploadStatus),
+      udhyamRegistrationCertificateName: new FormControl(anchorTraderRawValue.udhyamRegistrationCertificateName),
       udhyamRegistrationcertificateVerificationStatus: new FormControl(
         anchorTraderRawValue.udhyamRegistrationcertificateVerificationStatus,
       ),

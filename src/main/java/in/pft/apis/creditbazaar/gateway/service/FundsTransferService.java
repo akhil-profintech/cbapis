@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.service;
 
 import in.pft.apis.creditbazaar.gateway.repository.FundsTransferRepository;
+import in.pft.apis.creditbazaar.gateway.service.dto.FinanceRequestDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.FundsTransferDTO;
 import in.pft.apis.creditbazaar.gateway.service.mapper.FundsTransferMapper;
 import in.pft.apis.creditbazaar.gateway.utils.IdAndUlidGeneration;
@@ -91,6 +92,16 @@ public class FundsTransferService {
     public Flux<FundsTransferDTO> findAll(Pageable pageable) {
         log.debug("Request to get all FundsTransfers");
         return fundsTransferRepository.findAllBy(pageable).map(fundsTransferMapper::toDto);
+    }
+
+    @Transactional(readOnly = true)
+    public Flux<FundsTransferDTO> findAllByFilter(String filter, Pageable pageable) {
+        log.debug("Request to get all AnchorTraders by filter");
+        return fundsTransferRepository.findAllByFilter(filter, pageable).map(fundsTransferMapper::toDto);
+    }
+
+    public Mono<Long> countAllByFilter(String filter) {
+        return fundsTransferRepository.countByFilter(filter);
     }
 
     /**

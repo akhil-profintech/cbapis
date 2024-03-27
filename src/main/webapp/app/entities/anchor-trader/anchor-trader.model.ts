@@ -34,7 +34,9 @@ export interface IAnchorTrader {
   acceptDeclaration?: boolean | null;
   gstRegistrationCertificateUploadStatus?: boolean | null;
   gstRegistrationCertificateVerificationStatus?: boolean | null;
+  gstRegistrationCertificateName?: string | null;
   udhyamRegistrationcertificateUploadStatus?: boolean | null;
+  udhyamRegistrationCertificateName?: string | null;
   udhyamRegistrationcertificateVerificationStatus?: boolean | null;
   kycDeclaration?: boolean | null;
   financeRequests?: Pick<IFinanceRequest, 'id'>[] | null;

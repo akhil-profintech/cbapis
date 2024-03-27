@@ -14,7 +14,7 @@ export const sampleWithRequiredData: IPlacedOffer = {
   interestValue: 25013,
   netAmount: 20755,
   status: 'yieldingly adventurous professionalize',
-  offerDate: dayjs('2024-03-25'),
+  offerDate: dayjs('2024-03-26'),
   disbursalAmount: 'beneath for',
 };
 
@@ -32,7 +32,7 @@ export const sampleWithPartialData: IPlacedOffer = {
   interestValue: 5334,
   netAmount: 21857,
   status: 'youthfully authorized frank',
-  offerDate: dayjs('2024-03-25'),
+  offerDate: dayjs('2024-03-26'),
   anchorTrader: 'metal where',
   tradePartner: 'overconfidently huzzah',
   disbursalAmount: 'aha',
@@ -54,8 +54,8 @@ export const sampleWithFullData: IPlacedOffer = {
   interestValue: 11144,
   netAmount: 27335,
   status: 'including',
-  offerDate: dayjs('2024-03-25'),
-  placedOfferDate: dayjs('2024-03-25'),
+  offerDate: dayjs('2024-03-26'),
+  placedOfferDate: dayjs('2024-03-26'),
   anchorTrader: 'ah till inquisitively',
   tradePartner: 'heavy',
   disbursalAmount: 'what glint graceful',
@@ -72,7 +72,7 @@ export const sampleWithNewData: NewPlacedOffer = {
   interestValue: 30837,
   netAmount: 15625,
   status: 'healthily',
-  offerDate: dayjs('2024-03-25'),
+  offerDate: dayjs('2024-03-26'),
   disbursalAmount: 'violently masculine',
   id: null,
 };

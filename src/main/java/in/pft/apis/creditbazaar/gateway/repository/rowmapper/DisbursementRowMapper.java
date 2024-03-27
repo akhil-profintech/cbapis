@@ -46,7 +46,7 @@ public class DisbursementRowMapper implements BiFunction<Row, String, Disburseme
         entity.setAmountToBeDisbursed(converter.fromRow(row, prefix + "_amount_to_be_disbursed", String.class));
         entity.setDestinationAccountName(converter.fromRow(row, prefix + "_destination_account_name", String.class));
         entity.setDestinationAccountNumber(converter.fromRow(row, prefix + "_destination_account_number", String.class));
-        entity.setStatus(converter.fromRow(row, prefix + "_status", String.class));
+        entity.setRecordStatus(converter.fromRow(row, prefix + "_record_status", String.class));
         entity.setActionByDate(converter.fromRow(row, prefix + "_action_by_date", String.class));
         entity.setFinancerequestId(converter.fromRow(row, prefix + "_financerequest_id", Long.class));
         entity.setFinancepartnerId(converter.fromRow(row, prefix + "_financepartner_id", Long.class));

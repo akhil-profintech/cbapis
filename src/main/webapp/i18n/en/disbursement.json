@@ -38,7 +38,7 @@
       "amountToBeDisbursed": "Amount To Be Disbursed",
       "destinationAccountName": "Destination Account Name",
       "destinationAccountNumber": "Destination Account Number",
-      "status": "Status",
+      "recordStatus": "Record Status",
       "actionByDate": "Action By Date",
       "creditAccountDetails": "Credit Account Details",
       "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",

@@ -33,7 +33,7 @@ public class RepaymentTestSamples {
             .sourceAccountName("sourceAccountName1")
             .sourceAccountNumber("sourceAccountNumber1")
             .ifscCode("ifscCode1")
-            .status("status1")
+            .recordStatus("recordStatus1")
             .referenceNumber("referenceNumber1");
     }
 
@@ -61,7 +61,7 @@ public class RepaymentTestSamples {
             .sourceAccountName("sourceAccountName2")
             .sourceAccountNumber("sourceAccountNumber2")
             .ifscCode("ifscCode2")
-            .status("status2")
+            .recordStatus("recordStatus2")
             .referenceNumber("referenceNumber2");
     }
 
@@ -89,7 +89,7 @@ public class RepaymentTestSamples {
             .sourceAccountName(UUID.randomUUID().toString())
             .sourceAccountNumber(UUID.randomUUID().toString())
             .ifscCode(UUID.randomUUID().toString())
-            .status(UUID.randomUUID().toString())
+            .recordStatus(UUID.randomUUID().toString())
             .referenceNumber(UUID.randomUUID().toString());
     }
 }

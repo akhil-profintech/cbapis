@@ -32,6 +32,7 @@ describe('Settlement Form Service', () => {
             dbmtStatus: expect.any(Object),
             dbmtAmount: expect.any(Object),
             currency: expect.any(Object),
+            recordStatus: expect.any(Object),
             financerequest: expect.any(Object),
           }),
         );
@@ -55,6 +56,7 @@ describe('Settlement Form Service', () => {
             dbmtStatus: expect.any(Object),
             dbmtAmount: expect.any(Object),
             currency: expect.any(Object),
+            recordStatus: expect.any(Object),
             financerequest: expect.any(Object),
           }),
         );

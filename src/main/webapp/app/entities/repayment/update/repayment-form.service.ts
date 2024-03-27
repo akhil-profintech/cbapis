@@ -42,7 +42,7 @@ type RepaymentFormGroupContent = {
   sourceAccountName: FormControl<IRepayment['sourceAccountName']>;
   sourceAccountNumber: FormControl<IRepayment['sourceAccountNumber']>;
   ifscCode: FormControl<IRepayment['ifscCode']>;
-  status: FormControl<IRepayment['status']>;
+  recordStatus: FormControl<IRepayment['recordStatus']>;
   referenceNumber: FormControl<IRepayment['referenceNumber']>;
   financerequest: FormControl<IRepayment['financerequest']>;
 };
@@ -110,7 +110,7 @@ export class RepaymentFormService {
       sourceAccountName: new FormControl(repaymentRawValue.sourceAccountName),
       sourceAccountNumber: new FormControl(repaymentRawValue.sourceAccountNumber),
       ifscCode: new FormControl(repaymentRawValue.ifscCode),
-      status: new FormControl(repaymentRawValue.status),
+      recordStatus: new FormControl(repaymentRawValue.recordStatus),
       referenceNumber: new FormControl(repaymentRawValue.referenceNumber),
       financerequest: new FormControl(repaymentRawValue.financerequest),
     });

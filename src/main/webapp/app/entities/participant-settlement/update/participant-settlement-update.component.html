@@ -143,6 +143,23 @@
         </div>
 
         <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.participantSettlement.chargeType" for="field_chargeType">Charge Type</label>
+          <select class="form-control" name="chargeType" formControlName="chargeType" id="field_chargeType" data-cy="chargeType">
+            <option [ngValue]="null">{{ 'cbapisApp.ChargeType.null' | translate }}</option>
+            @for (chargeType of chargeTypeValues; track $index) {
+              <option [value]="chargeType">{{ 'cbapisApp.ChargeType.' + chargeType | translate }}</option>
+            }
+          </select>
+          @if (editForm.get('chargeType')!.invalid && (editForm.get('chargeType')!.dirty || editForm.get('chargeType')!.touched)) {
+            <div>
+              @if (editForm.get('chargeType')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
           <label class="form-label" jhiTranslate="cbapisApp.participantSettlement.settlementAmount" for="field_settlementAmount"
             >Settlement Amount</label
           >
@@ -384,6 +401,20 @@
               }
             </div>
           }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="cbapisApp.participantSettlement.recordStatus" for="field_recordStatus"
+            >Record Status</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="recordStatus"
+            id="field_recordStatus"
+            data-cy="recordStatus"
+            formControlName="recordStatus"
+          />
         </div>
 
         <div class="mb-3">

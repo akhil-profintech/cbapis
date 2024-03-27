@@ -26,6 +26,7 @@ describe('ParticipantSettlement Form Service', () => {
             participantName: expect.any(Object),
             gstId: expect.any(Object),
             settlementType: expect.any(Object),
+            chargeType: expect.any(Object),
             settlementAmount: expect.any(Object),
             settlementDate: expect.any(Object),
             settlementDueDate: expect.any(Object),
@@ -38,6 +39,7 @@ describe('ParticipantSettlement Form Service', () => {
             ifscCode: expect.any(Object),
             accNumber: expect.any(Object),
             docId: expect.any(Object),
+            recordStatus: expect.any(Object),
             settlement: expect.any(Object),
           }),
         );
@@ -55,6 +57,7 @@ describe('ParticipantSettlement Form Service', () => {
             participantName: expect.any(Object),
             gstId: expect.any(Object),
             settlementType: expect.any(Object),
+            chargeType: expect.any(Object),
             settlementAmount: expect.any(Object),
             settlementDate: expect.any(Object),
             settlementDueDate: expect.any(Object),
@@ -67,6 +70,7 @@ describe('ParticipantSettlement Form Service', () => {
             ifscCode: expect.any(Object),
             accNumber: expect.any(Object),
             docId: expect.any(Object),
+            recordStatus: expect.any(Object),
             settlement: expect.any(Object),
           }),
         );

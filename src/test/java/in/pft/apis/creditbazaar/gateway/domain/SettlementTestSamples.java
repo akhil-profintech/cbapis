@@ -23,7 +23,8 @@ public class SettlementTestSamples {
             .dbmtDate("dbmtDate1")
             .dbmtStatus("dbmtStatus1")
             .dbmtAmount(1L)
-            .currency("currency1");
+            .currency("currency1")
+            .recordStatus("recordStatus1");
     }
 
     public static Settlement getSettlementSample2() {
@@ -40,7 +41,8 @@ public class SettlementTestSamples {
             .dbmtDate("dbmtDate2")
             .dbmtStatus("dbmtStatus2")
             .dbmtAmount(2L)
-            .currency("currency2");
+            .currency("currency2")
+            .recordStatus("recordStatus2");
     }
 
     public static Settlement getSettlementRandomSampleGenerator() {
@@ -57,6 +59,7 @@ public class SettlementTestSamples {
             .dbmtDate(UUID.randomUUID().toString())
             .dbmtStatus(UUID.randomUUID().toString())
             .dbmtAmount(longCount.incrementAndGet())
-            .currency(UUID.randomUUID().toString());
+            .currency(UUID.randomUUID().toString())
+            .recordStatus(UUID.randomUUID().toString());
     }
 }

@@ -31,7 +31,7 @@ public class DisbursementSqlHelper {
         columns.add(Column.aliased("amount_to_be_disbursed", table, columnPrefix + "_amount_to_be_disbursed"));
         columns.add(Column.aliased("destination_account_name", table, columnPrefix + "_destination_account_name"));
         columns.add(Column.aliased("destination_account_number", table, columnPrefix + "_destination_account_number"));
-        columns.add(Column.aliased("status", table, columnPrefix + "_status"));
+        columns.add(Column.aliased("record_status", table, columnPrefix + "_record_status"));
         columns.add(Column.aliased("action_by_date", table, columnPrefix + "_action_by_date"));
 
         columns.add(Column.aliased("financerequest_id", table, columnPrefix + "_financerequest_id"));

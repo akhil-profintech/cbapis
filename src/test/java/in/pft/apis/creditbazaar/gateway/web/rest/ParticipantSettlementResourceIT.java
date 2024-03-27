@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 
 import in.pft.apis.creditbazaar.gateway.IntegrationTest;
 import in.pft.apis.creditbazaar.gateway.domain.ParticipantSettlement;
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.ChargeType;
 import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import in.pft.apis.creditbazaar.gateway.repository.EntityManager;
 import in.pft.apis.creditbazaar.gateway.repository.ParticipantSettlementRepository;
@@ -56,6 +57,9 @@ class ParticipantSettlementResourceIT {
     private static final SettlementType DEFAULT_SETTLEMENT_TYPE = SettlementType.ATSettlement;
     private static final SettlementType UPDATED_SETTLEMENT_TYPE = SettlementType.TPSettlement;
 
+    private static final ChargeType DEFAULT_CHARGE_TYPE = ChargeType.ATTransactionCharges;
+    private static final ChargeType UPDATED_CHARGE_TYPE = ChargeType.FPTransactionCharges;
+
     private static final Long DEFAULT_SETTLEMENT_AMOUNT = 1L;
     private static final Long UPDATED_SETTLEMENT_AMOUNT = 2L;
 
@@ -91,6 +95,9 @@ class ParticipantSettlementResourceIT {
 
     private static final String DEFAULT_DOC_ID = "AAAAAAAAAA";
     private static final String UPDATED_DOC_ID = "BBBBBBBBBB";
+
+    private static final String DEFAULT_RECORD_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_RECORD_STATUS = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/participant-settlements";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -132,6 +139,7 @@ class ParticipantSettlementResourceIT {
             .participantName(DEFAULT_PARTICIPANT_NAME)
             .gstId(DEFAULT_GST_ID)
             .settlementType(DEFAULT_SETTLEMENT_TYPE)
+            .chargeType(DEFAULT_CHARGE_TYPE)
             .settlementAmount(DEFAULT_SETTLEMENT_AMOUNT)
             .settlementDate(DEFAULT_SETTLEMENT_DATE)
             .settlementDueDate(DEFAULT_SETTLEMENT_DUE_DATE)
@@ -143,7 +151,8 @@ class ParticipantSettlementResourceIT {
             .accName(DEFAULT_ACC_NAME)
             .ifscCode(DEFAULT_IFSC_CODE)
             .accNumber(DEFAULT_ACC_NUMBER)
-            .docId(DEFAULT_DOC_ID);
+            .docId(DEFAULT_DOC_ID)
+            .recordStatus(DEFAULT_RECORD_STATUS);
         return participantSettlement;
     }
 
@@ -161,6 +170,7 @@ class ParticipantSettlementResourceIT {
             .participantName(UPDATED_PARTICIPANT_NAME)
             .gstId(UPDATED_GST_ID)
             .settlementType(UPDATED_SETTLEMENT_TYPE)
+            .chargeType(UPDATED_CHARGE_TYPE)
             .settlementAmount(UPDATED_SETTLEMENT_AMOUNT)
             .settlementDate(UPDATED_SETTLEMENT_DATE)
             .settlementDueDate(UPDATED_SETTLEMENT_DUE_DATE)
@@ -172,7 +182,8 @@ class ParticipantSettlementResourceIT {
             .accName(UPDATED_ACC_NAME)
             .ifscCode(UPDATED_IFSC_CODE)
             .accNumber(UPDATED_ACC_NUMBER)
-            .docId(UPDATED_DOC_ID);
+            .docId(UPDATED_DOC_ID)
+            .recordStatus(UPDATED_RECORD_STATUS);
         return participantSettlement;
     }
 
@@ -219,6 +230,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getParticipantName()).isEqualTo(DEFAULT_PARTICIPANT_NAME);
         assertThat(testParticipantSettlement.getGstId()).isEqualTo(DEFAULT_GST_ID);
         assertThat(testParticipantSettlement.getSettlementType()).isEqualTo(DEFAULT_SETTLEMENT_TYPE);
+        assertThat(testParticipantSettlement.getChargeType()).isEqualTo(DEFAULT_CHARGE_TYPE);
         assertThat(testParticipantSettlement.getSettlementAmount()).isEqualTo(DEFAULT_SETTLEMENT_AMOUNT);
         assertThat(testParticipantSettlement.getSettlementDate()).isEqualTo(DEFAULT_SETTLEMENT_DATE);
         assertThat(testParticipantSettlement.getSettlementDueDate()).isEqualTo(DEFAULT_SETTLEMENT_DUE_DATE);
@@ -231,6 +243,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
         assertThat(testParticipantSettlement.getAccNumber()).isEqualTo(DEFAULT_ACC_NUMBER);
         assertThat(testParticipantSettlement.getDocId()).isEqualTo(DEFAULT_DOC_ID);
+        assertThat(testParticipantSettlement.getRecordStatus()).isEqualTo(DEFAULT_RECORD_STATUS);
     }
 
     @Test
@@ -327,6 +340,28 @@ class ParticipantSettlementResourceIT {
         int databaseSizeBeforeTest = participantSettlementRepository.findAll().collectList().block().size();
         // set the field null
         participantSettlement.setSettlementType(null);
+
+        // Create the ParticipantSettlement, which fails.
+        ParticipantSettlementDTO participantSettlementDTO = participantSettlementMapper.toDto(participantSettlement);
+
+        webTestClient
+            .post()
+            .uri(ENTITY_API_URL)
+            .contentType(MediaType.APPLICATION_JSON)
+            .bodyValue(TestUtil.convertObjectToJsonBytes(participantSettlementDTO))
+            .exchange()
+            .expectStatus()
+            .isBadRequest();
+
+        List<ParticipantSettlement> participantSettlementList = participantSettlementRepository.findAll().collectList().block();
+        assertThat(participantSettlementList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    void checkChargeTypeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = participantSettlementRepository.findAll().collectList().block().size();
+        // set the field null
+        participantSettlement.setChargeType(null);
 
         // Create the ParticipantSettlement, which fails.
         ParticipantSettlementDTO participantSettlementDTO = participantSettlementMapper.toDto(participantSettlement);
@@ -638,6 +673,8 @@ class ParticipantSettlementResourceIT {
             .value(hasItem(DEFAULT_GST_ID))
             .jsonPath("$.[*].settlementType")
             .value(hasItem(DEFAULT_SETTLEMENT_TYPE.toString()))
+            .jsonPath("$.[*].chargeType")
+            .value(hasItem(DEFAULT_CHARGE_TYPE.toString()))
             .jsonPath("$.[*].settlementAmount")
             .value(hasItem(DEFAULT_SETTLEMENT_AMOUNT.intValue()))
             .jsonPath("$.[*].settlementDate")
@@ -661,7 +698,9 @@ class ParticipantSettlementResourceIT {
             .jsonPath("$.[*].accNumber")
             .value(hasItem(DEFAULT_ACC_NUMBER.intValue()))
             .jsonPath("$.[*].docId")
-            .value(hasItem(DEFAULT_DOC_ID));
+            .value(hasItem(DEFAULT_DOC_ID))
+            .jsonPath("$.[*].recordStatus")
+            .value(hasItem(DEFAULT_RECORD_STATUS));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -711,6 +750,8 @@ class ParticipantSettlementResourceIT {
             .value(is(DEFAULT_GST_ID))
             .jsonPath("$.settlementType")
             .value(is(DEFAULT_SETTLEMENT_TYPE.toString()))
+            .jsonPath("$.chargeType")
+            .value(is(DEFAULT_CHARGE_TYPE.toString()))
             .jsonPath("$.settlementAmount")
             .value(is(DEFAULT_SETTLEMENT_AMOUNT.intValue()))
             .jsonPath("$.settlementDate")
@@ -734,7 +775,9 @@ class ParticipantSettlementResourceIT {
             .jsonPath("$.accNumber")
             .value(is(DEFAULT_ACC_NUMBER.intValue()))
             .jsonPath("$.docId")
-            .value(is(DEFAULT_DOC_ID));
+            .value(is(DEFAULT_DOC_ID))
+            .jsonPath("$.recordStatus")
+            .value(is(DEFAULT_RECORD_STATUS));
     }
 
     @Test
@@ -767,6 +810,7 @@ class ParticipantSettlementResourceIT {
             .participantName(UPDATED_PARTICIPANT_NAME)
             .gstId(UPDATED_GST_ID)
             .settlementType(UPDATED_SETTLEMENT_TYPE)
+            .chargeType(UPDATED_CHARGE_TYPE)
             .settlementAmount(UPDATED_SETTLEMENT_AMOUNT)
             .settlementDate(UPDATED_SETTLEMENT_DATE)
             .settlementDueDate(UPDATED_SETTLEMENT_DUE_DATE)
@@ -778,7 +822,8 @@ class ParticipantSettlementResourceIT {
             .accName(UPDATED_ACC_NAME)
             .ifscCode(UPDATED_IFSC_CODE)
             .accNumber(UPDATED_ACC_NUMBER)
-            .docId(UPDATED_DOC_ID);
+            .docId(UPDATED_DOC_ID)
+            .recordStatus(UPDATED_RECORD_STATUS);
         ParticipantSettlementDTO participantSettlementDTO = participantSettlementMapper.toDto(updatedParticipantSettlement);
 
         webTestClient
@@ -800,6 +845,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getParticipantName()).isEqualTo(UPDATED_PARTICIPANT_NAME);
         assertThat(testParticipantSettlement.getGstId()).isEqualTo(UPDATED_GST_ID);
         assertThat(testParticipantSettlement.getSettlementType()).isEqualTo(UPDATED_SETTLEMENT_TYPE);
+        assertThat(testParticipantSettlement.getChargeType()).isEqualTo(UPDATED_CHARGE_TYPE);
         assertThat(testParticipantSettlement.getSettlementAmount()).isEqualTo(UPDATED_SETTLEMENT_AMOUNT);
         assertThat(testParticipantSettlement.getSettlementDate()).isEqualTo(UPDATED_SETTLEMENT_DATE);
         assertThat(testParticipantSettlement.getSettlementDueDate()).isEqualTo(UPDATED_SETTLEMENT_DUE_DATE);
@@ -812,6 +858,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
         assertThat(testParticipantSettlement.getAccNumber()).isEqualTo(UPDATED_ACC_NUMBER);
         assertThat(testParticipantSettlement.getDocId()).isEqualTo(UPDATED_DOC_ID);
+        assertThat(testParticipantSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test
@@ -896,10 +943,11 @@ class ParticipantSettlementResourceIT {
 
         partialUpdatedParticipantSettlement
             .participantSettlementId(UPDATED_PARTICIPANT_SETTLEMENT_ID)
-            .settlementDate(UPDATED_SETTLEMENT_DATE)
-            .patronOfPayment(UPDATED_PATRON_OF_PAYMENT)
-            .settlementMethod(UPDATED_SETTLEMENT_METHOD)
-            .ifscCode(UPDATED_IFSC_CODE);
+            .settlementAmount(UPDATED_SETTLEMENT_AMOUNT)
+            .settlementContactInfo(UPDATED_SETTLEMENT_CONTACT_INFO)
+            .recipientOfPayment(UPDATED_RECIPIENT_OF_PAYMENT)
+            .accName(UPDATED_ACC_NAME)
+            .recordStatus(UPDATED_RECORD_STATUS);
 
         webTestClient
             .patch()
@@ -920,18 +968,20 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getParticipantName()).isEqualTo(DEFAULT_PARTICIPANT_NAME);
         assertThat(testParticipantSettlement.getGstId()).isEqualTo(DEFAULT_GST_ID);
         assertThat(testParticipantSettlement.getSettlementType()).isEqualTo(DEFAULT_SETTLEMENT_TYPE);
-        assertThat(testParticipantSettlement.getSettlementAmount()).isEqualTo(DEFAULT_SETTLEMENT_AMOUNT);
-        assertThat(testParticipantSettlement.getSettlementDate()).isEqualTo(UPDATED_SETTLEMENT_DATE);
+        assertThat(testParticipantSettlement.getChargeType()).isEqualTo(DEFAULT_CHARGE_TYPE);
+        assertThat(testParticipantSettlement.getSettlementAmount()).isEqualTo(UPDATED_SETTLEMENT_AMOUNT);
+        assertThat(testParticipantSettlement.getSettlementDate()).isEqualTo(DEFAULT_SETTLEMENT_DATE);
         assertThat(testParticipantSettlement.getSettlementDueDate()).isEqualTo(DEFAULT_SETTLEMENT_DUE_DATE);
-        assertThat(testParticipantSettlement.getSettlementContactInfo()).isEqualTo(DEFAULT_SETTLEMENT_CONTACT_INFO);
-        assertThat(testParticipantSettlement.getPatronOfPayment()).isEqualTo(UPDATED_PATRON_OF_PAYMENT);
-        assertThat(testParticipantSettlement.getRecipientOfPayment()).isEqualTo(DEFAULT_RECIPIENT_OF_PAYMENT);
-        assertThat(testParticipantSettlement.getSettlementMethod()).isEqualTo(UPDATED_SETTLEMENT_METHOD);
+        assertThat(testParticipantSettlement.getSettlementContactInfo()).isEqualTo(UPDATED_SETTLEMENT_CONTACT_INFO);
+        assertThat(testParticipantSettlement.getPatronOfPayment()).isEqualTo(DEFAULT_PATRON_OF_PAYMENT);
+        assertThat(testParticipantSettlement.getRecipientOfPayment()).isEqualTo(UPDATED_RECIPIENT_OF_PAYMENT);
+        assertThat(testParticipantSettlement.getSettlementMethod()).isEqualTo(DEFAULT_SETTLEMENT_METHOD);
         assertThat(testParticipantSettlement.getTenantId()).isEqualTo(DEFAULT_TENANT_ID);
-        assertThat(testParticipantSettlement.getAccName()).isEqualTo(DEFAULT_ACC_NAME);
-        assertThat(testParticipantSettlement.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
+        assertThat(testParticipantSettlement.getAccName()).isEqualTo(UPDATED_ACC_NAME);
+        assertThat(testParticipantSettlement.getIfscCode()).isEqualTo(DEFAULT_IFSC_CODE);
         assertThat(testParticipantSettlement.getAccNumber()).isEqualTo(DEFAULT_ACC_NUMBER);
         assertThat(testParticipantSettlement.getDocId()).isEqualTo(DEFAULT_DOC_ID);
+        assertThat(testParticipantSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test
@@ -952,6 +1002,7 @@ class ParticipantSettlementResourceIT {
             .participantName(UPDATED_PARTICIPANT_NAME)
             .gstId(UPDATED_GST_ID)
             .settlementType(UPDATED_SETTLEMENT_TYPE)
+            .chargeType(UPDATED_CHARGE_TYPE)
             .settlementAmount(UPDATED_SETTLEMENT_AMOUNT)
             .settlementDate(UPDATED_SETTLEMENT_DATE)
             .settlementDueDate(UPDATED_SETTLEMENT_DUE_DATE)
@@ -963,7 +1014,8 @@ class ParticipantSettlementResourceIT {
             .accName(UPDATED_ACC_NAME)
             .ifscCode(UPDATED_IFSC_CODE)
             .accNumber(UPDATED_ACC_NUMBER)
-            .docId(UPDATED_DOC_ID);
+            .docId(UPDATED_DOC_ID)
+            .recordStatus(UPDATED_RECORD_STATUS);
 
         webTestClient
             .patch()
@@ -984,6 +1036,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getParticipantName()).isEqualTo(UPDATED_PARTICIPANT_NAME);
         assertThat(testParticipantSettlement.getGstId()).isEqualTo(UPDATED_GST_ID);
         assertThat(testParticipantSettlement.getSettlementType()).isEqualTo(UPDATED_SETTLEMENT_TYPE);
+        assertThat(testParticipantSettlement.getChargeType()).isEqualTo(UPDATED_CHARGE_TYPE);
         assertThat(testParticipantSettlement.getSettlementAmount()).isEqualTo(UPDATED_SETTLEMENT_AMOUNT);
         assertThat(testParticipantSettlement.getSettlementDate()).isEqualTo(UPDATED_SETTLEMENT_DATE);
         assertThat(testParticipantSettlement.getSettlementDueDate()).isEqualTo(UPDATED_SETTLEMENT_DUE_DATE);
@@ -996,6 +1049,7 @@ class ParticipantSettlementResourceIT {
         assertThat(testParticipantSettlement.getIfscCode()).isEqualTo(UPDATED_IFSC_CODE);
         assertThat(testParticipantSettlement.getAccNumber()).isEqualTo(UPDATED_ACC_NUMBER);
         assertThat(testParticipantSettlement.getDocId()).isEqualTo(UPDATED_DOC_ID);
+        assertThat(testParticipantSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test

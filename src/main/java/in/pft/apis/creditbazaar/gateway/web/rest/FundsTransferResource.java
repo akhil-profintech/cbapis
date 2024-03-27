@@ -10,6 +10,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -175,10 +177,12 @@ public class FundsTransferResource {
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<ResponseEntity<List<FundsTransferDTO>>> getAllFundsTransfers(
         @org.springdoc.core.annotations.ParameterObject Pageable pageable,
+        @RequestParam(value = "filter",required = false) String filter,
         ServerHttpRequest request,
         @RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload
     ) {
         log.debug("REST request to get a page of FundsTransfers");
+        if (StringUtils.isEmpty(filter)) {
         return fundsTransferService
             .countAll()
             .zipWith(fundsTransferService.findAll(pageable).collectList())
@@ -192,7 +196,23 @@ public class FundsTransferResource {
                         )
                     )
                     .body(countWithEntities.getT2())
-            );
+            );}
+        else{
+            return fundsTransferService
+                .countAllByFilter(filter)
+                .zipWith(fundsTransferService.findAllByFilter(filter, pageable).collectList())
+                .map(countWithEntities ->
+                    ResponseEntity
+                        .ok()
+                        .headers(
+                            PaginationUtil.generatePaginationHttpHeaders(
+                                ForwardedHeaderUtils.adaptFromForwardedHeaders(request.getURI(), request.getHeaders()),
+                                new PageImpl<>(countWithEntities.getT2(), pageable, countWithEntities.getT1())
+                            )
+                        )
+                        .body(countWithEntities.getT2())
+                );
+        }
     }
 
     /**

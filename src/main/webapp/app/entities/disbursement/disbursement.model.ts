@@ -27,7 +27,7 @@ export interface IDisbursement {
   amountToBeDisbursed?: string | null;
   destinationAccountName?: string | null;
   destinationAccountNumber?: string | null;
-  status?: string | null;
+  recordStatus?: string | null;
   actionByDate?: string | null;
   creditAccountDetails?: Pick<ICreditAccountDetails, 'id'>[] | null;
   fundsTransferTransactionDetails?: Pick<IFundsTransferTransactionDetails, 'id'>[] | null;

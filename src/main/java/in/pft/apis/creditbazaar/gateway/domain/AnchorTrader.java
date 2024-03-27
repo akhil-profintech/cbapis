@@ -116,8 +116,14 @@ public class AnchorTrader implements Serializable {
     @Column("gst_registration_certificate_verification_status")
     private Boolean gstRegistrationCertificateVerificationStatus;
 
+    @Column("gst_registration_certificate_name")
+    private String gstRegistrationCertificateName;
+
     @Column("udhyam_registrationcertificate_upload_status")
     private Boolean udhyamRegistrationcertificateUploadStatus;
+
+    @Column("udhyam_registration_certificate_name")
+    private String udhyamRegistrationCertificateName;
 
     @Column("udhyam_registrationcertificate_verification_status")
     private Boolean udhyamRegistrationcertificateVerificationStatus;
@@ -547,6 +553,19 @@ public class AnchorTrader implements Serializable {
         this.gstRegistrationCertificateVerificationStatus = gstRegistrationCertificateVerificationStatus;
     }
 
+    public String getGstRegistrationCertificateName() {
+        return this.gstRegistrationCertificateName;
+    }
+
+    public AnchorTrader gstRegistrationCertificateName(String gstRegistrationCertificateName) {
+        this.setGstRegistrationCertificateName(gstRegistrationCertificateName);
+        return this;
+    }
+
+    public void setGstRegistrationCertificateName(String gstRegistrationCertificateName) {
+        this.gstRegistrationCertificateName = gstRegistrationCertificateName;
+    }
+
     public Boolean getUdhyamRegistrationcertificateUploadStatus() {
         return this.udhyamRegistrationcertificateUploadStatus;
     }
@@ -558,6 +577,19 @@ public class AnchorTrader implements Serializable {
 
     public void setUdhyamRegistrationcertificateUploadStatus(Boolean udhyamRegistrationcertificateUploadStatus) {
         this.udhyamRegistrationcertificateUploadStatus = udhyamRegistrationcertificateUploadStatus;
+    }
+
+    public String getUdhyamRegistrationCertificateName() {
+        return this.udhyamRegistrationCertificateName;
+    }
+
+    public AnchorTrader udhyamRegistrationCertificateName(String udhyamRegistrationCertificateName) {
+        this.setUdhyamRegistrationCertificateName(udhyamRegistrationCertificateName);
+        return this;
+    }
+
+    public void setUdhyamRegistrationCertificateName(String udhyamRegistrationCertificateName) {
+        this.udhyamRegistrationCertificateName = udhyamRegistrationCertificateName;
     }
 
     public Boolean getUdhyamRegistrationcertificateVerificationStatus() {
@@ -763,7 +795,9 @@ public class AnchorTrader implements Serializable {
             ", acceptDeclaration='" + getAcceptDeclaration() + "'" +
             ", gstRegistrationCertificateUploadStatus='" + getGstRegistrationCertificateUploadStatus() + "'" +
             ", gstRegistrationCertificateVerificationStatus='" + getGstRegistrationCertificateVerificationStatus() + "'" +
+            ", gstRegistrationCertificateName='" + getGstRegistrationCertificateName() + "'" +
             ", udhyamRegistrationcertificateUploadStatus='" + getUdhyamRegistrationcertificateUploadStatus() + "'" +
+            ", udhyamRegistrationCertificateName='" + getUdhyamRegistrationCertificateName() + "'" +
             ", udhyamRegistrationcertificateVerificationStatus='" + getUdhyamRegistrationcertificateVerificationStatus() + "'" +
             ", kycDeclaration='" + getKycDeclaration() + "'" +
             "}";

@@ -17,6 +17,7 @@ public class ParticipantSettlementSqlHelper {
         columns.add(Column.aliased("participant_name", table, columnPrefix + "_participant_name"));
         columns.add(Column.aliased("gst_id", table, columnPrefix + "_gst_id"));
         columns.add(Column.aliased("settlement_type", table, columnPrefix + "_settlement_type"));
+        columns.add(Column.aliased("charge_type", table, columnPrefix + "_charge_type"));
         columns.add(Column.aliased("settlement_amount", table, columnPrefix + "_settlement_amount"));
         columns.add(Column.aliased("settlement_date", table, columnPrefix + "_settlement_date"));
         columns.add(Column.aliased("settlement_due_date", table, columnPrefix + "_settlement_due_date"));
@@ -29,6 +30,7 @@ public class ParticipantSettlementSqlHelper {
         columns.add(Column.aliased("ifsc_code", table, columnPrefix + "_ifsc_code"));
         columns.add(Column.aliased("acc_number", table, columnPrefix + "_acc_number"));
         columns.add(Column.aliased("doc_id", table, columnPrefix + "_doc_id"));
+        columns.add(Column.aliased("record_status", table, columnPrefix + "_record_status"));
 
         columns.add(Column.aliased("settlement_id", table, columnPrefix + "_settlement_id"));
         return columns;

@@ -67,6 +67,9 @@ public class Settlement implements Serializable {
     @Column("currency")
     private String currency;
 
+    @Column("record_status")
+    private String recordStatus;
+
     @Transient
     @JsonIgnoreProperties(value = { "fundsTransferTransactionDetails", "settlement" }, allowSetters = true)
     private Set<ParticipantSettlement> participantSettlements = new HashSet<>();
@@ -263,6 +266,19 @@ public class Settlement implements Serializable {
         this.currency = currency;
     }
 
+    public String getRecordStatus() {
+        return this.recordStatus;
+    }
+
+    public Settlement recordStatus(String recordStatus) {
+        this.setRecordStatus(recordStatus);
+        return this;
+    }
+
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
+    }
+
     public Set<ParticipantSettlement> getParticipantSettlements() {
         return this.participantSettlements;
     }
@@ -352,6 +368,7 @@ public class Settlement implements Serializable {
             ", dbmtStatus='" + getDbmtStatus() + "'" +
             ", dbmtAmount=" + getDbmtAmount() +
             ", currency='" + getCurrency() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             "}";
     }
 }

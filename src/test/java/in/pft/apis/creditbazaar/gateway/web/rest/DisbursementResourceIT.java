@@ -99,8 +99,8 @@ class DisbursementResourceIT {
     private static final String DEFAULT_DESTINATION_ACCOUNT_NUMBER = "AAAAAAAAAA";
     private static final String UPDATED_DESTINATION_ACCOUNT_NUMBER = "BBBBBBBBBB";
 
-    private static final String DEFAULT_STATUS = "AAAAAAAAAA";
-    private static final String UPDATED_STATUS = "BBBBBBBBBB";
+    private static final String DEFAULT_RECORD_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_RECORD_STATUS = "BBBBBBBBBB";
 
     private static final String DEFAULT_ACTION_BY_DATE = "AAAAAAAAAA";
     private static final String UPDATED_ACTION_BY_DATE = "BBBBBBBBBB";
@@ -159,7 +159,7 @@ class DisbursementResourceIT {
             .amountToBeDisbursed(DEFAULT_AMOUNT_TO_BE_DISBURSED)
             .destinationAccountName(DEFAULT_DESTINATION_ACCOUNT_NAME)
             .destinationAccountNumber(DEFAULT_DESTINATION_ACCOUNT_NUMBER)
-            .status(DEFAULT_STATUS)
+            .recordStatus(DEFAULT_RECORD_STATUS)
             .actionByDate(DEFAULT_ACTION_BY_DATE);
         return disbursement;
     }
@@ -192,7 +192,7 @@ class DisbursementResourceIT {
             .amountToBeDisbursed(UPDATED_AMOUNT_TO_BE_DISBURSED)
             .destinationAccountName(UPDATED_DESTINATION_ACCOUNT_NAME)
             .destinationAccountNumber(UPDATED_DESTINATION_ACCOUNT_NUMBER)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .actionByDate(UPDATED_ACTION_BY_DATE);
         return disbursement;
     }
@@ -254,7 +254,7 @@ class DisbursementResourceIT {
         assertThat(testDisbursement.getAmountToBeDisbursed()).isEqualTo(DEFAULT_AMOUNT_TO_BE_DISBURSED);
         assertThat(testDisbursement.getDestinationAccountName()).isEqualTo(DEFAULT_DESTINATION_ACCOUNT_NAME);
         assertThat(testDisbursement.getDestinationAccountNumber()).isEqualTo(DEFAULT_DESTINATION_ACCOUNT_NUMBER);
-        assertThat(testDisbursement.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testDisbursement.getRecordStatus()).isEqualTo(DEFAULT_RECORD_STATUS);
         assertThat(testDisbursement.getActionByDate()).isEqualTo(DEFAULT_ACTION_BY_DATE);
     }
 
@@ -537,8 +537,8 @@ class DisbursementResourceIT {
             .value(hasItem(DEFAULT_DESTINATION_ACCOUNT_NAME))
             .jsonPath("$.[*].destinationAccountNumber")
             .value(hasItem(DEFAULT_DESTINATION_ACCOUNT_NUMBER))
-            .jsonPath("$.[*].status")
-            .value(hasItem(DEFAULT_STATUS))
+            .jsonPath("$.[*].recordStatus")
+            .value(hasItem(DEFAULT_RECORD_STATUS))
             .jsonPath("$.[*].actionByDate")
             .value(hasItem(DEFAULT_ACTION_BY_DATE));
     }
@@ -618,8 +618,8 @@ class DisbursementResourceIT {
             .value(is(DEFAULT_DESTINATION_ACCOUNT_NAME))
             .jsonPath("$.destinationAccountNumber")
             .value(is(DEFAULT_DESTINATION_ACCOUNT_NUMBER))
-            .jsonPath("$.status")
-            .value(is(DEFAULT_STATUS))
+            .jsonPath("$.recordStatus")
+            .value(is(DEFAULT_RECORD_STATUS))
             .jsonPath("$.actionByDate")
             .value(is(DEFAULT_ACTION_BY_DATE));
     }
@@ -666,7 +666,7 @@ class DisbursementResourceIT {
             .amountToBeDisbursed(UPDATED_AMOUNT_TO_BE_DISBURSED)
             .destinationAccountName(UPDATED_DESTINATION_ACCOUNT_NAME)
             .destinationAccountNumber(UPDATED_DESTINATION_ACCOUNT_NUMBER)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .actionByDate(UPDATED_ACTION_BY_DATE);
         DisbursementDTO disbursementDTO = disbursementMapper.toDto(updatedDisbursement);
 
@@ -703,7 +703,7 @@ class DisbursementResourceIT {
         assertThat(testDisbursement.getAmountToBeDisbursed()).isEqualTo(UPDATED_AMOUNT_TO_BE_DISBURSED);
         assertThat(testDisbursement.getDestinationAccountName()).isEqualTo(UPDATED_DESTINATION_ACCOUNT_NAME);
         assertThat(testDisbursement.getDestinationAccountNumber()).isEqualTo(UPDATED_DESTINATION_ACCOUNT_NUMBER);
-        assertThat(testDisbursement.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testDisbursement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
         assertThat(testDisbursement.getActionByDate()).isEqualTo(UPDATED_ACTION_BY_DATE);
     }
 
@@ -796,7 +796,7 @@ class DisbursementResourceIT {
             .dbmtRequestDate(UPDATED_DBMT_REQUEST_DATE)
             .dbmtDateTime(UPDATED_DBMT_DATE_TIME)
             .financeRequestId(UPDATED_FINANCE_REQUEST_ID)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .actionByDate(UPDATED_ACTION_BY_DATE);
 
         webTestClient
@@ -832,7 +832,7 @@ class DisbursementResourceIT {
         assertThat(testDisbursement.getAmountToBeDisbursed()).isEqualTo(DEFAULT_AMOUNT_TO_BE_DISBURSED);
         assertThat(testDisbursement.getDestinationAccountName()).isEqualTo(DEFAULT_DESTINATION_ACCOUNT_NAME);
         assertThat(testDisbursement.getDestinationAccountNumber()).isEqualTo(DEFAULT_DESTINATION_ACCOUNT_NUMBER);
-        assertThat(testDisbursement.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testDisbursement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
         assertThat(testDisbursement.getActionByDate()).isEqualTo(UPDATED_ACTION_BY_DATE);
     }
 
@@ -868,7 +868,7 @@ class DisbursementResourceIT {
             .amountToBeDisbursed(UPDATED_AMOUNT_TO_BE_DISBURSED)
             .destinationAccountName(UPDATED_DESTINATION_ACCOUNT_NAME)
             .destinationAccountNumber(UPDATED_DESTINATION_ACCOUNT_NUMBER)
-            .status(UPDATED_STATUS)
+            .recordStatus(UPDATED_RECORD_STATUS)
             .actionByDate(UPDATED_ACTION_BY_DATE);
 
         webTestClient
@@ -904,7 +904,7 @@ class DisbursementResourceIT {
         assertThat(testDisbursement.getAmountToBeDisbursed()).isEqualTo(UPDATED_AMOUNT_TO_BE_DISBURSED);
         assertThat(testDisbursement.getDestinationAccountName()).isEqualTo(UPDATED_DESTINATION_ACCOUNT_NAME);
         assertThat(testDisbursement.getDestinationAccountNumber()).isEqualTo(UPDATED_DESTINATION_ACCOUNT_NUMBER);
-        assertThat(testDisbursement.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testDisbursement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
         assertThat(testDisbursement.getActionByDate()).isEqualTo(UPDATED_ACTION_BY_DATE);
     }
 

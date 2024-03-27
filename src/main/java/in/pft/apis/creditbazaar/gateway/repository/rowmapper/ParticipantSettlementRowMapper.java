@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.ParticipantSettlement;
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.ChargeType;
 import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import io.r2dbc.spi.Row;
 import java.util.function.BiFunction;
@@ -32,6 +33,7 @@ public class ParticipantSettlementRowMapper implements BiFunction<Row, String, P
         entity.setParticipantName(converter.fromRow(row, prefix + "_participant_name", String.class));
         entity.setGstId(converter.fromRow(row, prefix + "_gst_id", String.class));
         entity.setSettlementType(converter.fromRow(row, prefix + "_settlement_type", SettlementType.class));
+        entity.setChargeType(converter.fromRow(row, prefix + "_charge_type", ChargeType.class));
         entity.setSettlementAmount(converter.fromRow(row, prefix + "_settlement_amount", Long.class));
         entity.setSettlementDate(converter.fromRow(row, prefix + "_settlement_date", String.class));
         entity.setSettlementDueDate(converter.fromRow(row, prefix + "_settlement_due_date", String.class));
@@ -44,6 +46,7 @@ public class ParticipantSettlementRowMapper implements BiFunction<Row, String, P
         entity.setIfscCode(converter.fromRow(row, prefix + "_ifsc_code", String.class));
         entity.setAccNumber(converter.fromRow(row, prefix + "_acc_number", Long.class));
         entity.setDocId(converter.fromRow(row, prefix + "_doc_id", String.class));
+        entity.setRecordStatus(converter.fromRow(row, prefix + "_record_status", String.class));
         entity.setSettlementId(converter.fromRow(row, prefix + "_settlement_id", Long.class));
         return entity;
     }

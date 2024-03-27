@@ -35,7 +35,7 @@ public class RepaymentSqlHelper {
         columns.add(Column.aliased("source_account_name", table, columnPrefix + "_source_account_name"));
         columns.add(Column.aliased("source_account_number", table, columnPrefix + "_source_account_number"));
         columns.add(Column.aliased("ifsc_code", table, columnPrefix + "_ifsc_code"));
-        columns.add(Column.aliased("status", table, columnPrefix + "_status"));
+        columns.add(Column.aliased("record_status", table, columnPrefix + "_record_status"));
         columns.add(Column.aliased("reference_number", table, columnPrefix + "_reference_number"));
 
         columns.add(Column.aliased("financerequest_id", table, columnPrefix + "_financerequest_id"));

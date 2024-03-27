@@ -58,9 +58,11 @@ public class AnchorTraderRowMapper implements BiFunction<Row, String, AnchorTrad
         entity.setGstRegistrationCertificateVerificationStatus(
             converter.fromRow(row, prefix + "_gst_registration_certificate_verification_status", Boolean.class)
         );
+        entity.setGstRegistrationCertificateName(converter.fromRow(row, prefix + "_gst_registration_certificate_name", String.class));
         entity.setUdhyamRegistrationcertificateUploadStatus(
             converter.fromRow(row, prefix + "_udhyam_registrationcertificate_upload_status", Boolean.class)
         );
+        entity.setUdhyamRegistrationCertificateName(converter.fromRow(row, prefix + "_udhyam_registration_certificate_name", String.class));
         entity.setUdhyamRegistrationcertificateVerificationStatus(
             converter.fromRow(row, prefix + "_udhyam_registrationcertificate_verification_status", Boolean.class)
         );

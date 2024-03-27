@@ -73,6 +73,9 @@ class SettlementResourceIT {
     private static final String DEFAULT_CURRENCY = "AAAAAAAAAA";
     private static final String UPDATED_CURRENCY = "BBBBBBBBBB";
 
+    private static final String DEFAULT_RECORD_STATUS = "AAAAAAAAAA";
+    private static final String UPDATED_RECORD_STATUS = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/settlements";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -118,7 +121,8 @@ class SettlementResourceIT {
             .dbmtDate(DEFAULT_DBMT_DATE)
             .dbmtStatus(DEFAULT_DBMT_STATUS)
             .dbmtAmount(DEFAULT_DBMT_AMOUNT)
-            .currency(DEFAULT_CURRENCY);
+            .currency(DEFAULT_CURRENCY)
+            .recordStatus(DEFAULT_RECORD_STATUS);
         return settlement;
     }
 
@@ -141,7 +145,8 @@ class SettlementResourceIT {
             .dbmtDate(UPDATED_DBMT_DATE)
             .dbmtStatus(UPDATED_DBMT_STATUS)
             .dbmtAmount(UPDATED_DBMT_AMOUNT)
-            .currency(UPDATED_CURRENCY);
+            .currency(UPDATED_CURRENCY)
+            .recordStatus(UPDATED_RECORD_STATUS);
         return settlement;
     }
 
@@ -194,6 +199,7 @@ class SettlementResourceIT {
         assertThat(testSettlement.getDbmtStatus()).isEqualTo(DEFAULT_DBMT_STATUS);
         assertThat(testSettlement.getDbmtAmount()).isEqualTo(DEFAULT_DBMT_AMOUNT);
         assertThat(testSettlement.getCurrency()).isEqualTo(DEFAULT_CURRENCY);
+        assertThat(testSettlement.getRecordStatus()).isEqualTo(DEFAULT_RECORD_STATUS);
     }
 
     @Test
@@ -436,7 +442,9 @@ class SettlementResourceIT {
             .jsonPath("$.[*].dbmtAmount")
             .value(hasItem(DEFAULT_DBMT_AMOUNT.intValue()))
             .jsonPath("$.[*].currency")
-            .value(hasItem(DEFAULT_CURRENCY));
+            .value(hasItem(DEFAULT_CURRENCY))
+            .jsonPath("$.[*].recordStatus")
+            .value(hasItem(DEFAULT_RECORD_STATUS));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -497,7 +505,9 @@ class SettlementResourceIT {
             .jsonPath("$.dbmtAmount")
             .value(is(DEFAULT_DBMT_AMOUNT.intValue()))
             .jsonPath("$.currency")
-            .value(is(DEFAULT_CURRENCY));
+            .value(is(DEFAULT_CURRENCY))
+            .jsonPath("$.recordStatus")
+            .value(is(DEFAULT_RECORD_STATUS));
     }
 
     @Test
@@ -533,7 +543,8 @@ class SettlementResourceIT {
             .dbmtDate(UPDATED_DBMT_DATE)
             .dbmtStatus(UPDATED_DBMT_STATUS)
             .dbmtAmount(UPDATED_DBMT_AMOUNT)
-            .currency(UPDATED_CURRENCY);
+            .currency(UPDATED_CURRENCY)
+            .recordStatus(UPDATED_RECORD_STATUS);
         SettlementDTO settlementDTO = settlementMapper.toDto(updatedSettlement);
 
         webTestClient
@@ -561,6 +572,7 @@ class SettlementResourceIT {
         assertThat(testSettlement.getDbmtStatus()).isEqualTo(UPDATED_DBMT_STATUS);
         assertThat(testSettlement.getDbmtAmount()).isEqualTo(UPDATED_DBMT_AMOUNT);
         assertThat(testSettlement.getCurrency()).isEqualTo(UPDATED_CURRENCY);
+        assertThat(testSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test
@@ -648,7 +660,8 @@ class SettlementResourceIT {
             .settlementRefNo(UPDATED_SETTLEMENT_REF_NO)
             .acceptedOfferUlidId(UPDATED_ACCEPTED_OFFER_ULID_ID)
             .reqOffUlidId(UPDATED_REQ_OFF_ULID_ID)
-            .currency(UPDATED_CURRENCY);
+            .currency(UPDATED_CURRENCY)
+            .recordStatus(UPDATED_RECORD_STATUS);
 
         webTestClient
             .patch()
@@ -675,6 +688,7 @@ class SettlementResourceIT {
         assertThat(testSettlement.getDbmtStatus()).isEqualTo(DEFAULT_DBMT_STATUS);
         assertThat(testSettlement.getDbmtAmount()).isEqualTo(DEFAULT_DBMT_AMOUNT);
         assertThat(testSettlement.getCurrency()).isEqualTo(UPDATED_CURRENCY);
+        assertThat(testSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test
@@ -700,7 +714,8 @@ class SettlementResourceIT {
             .dbmtDate(UPDATED_DBMT_DATE)
             .dbmtStatus(UPDATED_DBMT_STATUS)
             .dbmtAmount(UPDATED_DBMT_AMOUNT)
-            .currency(UPDATED_CURRENCY);
+            .currency(UPDATED_CURRENCY)
+            .recordStatus(UPDATED_RECORD_STATUS);
 
         webTestClient
             .patch()
@@ -727,6 +742,7 @@ class SettlementResourceIT {
         assertThat(testSettlement.getDbmtStatus()).isEqualTo(UPDATED_DBMT_STATUS);
         assertThat(testSettlement.getDbmtAmount()).isEqualTo(UPDATED_DBMT_AMOUNT);
         assertThat(testSettlement.getCurrency()).isEqualTo(UPDATED_CURRENCY);
+        assertThat(testSettlement.getRecordStatus()).isEqualTo(UPDATED_RECORD_STATUS);
     }
 
     @Test

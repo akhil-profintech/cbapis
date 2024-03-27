@@ -126,6 +126,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="recordStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.settlement.recordStatus">Record Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="financerequest.financeRequestId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.settlement.financerequest">Financerequest</span>
@@ -153,6 +160,7 @@
               <td>{{ settlement.dbmtStatus }}</td>
               <td>{{ settlement.dbmtAmount }}</td>
               <td>{{ settlement.currency }}</td>
+              <td>{{ settlement.recordStatus }}</td>
               <td>
                 @if (settlement.financerequest) {
                   <div>

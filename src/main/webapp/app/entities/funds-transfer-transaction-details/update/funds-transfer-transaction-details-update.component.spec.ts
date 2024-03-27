@@ -58,10 +58,10 @@ describe('FundsTransferTransactionDetails Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call ParticipantSettlement query and add missing value', () => {
       const fundsTransferTransactionDetails: IFundsTransferTransactionDetails = { id: 456 };
-      const participantsettlement: IParticipantSettlement = { id: 18947 };
+      const participantsettlement: IParticipantSettlement = { id: 27864 };
       fundsTransferTransactionDetails.participantsettlement = participantsettlement;
 
-      const participantSettlementCollection: IParticipantSettlement[] = [{ id: 11402 }];
+      const participantSettlementCollection: IParticipantSettlement[] = [{ id: 25263 }];
       jest.spyOn(participantSettlementService, 'query').mockReturnValue(of(new HttpResponse({ body: participantSettlementCollection })));
       const additionalParticipantSettlements = [participantsettlement];
       const expectedCollection: IParticipantSettlement[] = [...additionalParticipantSettlements, ...participantSettlementCollection];
@@ -124,7 +124,7 @@ describe('FundsTransferTransactionDetails Management Update Component', () => {
 
     it('Should update editForm', () => {
       const fundsTransferTransactionDetails: IFundsTransferTransactionDetails = { id: 456 };
-      const participantsettlement: IParticipantSettlement = { id: 27864 };
+      const participantsettlement: IParticipantSettlement = { id: 8286 };
       fundsTransferTransactionDetails.participantsettlement = participantsettlement;
       const disbursement: IDisbursement = { id: 4432 };
       fundsTransferTransactionDetails.disbursement = disbursement;

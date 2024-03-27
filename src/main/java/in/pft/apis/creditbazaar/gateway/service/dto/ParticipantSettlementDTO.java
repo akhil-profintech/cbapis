@@ -1,5 +1,6 @@
 package in.pft.apis.creditbazaar.gateway.service.dto;
 
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.ChargeType;
 import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -28,6 +29,9 @@ public class ParticipantSettlementDTO implements Serializable {
 
     @NotNull(message = "must not be null")
     private SettlementType settlementType;
+
+    @NotNull(message = "must not be null")
+    private ChargeType chargeType;
 
     @NotNull(message = "must not be null")
     private Long settlementAmount;
@@ -64,6 +68,8 @@ public class ParticipantSettlementDTO implements Serializable {
 
     @NotNull(message = "must not be null")
     private String docId;
+
+    private String recordStatus;
 
     private SettlementDTO settlement;
 
@@ -121,6 +127,14 @@ public class ParticipantSettlementDTO implements Serializable {
 
     public void setSettlementType(SettlementType settlementType) {
         this.settlementType = settlementType;
+    }
+
+    public ChargeType getChargeType() {
+        return chargeType;
+    }
+
+    public void setChargeType(ChargeType chargeType) {
+        this.chargeType = chargeType;
     }
 
     public Long getSettlementAmount() {
@@ -219,6 +233,14 @@ public class ParticipantSettlementDTO implements Serializable {
         this.docId = docId;
     }
 
+    public String getRecordStatus() {
+        return recordStatus;
+    }
+
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
+    }
+
     public SettlementDTO getSettlement() {
         return settlement;
     }
@@ -259,6 +281,7 @@ public class ParticipantSettlementDTO implements Serializable {
             ", participantName='" + getParticipantName() + "'" +
             ", gstId='" + getGstId() + "'" +
             ", settlementType='" + getSettlementType() + "'" +
+            ", chargeType='" + getChargeType() + "'" +
             ", settlementAmount=" + getSettlementAmount() +
             ", settlementDate='" + getSettlementDate() + "'" +
             ", settlementDueDate='" + getSettlementDueDate() + "'" +
@@ -271,6 +294,7 @@ public class ParticipantSettlementDTO implements Serializable {
             ", ifscCode='" + getIfscCode() + "'" +
             ", accNumber=" + getAccNumber() +
             ", docId='" + getDocId() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", settlement=" + getSettlement() +
             "}";
     }

@@ -84,6 +84,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="chargeType">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.chargeType">Charge Type</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="settlementAmount">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.participantSettlement.settlementAmount">Settlement Amount</span>
@@ -168,6 +175,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="recordStatus">
+              <div class="d-flex">
+                <span jhiTranslate="cbapisApp.participantSettlement.recordStatus">Record Status</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col" jhiSortBy="settlement.settlementId">
               <div class="d-flex">
                 <span jhiTranslate="cbapisApp.participantSettlement.settlement">Settlement</span>
@@ -191,6 +205,9 @@
               <td jhiTranslate="{{ 'cbapisApp.SettlementType.' + participantSettlement.settlementType }}">
                 {{ participantSettlement.settlementType }}
               </td>
+              <td jhiTranslate="{{ 'cbapisApp.ChargeType.' + participantSettlement.chargeType }}">
+                {{ participantSettlement.chargeType }}
+              </td>
               <td>{{ participantSettlement.settlementAmount }}</td>
               <td>{{ participantSettlement.settlementDate }}</td>
               <td>{{ participantSettlement.settlementDueDate }}</td>
@@ -203,6 +220,7 @@
               <td>{{ participantSettlement.ifscCode }}</td>
               <td>{{ participantSettlement.accNumber }}</td>
               <td>{{ participantSettlement.docId }}</td>
+              <td>{{ participantSettlement.recordStatus }}</td>
               <td>
                 @if (participantSettlement.settlement) {
                   <div>

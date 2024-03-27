@@ -24,6 +24,7 @@ type ParticipantSettlementFormGroupContent = {
   participantName: FormControl<IParticipantSettlement['participantName']>;
   gstId: FormControl<IParticipantSettlement['gstId']>;
   settlementType: FormControl<IParticipantSettlement['settlementType']>;
+  chargeType: FormControl<IParticipantSettlement['chargeType']>;
   settlementAmount: FormControl<IParticipantSettlement['settlementAmount']>;
   settlementDate: FormControl<IParticipantSettlement['settlementDate']>;
   settlementDueDate: FormControl<IParticipantSettlement['settlementDueDate']>;
@@ -36,6 +37,7 @@ type ParticipantSettlementFormGroupContent = {
   ifscCode: FormControl<IParticipantSettlement['ifscCode']>;
   accNumber: FormControl<IParticipantSettlement['accNumber']>;
   docId: FormControl<IParticipantSettlement['docId']>;
+  recordStatus: FormControl<IParticipantSettlement['recordStatus']>;
   settlement: FormControl<IParticipantSettlement['settlement']>;
 };
 
@@ -70,6 +72,9 @@ export class ParticipantSettlementFormService {
         validators: [Validators.required],
       }),
       settlementType: new FormControl(participantSettlementRawValue.settlementType, {
+        validators: [Validators.required],
+      }),
+      chargeType: new FormControl(participantSettlementRawValue.chargeType, {
         validators: [Validators.required],
       }),
       settlementAmount: new FormControl(participantSettlementRawValue.settlementAmount, {
@@ -108,6 +113,7 @@ export class ParticipantSettlementFormService {
       docId: new FormControl(participantSettlementRawValue.docId, {
         validators: [Validators.required],
       }),
+      recordStatus: new FormControl(participantSettlementRawValue.recordStatus),
       settlement: new FormControl(participantSettlementRawValue.settlement),
     });
   }

@@ -28,7 +28,8 @@ public class ParticipantSettlementTestSamples {
             .accName("accName1")
             .ifscCode("ifscCode1")
             .accNumber(1L)
-            .docId("docId1");
+            .docId("docId1")
+            .recordStatus("recordStatus1");
     }
 
     public static ParticipantSettlement getParticipantSettlementSample2() {
@@ -50,7 +51,8 @@ public class ParticipantSettlementTestSamples {
             .accName("accName2")
             .ifscCode("ifscCode2")
             .accNumber(2L)
-            .docId("docId2");
+            .docId("docId2")
+            .recordStatus("recordStatus2");
     }
 
     public static ParticipantSettlement getParticipantSettlementRandomSampleGenerator() {
@@ -72,6 +74,7 @@ public class ParticipantSettlementTestSamples {
             .accName(UUID.randomUUID().toString())
             .ifscCode(UUID.randomUUID().toString())
             .accNumber(longCount.incrementAndGet())
-            .docId(UUID.randomUUID().toString());
+            .docId(UUID.randomUUID().toString())
+            .recordStatus(UUID.randomUUID().toString());
     }
 }

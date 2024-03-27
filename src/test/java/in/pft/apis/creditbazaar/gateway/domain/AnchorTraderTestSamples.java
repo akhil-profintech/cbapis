@@ -35,7 +35,9 @@ public class AnchorTraderTestSamples {
             .branchName("branchName1")
             .typeOfFirm("typeOfFirm1")
             .panStatus("panStatus1")
-            .tosDocument("tosDocument1");
+            .tosDocument("tosDocument1")
+            .gstRegistrationCertificateName("gstRegistrationCertificateName1")
+            .udhyamRegistrationCertificateName("udhyamRegistrationCertificateName1");
     }
 
     public static AnchorTrader getAnchorTraderSample2() {
@@ -64,7 +66,9 @@ public class AnchorTraderTestSamples {
             .branchName("branchName2")
             .typeOfFirm("typeOfFirm2")
             .panStatus("panStatus2")
-            .tosDocument("tosDocument2");
+            .tosDocument("tosDocument2")
+            .gstRegistrationCertificateName("gstRegistrationCertificateName2")
+            .udhyamRegistrationCertificateName("udhyamRegistrationCertificateName2");
     }
 
     public static AnchorTrader getAnchorTraderRandomSampleGenerator() {
@@ -93,6 +97,8 @@ public class AnchorTraderTestSamples {
             .branchName(UUID.randomUUID().toString())
             .typeOfFirm(UUID.randomUUID().toString())
             .panStatus(UUID.randomUUID().toString())
-            .tosDocument(UUID.randomUUID().toString());
+            .tosDocument(UUID.randomUUID().toString())
+            .gstRegistrationCertificateName(UUID.randomUUID().toString())
+            .udhyamRegistrationCertificateName(UUID.randomUUID().toString());
     }
 }

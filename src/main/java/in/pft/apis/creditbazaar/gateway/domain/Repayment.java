@@ -107,8 +107,8 @@ public class Repayment implements Serializable {
     @Column("ifsc_code")
     private String ifscCode;
 
-    @Column("status")
-    private String status;
+    @Column("record_status")
+    private String recordStatus;
 
     @Column("reference_number")
     private String referenceNumber;
@@ -473,17 +473,17 @@ public class Repayment implements Serializable {
         this.ifscCode = ifscCode;
     }
 
-    public String getStatus() {
-        return this.status;
+    public String getRecordStatus() {
+        return this.recordStatus;
     }
 
-    public Repayment status(String status) {
-        this.setStatus(status);
+    public Repayment recordStatus(String recordStatus) {
+        this.setRecordStatus(recordStatus);
         return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
     }
 
     public String getReferenceNumber() {
@@ -662,7 +662,7 @@ public class Repayment implements Serializable {
             ", sourceAccountName='" + getSourceAccountName() + "'" +
             ", sourceAccountNumber='" + getSourceAccountNumber() + "'" +
             ", ifscCode='" + getIfscCode() + "'" +
-            ", status='" + getStatus() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", referenceNumber='" + getReferenceNumber() + "'" +
             "}";
     }

@@ -15,6 +15,7 @@ export interface ISettlement {
   dbmtStatus?: string | null;
   dbmtAmount?: number | null;
   currency?: string | null;
+  recordStatus?: string | null;
   participantSettlements?: Pick<IParticipantSettlement, 'id'>[] | null;
   financerequest?: Pick<IFinanceRequest, 'id' | 'financeRequestId'> | null;
 }

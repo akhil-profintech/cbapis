@@ -30,6 +30,7 @@ type SettlementFormGroupContent = {
   dbmtStatus: FormControl<ISettlement['dbmtStatus']>;
   dbmtAmount: FormControl<ISettlement['dbmtAmount']>;
   currency: FormControl<ISettlement['currency']>;
+  recordStatus: FormControl<ISettlement['recordStatus']>;
   financerequest: FormControl<ISettlement['financerequest']>;
 };
 
@@ -78,6 +79,7 @@ export class SettlementFormService {
       currency: new FormControl(settlementRawValue.currency, {
         validators: [Validators.required],
       }),
+      recordStatus: new FormControl(settlementRawValue.recordStatus),
       financerequest: new FormControl(settlementRawValue.financerequest),
     });
   }

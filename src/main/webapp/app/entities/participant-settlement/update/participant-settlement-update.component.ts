@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ISettlement } from 'app/entities/settlement/settlement.model';
 import { SettlementService } from 'app/entities/settlement/service/settlement.service';
 import { SettlementType } from 'app/entities/enumerations/settlement-type.model';
+import { ChargeType } from 'app/entities/enumerations/charge-type.model';
 import { ParticipantSettlementService } from '../service/participant-settlement.service';
 import { IParticipantSettlement } from '../participant-settlement.model';
 import { ParticipantSettlementFormService, ParticipantSettlementFormGroup } from './participant-settlement-form.service';
@@ -24,6 +25,7 @@ export class ParticipantSettlementUpdateComponent implements OnInit {
   isSaving = false;
   participantSettlement: IParticipantSettlement | null = null;
   settlementTypeValues = Object.keys(SettlementType);
+  chargeTypeValues = Object.keys(ChargeType);
 
   settlementsSharedCollection: ISettlement[] = [];
 

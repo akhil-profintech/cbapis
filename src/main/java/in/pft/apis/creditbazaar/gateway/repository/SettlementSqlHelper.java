@@ -23,6 +23,7 @@ public class SettlementSqlHelper {
         columns.add(Column.aliased("dbmt_status", table, columnPrefix + "_dbmt_status"));
         columns.add(Column.aliased("dbmt_amount", table, columnPrefix + "_dbmt_amount"));
         columns.add(Column.aliased("currency", table, columnPrefix + "_currency"));
+        columns.add(Column.aliased("record_status", table, columnPrefix + "_record_status"));
 
         columns.add(Column.aliased("financerequest_id", table, columnPrefix + "_financerequest_id"));
         return columns;

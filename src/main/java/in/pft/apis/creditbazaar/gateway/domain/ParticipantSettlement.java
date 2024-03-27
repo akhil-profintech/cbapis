@@ -1,6 +1,7 @@
 package in.pft.apis.creditbazaar.gateway.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import in.pft.apis.creditbazaar.gateway.domain.enumeration.ChargeType;
 import in.pft.apis.creditbazaar.gateway.domain.enumeration.SettlementType;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
@@ -45,6 +46,10 @@ public class ParticipantSettlement implements Serializable {
     @NotNull(message = "must not be null")
     @Column("settlement_type")
     private SettlementType settlementType;
+
+    @NotNull(message = "must not be null")
+    @Column("charge_type")
+    private ChargeType chargeType;
 
     @NotNull(message = "must not be null")
     @Column("settlement_amount")
@@ -93,6 +98,9 @@ public class ParticipantSettlement implements Serializable {
     @NotNull(message = "must not be null")
     @Column("doc_id")
     private String docId;
+
+    @Column("record_status")
+    private String recordStatus;
 
     @Transient
     @JsonIgnoreProperties(value = { "participantsettlement", "disbursement", "repayment" }, allowSetters = true)
@@ -196,6 +204,19 @@ public class ParticipantSettlement implements Serializable {
 
     public void setSettlementType(SettlementType settlementType) {
         this.settlementType = settlementType;
+    }
+
+    public ChargeType getChargeType() {
+        return this.chargeType;
+    }
+
+    public ParticipantSettlement chargeType(ChargeType chargeType) {
+        this.setChargeType(chargeType);
+        return this;
+    }
+
+    public void setChargeType(ChargeType chargeType) {
+        this.chargeType = chargeType;
     }
 
     public Long getSettlementAmount() {
@@ -354,6 +375,19 @@ public class ParticipantSettlement implements Serializable {
         this.docId = docId;
     }
 
+    public String getRecordStatus() {
+        return this.recordStatus;
+    }
+
+    public ParticipantSettlement recordStatus(String recordStatus) {
+        this.setRecordStatus(recordStatus);
+        return this;
+    }
+
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
+    }
+
     public Set<FundsTransferTransactionDetails> getFundsTransferTransactionDetails() {
         return this.fundsTransferTransactionDetails;
     }
@@ -437,6 +471,7 @@ public class ParticipantSettlement implements Serializable {
             ", participantName='" + getParticipantName() + "'" +
             ", gstId='" + getGstId() + "'" +
             ", settlementType='" + getSettlementType() + "'" +
+            ", chargeType='" + getChargeType() + "'" +
             ", settlementAmount=" + getSettlementAmount() +
             ", settlementDate='" + getSettlementDate() + "'" +
             ", settlementDueDate='" + getSettlementDueDate() + "'" +
@@ -449,6 +484,7 @@ public class ParticipantSettlement implements Serializable {
             ", ifscCode='" + getIfscCode() + "'" +
             ", accNumber=" + getAccNumber() +
             ", docId='" + getDocId() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             "}";
     }
 }

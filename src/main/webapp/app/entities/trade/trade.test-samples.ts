@@ -26,7 +26,7 @@ export const sampleWithFullData: ITrade = {
   sellerGstId: 'ugh',
   buyerGstId: 'once',
   tradeAmount: 'obedient',
-  invoiceDate: dayjs('2024-03-25'),
+  invoiceDate: dayjs('2024-03-27'),
   invoiceNumber: 'out anchored',
   tradeDocType: 'hence',
   tradeDocSource: 'towards',

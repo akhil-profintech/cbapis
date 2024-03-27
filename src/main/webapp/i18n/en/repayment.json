@@ -42,7 +42,7 @@
       "sourceAccountName": "Source Account Name",
       "sourceAccountNumber": "Source Account Number",
       "ifscCode": "Ifsc Code",
-      "status": "Status",
+      "recordStatus": "Record Status",
       "referenceNumber": "Reference Number",
       "creditAccountDetails": "Credit Account Details",
       "fundsTransferTransactionDetails": "Funds Transfer Transaction Details",

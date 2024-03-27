@@ -37,6 +37,7 @@ public class SettlementRowMapper implements BiFunction<Row, String, Settlement> 
         entity.setDbmtStatus(converter.fromRow(row, prefix + "_dbmt_status", String.class));
         entity.setDbmtAmount(converter.fromRow(row, prefix + "_dbmt_amount", Long.class));
         entity.setCurrency(converter.fromRow(row, prefix + "_currency", String.class));
+        entity.setRecordStatus(converter.fromRow(row, prefix + "_record_status", String.class));
         entity.setFinancerequestId(converter.fromRow(row, prefix + "_financerequest_id", Long.class));
         return entity;
     }

@@ -43,7 +43,7 @@ public interface EscrowTransactionDetailsMapper extends EntityMapper<EscrowTrans
     @Mapping(target = "amountToBeDisbursed", source = "amountToBeDisbursed")
     @Mapping(target = "destinationAccountName", source = "destinationAccountName")
     @Mapping(target = "destinationAccountNumber", source = "destinationAccountNumber")
-    @Mapping(target = "status", source = "status")
+    @Mapping(target = "recordStatus", source = "recordStatus")
     @Mapping(target = "actionByDate", source = "actionByDate")
     @Mapping(target = "financerequest", source = "financerequest")
     @Mapping(target = "financepartner", source = "financepartner")
@@ -76,7 +76,7 @@ public interface EscrowTransactionDetailsMapper extends EntityMapper<EscrowTrans
     @Mapping(target = "sourceAccountName", source = "sourceAccountName")
     @Mapping(target = "sourceAccountNumber", source = "sourceAccountNumber")
     @Mapping(target = "ifscCode", source = "ifscCode")
-    @Mapping(target = "status", source = "status")
+    @Mapping(target = "recordStatus", source = "recordStatus")
     @Mapping(target = "referenceNumber", source = "referenceNumber")
     @Mapping(target = "financerequest", source = "financerequest")
     RepaymentDTO toDtoRepaymentRepaymentId(Repayment repayment);

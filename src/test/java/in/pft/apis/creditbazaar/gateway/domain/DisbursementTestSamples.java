@@ -30,7 +30,7 @@ public class DisbursementTestSamples {
             .amountToBeDisbursed("amountToBeDisbursed1")
             .destinationAccountName("destinationAccountName1")
             .destinationAccountNumber("destinationAccountNumber1")
-            .status("status1")
+            .recordStatus("recordStatus1")
             .actionByDate("actionByDate1");
     }
 
@@ -55,7 +55,7 @@ public class DisbursementTestSamples {
             .amountToBeDisbursed("amountToBeDisbursed2")
             .destinationAccountName("destinationAccountName2")
             .destinationAccountNumber("destinationAccountNumber2")
-            .status("status2")
+            .recordStatus("recordStatus2")
             .actionByDate("actionByDate2");
     }
 
@@ -80,7 +80,7 @@ public class DisbursementTestSamples {
             .amountToBeDisbursed(UUID.randomUUID().toString())
             .destinationAccountName(UUID.randomUUID().toString())
             .destinationAccountNumber(UUID.randomUUID().toString())
-            .status(UUID.randomUUID().toString())
+            .recordStatus(UUID.randomUUID().toString())
             .actionByDate(UUID.randomUUID().toString());
     }
 }

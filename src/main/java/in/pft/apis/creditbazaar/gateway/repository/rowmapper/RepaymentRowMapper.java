@@ -50,7 +50,7 @@ public class RepaymentRowMapper implements BiFunction<Row, String, Repayment> {
         entity.setSourceAccountName(converter.fromRow(row, prefix + "_source_account_name", String.class));
         entity.setSourceAccountNumber(converter.fromRow(row, prefix + "_source_account_number", String.class));
         entity.setIfscCode(converter.fromRow(row, prefix + "_ifsc_code", String.class));
-        entity.setStatus(converter.fromRow(row, prefix + "_status", String.class));
+        entity.setRecordStatus(converter.fromRow(row, prefix + "_record_status", String.class));
         entity.setReferenceNumber(converter.fromRow(row, prefix + "_reference_number", String.class));
         entity.setFinancerequestId(converter.fromRow(row, prefix + "_financerequest_id", Long.class));
         return entity;

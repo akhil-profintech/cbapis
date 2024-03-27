@@ -62,7 +62,7 @@ public class DisbursementDTO implements Serializable {
 
     private String destinationAccountNumber;
 
-    private String status;
+    private String recordStatus;
 
     private String actionByDate;
 
@@ -238,12 +238,12 @@ public class DisbursementDTO implements Serializable {
         this.destinationAccountNumber = destinationAccountNumber;
     }
 
-    public String getStatus() {
-        return status;
+    public String getRecordStatus() {
+        return recordStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
     }
 
     public String getActionByDate() {
@@ -316,7 +316,7 @@ public class DisbursementDTO implements Serializable {
             ", amountToBeDisbursed='" + getAmountToBeDisbursed() + "'" +
             ", destinationAccountName='" + getDestinationAccountName() + "'" +
             ", destinationAccountNumber='" + getDestinationAccountNumber() + "'" +
-            ", status='" + getStatus() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", actionByDate='" + getActionByDate() + "'" +
             ", financerequest=" + getFinancerequest() +
             ", financepartner=" + getFinancepartner() +

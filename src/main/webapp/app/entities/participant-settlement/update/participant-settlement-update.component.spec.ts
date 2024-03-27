@@ -50,10 +50,10 @@ describe('ParticipantSettlement Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Settlement query and add missing value', () => {
       const participantSettlement: IParticipantSettlement = { id: 456 };
-      const settlement: ISettlement = { id: 32218 };
+      const settlement: ISettlement = { id: 19355 };
       participantSettlement.settlement = settlement;
 
-      const settlementCollection: ISettlement[] = [{ id: 17344 }];
+      const settlementCollection: ISettlement[] = [{ id: 17446 }];
       jest.spyOn(settlementService, 'query').mockReturnValue(of(new HttpResponse({ body: settlementCollection })));
       const additionalSettlements = [settlement];
       const expectedCollection: ISettlement[] = [...additionalSettlements, ...settlementCollection];
@@ -72,7 +72,7 @@ describe('ParticipantSettlement Management Update Component', () => {
 
     it('Should update editForm', () => {
       const participantSettlement: IParticipantSettlement = { id: 456 };
-      const settlement: ISettlement = { id: 3241 };
+      const settlement: ISettlement = { id: 31480 };
       participantSettlement.settlement = settlement;
 
       activatedRoute.data = of({ participantSettlement });

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Repayment.
+    -->
+    <changeSet id="20240327133205-1" author="jhipster">
+        <createTable tableName="repayment">
+            <column name="id" type="bigint" autoIncrement="true" startWith="1500">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="repayment_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="repayment_ulid_id" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="repayment_ref_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="accepted_offer_ulid_id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="placed_offer_ulid_id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="req_off_ulid_id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="offer_accepted_date" type="date">
+                <constraints nullable="false" />
+            </column>
+            <column name="dbmt_request_id" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="dbmt_status" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="dbmt_date_time" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="dbmt_id" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="dbmt_amount" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="currency" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="repayment_status" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="repayment_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="repayment_amount" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="finance_request_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="repayment_due_date" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="total_repayment_amount" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="amount_repayed" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="amount_to_be_paid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="source_account_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="source_account_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="ifsc_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="record_status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="reference_number" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="financerequest_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20240327133205-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/repayment.csv"
+                  separator=";"
+                  tableName="repayment"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="repayment_id" type="numeric"/>
+            <column name="repayment_ulid_id" type="string"/>
+            <column name="repayment_ref_no" type="string"/>
+            <column name="accepted_offer_ulid_id" type="string"/>
+            <column name="placed_offer_ulid_id" type="string"/>
+            <column name="req_off_ulid_id" type="string"/>
+            <column name="offer_accepted_date" type="date"/>
+            <column name="dbmt_request_id" type="string"/>
+            <column name="dbmt_status" type="string"/>
+            <column name="dbmt_date_time" type="string"/>
+            <column name="dbmt_id" type="numeric"/>
+            <column name="dbmt_amount" type="numeric"/>
+            <column name="currency" type="string"/>
+            <column name="repayment_status" type="string"/>
+            <column name="repayment_date" type="date"/>
+            <column name="repayment_amount" type="numeric"/>
+            <column name="finance_request_id" type="numeric"/>
+            <column name="repayment_due_date" type="date"/>
+            <column name="total_repayment_amount" type="string"/>
+            <column name="amount_repayed" type="string"/>
+            <column name="amount_to_be_paid" type="string"/>
+            <column name="source_account_name" type="string"/>
+            <column name="source_account_number" type="string"/>
+            <column name="ifsc_code" type="string"/>
+            <column name="record_status" type="string"/>
+            <column name="reference_number" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

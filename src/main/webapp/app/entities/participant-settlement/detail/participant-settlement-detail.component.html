@@ -43,6 +43,12 @@
               participantSettlement.settlementType
             }}</span>
           </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.chargeType">Charge Type</span></dt>
+          <dd>
+            <span jhiTranslate="{{ 'cbapisApp.ChargeType.' + participantSettlement.chargeType }}">{{
+              participantSettlement.chargeType
+            }}</span>
+          </dd>
           <dt><span jhiTranslate="cbapisApp.participantSettlement.settlementAmount">Settlement Amount</span></dt>
           <dd>
             <span>{{ participantSettlement.settlementAmount }}</span>
@@ -90,6 +96,10 @@
           <dt><span jhiTranslate="cbapisApp.participantSettlement.docId">Doc Id</span></dt>
           <dd>
             <span>{{ participantSettlement.docId }}</span>
+          </dd>
+          <dt><span jhiTranslate="cbapisApp.participantSettlement.recordStatus">Record Status</span></dt>
+          <dd>
+            <span>{{ participantSettlement.recordStatus }}</span>
           </dd>
           <dt><span jhiTranslate="cbapisApp.participantSettlement.settlement">Settlement</span></dt>
           <dd>

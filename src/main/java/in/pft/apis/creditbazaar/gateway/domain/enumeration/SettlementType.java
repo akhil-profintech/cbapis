@@ -6,5 +6,6 @@ package in.pft.apis.creditbazaar.gateway.domain.enumeration;
 public enum SettlementType {
     ATSettlement,
     TPSettlement,
+    FPSettlement,
     PFTSettlement,
 }

@@ -38,7 +38,7 @@ type DisbursementFormGroupContent = {
   amountToBeDisbursed: FormControl<IDisbursement['amountToBeDisbursed']>;
   destinationAccountName: FormControl<IDisbursement['destinationAccountName']>;
   destinationAccountNumber: FormControl<IDisbursement['destinationAccountNumber']>;
-  status: FormControl<IDisbursement['status']>;
+  recordStatus: FormControl<IDisbursement['recordStatus']>;
   actionByDate: FormControl<IDisbursement['actionByDate']>;
   financerequest: FormControl<IDisbursement['financerequest']>;
   financepartner: FormControl<IDisbursement['financepartner']>;
@@ -99,7 +99,7 @@ export class DisbursementFormService {
       amountToBeDisbursed: new FormControl(disbursementRawValue.amountToBeDisbursed),
       destinationAccountName: new FormControl(disbursementRawValue.destinationAccountName),
       destinationAccountNumber: new FormControl(disbursementRawValue.destinationAccountNumber),
-      status: new FormControl(disbursementRawValue.status),
+      recordStatus: new FormControl(disbursementRawValue.recordStatus),
       actionByDate: new FormControl(disbursementRawValue.actionByDate),
       financerequest: new FormControl(disbursementRawValue.financerequest),
       financepartner: new FormControl(disbursementRawValue.financepartner),

@@ -4,10 +4,7 @@ import in.pft.apis.creditbazaar.gateway.domain.TradeEntity;
 import in.pft.apis.creditbazaar.gateway.domain.UpdateVA;
 import in.pft.apis.creditbazaar.gateway.service.dto.TradeEntityDTO;
 import in.pft.apis.creditbazaar.gateway.service.dto.UpdateVADTO;
-import org.mapstruct.BeanMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Named;
+import org.mapstruct.*;
 
 /**
  * Mapper for the entity {@link UpdateVA} and its DTO {@link UpdateVADTO}.
@@ -21,9 +18,5 @@ public interface UpdateVAMapper extends EntityMapper<UpdateVADTO, UpdateVA> {
     @BeanMapping(ignoreByDefault = true)
     @Mapping(target = "id", source = "id")
     @Mapping(target = "entityId", source = "entityId")
-    @Mapping(target = "entityUlidId", source = "entityUlidId")
-    @Mapping(target = "entityName", source = "entityName")
-    @Mapping(target = "entityDesc", source = "entityDesc")
-    @Mapping(target = "entityGST", source = "entityGST")
     TradeEntityDTO toDtoTradeEntityEntityId(TradeEntity tradeEntity);
 }

@@ -30,6 +30,7 @@
       "dbmtStatus": "Dbmt Status",
       "dbmtAmount": "Dbmt Amount",
       "currency": "Currency",
+      "recordStatus": "Record Status",
       "participantSettlement": "Participant Settlement",
       "financerequest": "Financerequest"
     }

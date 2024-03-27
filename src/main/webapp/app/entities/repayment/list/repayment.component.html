@@ -210,9 +210,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="status">
+            <th scope="col" jhiSortBy="recordStatus">
               <div class="d-flex">
-                <span jhiTranslate="cbapisApp.repayment.status">Status</span>
+                <span jhiTranslate="cbapisApp.repayment.recordStatus">Record Status</span>
 
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
@@ -263,7 +263,7 @@
               <td>{{ repayment.sourceAccountName }}</td>
               <td>{{ repayment.sourceAccountNumber }}</td>
               <td>{{ repayment.ifscCode }}</td>
-              <td>{{ repayment.status }}</td>
+              <td>{{ repayment.recordStatus }}</td>
               <td>{{ repayment.referenceNumber }}</td>
               <td>
                 @if (repayment.financerequest) {

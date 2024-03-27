@@ -44,6 +44,8 @@ public class SettlementDTO implements Serializable {
     @NotNull(message = "must not be null")
     private String currency;
 
+    private String recordStatus;
+
     private FinanceRequestDTO financerequest;
 
     public Long getId() {
@@ -150,6 +152,14 @@ public class SettlementDTO implements Serializable {
         this.currency = currency;
     }
 
+    public String getRecordStatus() {
+        return recordStatus;
+    }
+
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
+    }
+
     public FinanceRequestDTO getFinancerequest() {
         return financerequest;
     }
@@ -196,6 +206,7 @@ public class SettlementDTO implements Serializable {
             ", dbmtStatus='" + getDbmtStatus() + "'" +
             ", dbmtAmount=" + getDbmtAmount() +
             ", currency='" + getCurrency() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", financerequest=" + getFinancerequest() +
             "}";
     }

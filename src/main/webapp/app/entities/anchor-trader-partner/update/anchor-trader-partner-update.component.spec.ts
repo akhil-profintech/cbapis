@@ -50,10 +50,10 @@ describe('AnchorTraderPartner Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call AnchorTrader query and add missing value', () => {
       const anchorTraderPartner: IAnchorTraderPartner = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 339 };
+      const anchortrader: IAnchorTrader = { id: 2409 };
       anchorTraderPartner.anchortrader = anchortrader;
 
-      const anchorTraderCollection: IAnchorTrader[] = [{ id: 2966 }];
+      const anchorTraderCollection: IAnchorTrader[] = [{ id: 13602 }];
       jest.spyOn(anchorTraderService, 'query').mockReturnValue(of(new HttpResponse({ body: anchorTraderCollection })));
       const additionalAnchorTraders = [anchortrader];
       const expectedCollection: IAnchorTrader[] = [...additionalAnchorTraders, ...anchorTraderCollection];
@@ -72,7 +72,7 @@ describe('AnchorTraderPartner Management Update Component', () => {
 
     it('Should update editForm', () => {
       const anchorTraderPartner: IAnchorTraderPartner = { id: 456 };
-      const anchortrader: IAnchorTrader = { id: 24290 };
+      const anchortrader: IAnchorTrader = { id: 25579 };
       anchorTraderPartner.anchortrader = anchortrader;
 
       activatedRoute.data = of({ anchorTraderPartner });

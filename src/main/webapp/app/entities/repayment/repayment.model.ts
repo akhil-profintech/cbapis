@@ -30,7 +30,7 @@ export interface IRepayment {
   sourceAccountName?: string | null;
   sourceAccountNumber?: string | null;
   ifscCode?: string | null;
-  status?: string | null;
+  recordStatus?: string | null;
   referenceNumber?: string | null;
   creditAccountDetails?: Pick<ICreditAccountDetails, 'id'>[] | null;
   fundsTransferTransactionDetails?: Pick<IFundsTransferTransactionDetails, 'id'>[] | null;

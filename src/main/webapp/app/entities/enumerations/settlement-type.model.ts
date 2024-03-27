@@ -3,5 +3,7 @@ export enum SettlementType {
 
   TPSettlement = 'TPSettlement',
 
+  FPSettlement = 'FPSettlement',
+
   PFTSettlement = 'PFTSettlement',
 }

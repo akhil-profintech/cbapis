@@ -1,0 +1,11 @@
+{
+  "cbapisApp": {
+    "ChargeType": {
+      "null": "",
+      "ATTransactionCharges": "ATTransactionCharges",
+      "FPTransactionCharges": "FPTransactionCharges",
+      "CRETransactionFees": "CRETransactionFees",
+      "NoCharge": "NoCharge"
+    }
+  }
+}

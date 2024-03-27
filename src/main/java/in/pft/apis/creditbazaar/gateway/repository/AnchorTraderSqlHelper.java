@@ -52,6 +52,7 @@ public class AnchorTraderSqlHelper {
                 columnPrefix + "_gst_registration_certificate_verification_status"
             )
         );
+        columns.add(Column.aliased("gst_registration_certificate_name", table, columnPrefix + "_gst_registration_certificate_name"));
         columns.add(
             Column.aliased(
                 "udhyam_registrationcertificate_upload_status",
@@ -59,6 +60,7 @@ public class AnchorTraderSqlHelper {
                 columnPrefix + "_udhyam_registrationcertificate_upload_status"
             )
         );
+        columns.add(Column.aliased("udhyam_registration_certificate_name", table, columnPrefix + "_udhyam_registration_certificate_name"));
         columns.add(
             Column.aliased(
                 "udhyam_registrationcertificate_verification_status",

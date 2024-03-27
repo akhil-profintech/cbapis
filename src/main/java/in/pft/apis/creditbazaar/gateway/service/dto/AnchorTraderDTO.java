@@ -76,7 +76,11 @@ public class AnchorTraderDTO implements Serializable {
 
     private Boolean gstRegistrationCertificateVerificationStatus;
 
+    private String gstRegistrationCertificateName;
+
     private Boolean udhyamRegistrationcertificateUploadStatus;
+
+    private String udhyamRegistrationCertificateName;
 
     private Boolean udhyamRegistrationcertificateVerificationStatus;
 
@@ -322,12 +326,28 @@ public class AnchorTraderDTO implements Serializable {
         this.gstRegistrationCertificateVerificationStatus = gstRegistrationCertificateVerificationStatus;
     }
 
+    public String getGstRegistrationCertificateName() {
+        return gstRegistrationCertificateName;
+    }
+
+    public void setGstRegistrationCertificateName(String gstRegistrationCertificateName) {
+        this.gstRegistrationCertificateName = gstRegistrationCertificateName;
+    }
+
     public Boolean getUdhyamRegistrationcertificateUploadStatus() {
         return udhyamRegistrationcertificateUploadStatus;
     }
 
     public void setUdhyamRegistrationcertificateUploadStatus(Boolean udhyamRegistrationcertificateUploadStatus) {
         this.udhyamRegistrationcertificateUploadStatus = udhyamRegistrationcertificateUploadStatus;
+    }
+
+    public String getUdhyamRegistrationCertificateName() {
+        return udhyamRegistrationCertificateName;
+    }
+
+    public void setUdhyamRegistrationCertificateName(String udhyamRegistrationCertificateName) {
+        this.udhyamRegistrationCertificateName = udhyamRegistrationCertificateName;
     }
 
     public Boolean getUdhyamRegistrationcertificateVerificationStatus() {
@@ -401,7 +421,9 @@ public class AnchorTraderDTO implements Serializable {
             ", acceptDeclaration='" + getAcceptDeclaration() + "'" +
             ", gstRegistrationCertificateUploadStatus='" + getGstRegistrationCertificateUploadStatus() + "'" +
             ", gstRegistrationCertificateVerificationStatus='" + getGstRegistrationCertificateVerificationStatus() + "'" +
+            ", gstRegistrationCertificateName='" + getGstRegistrationCertificateName() + "'" +
             ", udhyamRegistrationcertificateUploadStatus='" + getUdhyamRegistrationcertificateUploadStatus() + "'" +
+            ", udhyamRegistrationCertificateName='" + getUdhyamRegistrationCertificateName() + "'" +
             ", udhyamRegistrationcertificateVerificationStatus='" + getUdhyamRegistrationcertificateVerificationStatus() + "'" +
             ", kycDeclaration='" + getKycDeclaration() + "'" +
             "}";

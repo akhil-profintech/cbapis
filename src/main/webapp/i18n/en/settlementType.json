@@ -4,6 +4,7 @@
       "null": "",
       "ATSettlement": "ATSettlement",
       "TPSettlement": "TPSettlement",
+      "FPSettlement": "FPSettlement",
       "PFTSettlement": "PFTSettlement"
     }
   }

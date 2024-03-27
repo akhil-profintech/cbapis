@@ -93,8 +93,8 @@ public class Disbursement implements Serializable {
     @Column("destination_account_number")
     private String destinationAccountNumber;
 
-    @Column("status")
-    private String status;
+    @Column("record_status")
+    private String recordStatus;
 
     @Column("action_by_date")
     private String actionByDate;
@@ -414,17 +414,17 @@ public class Disbursement implements Serializable {
         this.destinationAccountNumber = destinationAccountNumber;
     }
 
-    public String getStatus() {
-        return this.status;
+    public String getRecordStatus() {
+        return this.recordStatus;
     }
 
-    public Disbursement status(String status) {
-        this.setStatus(status);
+    public Disbursement recordStatus(String recordStatus) {
+        this.setRecordStatus(recordStatus);
         return this;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
     }
 
     public String getActionByDate() {
@@ -621,7 +621,7 @@ public class Disbursement implements Serializable {
             ", amountToBeDisbursed='" + getAmountToBeDisbursed() + "'" +
             ", destinationAccountName='" + getDestinationAccountName() + "'" +
             ", destinationAccountNumber='" + getDestinationAccountNumber() + "'" +
-            ", status='" + getStatus() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", actionByDate='" + getActionByDate() + "'" +
             "}";
     }

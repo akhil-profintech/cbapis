@@ -72,7 +72,7 @@ public class RepaymentDTO implements Serializable {
 
     private String ifscCode;
 
-    private String status;
+    private String recordStatus;
 
     private String referenceNumber;
 
@@ -278,12 +278,12 @@ public class RepaymentDTO implements Serializable {
         this.ifscCode = ifscCode;
     }
 
-    public String getStatus() {
-        return status;
+    public String getRecordStatus() {
+        return recordStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setRecordStatus(String recordStatus) {
+        this.recordStatus = recordStatus;
     }
 
     public String getReferenceNumber() {
@@ -352,7 +352,7 @@ public class RepaymentDTO implements Serializable {
             ", sourceAccountName='" + getSourceAccountName() + "'" +
             ", sourceAccountNumber='" + getSourceAccountNumber() + "'" +
             ", ifscCode='" + getIfscCode() + "'" +
-            ", status='" + getStatus() + "'" +
+            ", recordStatus='" + getRecordStatus() + "'" +
             ", referenceNumber='" + getReferenceNumber() + "'" +
             ", financerequest=" + getFinancerequest() +
             "}";

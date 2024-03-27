@@ -117,8 +117,14 @@ class AnchorTraderResourceIT {
     private static final Boolean DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS = false;
     private static final Boolean UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS = true;
 
+    private static final String DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_GST_REGISTRATION_CERTIFICATE_NAME = "BBBBBBBBBB";
+
     private static final Boolean DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS = false;
     private static final Boolean UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS = true;
+
+    private static final String DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME = "BBBBBBBBBB";
 
     private static final Boolean DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS = false;
     private static final Boolean UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS = true;
@@ -183,7 +189,9 @@ class AnchorTraderResourceIT {
             .acceptDeclaration(DEFAULT_ACCEPT_DECLARATION)
             .gstRegistrationCertificateUploadStatus(DEFAULT_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS)
             .gstRegistrationCertificateVerificationStatus(DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS)
+            .gstRegistrationCertificateName(DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateUploadStatus(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS)
+            .udhyamRegistrationCertificateName(DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateVerificationStatus(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS)
             .kycDeclaration(DEFAULT_KYC_DECLARATION);
         return anchorTrader;
@@ -226,7 +234,9 @@ class AnchorTraderResourceIT {
             .acceptDeclaration(UPDATED_ACCEPT_DECLARATION)
             .gstRegistrationCertificateUploadStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS)
             .gstRegistrationCertificateVerificationStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS)
+            .gstRegistrationCertificateName(UPDATED_GST_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateUploadStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS)
+            .udhyamRegistrationCertificateName(UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateVerificationStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS)
             .kycDeclaration(UPDATED_KYC_DECLARATION);
         return anchorTrader;
@@ -300,8 +310,10 @@ class AnchorTraderResourceIT {
             .isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS);
         assertThat(testAnchorTrader.getGstRegistrationCertificateVerificationStatus())
             .isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS);
+        assertThat(testAnchorTrader.getGstRegistrationCertificateName()).isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateUploadStatus())
             .isEqualTo(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
+        assertThat(testAnchorTrader.getUdhyamRegistrationCertificateName()).isEqualTo(DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateVerificationStatus())
             .isEqualTo(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
         assertThat(testAnchorTrader.getKycDeclaration()).isEqualTo(DEFAULT_KYC_DECLARATION);
@@ -538,8 +550,12 @@ class AnchorTraderResourceIT {
             .value(hasItem(DEFAULT_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS.booleanValue()))
             .jsonPath("$.[*].gstRegistrationCertificateVerificationStatus")
             .value(hasItem(DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS.booleanValue()))
+            .jsonPath("$.[*].gstRegistrationCertificateName")
+            .value(hasItem(DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME))
             .jsonPath("$.[*].udhyamRegistrationcertificateUploadStatus")
             .value(hasItem(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS.booleanValue()))
+            .jsonPath("$.[*].udhyamRegistrationCertificateName")
+            .value(hasItem(DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME))
             .jsonPath("$.[*].udhyamRegistrationcertificateVerificationStatus")
             .value(hasItem(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS.booleanValue()))
             .jsonPath("$.[*].kycDeclaration")
@@ -622,8 +638,12 @@ class AnchorTraderResourceIT {
             .value(is(DEFAULT_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS.booleanValue()))
             .jsonPath("$.gstRegistrationCertificateVerificationStatus")
             .value(is(DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS.booleanValue()))
+            .jsonPath("$.gstRegistrationCertificateName")
+            .value(is(DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME))
             .jsonPath("$.udhyamRegistrationcertificateUploadStatus")
             .value(is(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS.booleanValue()))
+            .jsonPath("$.udhyamRegistrationCertificateName")
+            .value(is(DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME))
             .jsonPath("$.udhyamRegistrationcertificateVerificationStatus")
             .value(is(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS.booleanValue()))
             .jsonPath("$.kycDeclaration")
@@ -681,7 +701,9 @@ class AnchorTraderResourceIT {
             .acceptDeclaration(UPDATED_ACCEPT_DECLARATION)
             .gstRegistrationCertificateUploadStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS)
             .gstRegistrationCertificateVerificationStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS)
+            .gstRegistrationCertificateName(UPDATED_GST_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateUploadStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS)
+            .udhyamRegistrationCertificateName(UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateVerificationStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS)
             .kycDeclaration(UPDATED_KYC_DECLARATION);
         AnchorTraderDTO anchorTraderDTO = anchorTraderMapper.toDto(updatedAnchorTrader);
@@ -730,8 +752,10 @@ class AnchorTraderResourceIT {
             .isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS);
         assertThat(testAnchorTrader.getGstRegistrationCertificateVerificationStatus())
             .isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS);
+        assertThat(testAnchorTrader.getGstRegistrationCertificateName()).isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateUploadStatus())
             .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
+        assertThat(testAnchorTrader.getUdhyamRegistrationCertificateName()).isEqualTo(UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateVerificationStatus())
             .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
         assertThat(testAnchorTrader.getKycDeclaration()).isEqualTo(UPDATED_KYC_DECLARATION);
@@ -830,7 +854,7 @@ class AnchorTraderResourceIT {
             .erpAccess(UPDATED_ERP_ACCESS)
             .acceptTerms(UPDATED_ACCEPT_TERMS)
             .acceptDeclaration(UPDATED_ACCEPT_DECLARATION)
-            .udhyamRegistrationcertificateVerificationStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
+            .udhyamRegistrationcertificateUploadStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
 
         webTestClient
             .patch()
@@ -876,10 +900,12 @@ class AnchorTraderResourceIT {
             .isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS);
         assertThat(testAnchorTrader.getGstRegistrationCertificateVerificationStatus())
             .isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS);
+        assertThat(testAnchorTrader.getGstRegistrationCertificateName()).isEqualTo(DEFAULT_GST_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateUploadStatus())
-            .isEqualTo(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
+            .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
+        assertThat(testAnchorTrader.getUdhyamRegistrationCertificateName()).isEqualTo(DEFAULT_UDHYAM_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateVerificationStatus())
-            .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
+            .isEqualTo(DEFAULT_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
         assertThat(testAnchorTrader.getKycDeclaration()).isEqualTo(DEFAULT_KYC_DECLARATION);
     }
 
@@ -924,7 +950,9 @@ class AnchorTraderResourceIT {
             .acceptDeclaration(UPDATED_ACCEPT_DECLARATION)
             .gstRegistrationCertificateUploadStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS)
             .gstRegistrationCertificateVerificationStatus(UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS)
+            .gstRegistrationCertificateName(UPDATED_GST_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateUploadStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS)
+            .udhyamRegistrationCertificateName(UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME)
             .udhyamRegistrationcertificateVerificationStatus(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS)
             .kycDeclaration(UPDATED_KYC_DECLARATION);
 
@@ -972,8 +1000,10 @@ class AnchorTraderResourceIT {
             .isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_UPLOAD_STATUS);
         assertThat(testAnchorTrader.getGstRegistrationCertificateVerificationStatus())
             .isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_VERIFICATION_STATUS);
+        assertThat(testAnchorTrader.getGstRegistrationCertificateName()).isEqualTo(UPDATED_GST_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateUploadStatus())
             .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_UPLOAD_STATUS);
+        assertThat(testAnchorTrader.getUdhyamRegistrationCertificateName()).isEqualTo(UPDATED_UDHYAM_REGISTRATION_CERTIFICATE_NAME);
         assertThat(testAnchorTrader.getUdhyamRegistrationcertificateVerificationStatus())
             .isEqualTo(UPDATED_UDHYAM_REGISTRATIONCERTIFICATE_VERIFICATION_STATUS);
         assertThat(testAnchorTrader.getKycDeclaration()).isEqualTo(UPDATED_KYC_DECLARATION);
