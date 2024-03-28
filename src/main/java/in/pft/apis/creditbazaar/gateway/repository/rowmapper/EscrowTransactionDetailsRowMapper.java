@@ -2,8 +2,9 @@ package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.EscrowTransactionDetails;
 import io.r2dbc.spi.Row;
-import java.util.function.BiFunction;
 import org.springframework.stereotype.Service;
+
+import java.util.function.BiFunction;
 
 /**
  * Converter between {@link Row} to {@link EscrowTransactionDetails}, with proper type conversions.

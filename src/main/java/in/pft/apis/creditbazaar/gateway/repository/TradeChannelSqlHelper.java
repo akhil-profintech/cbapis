@@ -1,10 +1,11 @@
 package in.pft.apis.creditbazaar.gateway.repository;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.data.relational.core.sql.Column;
 import org.springframework.data.relational.core.sql.Expression;
 import org.springframework.data.relational.core.sql.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TradeChannelSqlHelper {
 

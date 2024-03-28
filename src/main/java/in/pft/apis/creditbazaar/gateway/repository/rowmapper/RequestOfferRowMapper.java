@@ -2,9 +2,10 @@ package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.RequestOffer;
 import io.r2dbc.spi.Row;
+import org.springframework.stereotype.Service;
+
 import java.time.LocalDate;
 import java.util.function.BiFunction;
-import org.springframework.stereotype.Service;
 
 /**
  * Converter between {@link Row} to {@link RequestOffer}, with proper type conversions.
