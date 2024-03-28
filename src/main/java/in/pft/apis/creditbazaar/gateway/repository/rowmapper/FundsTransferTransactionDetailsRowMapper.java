@@ -2,9 +2,8 @@ package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.FundsTransferTransactionDetails;
 import io.r2dbc.spi.Row;
-import org.springframework.stereotype.Service;
-
 import java.util.function.BiFunction;
+import org.springframework.stereotype.Service;
 
 /**
  * Converter between {@link Row} to {@link FundsTransferTransactionDetails}, with proper type conversions.

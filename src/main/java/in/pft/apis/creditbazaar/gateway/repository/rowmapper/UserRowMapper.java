@@ -2,10 +2,9 @@ package in.pft.apis.creditbazaar.gateway.repository.rowmapper;
 
 import in.pft.apis.creditbazaar.gateway.domain.User;
 import io.r2dbc.spi.Row;
-import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.util.function.BiFunction;
+import org.springframework.stereotype.Service;
 
 /**
  * Converter between {@link Row} to {@link User}, with proper type conversions.
